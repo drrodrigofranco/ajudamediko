@@ -39,7 +39,7 @@ const Message: React.FC<MessageProps> = ({ message, isLoading = false }) => {
                                         Fontes
                                     </h4>
                                     <ul className="space-y-2">
-                                        {message.sources.map((source, index) => (
+                                        {message.sources.slice(0, 3).map((source, index) => (
                                             <li key={index} className="flex items-start">
                                                 <LinkIcon size={14} className="mr-2 mt-1 flex-shrink-0 text-gray-500" />
                                                 <a
