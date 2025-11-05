@@ -15,7 +15,7 @@ export const getGroundedResponse = async (prompt: string): Promise<ChatMessage> 
       contents: prompt,
       config: {
         tools: [{ googleSearch: {} }],
-        systemInstruction: 'You are a helpful AI assistant for medical professionals called AJUDAMEDIKO. Provide clear, concise, and evidence-based information. Always cite your sources. Your responses should be in Brazilian Portuguese.',
+        systemInstruction: 'You are a helpful AI assistant for medical professionals called AJUDAMEDIKO. Provide clear, concise, and evidence-based information. When answering questions about diseases, always include suggestions for clinical conduct, covering both hospital and outpatient settings. Always cite your sources. Your responses should be in Brazilian Portuguese.',
       },
     });
 

@@ -103,7 +103,7 @@ const ChatInterface: React.FC = () => {
         </div>
       )}
 
-      <div className="p-4 bg-gray-50 border-t border-gray-200">
+      <div className="p-4 bg-gray-800 border-t border-gray-700">
         <div className="relative">
           <input
             type="text"
@@ -114,7 +114,7 @@ const ChatInterface: React.FC = () => {
             }}
             onKeyPress={handleKeyPress}
             placeholder="ex: 'Quais são as diretrizes mais recentes para o tratamento de diabetes tipo 2?'"
-            className="w-full pl-4 pr-12 py-3 bg-gray-100 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow"
+            className="w-full pl-4 pr-12 py-3 bg-gray-900 text-white border border-gray-700 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow placeholder-gray-500"
             disabled={isLoading}
           />
           <button
@@ -125,7 +125,7 @@ const ChatInterface: React.FC = () => {
             {isLoading ? <LoaderCircle className="animate-spin" size={20} /> : <Send size={20} />}
           </button>
         </div>
-        <p className="text-xs text-center text-gray-500 mt-2">
+        <p className="text-xs text-center text-gray-400 mt-2">
             <Sparkles className="inline-block w-3 h-3 mr-1 text-blue-500" />
             O AJUDAMEDIKO pode produzir informações imprecisas. Sempre verifique informações críticas.
         </p>

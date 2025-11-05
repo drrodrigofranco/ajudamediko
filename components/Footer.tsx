@@ -3,7 +3,7 @@ import React from 'react';
 const Footer: React.FC = () => {
   return (
     <footer className="bg-white border-t border-gray-200 mt-auto">
-      <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-screen-2xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row justify-between items-center text-center">
           <div className="text-sm text-gray-500">
             <p>&copy; {new Date().getFullYear()} AJUDAMEDIKO por Rodrigo Duarte Franco. Todos os direitos reservados.</p>
