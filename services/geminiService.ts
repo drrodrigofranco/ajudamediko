@@ -44,9 +44,23 @@ export const getGroundedResponse = async (prompt: string): Promise<ChatMessage> 
     };
   } catch (error) {
     console.error('Error getting grounded response:', error);
+    
+    let detailedErrorMessage = 'Desculpe, ocorreu um erro ao processar sua solicitação. Verifique sua conexão e a chave de API e tente novamente.';
+
+    if (error && typeof error === 'object' && 'message' in error) {
+      const errorMessage = String(error.message);
+      if (errorMessage.includes('400') && (errorMessage.includes('API key not valid') || errorMessage.includes('API_KEY_INVALID'))) {
+        detailedErrorMessage = 'A chave de API configurada não é válida ou expirou. Por favor, verifique se a chave de API está correta e tente novamente.';
+      } else if (errorMessage.includes('429')) {
+        detailedErrorMessage = 'A cota da API foi excedida. Por favor, tente novamente mais tarde ou verifique seu plano de faturamento.';
+      } else if (errorMessage.toLowerCase().includes('network') || errorMessage.toLowerCase().includes('fetch')) {
+        detailedErrorMessage = 'Ocorreu um erro de rede. Por favor, verifique sua conexão com a internet e tente novamente.';
+      }
+    }
+
     return {
       role: 'model',
-      text: 'Desculpe, ocorreu um erro ao processar sua solicitação. Verifique sua conexão e a chave de API e tente novamente.',
+      text: detailedErrorMessage,
     };
   }
 };

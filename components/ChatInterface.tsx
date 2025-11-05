@@ -82,26 +82,6 @@ const ChatInterface: React.FC = () => {
         {isLoading && <Message message={{role: 'model', text: ''}} isLoading={true} />}
         <div ref={messagesEndRef} />
       </div>
-      
-      {showFollowUpOptions && (
-        <div className="p-4 bg-white border-t border-gray-200 text-center">
-            <h3 className="text-sm font-semibold text-gray-700 mb-3 flex items-center justify-center">
-                <BookOpenCheck size={18} className="mr-2 text-blue-600"/>
-                Deseja aprofundar a pesquisa?
-            </h3>
-            <div className="flex justify-center flex-wrap gap-2">
-                <button onClick={() => handleFollowUpSearch('pubmed')} className="px-4 py-2 text-sm font-medium text-blue-700 bg-blue-100 border border-transparent rounded-full hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
-                    Pesquisar no PubMed
-                </button>
-                <button onClick={() => handleFollowUpSearch('lilacs')} className="px-4 py-2 text-sm font-medium text-purple-700 bg-purple-100 border border-transparent rounded-full hover:bg-purple-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-colors">
-                    Pesquisar no LILACS
-                </button>
-                <button onClick={() => handleFollowUpSearch('bireme')} className="px-4 py-2 text-sm font-medium text-green-700 bg-green-100 border border-transparent rounded-full hover:bg-green-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors">
-                    Pesquisar no BIREME
-                </button>
-            </div>
-        </div>
-      )}
 
       <div className="p-4 bg-gray-800 border-t border-gray-700">
         <div className="relative">
@@ -125,6 +105,27 @@ const ChatInterface: React.FC = () => {
             {isLoading ? <LoaderCircle className="animate-spin" size={20} /> : <Send size={20} />}
           </button>
         </div>
+        
+        {showFollowUpOptions && (
+          <div className="pt-4 mt-4 border-t border-gray-700 text-center">
+              <h3 className="text-sm font-semibold text-gray-300 mb-3 flex items-center justify-center">
+                  <BookOpenCheck size={18} className="mr-2 text-blue-500"/>
+                  Deseja aprofundar a pesquisa?
+              </h3>
+              <div className="flex justify-center flex-wrap gap-2">
+                  <button onClick={() => handleFollowUpSearch('pubmed')} className="px-4 py-2 text-sm font-medium text-blue-300 bg-gray-700 border border-transparent rounded-full hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-blue-500 transition-colors">
+                      Pesquisar no PubMed
+                  </button>
+                  <button onClick={() => handleFollowUpSearch('lilacs')} className="px-4 py-2 text-sm font-medium text-purple-300 bg-gray-700 border border-transparent rounded-full hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-purple-500 transition-colors">
+                      Pesquisar no LILACS
+                  </button>
+                  <button onClick={() => handleFollowUpSearch('bireme')} className="px-4 py-2 text-sm font-medium text-green-300 bg-gray-700 border border-transparent rounded-full hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-green-500 transition-colors">
+                      Pesquisar no BIREME
+                  </button>
+              </div>
+          </div>
+        )}
+
         <p className="text-xs text-center text-gray-400 mt-2">
             <Sparkles className="inline-block w-3 h-3 mr-1 text-blue-500" />
             O AJUDAMEDIKO pode produzir informações imprecisas. Sempre verifique informações críticas.
