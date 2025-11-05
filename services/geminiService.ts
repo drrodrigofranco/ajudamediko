@@ -1,9 +1,6 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { ChatMessage, HealthNews, Source } from '../types';
 
-// FIX: Initialize the GoogleGenAI client according to the guidelines.
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 /**
  * Gets a grounded response from the Gemini model using Google Search.
  * @param prompt The user's prompt.
@@ -11,22 +8,21 @@ const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
  */
 export const getGroundedResponse = async (prompt: string): Promise<ChatMessage> => {
   try {
-    // FIX: Use an appropriate model and configure Google Search for grounding.
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     const model = 'gemini-2.5-flash';
     const response = await ai.models.generateContent({
       model: model,
       contents: prompt,
       config: {
         tools: [{ googleSearch: {} }],
+        // FIX: `systemInstruction` must be inside the `config` object.
+        systemInstruction: 'You are a helpful AI assistant for medical professionals called AJUDAMEDIKO. Provide clear, concise, and evidence-based information. Always cite your sources. Your responses should be in Brazilian Portuguese.',
       },
-      // FIX: Add system instruction to tailor the model's persona for a medical context.
-      systemInstruction: 'You are a helpful AI assistant for medical professionals called AJUDAMEDIKO. Provide clear, concise, and evidence-based information. Always cite your sources. Your responses should be in Brazilian Portuguese.',
     });
 
     const text = response.text;
     const groundingMetadata = response.candidates?.[0]?.groundingMetadata;
 
-    // FIX: Extract sources from grounding metadata as per the guidelines.
     const sources: Source[] = [];
     if (groundingMetadata?.groundingChunks) {
       for (const chunk of groundingMetadata.groundingChunks) {
@@ -64,7 +60,6 @@ export const getHealthNews = async (): Promise<HealthNews | null> => {
   const model = 'gemini-2.5-flash';
   const prompt = 'Encontre uma notícia recente e importante sobre saúde ou medicina em português. Forneça o título, um resumo conciso e o URL da fonte.';
 
-  // FIX: Define a response schema to get structured JSON output.
   const newsSchema = {
     type: Type.OBJECT,
     properties: {
@@ -76,7 +71,7 @@ export const getHealthNews = async (): Promise<HealthNews | null> => {
   };
 
   try {
-    // FIX: Call the model with a JSON response MIME type and the defined schema.
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     const response = await ai.models.generateContent({
       model: model,
       contents: prompt,
@@ -87,7 +82,6 @@ export const getHealthNews = async (): Promise<HealthNews | null> => {
     });
 
     const jsonText = response.text.trim();
-    // FIX: Parse the JSON string from the model's response.
     const newsData = JSON.parse(jsonText);
 
     if (newsData.title && newsData.summary && newsData.url) {
