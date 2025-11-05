@@ -7,11 +7,42 @@ import AdBlockerDetector from './components/AdBlockerDetector';
 
 // FIX: This file was empty. Create the main App component to structure the application layout.
 const App: React.FC = () => {
-	    const [adBlockerDetected, setAdBlockerDetected] = useState(false);
+    const [adBlockerDetected, setAdBlockerDetected] = useState(false);
+
+    useEffect(() => {
+        // A simple ad blocker detection check.
+        // It creates a "bait" element with a class name often targeted by ad blockers.
+        const adBait = document.createElement('div');
+        adBait.innerHTML = '&nbsp;';
+        adBait.className = 'adsbox'; // A common class name for ad containers
+        Object.assign(adBait.style, {
+            position: 'absolute',
+            top: '-9999px',
+            left: '-9999px',
+            width: '1px',
+            height: '1px',
+        });
+        document.body.appendChild(adBait);
+        
+        // We check its offsetHeight after a short delay. Ad blockers often set it to 0.
+        const timer = setTimeout(() => {
+            if (adBait.offsetHeight === 0) {
+                setAdBlockerDetected(true);
+            }
+            document.body.removeChild(adBait);
+        }, 300);
+
+        return () => {
+            clearTimeout(timer);
+            if (document.body.contains(adBait)) {
+                document.body.removeChild(adBait);
+            }
+        };
+    }, []);
 
     return (
         <div className="flex flex-col min-h-screen bg-gray-100 font-sans">
-	            <AdBlockerDetector onDetected={setAdBlockerDetected} />
+            <AdBlockerDetector detected={adBlockerDetected} />
             <header className="bg-white shadow-sm sticky top-0 z-10 border-b border-gray-200">
                 <div className="max-w-screen-2xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between">
