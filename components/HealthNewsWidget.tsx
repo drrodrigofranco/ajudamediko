@@ -20,7 +20,11 @@ const HealthNewsWidget: React.FC = () => {
                     setError("Não foi possível carregar a notícia.");
                 }
             } catch (e) {
-                setError("Ocorreu um erro ao buscar a notícia.");
+                if (e instanceof Error) {
+                    setError(e.message);
+                } else {
+                    setError("Ocorreu um erro ao buscar a notícia.");
+                }
             } finally {
                 setIsLoading(false);
             }

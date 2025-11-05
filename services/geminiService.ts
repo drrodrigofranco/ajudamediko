@@ -7,6 +7,14 @@ import { ChatMessage, HealthNews, Source } from '../types';
  * @returns A ChatMessage object with the model's response and sources.
  */
 export const getGroundedResponse = async (prompt: string): Promise<ChatMessage> => {
+  // Pre-emptive check for API Key
+  if (!process.env.API_KEY) {
+    return {
+      role: 'model',
+      text: 'A chave de API não foi configurada. Verifique as variáveis de ambiente do seu projeto e certifique-se de que a `API_KEY` está definida.',
+    };
+  }
+
   try {
     const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     const model = 'gemini-2.5-flash';
@@ -73,6 +81,11 @@ export const getGroundedResponse = async (prompt: string): Promise<ChatMessage> 
  * @returns A HealthNews object or null if an error occurs.
  */
 export const getHealthNews = async (): Promise<HealthNews | null> => {
+  // Pre-emptive check for API Key
+  if (!process.env.API_KEY) {
+    throw new Error("A chave de API não foi configurada para buscar notícias.");
+  }
+  
   const model = 'gemini-2.5-flash';
   const prompt = 'Encontre uma notícia recente e importante sobre saúde ou medicina em português. Forneça o título, um resumo conciso e o URL da fonte.';
 
@@ -107,6 +120,14 @@ export const getHealthNews = async (): Promise<HealthNews | null> => {
     return null;
   } catch (error) {
     console.error("Error fetching health news:", error);
-    return null;
+    if (error && typeof error === 'object' && 'message' in error) {
+        const errorMessage = String(error.message).toLowerCase();
+        if (errorMessage.includes('api key not valid')) {
+            throw new Error('A chave de API para notícias não é válida. Verifique a configuração.');
+        } else if (errorMessage.includes('quota')) {
+            throw new Error('A cota da API para notícias foi excedida.');
+        }
+    }
+    throw new Error("Não foi possível carregar a notícia devido a um erro.");
   }
 };
