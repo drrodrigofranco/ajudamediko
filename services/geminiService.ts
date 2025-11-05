@@ -45,16 +45,19 @@ export const getGroundedResponse = async (prompt: string): Promise<ChatMessage> 
   } catch (error) {
     console.error('Error getting grounded response:', error);
     
-    let detailedErrorMessage = 'Desculpe, ocorreu um erro ao processar sua solicitação. Verifique sua conexão e a chave de API e tente novamente.';
+    let detailedErrorMessage = 'Desculpe, ocorreu um erro ao processar sua solicitação. Por favor, tente novamente mais tarde.';
 
     if (error && typeof error === 'object' && 'message' in error) {
-      const errorMessage = String(error.message);
-      if (errorMessage.includes('400') && (errorMessage.includes('API key not valid') || errorMessage.includes('API_KEY_INVALID'))) {
-        detailedErrorMessage = 'A chave de API configurada não é válida ou expirou. Por favor, verifique se a chave de API está correta e tente novamente.';
-      } else if (errorMessage.includes('429')) {
+      const errorMessage = String(error.message).toLowerCase();
+
+      if (errorMessage.includes('api key not valid') || errorMessage.includes('api_key_invalid') || errorMessage.includes('permission denied')) {
+        detailedErrorMessage = 'A chave de API configurada não é válida, expirou ou não tem as permissões necessárias. Por favor, verifique se a chave de API está correta e tente novamente.';
+      } else if (errorMessage.includes('429') || errorMessage.includes('quota')) {
         detailedErrorMessage = 'A cota da API foi excedida. Por favor, tente novamente mais tarde ou verifique seu plano de faturamento.';
-      } else if (errorMessage.toLowerCase().includes('network') || errorMessage.toLowerCase().includes('fetch')) {
+      } else if (errorMessage.includes('network') || errorMessage.includes('fetch') || errorMessage.includes('failed to fetch')) {
         detailedErrorMessage = 'Ocorreu um erro de rede. Por favor, verifique sua conexão com a internet e tente novamente.';
+      } else if (errorMessage.includes('candidate was blocked due to safety')) {
+          detailedErrorMessage = 'A resposta foi bloqueada por motivos de segurança. Por favor, ajuste sua pergunta e tente novamente.';
       }
     }
 
