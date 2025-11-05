@@ -92,12 +92,12 @@ const App: React.FC = () => {
 
                     {/* Main Chat Column */}
                     <div className="lg:col-span-8 h-[calc(100vh-230px)]">
-                       <ChatInterface />
+                       <ChatInterface isApiKeyMissing={isApiKeyMissing} />
                     </div>
 
                     {/* Right Sidebar */}
                     <aside className="lg:col-span-2 space-y-6">
-                        <HealthNewsWidget />
+                        <HealthNewsWidget isApiKeyMissing={isApiKeyMissing} />
                         <AdPlaceholder width="w-full" height="h-64" text="Anúncio (Retângulo)" label="Publicidade"/>
                         <AdPlaceholder width="w-full" height="h-64" text="Anúncio (Retângulo)" label="Publicidade"/>
                     </aside>

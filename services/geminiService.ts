@@ -7,14 +7,6 @@ import { ChatMessage, HealthNews, Source } from '../types';
  * @returns A ChatMessage object with the model's response and sources.
  */
 export const getGroundedResponse = async (prompt: string): Promise<ChatMessage> => {
-  // Pre-emptive check for API Key
-  if (!process.env.API_KEY) {
-    return {
-      role: 'model',
-      text: 'A chave de API não foi configurada. Verifique as variáveis de ambiente do seu projeto e certifique-se de que a `API_KEY` está definida.',
-    };
-  }
-
   try {
     const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     const model = 'gemini-2.5-flash';
@@ -81,11 +73,6 @@ export const getGroundedResponse = async (prompt: string): Promise<ChatMessage> 
  * @returns A HealthNews object or null if an error occurs.
  */
 export const getHealthNews = async (): Promise<HealthNews | null> => {
-  // Pre-emptive check for API Key
-  if (!process.env.API_KEY) {
-    throw new Error("A chave de API não foi configurada para buscar notícias.");
-  }
-  
   const model = 'gemini-2.5-flash';
   const prompt = 'Encontre uma notícia recente e importante sobre saúde ou medicina em português. Forneça o título, um resumo conciso e o URL da fonte.';
 

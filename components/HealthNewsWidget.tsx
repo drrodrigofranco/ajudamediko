@@ -3,12 +3,22 @@ import { getHealthNews } from '../services/geminiService';
 import { HealthNews } from '../types';
 import { Newspaper, LoaderCircle, AlertTriangle, ExternalLink } from 'lucide-react';
 
-const HealthNewsWidget: React.FC = () => {
+interface HealthNewsWidgetProps {
+    isApiKeyMissing: boolean;
+}
+
+const HealthNewsWidget: React.FC<HealthNewsWidgetProps> = ({ isApiKeyMissing }) => {
     const [news, setNews] = useState<HealthNews | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
+        if (isApiKeyMissing) {
+            setError("A chave de API não foi configurada para buscar notícias.");
+            setIsLoading(false);
+            return;
+        }
+
         const fetchNews = async () => {
             setIsLoading(true);
             setError(null);
@@ -31,7 +41,7 @@ const HealthNewsWidget: React.FC = () => {
         };
 
         fetchNews();
-    }, []);
+    }, [isApiKeyMissing]);
 
     const renderContent = () => {
         if (isLoading) {

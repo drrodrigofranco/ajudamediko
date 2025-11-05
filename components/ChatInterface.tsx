@@ -4,13 +4,12 @@ import { getGroundedResponse } from '../services/geminiService';
 import Message from './Message';
 import { Send, LoaderCircle, Sparkles, BookOpenCheck } from 'lucide-react';
 
-const ChatInterface: React.FC = () => {
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    {
-      role: 'model',
-      text: 'Bem-vindo(a), Doutor(a). Como posso ajudá-lo(a) hoje? Por favor, faça qualquer pergunta clínica.',
-    },
-  ]);
+interface ChatInterfaceProps {
+  isApiKeyMissing: boolean;
+}
+
+const ChatInterface: React.FC<ChatInterfaceProps> = ({ isApiKeyMissing }) => {
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [lastUserPrompt, setLastUserPrompt] = useState('');
@@ -21,10 +20,28 @@ const ChatInterface: React.FC = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  useEffect(() => {
+    if (isApiKeyMissing) {
+      setMessages([
+        {
+          role: 'model',
+          text: 'A funcionalidade do chat está desativada. A chave de API não foi configurada. Por favor, verifique as variáveis de ambiente do seu projeto.',
+        },
+      ]);
+    } else {
+      setMessages([
+        {
+          role: 'model',
+          text: 'Bem-vindo(a), Doutor(a). Como posso ajudá-lo(a) hoje? Por favor, faça qualquer pergunta clínica.',
+        },
+      ]);
+    }
+  }, [isApiKeyMissing]);
+
   useEffect(scrollToBottom, [messages]);
 
   const handleSend = async () => {
-    if (input.trim() === '' || isLoading) return;
+    if (input.trim() === '' || isLoading || isApiKeyMissing) return;
 
     const userMessage: ChatMessage = { role: 'user', text: input.trim() };
     setLastUserPrompt(userMessage.text);
@@ -53,6 +70,7 @@ const ChatInterface: React.FC = () => {
   
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
+      e.preventDefault();
       handleSend();
     }
   }
@@ -93,20 +111,20 @@ const ChatInterface: React.FC = () => {
                 setShowFollowUpOptions(false);
             }}
             onKeyPress={handleKeyPress}
-            placeholder="ex: 'Quais são as diretrizes mais recentes para o tratamento de diabetes tipo 2?'"
-            className="w-full pl-4 pr-12 py-3 bg-gray-900 text-white border border-gray-700 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow placeholder-gray-500"
-            disabled={isLoading}
+            placeholder={isApiKeyMissing ? 'Chat desativado. Configure a API_KEY.' : "ex: 'Quais são as diretrizes mais recentes para o tratamento de diabetes tipo 2?'"}
+            className="w-full pl-4 pr-12 py-3 bg-gray-900 text-white border border-gray-700 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow placeholder-gray-500 disabled:opacity-50"
+            disabled={isLoading || isApiKeyMissing}
           />
           <button
             onClick={handleSend}
-            disabled={isLoading || !input.trim()}
+            disabled={isLoading || !input.trim() || isApiKeyMissing}
             className="absolute right-2 top-1/2 -translate-y-1/2 p-2.5 bg-blue-600 text-white rounded-full hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200"
           >
             {isLoading ? <LoaderCircle className="animate-spin" size={20} /> : <Send size={20} />}
           </button>
         </div>
         
-        {showFollowUpOptions && (
+        {showFollowUpOptions && !isApiKeyMissing && (
           <div className="pt-4 mt-4 border-t border-gray-700 text-center">
               <h3 className="text-sm font-semibold text-gray-300 mb-3 flex items-center justify-center">
                   <BookOpenCheck size={18} className="mr-2 text-blue-500"/>
