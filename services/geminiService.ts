@@ -22,11 +22,8 @@ const newsSchema = {
 
 export const getHealthNews = async (): Promise<HealthNews | null> => {
     try {
-        const apiKey = process.env.API_KEY;
-        if (!apiKey) {
-            throw new Error("A chave de API do Google não foi configurada nas variáveis de ambiente.");
-        }
-        const ai = new GoogleGenAI({ apiKey });
+        // FIX: Use process.env.API_KEY and initialize GoogleGenAI client directly as per guidelines.
+        const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
         const response = await ai.models.generateContent({
             model: "gemini-2.5-flash",
@@ -58,11 +55,8 @@ export const getHealthNews = async (): Promise<HealthNews | null> => {
 
 export const getGroundedResponse = async (prompt: string): Promise<ChatMessage> => {
   try {
-    const apiKey = process.env.API_KEY;
-    if (!apiKey) {
-        throw new Error("A chave de API do Google não foi configurada nas variáveis de ambiente.");
-    }
-    const ai = new GoogleGenAI({ apiKey });
+    // FIX: Use process.env.API_KEY and initialize GoogleGenAI client directly as per guidelines.
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash",
@@ -102,7 +96,7 @@ export const getGroundedResponse = async (prompt: string): Promise<ChatMessage> 
     console.error("Error calling Gemini API:", error);
     let errorMessage = "Ocorreu um erro desconhecido ao contatar a IA.";
     if (error instanceof Error) {
-        errorMessage = `Falha ao obter resposta da IA: ${error.message}`;
+        errorMessage = `Falha ao obter resposta da IA: A chave de API pode estar inválida ou não configurada corretamente. Verifique suas configurações na Vercel.`;
     }
     return {
         role: 'model',
