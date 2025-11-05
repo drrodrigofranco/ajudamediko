@@ -22,11 +22,13 @@ const newsSchema = {
 
 export const getHealthNews = async (): Promise<HealthNews | null> => {
     try {
-        // FIX: Use `process.env.API_KEY` as per the coding guidelines.
-        const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+        // Fix: Use process.env.API_KEY to get the API key as per coding guidelines.
+        const apiKey = process.env.API_KEY;
+        if (!apiKey) throw new Error("API_KEY is not defined.");
+
+        const ai = new GoogleGenAI({ apiKey });
         const response = await ai.models.generateContent({
             model: "gemini-2.5-flash",
-            // FIX: Simplified `contents` to a string for a single-turn prompt.
             contents: "Encontre uma notícia de saúde recente e de alto impacto para profissionais médicos no Brasil. O foco DEVE ser estritamente em doenças, novos tratamentos ou estudos científicos relevantes. Forneça o título, um resumo curto e o URL do artigo original.",
             config: {
                 responseMimeType: "application/json",
@@ -57,11 +59,13 @@ export const getHealthNews = async (): Promise<HealthNews | null> => {
 
 export const getGroundedResponse = async (prompt: string): Promise<ChatMessage> => {
   try {
-    // FIX: Use `process.env.API_KEY` as per the coding guidelines.
-    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    // Fix: Use process.env.API_KEY to get the API key as per coding guidelines.
+    const apiKey = process.env.API_KEY;
+    if (!apiKey) throw new Error("API_KEY is not defined.");
+
+    const ai = new GoogleGenAI({ apiKey });
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash",
-      // FIX: Simplified `contents` to pass the prompt string directly.
       contents: prompt,
       config: {
         tools: [{ googleSearch: {} }],
