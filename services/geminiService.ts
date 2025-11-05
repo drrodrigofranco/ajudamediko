@@ -1,10 +1,6 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { ChatMessage, Source, HealthNews } from '../types';
 
-// A verificação 'process.env.API_KEY' foi removida daqui para evitar um crash no lado do cliente.
-
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 const newsSchema = {
     type: Type.OBJECT,
     properties: {
@@ -26,6 +22,7 @@ const newsSchema = {
 
 export const getHealthNews = async (): Promise<HealthNews | null> => {
     try {
+        const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
         const response = await ai.models.generateContent({
             model: "gemini-2.5-flash",
             contents: [{ role: 'user', parts: [{ text: "Encontre uma notícia de saúde recente e de alto impacto para profissionais médicos no Brasil. O foco DEVE ser estritamente em doenças, novos tratamentos ou estudos científicos relevantes. Forneça o título, um resumo curto e o URL do artigo original." }] }],
@@ -58,6 +55,7 @@ export const getHealthNews = async (): Promise<HealthNews | null> => {
 
 export const getGroundedResponse = async (prompt: string): Promise<ChatMessage> => {
   try {
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash",
       contents: [{ role: 'user', parts: [{ text: prompt }] }],
