@@ -1,0 +1,5 @@
+{
+  "name": "AJUDAMEDIKO",
+  "description": "Um assistente de IA para profissionais médicos, fornecendo respostas a perguntas clínicas com base em literatura científica, diretrizes e artigos de pesquisa. O aplicativo cita suas fontes, oferecendo links diretos para verificação e estudo adicional. Ele foi projetado com espaços reservados para monetização de anúncios.",
+  "requestFramePermissions": []
+}
