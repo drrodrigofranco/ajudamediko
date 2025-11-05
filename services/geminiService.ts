@@ -22,11 +22,12 @@ const newsSchema = {
 
 export const getHealthNews = async (): Promise<HealthNews | null> => {
     try {
-        // Fix: Use process.env.API_KEY to get the API key as per coding guidelines.
         const apiKey = process.env.API_KEY;
-        if (!apiKey) throw new Error("API_KEY is not defined.");
-
+        if (!apiKey) {
+            throw new Error("A chave de API do Google não foi configurada nas variáveis de ambiente.");
+        }
         const ai = new GoogleGenAI({ apiKey });
+
         const response = await ai.models.generateContent({
             model: "gemini-2.5-flash",
             contents: "Encontre uma notícia de saúde recente e de alto impacto para profissionais médicos no Brasil. O foco DEVE ser estritamente em doenças, novos tratamentos ou estudos científicos relevantes. Forneça o título, um resumo curto e o URL do artigo original.",
@@ -37,16 +38,14 @@ export const getHealthNews = async (): Promise<HealthNews | null> => {
         });
         
         const jsonText = response.text.trim();
-        let newsData;
         try {
-            newsData = JSON.parse(jsonText);
+            const newsData = JSON.parse(jsonText);
+            if (newsData.title && newsData.summary && newsData.url) {
+                return newsData as HealthNews;
+            }
         } catch (parseError) {
              console.error("Error parsing JSON from Gemini API:", parseError, "Raw text:", jsonText);
              return null;
-        }
-
-        if (newsData.title && newsData.summary && newsData.url) {
-            return newsData as HealthNews;
         }
         return null;
 
@@ -59,11 +58,12 @@ export const getHealthNews = async (): Promise<HealthNews | null> => {
 
 export const getGroundedResponse = async (prompt: string): Promise<ChatMessage> => {
   try {
-    // Fix: Use process.env.API_KEY to get the API key as per coding guidelines.
     const apiKey = process.env.API_KEY;
-    if (!apiKey) throw new Error("API_KEY is not defined.");
-
+    if (!apiKey) {
+        throw new Error("A chave de API do Google não foi configurada nas variáveis de ambiente.");
+    }
     const ai = new GoogleGenAI({ apiKey });
+
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash",
       contents: prompt,
