@@ -4,10 +4,33 @@ import AdPlaceholder from './components/AdPlaceholder';
 import Footer from './components/Footer';
 import HealthNewsWidget from './components/HealthNewsWidget';
 import AdBlockerDetector from './components/AdBlockerDetector';
-import { BrainCircuit, BotMessageSquare, Star } from 'lucide-react';
+import { BrainCircuit, BotMessageSquare, Star, AlertTriangle } from 'lucide-react';
+
+const ApiKeyError: React.FC = () => (
+  <div className="flex items-center justify-center h-screen bg-red-50 text-red-900">
+    <div className="text-center p-8 max-w-lg mx-auto bg-white border-2 border-red-200 rounded-lg shadow-lg">
+      <AlertTriangle className="mx-auto h-12 w-12 text-red-500" />
+      <h1 className="mt-4 text-2xl font-bold">Erro de Configuração</h1>
+      <p className="mt-2">A chave da API do Google não foi encontrada.</p>
+      <div className="mt-6 text-left bg-red-50 p-4 rounded-md border border-red-200">
+        <p className="font-semibold">Ação necessária:</p>
+        <ol className="list-decimal list-inside mt-2 text-sm space-y-2">
+            <li>Acesse as configurações do seu projeto na Vercel.</li>
+            <li>Vá para <strong>"Environment Variables"</strong>.</li>
+            <li>Certifique-se de que a variável de ambiente tenha o nome exato <code className="bg-red-200 px-1 py-0.5 rounded">VITE_API_KEY</code>.</li>
+            <li>Faça o "Redeploy" do seu projeto para que a alteração tenha efeito.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+);
 
 const App: React.FC = () => {
   const [adBlockerDetected, setAdBlockerDetected] = useState(false);
+
+  // A Vite expõe variáveis de ambiente no objeto import.meta.env
+  // Fix for: Property 'env' does not exist on type 'ImportMeta'.
+  const apiKey = (import.meta as any).env.VITE_API_KEY;
 
   useEffect(() => {
     // Ad blocker detection logic
@@ -36,6 +59,11 @@ const App: React.FC = () => {
   const handleBookmark = () => {
     alert('Pressione Ctrl+D (ou Cmd+D em um Mac) para adicionar esta página aos seus favoritos.');
   };
+
+  // Se a chave não estiver presente, exibe a tela de erro em vez da aplicação.
+  if (!apiKey) {
+    return <ApiKeyError />;
+  }
 
   return (
     <div className="flex flex-col h-screen font-sans bg-gray-50 text-gray-800">

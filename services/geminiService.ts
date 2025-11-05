@@ -1,6 +1,11 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { ChatMessage, Source, HealthNews } from '../types';
 
+// A Vite expõe variáveis de ambiente no objeto import.meta.env
+// O nome da variável DEVE começar com VITE_ para ser exposta no navegador.
+// Fix for: Property 'env' does not exist on type 'ImportMeta'.
+const apiKey = (import.meta as any).env.VITE_API_KEY;
+
 const newsSchema = {
     type: Type.OBJECT,
     properties: {
@@ -21,9 +26,12 @@ const newsSchema = {
 };
 
 export const getHealthNews = async (): Promise<HealthNews | null> => {
+    if (!apiKey) {
+        console.error("VITE_API_KEY environment variable is not set");
+        return null;
+    }
     try {
-        // FIX: Use process.env.API_KEY and initialize GoogleGenAI client directly as per guidelines.
-        const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+        const ai = new GoogleGenAI({ apiKey });
 
         const response = await ai.models.generateContent({
             model: "gemini-2.5-flash",
@@ -54,9 +62,14 @@ export const getHealthNews = async (): Promise<HealthNews | null> => {
 
 
 export const getGroundedResponse = async (prompt: string): Promise<ChatMessage> => {
+    if (!apiKey) {
+        return {
+            role: 'model',
+            text: 'Erro de Configuração: A chave da API do Google não foi encontrada. O administrador do site precisa configurar a variável de ambiente VITE_API_KEY na Vercel.'
+        };
+    }
   try {
-    // FIX: Use process.env.API_KEY and initialize GoogleGenAI client directly as per guidelines.
-    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    const ai = new GoogleGenAI({ apiKey });
 
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash",
@@ -96,7 +109,7 @@ export const getGroundedResponse = async (prompt: string): Promise<ChatMessage> 
     console.error("Error calling Gemini API:", error);
     let errorMessage = "Ocorreu um erro desconhecido ao contatar a IA.";
     if (error instanceof Error) {
-        errorMessage = `Falha ao obter resposta da IA: A chave de API pode estar inválida ou não configurada corretamente. Verifique suas configurações na Vercel.`;
+        errorMessage = `Falha ao obter resposta da IA.`;
     }
     return {
         role: 'model',
