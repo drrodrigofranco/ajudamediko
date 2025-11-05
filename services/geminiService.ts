@@ -1,119 +1,102 @@
 import { GoogleGenAI, Type } from "@google/genai";
-import { ChatMessage, Source, HealthNews } from '../types';
+import { ChatMessage, HealthNews, Source } from '../types';
 
-// A Vite expõe variáveis de ambiente no objeto import.meta.env
-// O nome da variável DEVE começar com VITE_ para ser exposta no navegador.
-// Fix for: Property 'env' does not exist on type 'ImportMeta'.
-const apiKey = (import.meta as any).env.VITE_API_KEY;
+// FIX: Initialize the GoogleGenAI client according to the guidelines.
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
-const newsSchema = {
-    type: Type.OBJECT,
-    properties: {
-        title: {
-            type: Type.STRING,
-            description: "O título do artigo de notícia.",
-        },
-        summary: {
-            type: Type.STRING,
-            description: "Um resumo conciso do artigo em 2-3 frases.",
-        },
-        url: {
-            type: Type.STRING,
-            description: "O URL direto para o artigo de notícia original.",
-        },
-    },
-    required: ["title", "summary", "url"],
-};
-
-export const getHealthNews = async (): Promise<HealthNews | null> => {
-    if (!apiKey) {
-        console.error("VITE_API_KEY environment variable is not set");
-        return null;
-    }
-    try {
-        const ai = new GoogleGenAI({ apiKey });
-
-        const response = await ai.models.generateContent({
-            model: "gemini-2.5-flash",
-            contents: "Encontre uma notícia de saúde recente e de alto impacto para profissionais médicos no Brasil. O foco DEVE ser estritamente em doenças, novos tratamentos ou estudos científicos relevantes. Forneça o título, um resumo curto e o URL do artigo original.",
-            config: {
-                responseMimeType: "application/json",
-                responseSchema: newsSchema,
-            },
-        });
-        
-        const jsonText = response.text.trim();
-        try {
-            const newsData = JSON.parse(jsonText);
-            if (newsData.title && newsData.summary && newsData.url) {
-                return newsData as HealthNews;
-            }
-        } catch (parseError) {
-             console.error("Error parsing JSON from Gemini API:", parseError, "Raw text:", jsonText);
-             return null;
-        }
-        return null;
-
-    } catch (error) {
-        console.error("Error fetching health news from Gemini API:", error);
-        return null;
-    }
-};
-
-
+/**
+ * Gets a grounded response from the Gemini model using Google Search.
+ * @param prompt The user's prompt.
+ * @returns A ChatMessage object with the model's response and sources.
+ */
 export const getGroundedResponse = async (prompt: string): Promise<ChatMessage> => {
-    if (!apiKey) {
-        return {
-            role: 'model',
-            text: 'Erro de Configuração: A chave da API do Google não foi encontrada. O administrador do site precisa configurar a variável de ambiente VITE_API_KEY na Vercel.'
-        };
-    }
   try {
-    const ai = new GoogleGenAI({ apiKey });
-
+    // FIX: Use an appropriate model and configure Google Search for grounding.
+    const model = 'gemini-2.5-flash';
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
+      model: model,
       contents: prompt,
       config: {
         tools: [{ googleSearch: {} }],
-        systemInstruction: "Você é um assistente de IA especializado para profissionais médicos. Seu objetivo principal é fornecer respostas precisas, concisas e úteis para questões clínicas. Fundamente suas respostas em evidências científicas confiáveis. Ao responder, cite suas fontes claramente, limitando-se a no máximo 4 links que mais embasaram a resposta. Priorize fontes de alta credibilidade, como sites de sociedades médicas, hospitais de referência, artigos científicos (PubMed, Scielo) e diretrizes clínicas oficiais. Evite citar fontes não especializadas como blogs de saúde genéricos e a Wikipédia. Seja profissional e formal. Para listas e tópicos, use traços (-) em vez de asteriscos (*). Quando questionado sobre doenças, estruture sua resposta em tópicos objetivos, incluindo: - Sintomas; - Exames confirmatórios; - Condutas com exemplos práticos (ex: dosagens de medicamentos, se aplicável); - Critérios diagnósticos ou de estadiamento relevantes. Quando questionado sobre uma medicação, a prioridade máxima é ser resumido e direto. Forneça apenas a informação essencial (dose, nome comercial) e não inclua explicações ou detalhes adicionais, a menos que o usuário peça explicitamente. Inclua nomes comerciais comuns no Brasil (ex: Azitromicina (Astro)). Para doses pediátricas, forneça um exemplo claro e prático baseado em peso, como: 'Para uma criança de 10kg: 2,5ml uma vez ao dia, por 5 dias (a dose pode variar conforme a doença)'. Mantenha as informações sobre apresentações (oral, injetável) e doses para adultos igualmente diretas. Para apresentações endovenosas (EV) ou intramusculares (IM), a dose DEVE ser especificada em mililitros (ml) por dose, de forma direta e curta (ex: 'EV: 5ml por dose').",
       },
+      // FIX: Add system instruction to tailor the model's persona for a medical context.
+      systemInstruction: 'You are a helpful AI assistant for medical professionals called AJUDAMEDIKO. Provide clear, concise, and evidence-based information. Always cite your sources. Your responses should be in Brazilian Portuguese.',
     });
 
     const text = response.text;
-    const groundingChunks = response.candidates?.[0]?.groundingMetadata?.groundingChunks;
-    
-    let sources: Source[] = [];
-    if (groundingChunks) {
-        sources = groundingChunks
-            .map((chunk: any) => ({
-                uri: chunk.web?.uri,
-                title: chunk.web?.title,
-            }))
-            .filter((source: any) => source.uri && source.title)
-            // Deduplicate sources
-            .filter((value, index, self) => 
-                index === self.findIndex((t) => (
-                    t.uri === value.uri
-                ))
-            )
-            .slice(0, 4); // Hard limit to 4 sources
+    const groundingMetadata = response.candidates?.[0]?.groundingMetadata;
+
+    // FIX: Extract sources from grounding metadata as per the guidelines.
+    const sources: Source[] = [];
+    if (groundingMetadata?.groundingChunks) {
+      for (const chunk of groundingMetadata.groundingChunks) {
+        if (chunk.web && chunk.web.uri && chunk.web.title) {
+          // Avoid duplicate sources
+          if (!sources.some(s => s.uri === chunk.web.uri)) {
+            sources.push({
+              uri: chunk.web.uri,
+              title: chunk.web.title,
+            });
+          }
+        }
+      }
     }
 
     return {
       role: 'model',
-      text,
-      sources,
+      text: text,
+      sources: sources,
     };
   } catch (error) {
-    console.error("Error calling Gemini API:", error);
-    let errorMessage = "Ocorreu um erro desconhecido ao contatar a IA.";
-    if (error instanceof Error) {
-        errorMessage = `Falha ao obter resposta da IA.`;
-    }
+    console.error('Error getting grounded response:', error);
     return {
-        role: 'model',
-        text: `Erro: ${errorMessage}`
+      role: 'model',
+      text: 'Desculpe, ocorreu um erro ao processar sua solicitação. Verifique sua conexão e a chave de API e tente novamente.',
     };
+  }
+};
+
+/**
+ * Fetches a recent health news article using the Gemini model.
+ * @returns A HealthNews object or null if an error occurs.
+ */
+export const getHealthNews = async (): Promise<HealthNews | null> => {
+  const model = 'gemini-2.5-flash';
+  const prompt = 'Encontre uma notícia recente e importante sobre saúde ou medicina em português. Forneça o título, um resumo conciso e o URL da fonte.';
+
+  // FIX: Define a response schema to get structured JSON output.
+  const newsSchema = {
+    type: Type.OBJECT,
+    properties: {
+      title: { type: Type.STRING, description: "O título da notícia." },
+      summary: { type: Type.STRING, description: "Um resumo conciso da notícia." },
+      url: { type: Type.STRING, description: "O URL da fonte original da notícia." },
+    },
+    required: ['title', 'summary', 'url'],
+  };
+
+  try {
+    // FIX: Call the model with a JSON response MIME type and the defined schema.
+    const response = await ai.models.generateContent({
+      model: model,
+      contents: prompt,
+      config: {
+        responseMimeType: 'application/json',
+        responseSchema: newsSchema,
+      },
+    });
+
+    const jsonText = response.text.trim();
+    // FIX: Parse the JSON string from the model's response.
+    const newsData = JSON.parse(jsonText);
+
+    if (newsData.title && newsData.summary && newsData.url) {
+      return newsData as HealthNews;
+    }
+
+    return null;
+  } catch (error) {
+    console.error("Error fetching health news:", error);
+    return null;
   }
 };
