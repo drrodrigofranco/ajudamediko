@@ -4,12 +4,19 @@ import HealthNewsWidget from './components/HealthNewsWidget';
 import AdPlaceholder from './components/AdPlaceholder';
 import Footer from './components/Footer';
 import AdBlockerDetector from './components/AdBlockerDetector';
+import { AlertTriangle } from 'lucide-react';
 
 // FIX: This file was empty. Create the main App component to structure the application layout.
 const App: React.FC = () => {
     const [adBlockerDetected, setAdBlockerDetected] = useState(false);
+    const [isApiKeyMissing, setIsApiKeyMissing] = useState(false);
 
     useEffect(() => {
+        // Check for missing API Key
+        if (!process.env.API_KEY) {
+            setIsApiKeyMissing(true);
+        }
+
         // A simple ad blocker detection check.
         // It creates a "bait" element with a class name often targeted by ad blockers.
         const adBait = document.createElement('div');
@@ -42,6 +49,16 @@ const App: React.FC = () => {
 
     return (
         <div className="flex flex-col min-h-screen bg-gray-100 font-sans">
+            {isApiKeyMissing && (
+                <div className="bg-red-100 border-b border-red-300 text-red-800 p-3">
+                    <div className="max-w-screen-2xl mx-auto flex items-center">
+                        <AlertTriangle className="h-5 w-5 mr-3 flex-shrink-0" />
+                        <p className="text-sm font-medium">
+                            <strong>Configuração Necessária:</strong> A chave de API do Gemini não foi encontrada. Por favor, configure a variável de ambiente <code>API_KEY</code> para que o assistente e as notícias funcionem.
+                        </p>
+                    </div>
+                </div>
+            )}
             <AdBlockerDetector detected={adBlockerDetected} />
             <header className="bg-white shadow-sm sticky top-0 z-10 border-b border-gray-200">
                 <div className="max-w-screen-2xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
