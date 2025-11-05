@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Adicione estilos globais personalizados aqui, se necessário */
+.adsbox {
+    /* Estilo de isca para detecção de AdBlocker */
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+}
