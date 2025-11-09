@@ -56,7 +56,7 @@ const App: React.FC = () => {
                         <div className="text-sm">
                             <p className="font-bold">Configuração Necessária: Chave de API não encontrada</p>
                             <p className="mt-1">
-                                A variável de ambiente <code>API_KEY</code> não está acessível no navegador. Se você implantou em uma plataforma como a Vercel, as variáveis de ambiente precisam ser explicitamente expostas ao front-end. Verifique as configurações do seu projeto de hospedagem.
+                                A variável de ambiente <code>API_KEY</code> não está acessível no navegador. Em plataformas de hospedagem (como Vercel ou Netlify), as variáveis precisam ser expostas ao front-end com um prefixo específico (ex: <code>VITE_API_KEY</code>). Verifique as configurações do seu projeto.
                             </p>
                         </div>
                     </div>

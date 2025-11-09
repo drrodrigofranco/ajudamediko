@@ -25,7 +25,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ isApiKeyMissing }) => {
       setMessages([
         {
           role: 'model',
-          text: 'A funcionalidade do chat está desativada. A variável de ambiente API_KEY não foi encontrada. Se você estiver usando uma plataforma de hospedagem (como Vercel), certifique-se de que a variável foi exposta corretamente ao front-end.',
+          text: 'A funcionalidade do chat está desativada. A chave de API não foi configurada ou não está acessível. Por favor, verifique as variáveis de ambiente do seu projeto de hospedagem e garanta que elas estejam expostas ao front-end (por exemplo, usando um prefixo como `VITE_` ou `REACT_APP_`).',
         },
       ]);
     } else {
@@ -39,8 +39,9 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ isApiKeyMissing }) => {
   }, [isApiKeyMissing]);
 
   useEffect(() => {
-    // Prevents scrolling on initial load, only scrolls for new messages.
-    if (messages.length > 1) {
+    // Only scrolls when a new message from the model is added.
+    // This prevents scrolling on page load or when the user sends a message.
+    if (messages.length > 1 && messages[messages.length - 1].role === 'model') {
       scrollToBottom();
     }
   }, [messages]);
