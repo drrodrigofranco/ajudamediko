@@ -51,11 +51,14 @@ const App: React.FC = () => {
         <div className="flex flex-col min-h-screen bg-gray-100 font-sans">
             {isApiKeyMissing && (
                 <div className="bg-red-100 border-b border-red-300 text-red-800 p-3">
-                    <div className="max-w-screen-2xl mx-auto flex items-center">
-                        <AlertTriangle className="h-5 w-5 mr-3 flex-shrink-0" />
-                        <p className="text-sm font-medium">
-                            <strong>Configuração Necessária:</strong> A chave de API do Gemini não foi encontrada. Por favor, configure a variável de ambiente <code>API_KEY</code> nas configurações do seu projeto. Se estiver implantando em uma plataforma como a Vercel, a variável de ambiente precisa ser exposta ao seu aplicativo.
-                        </p>
+                    <div className="max-w-screen-2xl mx-auto flex items-start">
+                        <AlertTriangle className="h-5 w-5 mr-3 flex-shrink-0 mt-0.5" />
+                        <div className="text-sm">
+                            <p className="font-bold">Configuração Necessária: Chave de API não encontrada</p>
+                            <p className="mt-1">
+                                A variável de ambiente <code>API_KEY</code> não está acessível no navegador. Se você implantou em uma plataforma como a Vercel, as variáveis de ambiente precisam ser explicitamente expostas ao front-end. Verifique as configurações do seu projeto de hospedagem.
+                            </p>
+                        </div>
                     </div>
                 </div>
             )}

@@ -15,7 +15,6 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ isApiKeyMissing }) => {
   const [lastUserPrompt, setLastUserPrompt] = useState('');
   const [showFollowUpOptions, setShowFollowUpOptions] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const isInitialRender = useRef(true);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -26,7 +25,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ isApiKeyMissing }) => {
       setMessages([
         {
           role: 'model',
-          text: 'A funcionalidade do chat está desativada. A chave de API não foi configurada. Por favor, verifique se a variável de ambiente API_KEY está configurada corretamente em sua plataforma de hospedagem.',
+          text: 'A funcionalidade do chat está desativada. A variável de ambiente API_KEY não foi encontrada. Se você estiver usando uma plataforma de hospedagem (como Vercel), certifique-se de que a variável foi exposta corretamente ao front-end.',
         },
       ]);
     } else {
@@ -40,14 +39,9 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ isApiKeyMissing }) => {
   }, [isApiKeyMissing]);
 
   useEffect(() => {
-    // This effect prevents the page from scrolling down when the initial message is loaded.
-    // It will only scroll for subsequent messages.
-    if (isInitialRender.current) {
-        if (messages.length > 0) {
-            isInitialRender.current = false;
-        }
-    } else {
-        scrollToBottom();
+    // Prevents scrolling on initial load, only scrolls for new messages.
+    if (messages.length > 1) {
+      scrollToBottom();
     }
   }, [messages]);
 
