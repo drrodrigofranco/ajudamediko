@@ -54,7 +54,7 @@ const App: React.FC = () => {
                     <div className="max-w-screen-2xl mx-auto flex items-center">
                         <AlertTriangle className="h-5 w-5 mr-3 flex-shrink-0" />
                         <p className="text-sm font-medium">
-                            <strong>Configuração Necessária:</strong> A chave de API do Gemini não foi encontrada. Por favor, configure a variável de ambiente <code>API_KEY</code> para que o assistente e as notícias funcionem.
+                            <strong>Configuração Necessária:</strong> A chave de API do Gemini não foi encontrada. Por favor, configure a variável de ambiente <code>API_KEY</code> nas configurações do seu projeto. Se estiver implantando em uma plataforma como a Vercel, a variável de ambiente precisa ser exposta ao seu aplicativo.
                         </p>
                     </div>
                 </div>

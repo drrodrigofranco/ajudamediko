@@ -25,7 +25,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ isApiKeyMissing }) => {
       setMessages([
         {
           role: 'model',
-          text: 'A funcionalidade do chat está desativada. A chave de API não foi configurada. Por favor, verifique as variáveis de ambiente do seu projeto.',
+          text: 'A funcionalidade do chat está desativada. A chave de API não foi configurada. Por favor, verifique se a variável de ambiente API_KEY está configurada corretamente em sua plataforma de hospedagem.',
         },
       ]);
     } else {
