@@ -15,6 +15,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ isApiKeyMissing }) => {
   const [lastUserPrompt, setLastUserPrompt] = useState('');
   const [showFollowUpOptions, setShowFollowUpOptions] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const isInitialRender = useRef(true);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -38,7 +39,17 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ isApiKeyMissing }) => {
     }
   }, [isApiKeyMissing]);
 
-  useEffect(scrollToBottom, [messages]);
+  useEffect(() => {
+    // This effect prevents the page from scrolling down when the initial message is loaded.
+    // It will only scroll for subsequent messages.
+    if (isInitialRender.current) {
+        if (messages.length > 0) {
+            isInitialRender.current = false;
+        }
+    } else {
+        scrollToBottom();
+    }
+  }, [messages]);
 
   const handleSend = async () => {
     if (input.trim() === '' || isLoading || isApiKeyMissing) return;
