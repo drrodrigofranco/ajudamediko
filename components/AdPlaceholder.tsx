@@ -1,20 +1,19 @@
 import React from 'react';
 
 interface AdPlaceholderProps {
-  width: string;
   height: string;
   text: string;
   label: string;
 }
 
-const AdPlaceholder: React.FC<AdPlaceholderProps> = ({ width, height, text, label }) => {
-  const classNames = `flex items-center justify-center bg-gray-200 border-2 border-dashed border-gray-400 text-gray-500 text-sm ${width} ${height}`;
+const AdPlaceholder: React.FC<AdPlaceholderProps> = ({ height, text, label }) => {
+  const classNames = `flex items-center justify-center bg-gray-100 rounded-lg text-gray-400 text-sm w-full ${height}`;
   return (
-    <div className="flex flex-col items-center space-y-1">
-        <p className="text-xs text-gray-400">{label}</p>
-        <div className={classNames}>
-            <span>{text}</span>
-        </div>
+    <div className="relative">
+      <div className={classNames}>
+          <span>{text}</span>
+      </div>
+      <p className="absolute top-1 right-2 text-xs text-gray-400">{label}</p>
     </div>
   );
 };

@@ -1,39 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { getHealthNews } from '../services/geminiService';
 import { HealthNews } from '../types';
-import { Newspaper, LoaderCircle, AlertTriangle, ExternalLink } from 'lucide-react';
+import { Newspaper, LoaderCircle, AlertTriangle, ExternalLink, Activity } from 'lucide-react';
 
-interface HealthNewsWidgetProps {
-    isApiKeyMissing: boolean;
-}
-
-const HealthNewsWidget: React.FC<HealthNewsWidgetProps> = ({ isApiKeyMissing }) => {
+const HealthNewsWidget: React.FC = () => {
     const [news, setNews] = useState<HealthNews | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        if (isApiKeyMissing) {
-            setError("A chave de API não foi configurada para buscar notícias.");
-            setIsLoading(false);
-            return;
-        }
-
         const fetchNews = async () => {
             setIsLoading(true);
             setError(null);
             try {
                 const newsData = await getHealthNews();
-                if (newsData) {
-                    setNews(newsData);
-                } else {
-                    setError("Não foi possível carregar a notícia.");
-                }
+                setNews(newsData);
             } catch (e) {
                 if (e instanceof Error) {
                     setError(e.message);
                 } else {
-                    setError("Ocorreu um erro ao buscar a notícia.");
+                    setError("Ocorreu um erro desconhecido ao buscar a notícia.");
                 }
             } finally {
                 setIsLoading(false);
@@ -41,51 +27,54 @@ const HealthNewsWidget: React.FC<HealthNewsWidgetProps> = ({ isApiKeyMissing }) 
         };
 
         fetchNews();
-    }, [isApiKeyMissing]);
-
-    const renderContent = () => {
-        if (isLoading) {
-            return (
-                <div className="flex items-center justify-center space-x-2 text-gray-500 text-sm">
-                    <LoaderCircle className="animate-spin" size={18} />
-                    <span>Carregando notícia...</span>
-                </div>
-            );
-        }
-
-        if (error || !news) {
-            return (
-                <div className="flex items-center space-x-2 text-red-600 text-sm">
-                    <AlertTriangle size={18} />
-                    <span>{error || "Notícia indisponível."}</span>
-                </div>
-            );
-        }
-
-        return (
-            <div>
-                <h3 className="font-semibold text-gray-800 mb-2">{news.title}</h3>
-                <p className="text-sm text-gray-600 mb-3">{news.summary}</p>
-                <a 
-                    href={news.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-sm text-blue-600 hover:underline font-medium flex items-center"
-                >
-                    Ler artigo completo
-                    <ExternalLink size={14} className="ml-1" />
-                </a>
-            </div>
-        );
-    };
+    }, []);
 
     return (
-        <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
-            <div className="flex items-center space-x-3 text-gray-800 mb-3">
-                <Newspaper size={24} />
-                <h2 className="text-lg font-semibold">Notícia em Destaque</h2>
+        <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-teal-100">
+            <div className="bg-teal-800 p-6 text-white flex items-center justify-between">
+                <div>
+                    <h3 className="text-xl font-serif font-semibold">Atualizações em Medicina Fetal</h3>
+                    <p className="text-teal-100 text-sm mt-1">Curadoria por Inteligência Artificial</p>
+                </div>
+                <Activity className="text-teal-300" size={32} />
             </div>
-            {renderContent()}
+            
+            <div className="p-8">
+                {isLoading ? (
+                    <div className="flex flex-col items-center justify-center py-10 text-gray-500 space-y-3">
+                        <LoaderCircle className="animate-spin text-teal-600" size={32} />
+                        <span>Buscando as últimas novidades científicas...</span>
+                    </div>
+                ) : error ? (
+                    <div className="flex items-center space-x-3 text-red-600 bg-red-50 p-4 rounded-lg">
+                        <AlertTriangle size={24} />
+                        <span>{error}</span>
+                    </div>
+                ) : news ? (
+                    <div className="space-y-4">
+                        <span className="inline-block px-3 py-1 bg-teal-100 text-teal-800 text-xs font-semibold rounded-full uppercase tracking-wide">
+                            Destaque
+                        </span>
+                        <h4 className="text-2xl font-bold text-gray-900 leading-tight">
+                            {news.title}
+                        </h4>
+                        <p className="text-gray-600 leading-relaxed text-lg">
+                            {news.summary}
+                        </p>
+                        <div className="pt-4">
+                            <a 
+                                href={news.url} 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="inline-flex items-center px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+                            >
+                                Ler Artigo Completo
+                                <ExternalLink size={18} className="ml-2" />
+                            </a>
+                        </div>
+                    </div>
+                ) : null}
+            </div>
         </div>
     );
 };
