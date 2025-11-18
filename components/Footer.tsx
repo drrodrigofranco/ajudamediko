@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
 
             {/* Contact Info Mini */}
             <div className="col-span-1">
-                <h3 className="text-white font-bold mb-4 uppercase text-sm tracking-wider">Especialidades</h3>
+                <h3 className="text-white font-bold mb-4 uppercase text-sm tracking-wider">Atendimentos</h3>
                 <ul className="space-y-2 text-sm">
                     <li>Ecocardiograma Fetal & Obstétrico</li>
                     <li>Ultrassom Vascular (Doppler)</li>
