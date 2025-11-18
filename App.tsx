@@ -294,7 +294,7 @@ const App: React.FC = () => {
                                     </p>
                                     
                                     <div className="bg-teal-100 p-4 rounded-lg border-l-4 border-teal-600 mb-8">
-                                        <h5 className="font-bold text-teal-900 flex items-center"><GraduationCap className="w-4 h-4 mr-2"/>Especialização em Ultrassonografia</h5>
+                                        <h5 className="font-bold text-teal-900 flex items-center"><GraduationCap className="w-4 h-4 mr-2"/>Cursos em Ultrassonografia</h5>
                                         <p className="text-teal-800 text-sm mt-1">Cursos realizados na FATESA - Tradição de mais de 30 anos em cursos de ultrassonografia.</p>
                                     </div>
                                 </div>
