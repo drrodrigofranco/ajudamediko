@@ -21,7 +21,8 @@ import {
     User,
     Dumbbell,
     Aperture,
-    Activity
+    Activity,
+    Scale
 } from 'lucide-react';
 
 const App: React.FC = () => {
@@ -192,9 +193,20 @@ const App: React.FC = () => {
                                     <HeartPulse className="text-teal-600 w-8 h-8 group-hover:text-white transition-colors" />
                                 </div>
                                 <h4 className="text-xl font-bold text-gray-900 mb-3 relative z-10">Ecocardiograma Fetal</h4>
-                                <p className="text-gray-600 leading-relaxed relative z-10">
+                                <p className="text-gray-600 leading-relaxed relative z-10 mb-4">
                                     Exame especializado que avalia detalhadamente o coração do feto ainda no útero. Fundamental para detecção precoce de cardiopatias congênitas.
                                 </p>
+                                <div className="relative z-10 pt-2 border-t border-gray-100">
+                                    <a 
+                                        href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/L14598.htm" 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center text-sm font-semibold text-teal-700 hover:text-teal-900 transition-colors group-hover:underline"
+                                    >
+                                        <Scale className="w-4 h-4 mr-2" />
+                                        Lei do Ecocardiograma Fetal
+                                    </a>
+                                </div>
                             </div>
 
                             <div className="bg-white rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 border border-gray-100 group relative overflow-hidden">
