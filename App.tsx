@@ -26,7 +26,7 @@ import {
 
 const App: React.FC = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [imgSrc, setImgSrc] = useState("/profile.jpg"); 
+    const [imgSrc, setImgSrc] = useState("https://scontent.fmgf6-1.fna.fbcdn.net/v/t39.30808-6/585283322_25300808462865092_8130294083600063357_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGb8RUWYBGTI1Ied5S8tpJfaGtuylRDX5toa27KVENfm3rO1_htbBoFMJV66W3WJ5DJk0h1kapLxKoTWD5ikODK&_nc_ohc=S4yafWVpCYgQ7kNvwEOVaRF&_nc_oc=AdmebFHydxPh_u7Ocu3LMZjMwltDi6D0J02BT8OMGxKkOhQBL_nDjkjNaZXHzetSj2Q&_nc_zt=23&_nc_ht=scontent.fmgf6-1.fna&_nc_gid=I4d0UpqDi03i1jqOKV4pfg&oh=00_AfjptfXGRyS-3AaD7tVwqgTagyW3GUFFn9hED28n2-6QYg&oe=6922B3F0"); 
 
     const scrollToSection = (id: string) => {
         const element = document.getElementById(id);
@@ -37,8 +37,8 @@ const App: React.FC = () => {
     };
 
     const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-        console.warn("Foto de perfil não encontrada. Certifique-se de salvar a imagem como 'profile.jpg' na pasta public.");
-        e.currentTarget.style.display = 'none'; // Oculta a imagem se falhar
+        // Fallback silencioso se o link expirar
+        console.warn("Foto de perfil não carregada.");
     };
 
     const ultrasoundExams = [
