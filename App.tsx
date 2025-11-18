@@ -60,12 +60,13 @@ const App: React.FC = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-24">
                         <div className="flex items-center cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
-                            <div className="bg-teal-600 p-2.5 rounded-lg mr-3 shadow-md">
+                            <div className="bg-teal-600 p-2.5 rounded-lg mr-3 shadow-md hidden sm:block">
                                 <HeartPulse className="text-white h-7 w-7" />
                             </div>
                             <div>
                                 <h1 className="text-xl md:text-2xl font-serif font-bold text-teal-900 tracking-tight leading-none">Dr. Rodrigo Duarte Franco</h1>
-                                <p className="text-xs text-teal-600 uppercase tracking-wider font-medium mt-1">Ultrassonografia, Perícia Médica e Clínica Médica</p>
+                                <p className="text-sm font-bold text-teal-700 mt-0.5">CRM-MS 10087</p>
+                                <p className="text-xs text-teal-600 uppercase tracking-wider font-medium mt-0.5">Ultrassonografia, Perícia Médica e Clínica Médica</p>
                             </div>
                         </div>
                         
@@ -155,7 +156,7 @@ const App: React.FC = () => {
                                         onClick={() => scrollToSection('currículo')}
                                         className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-all text-center"
                                     >
-                                        Conheça o Especialista
+                                        Conheça o Médico
                                     </button>
                                 </div>
                             </div>
@@ -268,6 +269,7 @@ const App: React.FC = () => {
                                     </div>
                                     <div className="absolute -bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-gray-100">
                                         <h3 className="text-xl font-bold text-gray-900">Dr. Rodrigo Duarte Franco</h3>
+                                        <p className="text-teal-700 font-bold text-sm">CRM-MS 10087</p>
                                         <p className="text-teal-600 font-medium">Médico</p>
                                         <a 
                                             href="http://lattes.cnpq.br/2901086695714310" 
@@ -287,96 +289,104 @@ const App: React.FC = () => {
                                 <div className="mb-8">
                                     <h2 className="text-teal-600 font-semibold tracking-wide uppercase text-sm mb-2">Trajetória Profissional</h2>
                                     <h3 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6">Formação Multidisciplinar de Excelência</h3>
-                                    <p className="text-lg text-gray-700 italic font-serif border-l-4 border-teal-500 pl-4 py-2 bg-white rounded-r-lg shadow-sm">
+                                    <p className="text-lg text-gray-700 italic font-serif border-l-4 border-teal-500 pl-4 py-2 bg-white rounded-r-lg shadow-sm mb-6">
                                         "A combinação de Medicina, Fisioterapia e Educação Física me proporciona uma visão única e integrada da saúde humana."
                                     </p>
+                                    
+                                    <div className="bg-teal-100 p-4 rounded-lg border-l-4 border-teal-600 mb-8">
+                                        <h5 className="font-bold text-teal-900 flex items-center"><GraduationCap className="w-4 h-4 mr-2"/>Especialização em Ultrassonografia</h5>
+                                        <p className="text-teal-800 text-sm mt-1">Cursos realizados na FATESA - Tradição de mais de 30 anos em cursos de ultrassonografia.</p>
+                                    </div>
                                 </div>
 
-                                <div className="space-y-10">
-                                    {/* Medicina & US */}
-                                    <div>
-                                        <div className="flex items-center mb-4">
-                                            <div className="bg-teal-600 p-2 rounded-lg text-white mr-3">
-                                                <Stethoscope size={20} />
-                                            </div>
-                                            <h4 className="text-xl font-bold text-gray-900">Medicina & Ultrassonografia</h4>
-                                        </div>
-                                        <div className="space-y-4 pl-12 border-l-2 border-teal-100 ml-5">
-                                            <div className="relative">
-                                                <span className="absolute -left-[54px] top-1 w-3 h-3 rounded-full bg-teal-600 border-2 border-white"></span>
-                                                <h5 className="font-bold text-gray-800">Cursos realizados na FATESA</h5>
-                                                <p className="text-gray-600 text-sm">Tradição de mais de 30 anos em cursos de ultrassonografia</p>
-                                            </div>
-                                            <div className="relative">
-                                                <span className="absolute -left-[54px] top-1 w-3 h-3 rounded-full bg-teal-400 border-2 border-white"></span>
-                                                <h5 className="font-bold text-gray-800">Graduação em Medicina</h5>
-                                                <p className="text-gray-600 text-sm">UNEMAT - Universidade do Estado do Mato Grosso - 2018</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {/* Pós-Graduações */}
-                                    <div>
-                                        <div className="flex items-center mb-4">
+                                <div className="space-y-8">
+                                    {/* Bloco de Formação */}
+                                    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                                        <div className="flex items-center mb-4 border-b border-gray-100 pb-3">
                                             <div className="bg-teal-600 p-2 rounded-lg text-white mr-3">
                                                 <Award size={20} />
                                             </div>
-                                            <h4 className="text-xl font-bold text-gray-900">Especializações & Pós-Graduação</h4>
+                                            <h4 className="text-xl font-bold text-gray-900">Formação Acadêmica e Especializações</h4>
                                         </div>
-                                        <ul className="space-y-3 pl-3 text-gray-700">
-                                            <li className="flex items-start">
-                                                <CheckCircle2 className="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" />
-                                                <span><strong>Perícia Médica</strong></span>
-                                            </li>
-                                            <li className="flex items-start">
-                                                <CheckCircle2 className="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" />
-                                                <span><strong>Auditoria Hospitalar e em Saúde</strong></span>
-                                            </li>
-                                            <li className="flex items-start">
-                                                <CheckCircle2 className="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" />
-                                                <span><strong>Acupuntura</strong></span>
-                                            </li>
-                                            <li className="flex items-start">
-                                                <CheckCircle2 className="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" />
-                                                <span><strong>RPG-RCS:</strong> Reeducação Postural Global</span>
-                                            </li>
-                                        </ul>
+                                        <div className="space-y-4 text-gray-700 leading-relaxed text-sm md:text-base">
+                                            <p>
+                                                <strong>Graduação em Medicina:</strong> UNEMAT - Universidade Estadual do Mato Grosso - Cáceres - MT (2018).
+                                            </p>
+                                            <p>
+                                                <strong>Graduação em Fisioterapia:</strong> UNOESTE - Universidade do Oeste Paulista (2004).
+                                            </p>
+                                            <p>
+                                                <strong>Graduação em Educação Física:</strong> FIFASUL - Faculdades Integradas de Fátima do Sul (2002).
+                                            </p>
+                                            
+                                            <div className="pt-2">
+                                                <h5 className="font-semibold text-teal-800 mb-2">Pós-Graduação e Aperfeiçoamento:</h5>
+                                                <ul className="list-disc pl-5 space-y-2">
+                                                    <li>Pós graduação em Acupuntura - FACIS - Faculdade de Ciências da Saúde São Paulo (2005).</li>
+                                                    <li>Aprimoramento em RPG-RCS - Reeducação Postural Global - Instituto Brasileiro de Acupuntura (2006).</li>
+                                                    <li>Aprimoramento em Acupuntura Estética - Instituto Brasileiro de Acupuntura (2006).</li>
+                                                    <li>Pós Graduação pela Unileya - Auditoria Hospitalar (2022).</li>
+                                                    <li>Pós Graduação pela Unileya - Pericia médica (2023).</li>
+                                                </ul>
+                                            </div>
+
+                                            <div className="pt-2">
+                                                <h5 className="font-semibold text-teal-800 mb-2">Cursos de Ultrassom - FATESA:</h5>
+                                                <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 list-disc pl-5">
+                                                    <li>Ultrassom Medicina Interna</li>
+                                                    <li>Ultrassom de Tireoide</li>
+                                                    <li>Ultrassom de Mamas</li>
+                                                    <li>Ultrassom Vascular</li>
+                                                    <li>Ultrassom Obstétrico</li>
+                                                    <li>Ultrassom Endovaginal</li>
+                                                    <li>Ultrassom Ecocardiograma Fetal</li>
+                                                    <li>Ultrassom Musculoesquelético</li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
 
-                                    {/* Outras Formações */}
-                                    <div>
-                                        <div className="flex items-center mb-4">
-                                            <div className="bg-teal-600 p-2 rounded-lg text-white mr-3">
-                                                <GraduationCap size={20} />
-                                            </div>
-                                            <h4 className="text-xl font-bold text-gray-900">Outras Graduações</h4>
-                                        </div>
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                                                <h5 className="font-bold text-gray-800">Fisioterapia</h5>
-                                                <p className="text-sm text-gray-500">UNOESTE - 2004</p>
-                                            </div>
-                                            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                                                <h5 className="font-bold text-gray-800">Educação Física</h5>
-                                                <p className="text-sm text-gray-500">FIFASUL - 2002</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {/* Atuação Profissional */}
-                                    <div>
-                                         <div className="flex items-center mb-4">
+                                    {/* Bloco de Experiência */}
+                                    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                                        <div className="flex items-center mb-4 border-b border-gray-100 pb-3">
                                             <div className="bg-teal-600 p-2 rounded-lg text-white mr-3">
                                                 <BookOpen size={20} />
                                             </div>
-                                            <h4 className="text-xl font-bold text-gray-900">Experiência Profissional Recente</h4>
+                                            <h4 className="text-xl font-bold text-gray-900">Experiência Profissional</h4>
                                         </div>
-                                        <ul className="space-y-3 text-sm text-gray-600 ml-1">
-                                            <li>• trabalhou como Médico Plantonista - Hospital Regional de Nova Andradina - MS</li>
-                                            <li>• Médico ESF - Prefeitura Municipal de Nova Andradina</li>
-                                            <li>• trabalhou como Médico Plantonista - Hospital Cassems e Hospital Municipal de Taquarussu</li>
-                                            <li>• Perito Judicial nomeado - Fórum de Batayporã (desde 2020)</li>
-                                            <li>• Ex-Professor Universitário na FAPAN (Cáceres - MT)</li>
+                                        <ul className="space-y-3 text-gray-700 text-sm md:text-base">
+                                            <li className="flex items-start">
+                                                <CheckCircle2 className="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" />
+                                                <span><strong>Professor de Educação Física:</strong> Contratado da SEDUC - MS - Anaurilândia - MS (2 anos).</span>
+                                            </li>
+                                            <li className="flex items-start">
+                                                <CheckCircle2 className="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" />
+                                                <span><strong>Fisioterapeuta:</strong> Concursado da secretaria de saúde do Município de Canarana - MT (8 anos).</span>
+                                            </li>
+                                            <li className="flex items-start">
+                                                <CheckCircle2 className="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" />
+                                                <span><strong>Professor universitário:</strong> Faculdade do Pantanal - FAPAN - Cáceres - MT (4,5 anos).</span>
+                                            </li>
+                                            <li className="flex items-start">
+                                                <CheckCircle2 className="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" />
+                                                <span><strong>Médico plantonista:</strong> Hospital Regional de Nova Andradina - MS (5 anos).</span>
+                                            </li>
+                                            <li className="flex items-start">
+                                                <CheckCircle2 className="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" />
+                                                <span><strong>Médico ESF:</strong> Prefeitura Municipal Nova Andradina - MS - concursado (atual desde 12/2018).</span>
+                                            </li>
+                                            <li className="flex items-start">
+                                                <CheckCircle2 className="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" />
+                                                <span><strong>Médico plantonista:</strong> Hospital Cassems de Nova Andradina (5 anos).</span>
+                                            </li>
+                                            <li className="flex items-start">
+                                                <CheckCircle2 className="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" />
+                                                <span><strong>Diretor clinico e tecnico - Médico plantonista:</strong> Hospital Municipal de Taquarussu (atual desde 01/2020).</span>
+                                            </li>
+                                            <li className="flex items-start">
+                                                <CheckCircle2 className="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" />
+                                                <span><strong>Perito Judicial:</strong> Fórum de Batayporã nomeado desde 2020.</span>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>

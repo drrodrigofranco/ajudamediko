@@ -12,6 +12,11 @@ export async function GET() {
       url: "https://hospitalsanmichele.com.br/2025/02/21/ecocardiograma-fetal-quando-e-por-que-fazer-a-importancia-do-exame-na-avaliacao-da-saude-do-bebe/"
     },
     {
+      title: "Entenda a Translucência Nucal",
+      summary: "Saiba a importância da medição da nuca do feto no primeiro trimestre para o rastreamento de condições genéticas.",
+      url: "https://eigierdiagnosticos.com.br/blog/o-que-e-translucencia-nucal/"
+    },
+    {
       title: "Pesquisa aponta desafios em Maternidades",
       summary: "Estudo recente mostra a importância e a necessidade de equipes completas 24 horas em maternidades para garantir a segurança obstétrica.",
       url: "https://agenciabrasil.ebc.com.br/saude/noticia/2025-05/pesquisa-mostra-que-faltam-equipes-completas-24-horas-em-maternidades"
