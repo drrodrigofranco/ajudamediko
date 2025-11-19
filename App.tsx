@@ -117,6 +117,15 @@ const App: React.FC = () => {
                 )}
             </header>
 
+            {/* Top AdSpace - Leaderboard */}
+            <div className="bg-gray-100 py-4 border-b border-gray-200">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
+                     <div className="w-full max-w-[728px]">
+                        <AdPlaceholder height="h-[90px] md:h-[100px]" text="Espaço Publicitário Topo (Leaderboard)" label="Publicidade" />
+                     </div>
+                </div>
+            </div>
+
             <main className="flex-grow">
                 {/* Hero Section - Full Width */}
                 <section className="relative bg-teal-900 text-white py-12 lg:py-20 overflow-hidden">
