@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import HealthNewsWidget from './components/HealthNewsWidget';
 import Footer from './components/Footer';
+import AdPlaceholder from './components/AdPlaceholder';
 import { 
     Stethoscope, 
     HeartPulse, 
@@ -27,7 +28,8 @@ import {
 
 const App: React.FC = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [imgSrc, setImgSrc] = useState("https://scontent.fmgf6-1.fna.fbcdn.net/v/t39.30808-6/585283322_25300808462865092_8130294083600063357_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGb8RUWYBGTI1Ied5S8tpJfaGtuylRDX5toa27KVENfm3rO1_htbBoFMJV66W3WJ5DJk0h1kapLxKoTWD5ikODK&_nc_ohc=S4yafWVpCYgQ7kNvwEOVaRF&_nc_oc=AdmebFHydxPh_u7Ocu3LMZjMwltDi6D0J02BT8OMGxKkOhQBL_nDjkjNaZXHzetSj2Q&_nc_zt=23&_nc_ht=scontent.fmgf6-1.fna&_nc_gid=I4d0UpqDi03i1jqOKV4pfg&oh=00_AfjptfXGRyS-3AaD7tVwqgTagyW3GUFFn9hED28n2-6QYg&oe=6922B3F0"); 
+    // Usando o link fornecido pelo usuário
+    const imgSrc = "https://scontent.fmgf6-1.fna.fbcdn.net/v/t39.30808-6/585283322_25300808462865092_8130294083600063357_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGb8RUWYBGTI1Ied5S8tpJfaGtuylRDX5toa27KVENfm3rO1_htbBoFMJV66W3WJ5DJk0h1kapLxKoTWD5ikODK&_nc_ohc=S4yafWVpCYgQ7kNvwEOVaRF&_nc_oc=AdmebFHydxPh_u7Ocu3LMZjMwltDi6D0J02BT8OMGxKkOhQBL_nDjkjNaZXHzetSj2Q&_nc_zt=23&_nc_ht=scontent.fmgf6-1.fna&_nc_gid=I4d0UpqDi03i1jqOKV4pfg&oh=00_AfjptfXGRyS-3AaD7tVwqgTagyW3GUFFn9hED28n2-6QYg&oe=6922B3F0";
 
     const scrollToSection = (id: string) => {
         const element = document.getElementById(id);
@@ -35,11 +37,6 @@ const App: React.FC = () => {
             element.scrollIntoView({ behavior: 'smooth' });
             setIsMobileMenuOpen(false);
         }
-    };
-
-    const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-        // Fallback silencioso se o link expirar
-        console.warn("Foto de perfil não carregada.");
     };
 
     const ultrasoundExams = [
@@ -120,8 +117,8 @@ const App: React.FC = () => {
                 )}
             </header>
 
-            <main>
-                {/* Hero Section */}
+            <main className="flex-grow">
+                {/* Hero Section - Full Width */}
                 <section className="relative bg-teal-900 text-white py-12 lg:py-20 overflow-hidden">
                     <div className="absolute inset-0 z-0 opacity-20">
                         <img 
@@ -142,360 +139,306 @@ const App: React.FC = () => {
                                     Ecocardiograma Fetal e Ultrassonografia Avançada
                                 </h2>
                                 <p className="text-lg md:text-xl text-teal-100 mb-8 leading-relaxed">
-                                    Tecnologia de ponta e olhar experiente para acompanhar o desenvolvimento do seu bebê e cuidar da saúde da sua família em Nova Andradina e região.
+                                    Tecnologia de ponta e olhar experiente para acompanhar o desenvolvimento da vida e cuidar da sua saúde. Perícia Médica e diagnósticos precisos em Nova Andradina-MS.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-4">
-                                    <button 
-                                        onClick={() => scrollToSection('serviços')}
-                                        className="bg-white text-teal-900 px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition-all shadow-lg text-center flex items-center justify-center"
-                                    >
-                                        <HeartPulse className="mr-2 w-5 h-5" />
-                                        Conheça os Exames
+                                    <button onClick={() => scrollToSection('contato')} className="bg-white text-teal-900 px-8 py-3.5 rounded-full font-bold hover:bg-teal-50 transition-colors shadow-lg text-center">
+                                        Agendar Consulta
                                     </button>
-                                    <button 
-                                        onClick={() => scrollToSection('currículo')}
-                                        className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-all text-center"
-                                    >
+                                    <button onClick={() => scrollToSection('currículo')} className="bg-transparent border-2 border-teal-400 text-teal-100 px-8 py-3.5 rounded-full font-bold hover:bg-teal-800/50 transition-colors text-center">
                                         Conheça o Médico
                                     </button>
                                 </div>
                             </div>
-                            
-                            {/* Hero Image */}
                             <div className="lg:w-2/5 order-1 lg:order-2 flex justify-center lg:justify-end">
-                                 <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full border-8 border-white/10 shadow-2xl overflow-hidden group bg-teal-800">
-                                    <div className="absolute inset-0 bg-gradient-to-tr from-teal-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+                                <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                                    <div className="absolute inset-0 bg-teal-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
                                     <img 
-                                        src={imgSrc} 
-                                        onError={handleImageError}
+                                        src={imgSrc}
                                         alt="Dr. Rodrigo Duarte Franco" 
-                                        className="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-700"
+                                        className="relative w-full h-full object-cover object-top rounded-full border-4 border-teal-400/30 shadow-2xl"
                                     />
-                                 </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                {/* Services Section */}
-                <section id="serviços" className="py-24 bg-white">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="text-center mb-16">
-                            <h2 className="text-teal-600 font-semibold tracking-wide uppercase text-sm mb-2">Nossos Procedimentos</h2>
-                            <h3 className="text-3xl md:text-4xl font-serif font-bold text-gray-900">Exames de Alta Precisão</h3>
-                            <p className="mt-4 text-gray-600 max-w-2xl mx-auto">Foco em diagnóstico precoce e acompanhamento detalhado da gestação.</p>
-                        </div>
-
-                        {/* Featured Services */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
-                            <div className="bg-white rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 border border-gray-100 group relative overflow-hidden">
-                                <div className="absolute top-0 right-0 w-20 h-20 bg-teal-50 rounded-bl-full -mr-4 -mt-4 transition-all group-hover:bg-teal-600"></div>
-                                <div className="w-14 h-14 bg-teal-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-teal-600 transition-colors duration-300 relative z-10">
-                                    <HeartPulse className="text-teal-600 w-8 h-8 group-hover:text-white transition-colors" />
-                                </div>
-                                <h4 className="text-xl font-bold text-gray-900 mb-3 relative z-10">Ecocardiograma Fetal</h4>
-                                <p className="text-gray-600 leading-relaxed relative z-10 mb-4">
-                                    Exame especializado que avalia detalhadamente o coração do feto ainda no útero. Fundamental para detecção precoce de cardiopatias congênitas.
-                                </p>
-                                <div className="relative z-10 pt-2 border-t border-gray-100">
-                                    <a 
-                                        href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/L14598.htm" 
-                                        target="_blank" 
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center text-sm font-semibold text-teal-700 hover:text-teal-900 transition-colors group-hover:underline"
-                                    >
-                                        <Scale className="w-4 h-4 mr-2" />
-                                        Lei do Ecocardiograma Fetal
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div className="bg-white rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 border border-gray-100 group relative overflow-hidden">
-                                <div className="absolute top-0 right-0 w-20 h-20 bg-purple-50 rounded-bl-full -mr-4 -mt-4 transition-all group-hover:bg-purple-600"></div>
-                                <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-600 transition-colors duration-300 relative z-10">
-                                    <Stethoscope className="text-purple-600 w-8 h-8 group-hover:text-white transition-colors" />
-                                </div>
-                                <h4 className="text-xl font-bold text-gray-900 mb-3 relative z-10">Perícia Médica</h4>
-                                <p className="text-gray-600 leading-relaxed relative z-10">
-                                    Atuação como Perito Judicial e Assistente Técnico, com especialização e sólida formação em auditoria e perícia médica.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Ultrasound List */}
-                        <div className="max-w-5xl mx-auto">
-                            <h4 className="text-2xl font-bold text-gray-900 mb-8 text-center flex items-center justify-center">
-                                <span className="bg-teal-100 p-2 rounded-full mr-3">
-                                    <ScanLine className="text-teal-700 w-6 h-6" />
-                                </span>
-                                Catálogo de Ultrassonografia
-                            </h4>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                                {ultrasoundExams.map((exam, index) => (
-                                    <div key={index} className="bg-gray-50 p-4 rounded-xl border border-gray-100 hover:border-teal-300 hover:bg-teal-50 transition-all duration-200 group">
-                                        <div className="flex items-center space-x-3 mb-2">
-                                            <div className="text-teal-600 group-hover:text-teal-700">
-                                                {exam.icon}
-                                            </div>
-                                            <h5 className="font-bold text-gray-800">{exam.name}</h5>
-                                        </div>
-                                        <p className="text-xs text-gray-500">{exam.desc}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                    </div>
-                </section>
-
-                {/* Curriculum Section */}
-                <section id="currículo" className="py-24 bg-teal-50 relative">
-                     {/* Decorative pattern */}
-                     <div className="absolute top-0 left-0 w-full h-20 bg-white" style={{clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 20%)'}}></div>
-                    
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
-                        <div className="lg:grid lg:grid-cols-12 lg:gap-16 items-start">
+                {/* Content Wrapper with Sidebar */}
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                    <div className="flex flex-col lg:flex-row gap-8">
+                        
+                        {/* Left Column - Main Content (75%) */}
+                        <div className="w-full lg:w-3/4 space-y-16">
                             
-                            {/* Left Column: Photo & Summary */}
-                            <div className="lg:col-span-5 mb-12 lg:mb-0">
-                                <div className="relative group">
-                                    <div className="relative rounded-xl shadow-2xl w-full overflow-hidden bg-gray-900 border-4 border-white/30">
-                                        <img 
-                                            src={imgSrc}
-                                            onError={handleImageError}
-                                            alt="Dr. Rodrigo Duarte Franco" 
-                                            className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" 
-                                        />
-                                    </div>
-                                    <div className="absolute -bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-gray-100">
-                                        <h3 className="text-xl font-bold text-gray-900">Dr. Rodrigo Duarte Franco</h3>
-                                        <p className="text-teal-700 font-bold text-sm">CRM-MS 10087</p>
-                                        <p className="text-teal-600 font-medium">Médico</p>
+                            {/* Services Section */}
+                            <section id="serviços" className="scroll-mt-28">
+                                <div className="text-center mb-12">
+                                    <h2 className="text-3xl font-serif font-bold text-teal-900 mb-4">Exames em Destaque</h2>
+                                    <div className="h-1 w-20 bg-teal-500 mx-auto rounded-full"></div>
+                                </div>
+
+                                <div className="grid md:grid-cols-2 gap-8 mb-12">
+                                    {/* Ecocardiograma Fetal Card */}
+                                    <div className="bg-white rounded-2xl p-8 shadow-lg border border-teal-100 hover:shadow-xl transition-shadow relative overflow-hidden group">
+                                        <div className="absolute top-0 right-0 bg-teal-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">Especialidade</div>
+                                        <div className="bg-teal-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-teal-100 transition-colors">
+                                            <Baby className="text-teal-600 w-8 h-8" />
+                                        </div>
+                                        <h3 className="text-xl font-bold text-gray-900 mb-3">Ecocardiograma Fetal</h3>
+                                        <p className="text-gray-600 mb-4 leading-relaxed">
+                                            Exame detalhado do coração do bebê ainda no útero. Fundamental para detectar precocemente cardiopatias congênitas e planejar o melhor acompanhamento.
+                                        </p>
                                         <a 
-                                            href="http://lattes.cnpq.br/2901086695714310" 
+                                            href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/L14598.htm" 
                                             target="_blank" 
                                             rel="noopener noreferrer"
-                                            className="mt-3 inline-flex items-center text-xs font-bold text-gray-500 hover:text-teal-700 transition-colors uppercase tracking-wide border border-gray-300 px-3 py-1 rounded-full"
+                                            className="inline-flex items-center text-sm font-semibold text-teal-700 hover:text-teal-900 bg-teal-50 px-3 py-2 rounded-lg border border-teal-200 hover:bg-teal-100 transition-colors mt-2"
                                         >
-                                            <FileText size={14} className="mr-2" />
-                                            Acessar Lattes
+                                            <Scale className="w-4 h-4 mr-2" />
+                                            Lei do Ecocardiograma Fetal
                                         </a>
                                     </div>
-                                </div>
-                            </div>
-                            
-                            {/* Right Column: Detailed CV */}
-                            <div className="lg:col-span-7">
-                                <div className="mb-8">
-                                    <h2 className="text-teal-600 font-semibold tracking-wide uppercase text-sm mb-2">Trajetória Profissional</h2>
-                                    <h3 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6">Formação Multidisciplinar de Excelência</h3>
-                                    <p className="text-lg text-gray-700 italic font-serif border-l-4 border-teal-500 pl-4 py-2 bg-white rounded-r-lg shadow-sm mb-6">
-                                        "A combinação de Medicina, Fisioterapia e Educação Física me proporciona uma visão única e integrada da saúde humana."
-                                    </p>
-                                    
-                                    <div className="bg-teal-100 p-4 rounded-lg border-l-4 border-teal-600 mb-8">
-                                        <h5 className="font-bold text-teal-900 flex items-center"><GraduationCap className="w-4 h-4 mr-2"/>Cursos em Ultrassonografia</h5>
-                                        <p className="text-teal-800 text-sm mt-1">Cursos realizados na FATESA - Tradição de mais de 30 anos em cursos de ultrassonografia.</p>
+
+                                    {/* Perícia Médica Card */}
+                                    <div className="bg-white rounded-2xl p-8 shadow-lg border border-teal-100 hover:shadow-xl transition-shadow group">
+                                        <div className="bg-teal-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-teal-100 transition-colors">
+                                            <FileText className="text-teal-600 w-8 h-8" />
+                                        </div>
+                                        <h3 className="text-xl font-bold text-gray-900 mb-3">Perícia Médica</h3>
+                                        <p className="text-gray-600 leading-relaxed">
+                                            Avaliação técnica e imparcial para fins judiciais e administrativos. Experiência como perito judicial nomeado, garantindo laudos precisos e fundamentados.
+                                        </p>
                                     </div>
                                 </div>
 
-                                <div className="space-y-8">
-                                    {/* Bloco de Formação */}
-                                    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                                        <div className="flex items-center mb-4 border-b border-gray-100 pb-3">
-                                            <div className="bg-teal-600 p-2 rounded-lg text-white mr-3">
-                                                <Award size={20} />
-                                            </div>
-                                            <h4 className="text-xl font-bold text-gray-900">Formação Acadêmica e Especializações</h4>
+                                {/* Catalog of Exams */}
+                                <h3 className="text-2xl font-serif font-bold text-teal-900 mb-8 text-center">Catálogo de Ultrassonografia</h3>
+                                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                    {ultrasoundExams.map((exam, idx) => (
+                                        <div key={idx} className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-teal-200 transition-all text-center flex flex-col items-center">
+                                            <div className="text-teal-600 mb-2">{exam.icon}</div>
+                                            <h4 className="font-bold text-gray-800 text-sm">{exam.name}</h4>
+                                            <p className="text-xs text-gray-500 mt-1">{exam.desc}</p>
                                         </div>
-                                        <div className="space-y-4 text-gray-700 leading-relaxed text-sm md:text-base">
-                                            <p>
-                                                <strong>Graduação em Medicina:</strong> UNEMAT - Universidade Estadual do Mato Grosso - Cáceres - MT (2018).
-                                            </p>
-                                            <p>
-                                                <strong>Graduação em Fisioterapia:</strong> UNOESTE - Universidade do Oeste Paulista (2004).
-                                            </p>
-                                            <p>
-                                                <strong>Graduação em Educação Física:</strong> FIFASUL - Faculdades Integradas de Fátima do Sul (2002).
-                                            </p>
+                                    ))}
+                                </div>
+                            </section>
+
+                            {/* Curriculum Section */}
+                            <section id="currículo" className="scroll-mt-28">
+                                <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
+                                    <div className="bg-teal-800 p-8 md:p-12 text-white">
+                                        <div className="flex flex-col md:flex-row items-center gap-8">
+                                            <div className="shrink-0">
+                                                 <img 
+                                                    src={imgSrc} 
+                                                    alt="Dr. Rodrigo Duarte Franco" 
+                                                    className="w-32 h-32 rounded-full object-cover object-top border-4 border-white/20 shadow-xl"
+                                                />
+                                            </div>
+                                            <div>
+                                                <h2 className="text-3xl font-serif font-bold mb-2">Dr. Rodrigo Duarte Franco</h2>
+                                                <p className="text-teal-200 font-medium text-lg mb-4">CRM-MS 10087</p>
+                                                <div className="flex flex-wrap gap-2">
+                                                    <span className="bg-teal-900/50 px-3 py-1 rounded-full text-sm border border-teal-700">Ultrassonografista</span>
+                                                    <span className="bg-teal-900/50 px-3 py-1 rounded-full text-sm border border-teal-700">Perito Médico</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="p-8 md:p-12 space-y-8">
+                                        {/* Destaque FATESA */}
+                                        <div className="bg-teal-50 rounded-2xl p-6 border border-teal-100">
+                                            <div className="flex items-start gap-4">
+                                                <div className="bg-teal-100 p-3 rounded-lg text-teal-700 mt-1">
+                                                    <Award className="w-6 h-6" />
+                                                </div>
+                                                <div>
+                                                    <h3 className="text-lg font-bold text-teal-900 mb-2">Cursos em Ultrassonografia</h3>
+                                                    <p className="text-gray-700 font-medium">
+                                                        Cursos realizados na FATESA - Tradição de mais de 30 anos em cursos de ultrassonografia.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="grid md:grid-cols-2 gap-8">
+                                            <div>
+                                                <h3 className="flex items-center text-xl font-bold text-gray-800 mb-6">
+                                                    <GraduationCap className="w-5 h-5 text-teal-600 mr-2" />
+                                                    Formação Acadêmica
+                                                </h3>
+                                                <ul className="space-y-6 relative border-l-2 border-gray-200 ml-3 pl-6 pb-2">
+                                                    <li className="relative">
+                                                        <div className="absolute -left-[31px] bg-teal-600 h-4 w-4 rounded-full border-4 border-white"></div>
+                                                        <h4 className="font-bold text-gray-900">Cursos de Ultrassom - FATESA</h4>
+                                                        <p className="text-sm text-gray-600 mt-1">
+                                                            Ultrassom medicina interna, ultrassom de tireoide, ultrassom de mamas, ultrassom vascular, ultrassom obstétrico, ultrassom endovaginal, ultrassom ecocardiograma fetal, ultrassom musculoesquelético.
+                                                        </p>
+                                                    </li>
+                                                    <li className="relative">
+                                                        <div className="absolute -left-[31px] bg-teal-600 h-4 w-4 rounded-full border-4 border-white"></div>
+                                                        <h4 className="font-bold text-gray-900">Graduação em Medicina</h4>
+                                                        <span className="text-xs text-teal-600 font-semibold block mb-1">2018</span>
+                                                        <p className="text-sm text-gray-600">UNEMAT - Universidade Estadual do Mato Grosso - Cáceres - MT</p>
+                                                    </li>
+                                                    <li className="relative">
+                                                        <div className="absolute -left-[31px] bg-gray-400 h-4 w-4 rounded-full border-4 border-white"></div>
+                                                        <h4 className="font-bold text-gray-900">Pós-graduação em Perícia Médica</h4>
+                                                        <span className="text-xs text-teal-600 font-semibold block mb-1">2023</span>
+                                                    </li>
+                                                    <li className="relative">
+                                                        <div className="absolute -left-[31px] bg-gray-400 h-4 w-4 rounded-full border-4 border-white"></div>
+                                                        <h4 className="font-bold text-gray-900">Pós-graduação em Auditoria Hospitalar</h4>
+                                                        <span className="text-xs text-teal-600 font-semibold block mb-1">2022</span>
+                                                    </li>
+                                                     <li className="relative">
+                                                        <div className="absolute -left-[31px] bg-gray-300 h-4 w-4 rounded-full border-4 border-white"></div>
+                                                        <h4 className="font-bold text-gray-900">Outras Graduações</h4>
+                                                        <p className="text-sm text-gray-600 mt-1">Fisioterapia (UNOESTE - 2004) e Educação Física (FIFASUL - 2002)</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div>
+                                                <h3 className="flex items-center text-xl font-bold text-gray-800 mb-6">
+                                                    <Stethoscope className="w-5 h-5 text-teal-600 mr-2" />
+                                                    Trajetória Profissional
+                                                </h3>
+                                                <div className="space-y-6 text-sm text-gray-600 leading-relaxed bg-gray-50 p-6 rounded-xl border border-gray-100">
+                                                    <p>
+                                                        <strong className="text-gray-900 block mb-1">Experiência Atual (Nova Andradina e Região):</strong>
+                                                        • Médico ESF Prefeitura Municipal Nova Andradina - MS - concursado (desde 2018);<br/>
+                                                        • Diretor clínico e técnico - Médico plantonista no Hospital Municipal de Taquarussu (2020);<br/> 
+                                                        • Médico plantonista no UPA de Batayporã;<br/>
+                                                        • Perito judicial do fórum de Batayporã nomeado desde 2021.
+                                                    </p>
+                                                    <p>
+                                                        <strong className="text-gray-900 block mb-1">Experiência Prévia:</strong>
+                                                        • Professor de Educação Física contratado da SEDUC - MS - Anaurilândia - MS (2 anos);<br/> 
+                                                        • Fisioterapeuta concursado da secretaria de saúde do Município de Canarana - MT (8 anos);<br/> 
+                                                        • Professor universitário na Faculdade do Pantanal - FAPAN - Cáceres - MT (4,5 anos);<br/>
+                                                        • Médico plantonista no Hospital Cassems de Nova Andradina (5 anos);<br/>
+                                                        • Médico plantonista no Hospital Regional de Nova Andradina - MS (5 anos).
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            {/* News Section */}
+                            <section id="notícias" className="scroll-mt-28">
+                                <HealthNewsWidget />
+                            </section>
+
+                            {/* Contact Section */}
+                            <section id="contato" className="scroll-mt-28 mb-12">
+                                <div className="bg-teal-900 rounded-3xl overflow-hidden shadow-xl">
+                                    <div className="grid md:grid-cols-2">
+                                        <div className="p-8 md:p-12 text-white space-y-8">
+                                            <div>
+                                                <h2 className="text-3xl font-serif font-bold mb-4">Agende seu Exame</h2>
+                                                <p className="text-teal-200">Entre em contato para marcar sua consulta ou tirar dúvidas sobre procedimentos.</p>
+                                            </div>
                                             
-                                            <div className="pt-2">
-                                                <h5 className="font-semibold text-teal-800 mb-2">Pós-Graduação e Aperfeiçoamento:</h5>
-                                                <ul className="list-disc pl-5 space-y-2">
-                                                    <li>Pós graduação em Acupuntura - FACIS - Faculdade de Ciências da Saúde São Paulo (2005).</li>
-                                                    <li>Aprimoramento em RPG-RCS - Reeducação Postural Global - Instituto Brasileiro de Acupuntura (2006).</li>
-                                                    <li>Aprimoramento em Acupuntura Estética - Instituto Brasileiro de Acupuntura (2006).</li>
-                                                    <li>Pós Graduação pela Unileya - Auditoria Hospitalar (2022).</li>
-                                                    <li>Pós Graduação pela Unileya - Pericia médica (2023).</li>
-                                                </ul>
-                                            </div>
+                                            <div className="space-y-6">
+                                                <div className="flex items-start space-x-4">
+                                                    <div className="bg-teal-800 p-3 rounded-lg">
+                                                        <MapPin className="w-6 h-6 text-teal-400" />
+                                                    </div>
+                                                    <div>
+                                                        <h3 className="font-bold text-lg">Localização</h3>
+                                                        <p className="text-teal-100">Nova Andradina - MS</p>
+                                                        <p className="text-teal-300 text-sm">Atendimento em diversas unidades</p>
+                                                    </div>
+                                                </div>
 
-                                            <div className="pt-2">
-                                                <h5 className="font-semibold text-teal-800 mb-2">Cursos de Ultrassom - FATESA:</h5>
-                                                <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 list-disc pl-5">
-                                                    <li>Ultrassom Medicina Interna</li>
-                                                    <li>Ultrassom de Tireoide</li>
-                                                    <li>Ultrassom de Mamas</li>
-                                                    <li>Ultrassom Vascular</li>
-                                                    <li>Ultrassom Obstétrico</li>
-                                                    <li>Ultrassom Endovaginal</li>
-                                                    <li>Ultrassom Ecocardiograma Fetal</li>
-                                                    <li>Ultrassom Musculoesquelético</li>
-                                                </ul>
+                                                <div className="flex items-start space-x-4">
+                                                    <div className="bg-teal-800 p-3 rounded-lg">
+                                                        <Phone className="w-6 h-6 text-teal-400" />
+                                                    </div>
+                                                    <div>
+                                                        <h3 className="font-bold text-lg">Contato</h3>
+                                                        <p className="text-teal-100">(67) 99999-9999</p>
+                                                        <p className="text-teal-300 text-sm">Segunda a Sexta, 08h às 18h</p>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div className="flex items-start space-x-4">
+                                                     <div className="bg-teal-800 p-3 rounded-lg">
+                                                        <CheckCircle2 className="w-6 h-6 text-teal-400" />
+                                                    </div>
+                                                    <div>
+                                                        <h3 className="font-bold text-lg">Convênios</h3>
+                                                        <p className="text-teal-100">Unimed, Cassems, Particular</p>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    {/* Bloco de Experiência */}
-                                    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                                        <div className="flex items-center mb-4 border-b border-gray-100 pb-3">
-                                            <div className="bg-teal-600 p-2 rounded-lg text-white mr-3">
-                                                <BookOpen size={20} />
-                                            </div>
-                                            <h4 className="text-xl font-bold text-gray-900">Experiência Profissional</h4>
+                                        <div className="bg-white p-8 md:p-12">
+                                            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-gray-700 mb-2">Nome Completo</label>
+                                                    <input type="text" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-gray-50" placeholder="Seu nome" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-gray-700 mb-2">Telefone / WhatsApp</label>
+                                                    <input type="tel" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-gray-50" placeholder="(67) 99999-9999" />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-sm font-medium text-gray-700 mb-2">Tipo de Exame</label>
+                                                    <select className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-gray-50">
+                                                        <option value="">Selecione uma opção</option>
+                                                        {ultrasoundExams.map((exam, idx) => (
+                                                             <option key={idx} value={exam.name}>{exam.name}</option>
+                                                        ))}
+                                                        <option value="Pericia">Perícia Médica</option>
+                                                        <option value="Outro">Outros</option>
+                                                    </select>
+                                                </div>
+                                                <button className="w-full bg-teal-600 text-white font-bold py-4 rounded-lg hover:bg-teal-700 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                                                    Solicitar Agendamento
+                                                </button>
+                                            </form>
                                         </div>
-                                        <ul className="space-y-3 text-gray-700 text-sm md:text-base">
-                                            <li className="flex items-start">
-                                                <CheckCircle2 className="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" />
-                                                <span><strong>Professor de Educação Física:</strong> Contratado da SEDUC - MS - Anaurilândia - MS (2 anos).</span>
-                                            </li>
-                                            <li className="flex items-start">
-                                                <CheckCircle2 className="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" />
-                                                <span><strong>Fisioterapeuta:</strong> Concursado da secretaria de saúde do Município de Canarana - MT (8 anos).</span>
-                                            </li>
-                                            <li className="flex items-start">
-                                                <CheckCircle2 className="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" />
-                                                <span><strong>Professor universitário:</strong> Faculdade do Pantanal - FAPAN - Cáceres - MT (4,5 anos).</span>
-                                            </li>
-                                            <li className="flex items-start">
-                                                <CheckCircle2 className="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" />
-                                                <span><strong>Médico plantonista:</strong> Hospital Regional de Nova Andradina - MS (5 anos).</span>
-                                            </li>
-                                            <li className="flex items-start">
-                                                <CheckCircle2 className="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" />
-                                                <span><strong>Médico ESF:</strong> Prefeitura Municipal Nova Andradina - MS - concursado (atual desde 12/2018).</span>
-                                            </li>
-                                            <li className="flex items-start">
-                                                <CheckCircle2 className="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" />
-                                                <span><strong>Médico plantonista:</strong> Hospital Cassems de Nova Andradina (5 anos).</span>
-                                            </li>
-                                            <li className="flex items-start">
-                                                <CheckCircle2 className="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" />
-                                                <span><strong>Diretor clinico e tecnico - Médico plantonista:</strong> Hospital Municipal de Taquarussu (atual desde 01/2020).</span>
-                                            </li>
-                                            <li className="flex items-start">
-                                                <CheckCircle2 className="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" />
-                                                <span><strong>Perito Judicial:</strong> Fórum de Batayporã nomeado desde 2020.</span>
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
-                            </div>
+                            </section>
                         </div>
-                    </div>
-                </section>
 
-                {/* Dynamic News Section (Gemini Powered) */}
-                <section id="notícias" className="py-20 bg-white">
-                    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl font-serif font-bold text-gray-900">Atualizações em Ultrassom</h2>
-                            <p className="mt-2 text-gray-600">
-                                Notícias e artigos científicos sobre Ecocardiograma Fetal e Ultrassonografia selecionados por Inteligência Artificial.
-                            </p>
-                        </div>
-                        <HealthNewsWidget />
-                    </div>
-                </section>
-
-                {/* Contact Section */}
-                <section id="contato" className="py-20 bg-gray-900 text-white">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                            <div>
-                                <h3 className="text-3xl font-serif font-bold mb-6">Fale Conosco</h3>
-                                <p className="text-gray-400 mb-8 text-lg">
-                                    Realize seus exames com quem tem experiência e formação sólida. Entre em contato para agendamento em Nova Andradina e região.
-                                </p>
+                        {/* Right Column - Sidebar for Ads (25%) */}
+                        <aside className="w-full lg:w-1/4 hidden lg:block">
+                             <div className="sticky top-28 space-y-8">
+                                <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center">
+                                    <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 self-start">Publicidade</h3>
+                                    <AdPlaceholder height="h-[250px]" text="Anúncio 300x250" label="Espaço Publicitário" />
+                                </div>
                                 
-                                <div className="space-y-6">
-                                    <div className="flex items-start space-x-4">
-                                        <Phone className="text-teal-400 w-6 h-6 mt-1" />
-                                        <div>
-                                            <h4 className="font-bold text-lg">Contato</h4>
-                                            <p className="text-gray-300 mt-1">(67) 99999-9999</p>
-                                            <p className="text-xs text-gray-500">Número de exemplo baseada na região DDD 67</p>
-                                        </div>
-                                    </div>
-                                    
-                                    <div className="flex items-start space-x-4">
-                                        <MapPin className="text-teal-400 w-6 h-6 mt-1" />
-                                        <div>
-                                            <h4 className="font-bold text-lg">Localização</h4>
-                                            <p className="text-gray-300 mt-1">
-                                                Nova Andradina - Mato Grosso do Sul (MS)<br />
-                                                Atendimento também em Taquarussu e região.
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex items-start space-x-4">
-                                        <Calendar className="text-teal-400 w-6 h-6 mt-1" />
-                                        <div>
-                                            <h4 className="font-bold text-lg">Atendimento</h4>
-                                            <p className="text-gray-300 mt-1">
-                                                Consulte disponibilidade de agenda para Ultrassom e Ecocardiograma.
-                                            </p>
-                                        </div>
-                                    </div>
+                                <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center">
+                                     <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 self-start">Publicidade</h3>
+                                     <AdPlaceholder height="h-[600px]" text="Anúncio 300x600" label="Espaço Publicitário" />
                                 </div>
-                            </div>
-
-                            <div className="bg-white rounded-2xl p-8 text-gray-800 shadow-2xl">
-                                <h4 className="text-xl font-bold text-gray-900 mb-6">Solicite um Agendamento</h4>
-                                <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-                                    <div>
-                                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Nome Completo</label>
-                                        <input type="text" id="name" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-gray-50 focus:bg-white" placeholder="Seu nome" />
-                                    </div>
-                                    <div className="grid grid-cols-2 gap-4">
-                                        <div>
-                                            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Telefone</label>
-                                            <input type="tel" id="phone" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-gray-50 focus:bg-white" placeholder="(67) 9..." />
-                                        </div>
-                                        <div>
-                                             <label htmlFor="exam" className="block text-sm font-medium text-gray-700 mb-1">Exame</label>
-                                            <select id="exam" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-gray-50 focus:bg-white">
-                                                <option>Ecocardiograma Fetal</option>
-                                                <option>Obstétrico</option>
-                                                <option>Abdome Total</option>
-                                                <option>Próstata</option>
-                                                <option>Pélvico</option>
-                                                <option>Tireoide</option>
-                                                <option>Mama</option>
-                                                <option>Musculoesquelético</option>
-                                                <option>Vascular</option>
-                                                <option>Perícia Médica</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    
-                                    <div>
-                                        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Mensagem (Opcional)</label>
-                                        <textarea id="message" rows={3} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-gray-50 focus:bg-white" placeholder="Dúvidas ou preferência de horário"></textarea>
-                                    </div>
-                                    <button className="w-full bg-teal-600 text-white font-bold py-3.5 rounded-lg hover:bg-teal-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                                        Enviar Solicitação
-                                    </button>
-                                </form>
+                             </div>
+                        </aside>
+                        
+                         {/* Mobile Ads (Visible only on small screens) */}
+                        <div className="lg:hidden space-y-8 mb-12">
+                            <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                                <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Publicidade</h3>
+                                <AdPlaceholder height="h-[250px]" text="Anúncio 300x250" label="Espaço Publicitário" />
                             </div>
                         </div>
-                    </div>
-                </section>
 
-                {/* Footer */}
-                <Footer />
+                    </div>
+                </div>
             </main>
+
+            <Footer />
         </div>
     );
 };
