@@ -249,10 +249,6 @@ const App: React.FC = () => {
                                             <div>
                                                 <h2 className="text-3xl font-serif font-bold mb-2">Dr. Rodrigo Duarte Franco</h2>
                                                 <p className="text-teal-200 font-medium text-lg mb-4">CRM-MS 10087</p>
-                                                <div className="flex flex-wrap gap-2">
-                                                    <span className="bg-teal-900/50 px-3 py-1 rounded-full text-sm border border-teal-700">Ultrassonografista</span>
-                                                    <span className="bg-teal-900/50 px-3 py-1 rounded-full text-sm border border-teal-700">Perito Médico</span>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
