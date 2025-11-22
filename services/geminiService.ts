@@ -52,6 +52,11 @@ export const getHealthNews = async (): Promise<HealthNews[]> => {
       url: "https://hospitalsanmichele.com.br/2025/02/21/ecocardiograma-fetal-quando-e-por-que-fazer-a-importancia-do-exame-na-avaliacao-da-saude-do-bebe/"
     },
     {
+      title: "Tudo sobre Espirometria",
+      summary: "Resumo completo sobre definição, indicações, técnica e análise dos resultados deste exame de função pulmonar.",
+      url: "https://sanarmed.com/resumo-de-espirometria-definicao-indicacoes-tecnica-e-analise-do-resultados/"
+    },
+    {
       title: "Entenda a Translucência Nucal",
       summary: "Saiba a importância da medição da nuca do feto no primeiro trimestre para o rastreamento de condições genéticas.",
       url: "https://eigierdiagnosticos.com.br/blog/o-que-e-translucencia-nucal/"

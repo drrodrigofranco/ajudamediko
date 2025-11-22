@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import HealthNewsWidget from './components/HealthNewsWidget';
 import Footer from './components/Footer';
 import AdPlaceholder from './components/AdPlaceholder';
+import GestationalCalculator from './components/GestationalCalculator';
 import { 
     Stethoscope, 
     HeartPulse, 
@@ -23,7 +24,8 @@ import {
     Dumbbell,
     Aperture,
     Activity,
-    Scale
+    Scale,
+    Wind
 } from 'lucide-react';
 
 const App: React.FC = () => {
@@ -48,6 +50,7 @@ const App: React.FC = () => {
         { name: "Mama", icon: <HeartPulse className="w-6 h-6" />, desc: "Prevenção e diagnóstico" },
         { name: "Musculoesquelético", icon: <Dumbbell className="w-6 h-6" />, desc: "Articulações e músculos" },
         { name: "Vascular", icon: <Waves className="w-6 h-6" />, desc: "Doppler colorido" },
+        { name: "Espirometria", icon: <Wind className="w-6 h-6" />, desc: "Prova de função pulmonar" },
     ];
 
     return (
@@ -222,7 +225,7 @@ const App: React.FC = () => {
                                 </div>
 
                                 {/* Catalog of Exams */}
-                                <h3 className="text-2xl font-serif font-bold text-teal-900 mb-8 text-center">Catálogo de Ultrassonografia</h3>
+                                <h3 className="text-2xl font-serif font-bold text-teal-900 mb-8 text-center">Catálogo de Exames</h3>
                                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                                     {ultrasoundExams.map((exam, idx) => (
                                         <div key={idx} className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-teal-200 transition-all text-center flex flex-col items-center">
@@ -232,6 +235,11 @@ const App: React.FC = () => {
                                         </div>
                                     ))}
                                 </div>
+                            </section>
+
+                            {/* Gestational Calculator Section */}
+                            <section>
+                                <GestationalCalculator />
                             </section>
 
                             {/* Curriculum Section */}
@@ -356,9 +364,9 @@ const App: React.FC = () => {
                                                         <MapPin className="w-6 h-6 text-teal-400" />
                                                     </div>
                                                     <div>
-                                                        <h3 className="font-bold text-lg">Localização</h3>
-                                                        <p className="text-teal-100">Nova Andradina - MS</p>
-                                                        <p className="text-teal-300 text-sm">Atendimento em diversas unidades</p>
+                                                        <h3 className="font-bold text-lg">Endereço</h3>
+                                                        <p className="text-teal-100">Rua Melvin Jones, 1253</p>
+                                                        <p className="text-teal-300 text-sm">Nova Andradina - MS, 79750-000</p>
                                                     </div>
                                                 </div>
 
@@ -369,7 +377,7 @@ const App: React.FC = () => {
                                                     <div>
                                                         <h3 className="font-bold text-lg">Contato</h3>
                                                         <p className="text-teal-100">(67) 99999-9999</p>
-                                                        <p className="text-teal-300 text-sm">Segunda a Sexta, 08h às 18h</p>
+                                                        <p className="text-teal-300 text-sm">Atendimento somente com agendamento após as 17h</p>
                                                     </div>
                                                 </div>
                                                 
@@ -379,7 +387,7 @@ const App: React.FC = () => {
                                                     </div>
                                                     <div>
                                                         <h3 className="font-bold text-lg">Convênios</h3>
-                                                        <p className="text-teal-100">Unimed, Cassems, Particular</p>
+                                                        <p className="text-teal-100">PROVER e Particular</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -402,6 +410,7 @@ const App: React.FC = () => {
                                                         {ultrasoundExams.map((exam, idx) => (
                                                              <option key={idx} value={exam.name}>{exam.name}</option>
                                                         ))}
+                                                        <option value="Espirometria">Espirometria</option>
                                                         <option value="Pericia">Perícia Médica</option>
                                                         <option value="Outro">Outros</option>
                                                     </select>

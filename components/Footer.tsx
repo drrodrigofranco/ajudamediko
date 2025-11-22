@@ -48,6 +48,7 @@ const Footer: React.FC = () => {
                     <li>Ultrassom Vascular (Doppler)</li>
                     <li>Ultrassom Musculoesquelético</li>
                     <li>Abdome, Próstata e Pélvico</li>
+                    <li>Espirometria</li>
                     <li>Perícia Médica</li>
                 </ul>
             </div>
