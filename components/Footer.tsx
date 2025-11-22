@@ -31,6 +31,12 @@ const Footer: React.FC = () => {
                     <li><a href="#serviços" className="hover:text-teal-400 transition-colors">Exames</a></li>
                     <li><a href="#currículo" className="hover:text-teal-400 transition-colors">Currículo</a></li>
                     <li><a href="#contato" className="hover:text-teal-400 transition-colors">Agendamento</a></li>
+                    <li className="pt-2 border-t border-gray-800 mt-2">
+                        <a href="/politica-de-privacidade.html" className="text-xs hover:text-teal-400 transition-colors block py-1">Política de Privacidade</a>
+                    </li>
+                    <li>
+                        <a href="/termos-de-uso.html" className="text-xs hover:text-teal-400 transition-colors block py-1">Termos de Uso</a>
+                    </li>
                 </ul>
             </div>
 
