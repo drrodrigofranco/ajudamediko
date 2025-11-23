@@ -282,11 +282,6 @@ const GestationalCalculator: React.FC = () => {
                     </div>
                 )}
             </div>
-            <div className="bg-gray-50 px-6 py-3 border-t border-gray-100">
-                <p className="text-[10px] text-gray-400 text-center">
-                    Atenção: Esta calculadora serve apenas como estimativa e não substitui a avaliação médica ou ultrassonográfica profissional.
-                </p>
-            </div>
         </div>
     );
 };

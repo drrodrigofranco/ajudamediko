@@ -17,7 +17,7 @@ import {
     CheckCircle2,
     BookOpen,
     FileText,
-    Baby,
+    Baby, 
     Waves,
     ScanLine,
     User,
@@ -25,15 +25,43 @@ import {
     Aperture,
     Activity,
     Scale,
-    Wind
+    Wind,
+    ChevronDown,
+    ChevronUp,
+    HelpCircle
 } from 'lucide-react';
+
+interface FAQItemProps {
+    question: string;
+    answer: string;
+}
+
+const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    return (
+        <div className="border border-gray-200 rounded-lg bg-white overflow-hidden">
+            <button 
+                onClick={() => setIsOpen(!isOpen)}
+                className="w-full flex justify-between items-center p-4 text-left hover:bg-gray-50 transition-colors"
+            >
+                <span className="font-semibold text-teal-900">{question}</span>
+                {isOpen ? <ChevronUp className="text-teal-600 w-5 h-5" /> : <ChevronDown className="text-gray-400 w-5 h-5" />}
+            </button>
+            {isOpen && (
+                <div className="p-4 pt-0 text-gray-600 text-sm leading-relaxed border-t border-gray-100 mt-2 bg-gray-50/50">
+                    {answer}
+                </div>
+            )}
+        </div>
+    );
+};
 
 const App: React.FC = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     // Usando o link fornecido pelo usuário (Postimages)
     const imgSrc = "https://i.postimg.cc/JnZ8kw3b/585283322-25300808462865092-8130294083600063357-n.jpg";
 
-    const navItems = ['Serviços', 'Calculadoras', 'Currículo', 'Notícias', 'Contato'];
+    const navItems = ['Serviços', 'Calculadoras', 'Currículo', 'Dúvidas', 'Notícias', 'Contato'];
 
     const normalizeId = (text: string) => {
         return text
@@ -60,6 +88,29 @@ const App: React.FC = () => {
         { name: "Musculoesquelético", icon: <Dumbbell className="w-6 h-6" />, desc: "Articulações e músculos" },
         { name: "Vascular", icon: <Waves className="w-6 h-6" />, desc: "Doppler colorido" },
         { name: "Espirometria", icon: <Wind className="w-6 h-6" />, desc: "Prova de função pulmonar" },
+    ];
+
+    const faqList = [
+        {
+            question: "É necessário jejum para realizar o Ultrassom de Abdome Total?",
+            answer: "Sim. Geralmente, recomenda-se jejum de 6 a 8 horas para adultos. Isso reduz a quantidade de gases no intestino e permite que a vesícula biliar esteja cheia, facilitando a visualização dos órgãos. Para crianças, o tempo pode ser menor. Consulte nossas orientações no momento do agendamento."
+        },
+        {
+            question: "O que é o Ecocardiograma Fetal e quando devo fazer?",
+            answer: "O Ecocardiograma Fetal é um exame de ultrassom focado especificamente no coração do bebê. Ele é capaz de detectar alterações estruturais e funcionais cardíacas precocemente. É indicado principalmente entre a 24ª e 28ª semana de gestação, especialmente em casos de histórico familiar de cardiopatias ou diabetes gestacional."
+        },
+        {
+            question: "Qual a diferença entre Ultrassom Pélvico e Transvaginal?",
+            answer: "O Ultrassom Pélvico (via abdominal) é realizado com a bexiga cheia e o transdutor sobre a barriga, indicado para pacientes virgens ou quando se deseja uma visão mais ampla. O Transvaginal (via interna) oferece imagens mais detalhadas do útero e ovários, sendo o método preferencial para diagnósticos precisos em mulheres que já iniciaram a vida sexual."
+        },
+        {
+            question: "Aceitam convênios médicos?",
+            answer: "Atualmente, atendemos através do convênio PROVER e consultas Particulares. Fornecemos recibo para que você possa solicitar reembolso junto ao seu plano de saúde, caso ele ofereça essa modalidade."
+        },
+        {
+            question: "Como funciona a Perícia Médica?",
+            answer: "A Perícia Médica é uma avaliação técnica realizada para esclarecer questões de saúde em processos administrativos ou judiciais. Como perito nomeado, realizo uma análise imparcial baseada em exame clínico e documental para fundamentar laudos que auxiliam juízes e advogados na tomada de decisões."
+        }
     ];
 
     return (
@@ -195,8 +246,11 @@ const App: React.FC = () => {
                             {/* Services Section */}
                             <section id="servicos" className="scroll-mt-28">
                                 <div className="text-center mb-12">
-                                    <h2 className="text-3xl font-serif font-bold text-teal-900 mb-4">Exames em Destaque</h2>
-                                    <div className="h-1 w-20 bg-teal-500 mx-auto rounded-full"></div>
+                                    <h2 className="text-3xl font-serif font-bold text-teal-900 mb-4">Excelência em Diagnóstico por Imagem</h2>
+                                    <div className="h-1 w-20 bg-teal-500 mx-auto rounded-full mb-6"></div>
+                                    <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                                        A ultrassonografia é uma ferramenta essencial na medicina moderna, permitindo a visualização não invasiva de estruturas internas do corpo em tempo real. Utilizamos equipamentos de alta resolução para garantir a precisão necessária em cada laudo, seja para acompanhamento gestacional, investigação de dores abdominais ou avaliações vasculares e musculoesqueléticas.
+                                    </p>
                                 </div>
 
                                 <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -207,7 +261,7 @@ const App: React.FC = () => {
                                         </div>
                                         <h3 className="text-xl font-bold text-gray-900 mb-3">Ecocardiograma Fetal</h3>
                                         <p className="text-gray-600 mb-4 leading-relaxed">
-                                            Exame detalhado do coração do bebê ainda no útero. Fundamental para detectar precocemente cardiopatias congênitas e planejar o melhor acompanhamento.
+                                            Exame detalhado do coração do bebê ainda no útero. Fundamental para detectar precocemente cardiopatias congênitas e planejar o melhor acompanhamento. A detecção precoce pode salvar vidas e preparar a equipe médica para o nascimento.
                                         </p>
                                         <a 
                                             href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/L14598.htm" 
@@ -227,13 +281,16 @@ const App: React.FC = () => {
                                         </div>
                                         <h3 className="text-xl font-bold text-gray-900 mb-3">Perícia Médica</h3>
                                         <p className="text-gray-600 leading-relaxed">
-                                            Avaliação técnica e imparcial para fins judiciais e administrativos. Experiência como perito judicial nomeado, garantindo laudos precisos e fundamentados.
+                                            Avaliação técnica e imparcial para fins judiciais e administrativos. Experiência sólida como perito judicial nomeado em diversas comarcas, garantindo laudos precisos, éticos e devidamente fundamentados na literatura médica vigente.
                                         </p>
                                     </div>
                                 </div>
 
                                 {/* Catalog of Exams */}
                                 <h3 className="text-2xl font-serif font-bold text-teal-900 mb-8 text-center">Catálogo de Exames</h3>
+                                <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+                                    Confira abaixo a lista completa de procedimentos realizados em nossa clínica. Para exames específicos não listados, entre em contato para verificar disponibilidade.
+                                </p>
                                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                                     {ultrasoundExams.map((exam, idx) => (
                                         <div key={idx} className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-teal-200 transition-all text-center flex flex-col items-center">
@@ -248,6 +305,18 @@ const App: React.FC = () => {
                             {/* Gestational Calculator Section */}
                             <section id="calculadoras" className="scroll-mt-28">
                                 <GestationalCalculator />
+                                <div className="mt-4 bg-white p-6 rounded-xl border border-gray-100 shadow-sm text-sm text-gray-600">
+                                    <h4 className="font-bold text-teal-900 mb-2 flex items-center">
+                                        <BookOpen className="w-4 h-4 mr-2" />
+                                        Entendendo os Cálculos
+                                    </h4>
+                                    <p className="mb-2">
+                                        <strong>DUM (Data da Última Menstruação):</strong> O método mais comum para datar a gravidez, contando o primeiro dia do último ciclo menstrual como o início da gestação.
+                                    </p>
+                                    <p>
+                                        <strong>DPP (Data Provável do Parto):</strong> Uma estimativa de quando o bebê completará 40 semanas. Apenas 5% dos bebês nascem exatamente na data prevista.
+                                    </p>
+                                </div>
                             </section>
 
                             {/* Curriculum Section */}
@@ -352,6 +421,24 @@ const App: React.FC = () => {
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            {/* FAQ Section - NEW for AdSense Content */}
+                            <section id="duvidas" className="scroll-mt-28">
+                                <div className="mb-8">
+                                    <h3 className="flex items-center text-2xl font-serif font-bold text-teal-900 mb-4">
+                                        <HelpCircle className="w-6 h-6 mr-2 text-teal-600" />
+                                        Dúvidas Frequentes
+                                    </h3>
+                                    <p className="text-gray-600 mb-6">
+                                        Confira abaixo as respostas para as perguntas mais comuns sobre os exames de ultrassom e nossos atendimentos. Informação de qualidade é o primeiro passo para sua saúde.
+                                    </p>
+                                    <div className="space-y-4">
+                                        {faqList.map((item, index) => (
+                                            <FAQItem key={index} question={item.question} answer={item.answer} />
+                                        ))}
                                     </div>
                                 </div>
                             </section>
