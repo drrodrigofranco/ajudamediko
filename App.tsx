@@ -109,7 +109,7 @@ const App: React.FC = () => {
         },
         {
             question: "Como funciona a Perícia Médica?",
-            answer: "A Perícia Médica é uma avaliação técnica realizada para esclarecer questões de saúde em processos administrativos ou judiciais. Como perito nomeado, realizo uma análise imparcial baseada em exame clínico e documental para fundamentar laudos que auxiliam juízes e advogados na tomada de decisões."
+            answer: "A Perícia Médica é uma avaliação técnica realizada para esclarecer questões de saúde em processos administrativos ou judiciais."
         }
     ];
 
