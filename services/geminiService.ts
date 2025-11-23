@@ -47,6 +47,11 @@ export const getGroundedResponse = async (prompt: string): Promise<ChatMessage> 
 export const getHealthNews = async (): Promise<HealthNews[]> => {
   const fallbackNews: HealthNews[] = [
     {
+      title: "Por que contratar um Perito Médico?",
+      summary: "Descubra o papel fundamental do assistente técnico em processos judiciais e como a expertise médica contribui para decisões assertivas e justas.",
+      url: "https://www.jpaservicosmedicos.com.br/porque-contratar-um-perito"
+    },
+    {
       title: "Ecocardiograma Fetal: Quando e por que fazer?",
       summary: "Entenda a importância deste exame fundamental na avaliação da saúde do bebê ainda durante a gestação e quando ele é indicado.",
       url: "https://hospitalsanmichele.com.br/2025/02/21/ecocardiograma-fetal-quando-e-por-que-fazer-a-importancia-do-exame-na-avaliacao-da-saude-do-bebe/"
@@ -62,11 +67,6 @@ export const getHealthNews = async (): Promise<HealthNews[]> => {
       url: "https://eigierdiagnosticos.com.br/blog/o-que-e-translucencia-nucal/"
     },
     {
-      title: "Pesquisa aponta desafios em Maternidades",
-      summary: "Estudo recente mostra a importância e a necessidade de equipes completas 24 horas em maternidades para garantir a segurança obstétrica.",
-      url: "https://agenciabrasil.ebc.com.br/saude/noticia/2025-05/pesquisa-mostra-que-faltam-equipes-completas-24-horas-em-maternidades"
-    },
-    {
       title: "Tudo sobre o Ultrassom de Abdome Total",
       summary: "Saiba como é feito e para que serve o ultrassom de abdome total, um dos exames mais solicitados para avaliação de órgãos internos.",
       url: "https://nav.dasa.com.br/blog/ultrassom-de-abdome-total"
@@ -75,11 +75,6 @@ export const getHealthNews = async (): Promise<HealthNews[]> => {
       title: "O Ultrassom Abdominal pode salvar vidas",
       summary: "A prevenção é o melhor remédio. Descubra como a ultrassonografia abdominal auxilia no diagnóstico precoce de diversas condições.",
       url: "https://clinicalucidioportella.com.br/voce-sabia-que-o-ultrassom-abdominal-pode-salvar-vidas/"
-    },
-    {
-      title: "A Importância do Pré-Natal Especializado",
-      summary: "O acompanhamento médico rigoroso e a realização dos ultrassons morfológicos e obstétricos são vitais para uma gestação tranquila.",
-      url: "https://www.febrasgo.org.br/pt/paciente/noticias"
     }
   ];
 

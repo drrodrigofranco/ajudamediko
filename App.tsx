@@ -33,6 +33,15 @@ const App: React.FC = () => {
     // Usando o link fornecido pelo usuário
     const imgSrc = "https://scontent.fmgf6-1.fna.fbcdn.net/v/t39.30808-6/585283322_25300808462865092_8130294083600063357_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGb8RUWYBGTI1Ied5S8tpJfaGtuylRDX5toa27KVENfm3rO1_htbBoFMJV66W3WJ5DJk0h1kapLxKoTWD5ikODK&_nc_ohc=S4yafWVpCYgQ7kNvwEOVaRF&_nc_oc=AdmebFHydxPh_u7Ocu3LMZjMwltDi6D0J02BT8OMGxKkOhQBL_nDjkjNaZXHzetSj2Q&_nc_zt=23&_nc_ht=scontent.fmgf6-1.fna&_nc_gid=I4d0UpqDi03i1jqOKV4pfg&oh=00_AfjptfXGRyS-3AaD7tVwqgTagyW3GUFFn9hED28n2-6QYg&oe=6922B3F0";
 
+    const navItems = ['Serviços', 'Calculadoras', 'Currículo', 'Notícias', 'Contato'];
+
+    const normalizeId = (text: string) => {
+        return text
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "") // Remove acentos
+            .toLowerCase();
+    };
+
     const scrollToSection = (id: string) => {
         const element = document.getElementById(id);
         if (element) {
@@ -72,10 +81,10 @@ const App: React.FC = () => {
                         
                         {/* Desktop Menu */}
                         <nav className="hidden md:flex space-x-8 items-center">
-                            {['Serviços', 'Currículo', 'Notícias', 'Contato'].map((item) => (
+                            {navItems.map((item) => (
                                 <button 
                                     key={item}
-                                    onClick={() => scrollToSection(item.toLowerCase().replace(' ', '-').replace('í', 'i'))}
+                                    onClick={() => scrollToSection(normalizeId(item))}
                                     className="text-gray-600 hover:text-teal-600 font-medium transition-colors text-sm uppercase tracking-wide"
                                 >
                                     {item}
@@ -101,10 +110,10 @@ const App: React.FC = () => {
                 {/* Mobile Menu */}
                 {isMobileMenuOpen && (
                     <div className="md:hidden bg-white border-t border-gray-100 py-4 px-4 space-y-4 shadow-lg absolute w-full">
-                        {['Serviços', 'Currículo', 'Notícias', 'Contato'].map((item) => (
+                        {navItems.map((item) => (
                             <button 
                                 key={item}
-                                onClick={() => scrollToSection(item.toLowerCase().replace(' ', '-').replace('í', 'i'))}
+                                onClick={() => scrollToSection(normalizeId(item))}
                                 className="block w-full text-left py-3 px-2 text-gray-600 font-medium border-b border-gray-50 hover:bg-gray-50"
                             >
                                 {item}
@@ -157,7 +166,7 @@ const App: React.FC = () => {
                                     <button onClick={() => scrollToSection('contato')} className="bg-white text-teal-900 px-8 py-3.5 rounded-full font-bold hover:bg-teal-50 transition-colors shadow-lg text-center">
                                         Agendar Consulta
                                     </button>
-                                    <button onClick={() => scrollToSection('currículo')} className="bg-transparent border-2 border-teal-400 text-teal-100 px-8 py-3.5 rounded-full font-bold hover:bg-teal-800/50 transition-colors text-center">
+                                    <button onClick={() => scrollToSection('curriculo')} className="bg-transparent border-2 border-teal-400 text-teal-100 px-8 py-3.5 rounded-full font-bold hover:bg-teal-800/50 transition-colors text-center">
                                         Conheça o Médico
                                     </button>
                                 </div>
@@ -184,7 +193,7 @@ const App: React.FC = () => {
                         <div className="w-full lg:w-3/4 space-y-16">
                             
                             {/* Services Section */}
-                            <section id="serviços" className="scroll-mt-28">
+                            <section id="servicos" className="scroll-mt-28">
                                 <div className="text-center mb-12">
                                     <h2 className="text-3xl font-serif font-bold text-teal-900 mb-4">Exames em Destaque</h2>
                                     <div className="h-1 w-20 bg-teal-500 mx-auto rounded-full"></div>
@@ -193,7 +202,6 @@ const App: React.FC = () => {
                                 <div className="grid md:grid-cols-2 gap-8 mb-12">
                                     {/* Ecocardiograma Fetal Card */}
                                     <div className="bg-white rounded-2xl p-8 shadow-lg border border-teal-100 hover:shadow-xl transition-shadow relative overflow-hidden group">
-                                        <div className="absolute top-0 right-0 bg-teal-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">Especialidade</div>
                                         <div className="bg-teal-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-teal-100 transition-colors">
                                             <Baby className="text-teal-600 w-8 h-8" />
                                         </div>
@@ -238,12 +246,12 @@ const App: React.FC = () => {
                             </section>
 
                             {/* Gestational Calculator Section */}
-                            <section>
+                            <section id="calculadoras" className="scroll-mt-28">
                                 <GestationalCalculator />
                             </section>
 
                             {/* Curriculum Section */}
-                            <section id="currículo" className="scroll-mt-28">
+                            <section id="curriculo" className="scroll-mt-28">
                                 <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
                                     <div className="bg-teal-800 p-8 md:p-12 text-white">
                                         <div className="flex flex-col md:flex-row items-center gap-8">
@@ -307,6 +315,11 @@ const App: React.FC = () => {
                                                         <h4 className="font-bold text-gray-900">Pós-graduação em Auditoria Hospitalar</h4>
                                                         <span className="text-xs text-teal-600 font-semibold block mb-1">2022</span>
                                                     </li>
+                                                    <li className="relative">
+                                                        <div className="absolute -left-[31px] bg-gray-400 h-4 w-4 rounded-full border-4 border-white"></div>
+                                                        <h4 className="font-bold text-gray-900">Pós-graduação em Acupuntura</h4>
+                                                        <span className="text-xs text-teal-600 font-semibold block mb-1">2005</span>
+                                                    </li>
                                                      <li className="relative">
                                                         <div className="absolute -left-[31px] bg-gray-300 h-4 w-4 rounded-full border-4 border-white"></div>
                                                         <h4 className="font-bold text-gray-900">Outras Graduações</h4>
@@ -344,7 +357,7 @@ const App: React.FC = () => {
                             </section>
 
                             {/* News Section */}
-                            <section id="notícias" className="scroll-mt-28">
+                            <section id="noticias" className="scroll-mt-28">
                                 <HealthNewsWidget />
                             </section>
 
