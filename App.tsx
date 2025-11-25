@@ -58,6 +58,12 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
 
 const App: React.FC = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    
+    // Form States
+    const [formName, setFormName] = useState('');
+    const [formPhone, setFormPhone] = useState('');
+    const [formExam, setFormExam] = useState('');
+
     // Usando o link fornecido pelo usuário (Postimages)
     const imgSrc = "https://i.postimg.cc/JnZ8kw3b/585283322-25300808462865092-8130294083600063357-n.jpg";
 
@@ -76,6 +82,19 @@ const App: React.FC = () => {
             element.scrollIntoView({ behavior: 'smooth' });
             setIsMobileMenuOpen(false);
         }
+    };
+
+    const handleScheduleClick = () => {
+        const phone = "5567998446674";
+        const message = `Olá Dr. Rodrigo, gostaria de solicitar um agendamento pelo site.
+        
+*Paciente:* ${formName || 'Não informado'}
+*Contato:* ${formPhone || 'Não informado'}
+*Exame Desejado:* ${formExam || 'Não selecionado'}`;
+
+        const encodedMessage = encodeURIComponent(message);
+        const url = `https://wa.me/${phone}?text=${encodedMessage}`;
+        window.open(url, '_blank');
     };
 
     const ultrasoundExams = [
@@ -499,15 +518,31 @@ const App: React.FC = () => {
                                             <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                                                 <div>
                                                     <label className="block text-sm font-medium text-gray-700 mb-2">Nome Completo</label>
-                                                    <input type="text" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-gray-50" placeholder="Seu nome" />
+                                                    <input 
+                                                        type="text" 
+                                                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-gray-50" 
+                                                        placeholder="Seu nome"
+                                                        value={formName}
+                                                        onChange={(e) => setFormName(e.target.value)}
+                                                    />
                                                 </div>
                                                 <div>
                                                     <label className="block text-sm font-medium text-gray-700 mb-2">Telefone / WhatsApp</label>
-                                                    <input type="tel" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-gray-50" placeholder="(67) 99844-6674" />
+                                                    <input 
+                                                        type="tel" 
+                                                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-gray-50" 
+                                                        placeholder="(67) 99844-6674" 
+                                                        value={formPhone}
+                                                        onChange={(e) => setFormPhone(e.target.value)}
+                                                    />
                                                 </div>
                                                 <div>
                                                     <label className="block text-sm font-medium text-gray-700 mb-2">Tipo de Exame</label>
-                                                    <select className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-gray-50">
+                                                    <select 
+                                                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-gray-50"
+                                                        value={formExam}
+                                                        onChange={(e) => setFormExam(e.target.value)}
+                                                    >
                                                         <option value="">Selecione uma opção</option>
                                                         {ultrasoundExams.map((exam, idx) => (
                                                              <option key={idx} value={exam.name}>{exam.name}</option>
@@ -517,7 +552,10 @@ const App: React.FC = () => {
                                                         <option value="Outro">Outros</option>
                                                     </select>
                                                 </div>
-                                                <button className="w-full bg-teal-600 text-white font-bold py-4 rounded-lg hover:bg-teal-700 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                                                <button 
+                                                    onClick={handleScheduleClick}
+                                                    className="w-full bg-teal-600 text-white font-bold py-4 rounded-lg hover:bg-teal-700 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                                                >
                                                     Solicitar Agendamento
                                                 </button>
                                             </form>
