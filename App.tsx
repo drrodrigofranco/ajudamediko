@@ -224,10 +224,10 @@ const App: React.FC = () => {
                             <div className="lg:w-3/5 order-2 lg:order-1">
                                 <div className="inline-flex items-center px-3 py-1 rounded-full bg-teal-800 text-teal-200 text-xs font-semibold uppercase tracking-wider mb-6 border border-teal-700">
                                     <span className="w-2 h-2 bg-teal-400 rounded-full mr-2 animate-pulse"></span>
-                                    Diagnóstico Especializado
+                                    Diagnóstico e Atendimentos
                                 </div>
                                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight mb-6">
-                                    Ecocardiograma Fetal e Ultrassonografia Avançada
+                                    Ecocardiograma Fetal, Ultrassonografia Avançada, Perícias Médicas
                                 </h2>
                                 <p className="text-lg md:text-xl text-teal-100 mb-8 leading-relaxed">
                                     Tecnologia de ponta e olhar experiente para acompanhar o desenvolvimento da vida e cuidar da sua saúde. Perícia Médica e diagnósticos precisos em Nova Andradina-MS.
@@ -486,7 +486,7 @@ const App: React.FC = () => {
                                                     </div>
                                                     <div>
                                                         <h3 className="font-bold text-lg">Endereço</h3>
-                                                        <p className="text-teal-100">Rua Melvin Jones, 1253</p>
+                                                        <p className="text-teal-100">Rua Melvin Jones, 1243</p>
                                                         <p className="text-teal-300 text-sm">Nova Andradina - MS, 79750-000</p>
                                                     </div>
                                                 </div>
