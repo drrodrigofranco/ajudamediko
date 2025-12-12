@@ -503,7 +503,7 @@ const App: React.FC = () => {
 
                                         {/* Youtube Card */}
                                         <a 
-                                            href="https://www.youtube.com/@DrRodrigoDuarteFranco" 
+                                            href="https://www.youtube.com/@Dr.RodrigoFrancousg" 
                                             target="_blank" 
                                             rel="noopener noreferrer"
                                             className="bg-[#FF0000] hover:bg-[#e60000] p-6 rounded-2xl transition-all hover:-translate-y-1 shadow-lg flex items-center justify-center flex-col gap-4 group"
@@ -519,7 +519,7 @@ const App: React.FC = () => {
 
                                         {/* Instagram Card */}
                                         <a 
-                                            href="https://www.instagram.com/drrodrigoduartefranco/"
+                                            href="https://www.instagram.com/dr.rodrigofranco/"
                                             target="_blank" 
                                             rel="noopener noreferrer"
                                             className="bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] p-6 rounded-2xl transition-all hover:-translate-y-1 shadow-lg flex items-center justify-center flex-col gap-4 group"
