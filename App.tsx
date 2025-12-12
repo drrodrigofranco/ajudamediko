@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import HealthNewsWidget from './components/HealthNewsWidget';
 import Footer from './components/Footer';
-import AdPlaceholder from './components/AdPlaceholder';
 import GestationalCalculator from './components/GestationalCalculator';
 import { 
     Stethoscope, 
@@ -28,7 +27,11 @@ import {
     Wind,
     ChevronDown,
     ChevronUp,
-    HelpCircle
+    HelpCircle,
+    Facebook,
+    Youtube,
+    Play,
+    Clock
 } from 'lucide-react';
 
 interface FAQItemProps {
@@ -99,14 +102,16 @@ const App: React.FC = () => {
 
     const ultrasoundExams = [
         { name: "Obstétrico", icon: <Baby className="w-6 h-6" />, desc: "Acompanhamento gestacional" },
-        { name: "Abdome Total", icon: <Activity className="w-6 h-6" />, desc: "Avaliação de órgãos internos" },
+        { name: "Abdome Total", icon: <ScanLine className="w-6 h-6" />, desc: "Avaliação de órgãos internos" },
         { name: "Pélvico", icon: <ScanLine className="w-6 h-6" />, desc: "Útero, ovários e bexiga" },
         { name: "Próstata", icon: <User className="w-6 h-6" />, desc: "Via abdominal" },
         { name: "Tireoide", icon: <Aperture className="w-6 h-6" />, desc: "Avaliação de nódulos e cistos" },
-        { name: "Mama", icon: <HeartPulse className="w-6 h-6" />, desc: "Prevenção e diagnóstico" },
+        { name: "Mama", icon: <Activity className="w-6 h-6" />, desc: "Prevenção e diagnóstico" },
         { name: "Musculoesquelético", icon: <Dumbbell className="w-6 h-6" />, desc: "Articulações e músculos" },
         { name: "Vascular", icon: <Waves className="w-6 h-6" />, desc: "Doppler colorido" },
         { name: "Espirometria", icon: <Wind className="w-6 h-6" />, desc: "Prova de função pulmonar" },
+        { name: "Holter 24h", icon: <HeartPulse className="w-6 h-6" />, desc: "Eletrocardiograma contínuo" },
+        { name: "MAPA", icon: <Clock className="w-6 h-6" />, desc: "Monitoramento de pressão 24h" },
     ];
 
     const faqList = [
@@ -199,15 +204,6 @@ const App: React.FC = () => {
                 )}
             </header>
 
-            {/* Top AdSpace - Leaderboard */}
-            <div className="bg-gray-100 py-4 border-b border-gray-200">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
-                     <div className="w-full max-w-[728px]">
-                        <AdPlaceholder height="h-[90px] md:h-[100px]" text="Espaço Publicitário Topo (Leaderboard)" label="Publicidade" />
-                     </div>
-                </div>
-            </div>
-
             <main className="flex-grow">
                 {/* Hero Section - Full Width */}
                 <section className="relative bg-teal-900 text-white py-12 lg:py-20 overflow-hidden">
@@ -255,339 +251,380 @@ const App: React.FC = () => {
                     </div>
                 </section>
 
-                {/* Content Wrapper with Sidebar */}
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                    <div className="flex flex-col lg:flex-row gap-8">
+                {/* Content Wrapper - Centered without Ads */}
+                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                    <div className="space-y-16">
                         
-                        {/* Left Column - Main Content (75%) */}
-                        <div className="w-full lg:w-3/4 space-y-16">
-                            
-                            {/* Services Section */}
-                            <section id="servicos" className="scroll-mt-28">
-                                <div className="text-center mb-12">
-                                    <h2 className="text-3xl font-serif font-bold text-teal-900 mb-4">Excelência em Diagnóstico por Imagem</h2>
-                                    <div className="h-1 w-20 bg-teal-500 mx-auto rounded-full mb-6"></div>
-                                    <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                                        A ultrassonografia é uma ferramenta essencial na medicina moderna, permitindo a visualização não invasiva de estruturas internas do corpo em tempo real. Utilizamos equipamentos de alta resolução para garantir a precisão necessária em cada laudo, seja para acompanhamento gestacional, investigação de dores abdominais ou avaliações vasculares e musculoesqueléticas.
+                        {/* Services Section */}
+                        <section id="servicos" className="scroll-mt-28">
+                            <div className="text-center mb-12">
+                                <h2 className="text-3xl font-serif font-bold text-teal-900 mb-4">Excelência em Diagnóstico por Imagem</h2>
+                                <div className="h-1 w-20 bg-teal-500 mx-auto rounded-full mb-6"></div>
+                                <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                                    A ultrassonografia é uma ferramenta essencial na medicina moderna, permitindo a visualização não invasiva de estruturas internas do corpo em tempo real. Utilizamos equipamentos de alta resolução para garantir a precisão necessária em cada laudo, seja para acompanhamento gestacional, investigação de dores abdominais ou avaliações vasculares e musculoesqueléticas.
+                                </p>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 gap-8 mb-12">
+                                {/* Ecocardiograma Fetal Card */}
+                                <div className="bg-white rounded-2xl p-8 shadow-lg border border-teal-100 hover:shadow-xl transition-shadow relative overflow-hidden group">
+                                    <div className="bg-teal-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-teal-100 transition-colors">
+                                        <Baby className="text-teal-600 w-8 h-8" />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-3">Ecocardiograma Fetal</h3>
+                                    <p className="text-gray-600 mb-4 leading-relaxed">
+                                        Exame detalhado do coração do bebê ainda no útero. Fundamental para detectar precocemente cardiopatias congênitas e planejar o melhor acompanhamento. A detecção precoce pode salvar vidas e preparar a equipe médica para o nascimento.
                                     </p>
+                                    <a 
+                                        href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/L14598.htm" 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center text-sm font-semibold text-teal-700 hover:text-teal-900 bg-teal-50 px-3 py-2 rounded-lg border border-teal-200 hover:bg-teal-100 transition-colors mt-2"
+                                    >
+                                        <Scale className="w-4 h-4 mr-2" />
+                                        Lei do Ecocardiograma Fetal
+                                    </a>
                                 </div>
 
-                                <div className="grid md:grid-cols-2 gap-8 mb-12">
-                                    {/* Ecocardiograma Fetal Card */}
-                                    <div className="bg-white rounded-2xl p-8 shadow-lg border border-teal-100 hover:shadow-xl transition-shadow relative overflow-hidden group">
-                                        <div className="bg-teal-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-teal-100 transition-colors">
-                                            <Baby className="text-teal-600 w-8 h-8" />
+                                {/* Perícia Médica Card */}
+                                <div className="bg-white rounded-2xl p-8 shadow-lg border border-teal-100 hover:shadow-xl transition-shadow group">
+                                    <div className="bg-teal-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-teal-100 transition-colors">
+                                        <FileText className="text-teal-600 w-8 h-8" />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-3">Perícia Médica</h3>
+                                    <p className="text-gray-600 leading-relaxed">
+                                        Avaliação técnica e imparcial para fins judiciais e administrativos. Experiência sólida como perito judicial nomeado em diversas comarcas, garantindo laudos precisos, éticos e devidamente fundamentados na literatura médica vigente.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Catalog of Exams */}
+                            <h3 className="text-2xl font-serif font-bold text-teal-900 mb-8 text-center">Catálogo de Exames</h3>
+                            <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+                                Confira abaixo a lista completa de procedimentos realizados em nossa clínica. Para exames específicos não listados, entre em contato para verificar disponibilidade.
+                            </p>
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                {ultrasoundExams.map((exam, idx) => (
+                                    <div key={idx} className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-teal-200 transition-all text-center flex flex-col items-center">
+                                        <div className="text-teal-600 mb-2">{exam.icon}</div>
+                                        <h4 className="font-bold text-gray-800 text-sm">{exam.name}</h4>
+                                        <p className="text-xs text-gray-500 mt-1">{exam.desc}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+
+                        {/* Gestational Calculator Section */}
+                        <section id="calculadoras" className="scroll-mt-28">
+                            <div className="bg-teal-50/50 p-1 rounded-3xl border border-teal-100/50">
+                                <GestationalCalculator />
+                            </div>
+                            <div className="mt-4 bg-white p-6 rounded-xl border border-gray-100 shadow-sm text-sm text-gray-600">
+                                <h4 className="font-bold text-teal-900 mb-2 flex items-center">
+                                    <BookOpen className="w-4 h-4 mr-2" />
+                                    Entendendo os Cálculos
+                                </h4>
+                                <p className="mb-2">
+                                    <strong>DUM (Data da Última Menstruação):</strong> O método mais comum para datar a gravidez, contando o primeiro dia do último ciclo menstrual como o início da gestação.
+                                </p>
+                                <p>
+                                    <strong>DPP (Data Provável do Parto):</strong> Uma estimativa de quando o bebê completará 40 semanas. Apenas 5% dos bebês nascem exatamente na data prevista.
+                                </p>
+                            </div>
+                        </section>
+
+                        {/* Curriculum Section */}
+                        <section id="curriculo" className="scroll-mt-28">
+                            <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
+                                <div className="bg-teal-800 p-8 md:p-12 text-white">
+                                    <div className="flex flex-col md:flex-row items-center gap-8">
+                                        <div className="shrink-0">
+                                                <img 
+                                                src={imgSrc} 
+                                                alt="Dr. Rodrigo Duarte Franco" 
+                                                className="w-32 h-32 rounded-full object-cover object-top border-4 border-white/20 shadow-xl"
+                                            />
                                         </div>
-                                        <h3 className="text-xl font-bold text-gray-900 mb-3">Ecocardiograma Fetal</h3>
-                                        <p className="text-gray-600 mb-4 leading-relaxed">
-                                            Exame detalhado do coração do bebê ainda no útero. Fundamental para detectar precocemente cardiopatias congênitas e planejar o melhor acompanhamento. A detecção precoce pode salvar vidas e preparar a equipe médica para o nascimento.
-                                        </p>
+                                        <div>
+                                            <h2 className="text-3xl font-serif font-bold mb-2">Dr. Rodrigo Duarte Franco</h2>
+                                            <p className="text-teal-200 font-medium text-lg mb-4">CRM-MS 10087</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div className="p-8 md:p-12 space-y-8">
+                                    {/* Destaque FATESA */}
+                                    <div className="bg-teal-50 rounded-2xl p-6 border border-teal-100">
+                                        <div className="flex items-start gap-4">
+                                            <div className="bg-teal-100 p-3 rounded-lg text-teal-700 mt-1">
+                                                <Award className="w-6 h-6" />
+                                            </div>
+                                            <div>
+                                                <h3 className="text-lg font-bold text-teal-900 mb-2">Cursos em Ultrassonografia</h3>
+                                                <p className="text-gray-700 font-medium">
+                                                    Cursos realizados na FATESA - Tradição de mais de 30 anos em cursos de ultrassonografia.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="grid md:grid-cols-2 gap-8">
+                                        <div>
+                                            <h3 className="flex items-center text-xl font-bold text-gray-800 mb-6">
+                                                <GraduationCap className="w-5 h-5 text-teal-600 mr-2" />
+                                                Formação Acadêmica
+                                            </h3>
+                                            <ul className="space-y-6 relative border-l-2 border-gray-200 ml-3 pl-6 pb-2">
+                                                <li className="relative">
+                                                    <div className="absolute -left-[31px] bg-teal-600 h-4 w-4 rounded-full border-4 border-white"></div>
+                                                    <h4 className="font-bold text-gray-900">Cursos de Ultrassom - FATESA</h4>
+                                                    <p className="text-sm text-gray-600 mt-1">
+                                                        Ultrassom medicina interna, ultrassom de tireoide, ultrassom de mamas, ultrassom vascular, ultrassom obstétrico, ultrassom endovaginal, ultrassom ecocardiograma fetal, ultrassom musculoesquelético.
+                                                    </p>
+                                                </li>
+                                                <li className="relative">
+                                                    <div className="absolute -left-[31px] bg-teal-600 h-4 w-4 rounded-full border-4 border-white"></div>
+                                                    <h4 className="font-bold text-gray-900">Graduação em Medicina</h4>
+                                                    <span className="text-xs text-teal-600 font-semibold block mb-1">2018</span>
+                                                    <p className="text-sm text-gray-600">UNEMAT - Universidade Estadual do Mato Grosso - Cáceres - MT</p>
+                                                </li>
+                                                <li className="relative">
+                                                    <div className="absolute -left-[31px] bg-gray-400 h-4 w-4 rounded-full border-4 border-white"></div>
+                                                    <h4 className="font-bold text-gray-900">Pós-graduação em Perícia Médica</h4>
+                                                    <span className="text-xs text-teal-600 font-semibold block mb-1">2023</span>
+                                                </li>
+                                                <li className="relative">
+                                                    <div className="absolute -left-[31px] bg-gray-400 h-4 w-4 rounded-full border-4 border-white"></div>
+                                                    <h4 className="font-bold text-gray-900">Pós-graduação em Auditoria Hospitalar</h4>
+                                                    <span className="text-xs text-teal-600 font-semibold block mb-1">2022</span>
+                                                </li>
+                                                <li className="relative">
+                                                    <div className="absolute -left-[31px] bg-gray-400 h-4 w-4 rounded-full border-4 border-white"></div>
+                                                    <h4 className="font-bold text-gray-900">Pós-graduação em Acupuntura</h4>
+                                                    <span className="text-xs text-teal-600 font-semibold block mb-1">2005</span>
+                                                </li>
+                                                    <li className="relative">
+                                                    <div className="absolute -left-[31px] bg-gray-300 h-4 w-4 rounded-full border-4 border-white"></div>
+                                                    <h4 className="font-bold text-gray-900">Outras Graduações</h4>
+                                                    <p className="text-sm text-gray-600 mt-1">Fisioterapia (UNOESTE - 2004) e Educação Física (FIFASUL - 2002)</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <div>
+                                            <h3 className="flex items-center text-xl font-bold text-gray-800 mb-6">
+                                                <Stethoscope className="w-5 h-5 text-teal-600 mr-2" />
+                                                Trajetória Profissional
+                                            </h3>
+                                            <div className="space-y-6 text-sm text-gray-600 leading-relaxed bg-gray-50 p-6 rounded-xl border border-gray-100">
+                                                <p>
+                                                    <strong className="text-gray-900 block mb-1">Experiência Atual (Nova Andradina e Região):</strong>
+                                                    • Médico ESF Prefeitura Municipal Nova Andradina - MS - concursado (desde 2018);<br/>
+                                                    • Diretor clínico e técnico - Médico plantonista no Hospital Municipal de Taquarussu (2020);<br/> 
+                                                    • Médico plantonista no UPA de Batayporã;<br/>
+                                                    • Perito judicial do fórum de Batayporã nomeado desde 2021.
+                                                </p>
+                                                <p>
+                                                    <strong className="text-gray-900 block mb-1">Experiência Prévia:</strong>
+                                                    • Professor de Educação Física contratado da SEDUC - MS - Anaurilândia - MS (2 anos);<br/> 
+                                                    • Fisioterapeuta concursado da secretaria de saúde do Município de Canarana - MT (8 anos);<br/> 
+                                                    • Professor universitário na Faculdade do Pantanal - FAPAN - Cáceres - MT (4,5 anos);<br/>
+                                                    • Médico plantonista no Hospital Cassems de Nova Andradina (5 anos);<br/>
+                                                    • Médico plantonista no Hospital Regional de Nova Andradina - MS (5 anos).
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        {/* FAQ Section */}
+                        <section id="duvidas" className="scroll-mt-28">
+                            <div className="mb-8">
+                                <h3 className="flex items-center text-2xl font-serif font-bold text-teal-900 mb-4">
+                                    <HelpCircle className="w-6 h-6 mr-2 text-teal-600" />
+                                    Dúvidas Frequentes
+                                </h3>
+                                <p className="text-gray-600 mb-6">
+                                    Confira abaixo as respostas para as perguntas mais comuns sobre os exames de ultrassom e nossos atendimentos. Informação de qualidade é o primeiro passo para sua saúde.
+                                </p>
+                                <div className="space-y-4">
+                                    {faqList.map((item, index) => (
+                                        <FAQItem key={index} question={item.question} answer={item.answer} />
+                                    ))}
+                                </div>
+                            </div>
+                        </section>
+
+                        {/* News Section */}
+                        <section id="noticias" className="scroll-mt-28">
+                            <HealthNewsWidget />
+                        </section>
+
+                        {/* Social Media & Connectivity - New Section */}
+                        <section id="conectar" className="scroll-mt-28 mb-12">
+                            <div className="bg-gradient-to-br from-teal-900 to-teal-800 rounded-3xl overflow-hidden shadow-xl text-white">
+                                <div className="p-8 md:p-12 text-center">
+                                    <h2 className="text-3xl font-serif font-bold mb-6">Conecte-se Conosco</h2>
+                                    <p className="text-teal-100 max-w-2xl mx-auto mb-10 text-lg">
+                                        Acompanhe nosso trabalho nas redes sociais. Vídeos explicativos, novidades sobre ultrassonografia e muito mais.
+                                    </p>
+                                    
+                                    <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                                        {/* Facebook Card */}
                                         <a 
-                                            href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/L14598.htm" 
+                                            href="https://www.facebook.com/profile.php?id=61584404454201" 
                                             target="_blank" 
                                             rel="noopener noreferrer"
-                                            className="inline-flex items-center text-sm font-semibold text-teal-700 hover:text-teal-900 bg-teal-50 px-3 py-2 rounded-lg border border-teal-200 hover:bg-teal-100 transition-colors mt-2"
+                                            className="bg-[#1877F2] hover:bg-[#166fe5] p-6 rounded-2xl transition-all hover:-translate-y-1 shadow-lg flex items-center justify-center gap-4 group"
                                         >
-                                            <Scale className="w-4 h-4 mr-2" />
-                                            Lei do Ecocardiograma Fetal
+                                            <Facebook className="w-10 h-10 text-white" />
+                                            <div className="text-left">
+                                                <h3 className="font-bold text-xl">Facebook</h3>
+                                                <p className="text-blue-100 text-sm">Siga nossa página</p>
+                                            </div>
+                                        </a>
+
+                                        {/* YouTube Card */}
+                                        <a 
+                                            href="https://www.youtube.com/@Dr.RodrigoFrancousg" 
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
+                                            className="bg-[#FF0000] hover:bg-[#e60000] p-6 rounded-2xl transition-all hover:-translate-y-1 shadow-lg flex items-center justify-center gap-4 group"
+                                        >
+                                            <Youtube className="w-10 h-10 text-white" />
+                                            <div className="text-left">
+                                                <h3 className="font-bold text-xl">YouTube</h3>
+                                                <p className="text-red-100 text-sm">Inscreva-se no canal</p>
+                                            </div>
                                         </a>
                                     </div>
 
-                                    {/* Perícia Médica Card */}
-                                    <div className="bg-white rounded-2xl p-8 shadow-lg border border-teal-100 hover:shadow-xl transition-shadow group">
-                                        <div className="bg-teal-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-teal-100 transition-colors">
-                                            <FileText className="text-teal-600 w-8 h-8" />
-                                        </div>
-                                        <h3 className="text-xl font-bold text-gray-900 mb-3">Perícia Médica</h3>
-                                        <p className="text-gray-600 leading-relaxed">
-                                            Avaliação técnica e imparcial para fins judiciais e administrativos. Experiência sólida como perito judicial nomeado em diversas comarcas, garantindo laudos precisos, éticos e devidamente fundamentados na literatura médica vigente.
-                                        </p>
+                                    {/* Video Highlight / Channel Link */}
+                                    <div className="mt-10 max-w-3xl mx-auto">
+                                        <a 
+                                            href="https://www.youtube.com/@Dr.RodrigoFrancousg" 
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
+                                            className="block relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 group"
+                                        >
+                                            <div className="aspect-video bg-gray-900 relative">
+                                                <img 
+                                                    src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80" 
+                                                    alt="Canal Dr. Rodrigo" 
+                                                    className="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity"
+                                                />
+                                                <div className="absolute inset-0 flex items-center justify-center">
+                                                    <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                                                        <Play className="w-10 h-10 text-white fill-current ml-1" />
+                                                    </div>
+                                                </div>
+                                                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent text-left">
+                                                    <span className="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded uppercase mb-2 inline-block">Assista Agora</span>
+                                                    <h4 className="text-xl font-bold text-white">Canal Dr. Rodrigo Duarte Franco</h4>
+                                                    <p className="text-gray-300 text-sm mt-1">Conteúdos sobre ultrassonografia, saúde fetal e muito mais.</p>
+                                                </div>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
+                            </div>
+                        </section>
 
-                                {/* Catalog of Exams */}
-                                <h3 className="text-2xl font-serif font-bold text-teal-900 mb-8 text-center">Catálogo de Exames</h3>
-                                <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
-                                    Confira abaixo a lista completa de procedimentos realizados em nossa clínica. Para exames específicos não listados, entre em contato para verificar disponibilidade.
-                                </p>
-                                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                    {ultrasoundExams.map((exam, idx) => (
-                                        <div key={idx} className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-teal-200 transition-all text-center flex flex-col items-center">
-                                            <div className="text-teal-600 mb-2">{exam.icon}</div>
-                                            <h4 className="font-bold text-gray-800 text-sm">{exam.name}</h4>
-                                            <p className="text-xs text-gray-500 mt-1">{exam.desc}</p>
+                        {/* Contact Section */}
+                        <section id="contato" className="scroll-mt-28 mb-12">
+                            <div className="bg-teal-900 rounded-3xl overflow-hidden shadow-xl">
+                                <div className="grid md:grid-cols-2">
+                                    <div className="p-8 md:p-12 text-white space-y-8">
+                                        <div>
+                                            <h2 className="text-3xl font-serif font-bold mb-4">Agende seu Exame</h2>
+                                            <p className="text-teal-200">Entre em contato para marcar sua consulta ou tirar dúvidas sobre procedimentos.</p>
                                         </div>
-                                    ))}
-                                </div>
-                            </section>
+                                        
+                                        <div className="space-y-6">
+                                            <div className="flex items-start space-x-4">
+                                                <div className="bg-teal-800 p-3 rounded-lg">
+                                                    <MapPin className="w-6 h-6 text-teal-400" />
+                                                </div>
+                                                <div>
+                                                    <h3 className="font-bold text-lg">Endereço</h3>
+                                                    <p className="text-teal-100">Rua Melvin Jones, 1243</p>
+                                                    <p className="text-teal-300 text-sm">Nova Andradina - MS, 79750-000</p>
+                                                </div>
+                                            </div>
 
-                            {/* Gestational Calculator Section */}
-                            <section id="calculadoras" className="scroll-mt-28">
-                                <div className="bg-teal-50/50 p-1 rounded-3xl border border-teal-100/50">
-                                    <GestationalCalculator />
-                                </div>
-                                <div className="mt-4 bg-white p-6 rounded-xl border border-gray-100 shadow-sm text-sm text-gray-600">
-                                    <h4 className="font-bold text-teal-900 mb-2 flex items-center">
-                                        <BookOpen className="w-4 h-4 mr-2" />
-                                        Entendendo os Cálculos
-                                    </h4>
-                                    <p className="mb-2">
-                                        <strong>DUM (Data da Última Menstruação):</strong> O método mais comum para datar a gravidez, contando o primeiro dia do último ciclo menstrual como o início da gestação.
-                                    </p>
-                                    <p>
-                                        <strong>DPP (Data Provável do Parto):</strong> Uma estimativa de quando o bebê completará 40 semanas. Apenas 5% dos bebês nascem exatamente na data prevista.
-                                    </p>
-                                </div>
-                            </section>
+                                            <div className="flex items-start space-x-4">
+                                                <div className="bg-teal-800 p-3 rounded-lg">
+                                                    <Phone className="w-6 h-6 text-teal-400" />
+                                                </div>
+                                                <div>
+                                                    <h3 className="font-bold text-lg">Contato</h3>
+                                                    <p className="text-teal-100">(67) 99844-6674</p>
+                                                    <p className="text-teal-300 text-sm">Atendimento somente com agendamento após as 17h</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div className="flex items-start space-x-4">
+                                                    <div className="bg-teal-800 p-3 rounded-lg">
+                                                    <CheckCircle2 className="w-6 h-6 text-teal-400" />
+                                                </div>
+                                                <div>
+                                                    <h3 className="font-bold text-lg">Convênios</h3>
+                                                    <p className="text-teal-100">PROVER e Particular</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                            {/* Curriculum Section */}
-                            <section id="curriculo" className="scroll-mt-28">
-                                <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
-                                    <div className="bg-teal-800 p-8 md:p-12 text-white">
-                                        <div className="flex flex-col md:flex-row items-center gap-8">
-                                            <div className="shrink-0">
-                                                 <img 
-                                                    src={imgSrc} 
-                                                    alt="Dr. Rodrigo Duarte Franco" 
-                                                    className="w-32 h-32 rounded-full object-cover object-top border-4 border-white/20 shadow-xl"
+                                    <div className="bg-white p-8 md:p-12">
+                                        <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                                            <div>
+                                                <label className="block text-sm font-medium text-gray-700 mb-2">Nome Completo</label>
+                                                <input 
+                                                    type="text" 
+                                                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-gray-50" 
+                                                    placeholder="Seu nome"
+                                                    value={formName}
+                                                    onChange={(e) => setFormName(e.target.value)}
                                                 />
                                             </div>
                                             <div>
-                                                <h2 className="text-3xl font-serif font-bold mb-2">Dr. Rodrigo Duarte Franco</h2>
-                                                <p className="text-teal-200 font-medium text-lg mb-4">CRM-MS 10087</p>
+                                                <label className="block text-sm font-medium text-gray-700 mb-2">Telefone / WhatsApp</label>
+                                                <input 
+                                                    type="tel" 
+                                                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-gray-50" 
+                                                    placeholder="(67) 99844-6674" 
+                                                    value={formPhone}
+                                                    onChange={(e) => setFormPhone(e.target.value)}
+                                                />
                                             </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div className="p-8 md:p-12 space-y-8">
-                                        {/* Destaque FATESA */}
-                                        <div className="bg-teal-50 rounded-2xl p-6 border border-teal-100">
-                                            <div className="flex items-start gap-4">
-                                                <div className="bg-teal-100 p-3 rounded-lg text-teal-700 mt-1">
-                                                    <Award className="w-6 h-6" />
-                                                </div>
-                                                <div>
-                                                    <h3 className="text-lg font-bold text-teal-900 mb-2">Cursos em Ultrassonografia</h3>
-                                                    <p className="text-gray-700 font-medium">
-                                                        Cursos realizados na FATESA - Tradição de mais de 30 anos em cursos de ultrassonografia.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="grid md:grid-cols-2 gap-8">
                                             <div>
-                                                <h3 className="flex items-center text-xl font-bold text-gray-800 mb-6">
-                                                    <GraduationCap className="w-5 h-5 text-teal-600 mr-2" />
-                                                    Formação Acadêmica
-                                                </h3>
-                                                <ul className="space-y-6 relative border-l-2 border-gray-200 ml-3 pl-6 pb-2">
-                                                    <li className="relative">
-                                                        <div className="absolute -left-[31px] bg-teal-600 h-4 w-4 rounded-full border-4 border-white"></div>
-                                                        <h4 className="font-bold text-gray-900">Cursos de Ultrassom - FATESA</h4>
-                                                        <p className="text-sm text-gray-600 mt-1">
-                                                            Ultrassom medicina interna, ultrassom de tireoide, ultrassom de mamas, ultrassom vascular, ultrassom obstétrico, ultrassom endovaginal, ultrassom ecocardiograma fetal, ultrassom musculoesquelético.
-                                                        </p>
-                                                    </li>
-                                                    <li className="relative">
-                                                        <div className="absolute -left-[31px] bg-teal-600 h-4 w-4 rounded-full border-4 border-white"></div>
-                                                        <h4 className="font-bold text-gray-900">Graduação em Medicina</h4>
-                                                        <span className="text-xs text-teal-600 font-semibold block mb-1">2018</span>
-                                                        <p className="text-sm text-gray-600">UNEMAT - Universidade Estadual do Mato Grosso - Cáceres - MT</p>
-                                                    </li>
-                                                    <li className="relative">
-                                                        <div className="absolute -left-[31px] bg-gray-400 h-4 w-4 rounded-full border-4 border-white"></div>
-                                                        <h4 className="font-bold text-gray-900">Pós-graduação em Perícia Médica</h4>
-                                                        <span className="text-xs text-teal-600 font-semibold block mb-1">2023</span>
-                                                    </li>
-                                                    <li className="relative">
-                                                        <div className="absolute -left-[31px] bg-gray-400 h-4 w-4 rounded-full border-4 border-white"></div>
-                                                        <h4 className="font-bold text-gray-900">Pós-graduação em Auditoria Hospitalar</h4>
-                                                        <span className="text-xs text-teal-600 font-semibold block mb-1">2022</span>
-                                                    </li>
-                                                    <li className="relative">
-                                                        <div className="absolute -left-[31px] bg-gray-400 h-4 w-4 rounded-full border-4 border-white"></div>
-                                                        <h4 className="font-bold text-gray-900">Pós-graduação em Acupuntura</h4>
-                                                        <span className="text-xs text-teal-600 font-semibold block mb-1">2005</span>
-                                                    </li>
-                                                     <li className="relative">
-                                                        <div className="absolute -left-[31px] bg-gray-300 h-4 w-4 rounded-full border-4 border-white"></div>
-                                                        <h4 className="font-bold text-gray-900">Outras Graduações</h4>
-                                                        <p className="text-sm text-gray-600 mt-1">Fisioterapia (UNOESTE - 2004) e Educação Física (FIFASUL - 2002)</p>
-                                                    </li>
-                                                </ul>
-                                            </div>
-
-                                            <div>
-                                                <h3 className="flex items-center text-xl font-bold text-gray-800 mb-6">
-                                                    <Stethoscope className="w-5 h-5 text-teal-600 mr-2" />
-                                                    Trajetória Profissional
-                                                </h3>
-                                                <div className="space-y-6 text-sm text-gray-600 leading-relaxed bg-gray-50 p-6 rounded-xl border border-gray-100">
-                                                    <p>
-                                                        <strong className="text-gray-900 block mb-1">Experiência Atual (Nova Andradina e Região):</strong>
-                                                        • Médico ESF Prefeitura Municipal Nova Andradina - MS - concursado (desde 2018);<br/>
-                                                        • Diretor clínico e técnico - Médico plantonista no Hospital Municipal de Taquarussu (2020);<br/> 
-                                                        • Médico plantonista no UPA de Batayporã;<br/>
-                                                        • Perito judicial do fórum de Batayporã nomeado desde 2021.
-                                                    </p>
-                                                    <p>
-                                                        <strong className="text-gray-900 block mb-1">Experiência Prévia:</strong>
-                                                        • Professor de Educação Física contratado da SEDUC - MS - Anaurilândia - MS (2 anos);<br/> 
-                                                        • Fisioterapeuta concursado da secretaria de saúde do Município de Canarana - MT (8 anos);<br/> 
-                                                        • Professor universitário na Faculdade do Pantanal - FAPAN - Cáceres - MT (4,5 anos);<br/>
-                                                        • Médico plantonista no Hospital Cassems de Nova Andradina (5 anos);<br/>
-                                                        • Médico plantonista no Hospital Regional de Nova Andradina - MS (5 anos).
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-
-                            {/* FAQ Section - NEW for AdSense Content */}
-                            <section id="duvidas" className="scroll-mt-28">
-                                <div className="mb-8">
-                                    <h3 className="flex items-center text-2xl font-serif font-bold text-teal-900 mb-4">
-                                        <HelpCircle className="w-6 h-6 mr-2 text-teal-600" />
-                                        Dúvidas Frequentes
-                                    </h3>
-                                    <p className="text-gray-600 mb-6">
-                                        Confira abaixo as respostas para as perguntas mais comuns sobre os exames de ultrassom e nossos atendimentos. Informação de qualidade é o primeiro passo para sua saúde.
-                                    </p>
-                                    <div className="space-y-4">
-                                        {faqList.map((item, index) => (
-                                            <FAQItem key={index} question={item.question} answer={item.answer} />
-                                        ))}
-                                    </div>
-                                </div>
-                            </section>
-
-                            {/* News Section */}
-                            <section id="noticias" className="scroll-mt-28">
-                                <HealthNewsWidget />
-                            </section>
-
-                            {/* Contact Section */}
-                            <section id="contato" className="scroll-mt-28 mb-12">
-                                <div className="bg-teal-900 rounded-3xl overflow-hidden shadow-xl">
-                                    <div className="grid md:grid-cols-2">
-                                        <div className="p-8 md:p-12 text-white space-y-8">
-                                            <div>
-                                                <h2 className="text-3xl font-serif font-bold mb-4">Agende seu Exame</h2>
-                                                <p className="text-teal-200">Entre em contato para marcar sua consulta ou tirar dúvidas sobre procedimentos.</p>
-                                            </div>
-                                            
-                                            <div className="space-y-6">
-                                                <div className="flex items-start space-x-4">
-                                                    <div className="bg-teal-800 p-3 rounded-lg">
-                                                        <MapPin className="w-6 h-6 text-teal-400" />
-                                                    </div>
-                                                    <div>
-                                                        <h3 className="font-bold text-lg">Endereço</h3>
-                                                        <p className="text-teal-100">Rua Melvin Jones, 1243</p>
-                                                        <p className="text-teal-300 text-sm">Nova Andradina - MS, 79750-000</p>
-                                                    </div>
-                                                </div>
-
-                                                <div className="flex items-start space-x-4">
-                                                    <div className="bg-teal-800 p-3 rounded-lg">
-                                                        <Phone className="w-6 h-6 text-teal-400" />
-                                                    </div>
-                                                    <div>
-                                                        <h3 className="font-bold text-lg">Contato</h3>
-                                                        <p className="text-teal-100">(67) 99844-6674</p>
-                                                        <p className="text-teal-300 text-sm">Atendimento somente com agendamento após as 17h</p>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div className="flex items-start space-x-4">
-                                                     <div className="bg-teal-800 p-3 rounded-lg">
-                                                        <CheckCircle2 className="w-6 h-6 text-teal-400" />
-                                                    </div>
-                                                    <div>
-                                                        <h3 className="font-bold text-lg">Convênios</h3>
-                                                        <p className="text-teal-100">PROVER e Particular</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="bg-white p-8 md:p-12">
-                                            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                                                <div>
-                                                    <label className="block text-sm font-medium text-gray-700 mb-2">Nome Completo</label>
-                                                    <input 
-                                                        type="text" 
-                                                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-gray-50" 
-                                                        placeholder="Seu nome"
-                                                        value={formName}
-                                                        onChange={(e) => setFormName(e.target.value)}
-                                                    />
-                                                </div>
-                                                <div>
-                                                    <label className="block text-sm font-medium text-gray-700 mb-2">Telefone / WhatsApp</label>
-                                                    <input 
-                                                        type="tel" 
-                                                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-gray-50" 
-                                                        placeholder="(67) 99844-6674" 
-                                                        value={formPhone}
-                                                        onChange={(e) => setFormPhone(e.target.value)}
-                                                    />
-                                                </div>
-                                                <div>
-                                                    <label className="block text-sm font-medium text-gray-700 mb-2">Tipo de Exame</label>
-                                                    <select 
-                                                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-gray-50"
-                                                        value={formExam}
-                                                        onChange={(e) => setFormExam(e.target.value)}
-                                                    >
-                                                        <option value="">Selecione uma opção</option>
-                                                        {ultrasoundExams.map((exam, idx) => (
-                                                             <option key={idx} value={exam.name}>{exam.name}</option>
-                                                        ))}
-                                                        <option value="Espirometria">Espirometria</option>
-                                                        <option value="Pericia">Perícia Médica</option>
-                                                        <option value="Outro">Outros</option>
-                                                    </select>
-                                                </div>
-                                                <button 
-                                                    onClick={handleScheduleClick}
-                                                    className="w-full bg-teal-600 text-white font-bold py-4 rounded-lg hover:bg-teal-700 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                                                <label className="block text-sm font-medium text-gray-700 mb-2">Tipo de Exame</label>
+                                                <select 
+                                                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-gray-50"
+                                                    value={formExam}
+                                                    onChange={(e) => setFormExam(e.target.value)}
                                                 >
-                                                    Solicitar Agendamento
-                                                </button>
-                                            </form>
-                                        </div>
+                                                    <option value="">Selecione uma opção</option>
+                                                    {ultrasoundExams.map((exam, idx) => (
+                                                            <option key={idx} value={exam.name}>{exam.name}</option>
+                                                    ))}
+                                                    <option value="Pericia">Perícia Médica</option>
+                                                    <option value="Outro">Outros</option>
+                                                </select>
+                                            </div>
+                                            <button 
+                                                onClick={handleScheduleClick}
+                                                className="w-full bg-teal-600 text-white font-bold py-4 rounded-lg hover:bg-teal-700 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                                            >
+                                                Solicitar Agendamento
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
-                            </section>
-                        </div>
-
-                        {/* Right Column - Sidebar for Ads (25%) */}
-                        <aside className="w-full lg:w-1/4 hidden lg:block">
-                             <div className="sticky top-28 space-y-8">
-                                <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center">
-                                    <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 self-start">Publicidade</h3>
-                                    <AdPlaceholder height="h-[250px]" text="Anúncio 300x250" label="Espaço Publicitário" />
-                                </div>
-                                
-                                <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center">
-                                     <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 self-start">Publicidade</h3>
-                                     <AdPlaceholder height="h-[600px]" text="Anúncio 300x600" label="Espaço Publicitário" />
-                                </div>
-                             </div>
-                        </aside>
-                        
-                         {/* Mobile Ads (Visible only on small screens) */}
-                        <div className="lg:hidden space-y-8 mb-12">
-                            <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                                <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Publicidade</h3>
-                                <AdPlaceholder height="h-[250px]" text="Anúncio 300x250" label="Espaço Publicitário" />
                             </div>
-                        </div>
-
+                        </section>
                     </div>
                 </div>
             </main>
