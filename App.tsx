@@ -30,13 +30,15 @@ import {
     HelpCircle,
     Facebook,
     Youtube,
+    Instagram,
     Play,
-    Clock
+    Clock,
+    ArrowRight
 } from 'lucide-react';
 
 interface FAQItemProps {
     question: string;
-    answer: string;
+    answer: React.ReactNode;
 }
 
 const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
@@ -115,6 +117,17 @@ const App: React.FC = () => {
     ];
 
     const faqList = [
+        {
+            question: "Quais exames exigem preparo especial?",
+            answer: (
+                <ul className="list-disc pl-4 space-y-2">
+                    <li><strong>Ultrassom de Abdome Total ou Superior:</strong> Necessário jejum absoluto de 6 a 8 horas (adultos). Água e medicamentos de uso contínuo são permitidos.</li>
+                    <li><strong>Ultrassom Pélvico, Próstata (via abdominal) e Vias Urinárias:</strong> É necessário estar com a bexiga cheia. Recomenda-se tomar 4 a 6 copos de água 1 hora antes do exame e não urinar.</li>
+                    <li><strong>Holter 24h e MAPA:</strong> Tomar banho antes de comparecer à clínica, pois não será possível molhar o aparelho nas 24 horas de monitoramento. Usar cinto (para fixar o aparelho) e camisa larga/confortável.</li>
+                    <li><strong>Espirometria:</strong> Não fumar 2 horas antes; não ingerir café ou chá 6 horas antes; suspender broncodilatadores de curta duração 4 horas antes (salvo orientação médica contrária).</li>
+                </ul>
+            )
+        },
         {
             question: "É necessário jejum para realizar o Ultrassom de Abdome Total?",
             answer: "Sim. Geralmente, recomenda-se jejum de 6 a 8 horas para adultos. Isso reduz a quantidade de gases no intestino e permite que a vesícula biliar esteja cheia, facilitando a visualização dos órgãos. Para crianças, o tempo pode ser menor. Consulte nossas orientações no momento do agendamento."
@@ -468,182 +481,174 @@ const App: React.FC = () => {
                                 <div className="p-8 md:p-12 text-center">
                                     <h2 className="text-3xl font-serif font-bold mb-6">Conecte-se Conosco</h2>
                                     <p className="text-teal-100 max-w-2xl mx-auto mb-10 text-lg">
-                                        Acompanhe nosso trabalho nas redes sociais. Vídeos explicativos, novidades sobre ultrassonografia e muito mais.
+                                        Acompanhe nosso trabalho nas redes sociais. Vídeos explicativos, novidades sobre Ultrassonografia e muito mais.
                                     </p>
                                     
-                                    <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                                    <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
                                         {/* Facebook Card */}
                                         <a 
                                             href="https://www.facebook.com/profile.php?id=61584404454201" 
                                             target="_blank" 
                                             rel="noopener noreferrer"
-                                            className="bg-[#1877F2] hover:bg-[#166fe5] p-6 rounded-2xl transition-all hover:-translate-y-1 shadow-lg flex items-center justify-center gap-4 group"
+                                            className="bg-[#1877F2] hover:bg-[#166fe5] p-6 rounded-2xl transition-all hover:-translate-y-1 shadow-lg flex items-center justify-center flex-col gap-4 group"
                                         >
-                                            <Facebook className="w-10 h-10 text-white" />
-                                            <div className="text-left">
-                                                <h3 className="font-bold text-xl">Facebook</h3>
-                                                <p className="text-blue-100 text-sm">Siga nossa página</p>
+                                            <div className="bg-white/20 p-4 rounded-full group-hover:scale-110 transition-transform">
+                                                <Facebook className="w-8 h-8 text-white" />
+                                            </div>
+                                            <div className="text-center">
+                                                <span className="block font-bold text-xl mb-1">Facebook</span>
+                                                <span className="text-blue-100 text-sm">Acompanhe nossa página</span>
                                             </div>
                                         </a>
 
-                                        {/* YouTube Card */}
+                                        {/* Youtube Card */}
                                         <a 
-                                            href="https://www.youtube.com/@Dr.RodrigoFrancousg" 
+                                            href="https://www.youtube.com/@DrRodrigoDuarteFranco" 
                                             target="_blank" 
                                             rel="noopener noreferrer"
-                                            className="bg-[#FF0000] hover:bg-[#e60000] p-6 rounded-2xl transition-all hover:-translate-y-1 shadow-lg flex items-center justify-center gap-4 group"
+                                            className="bg-[#FF0000] hover:bg-[#e60000] p-6 rounded-2xl transition-all hover:-translate-y-1 shadow-lg flex items-center justify-center flex-col gap-4 group"
                                         >
-                                            <Youtube className="w-10 h-10 text-white" />
-                                            <div className="text-left">
-                                                <h3 className="font-bold text-xl">YouTube</h3>
-                                                <p className="text-red-100 text-sm">Inscreva-se no canal</p>
+                                            <div className="bg-white/20 p-4 rounded-full group-hover:scale-110 transition-transform">
+                                                <Youtube className="w-8 h-8 text-white" />
+                                            </div>
+                                            <div className="text-center">
+                                                <span className="block font-bold text-xl mb-1">YouTube</span>
+                                                <span className="text-red-100 text-sm">Vídeos explicativos</span>
                                             </div>
                                         </a>
-                                    </div>
 
-                                    {/* Video Highlight / Channel Link */}
-                                    <div className="mt-10 max-w-3xl mx-auto">
+                                        {/* Instagram Card */}
                                         <a 
-                                            href="https://www.youtube.com/@Dr.RodrigoFrancousg" 
+                                            href="https://www.instagram.com/drrodrigoduartefranco/"
                                             target="_blank" 
                                             rel="noopener noreferrer"
-                                            className="block relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 group"
+                                            className="bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] p-6 rounded-2xl transition-all hover:-translate-y-1 shadow-lg flex items-center justify-center flex-col gap-4 group"
                                         >
-                                            <div className="aspect-video bg-gray-900 relative">
-                                                <img 
-                                                    src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80" 
-                                                    alt="Canal Dr. Rodrigo" 
-                                                    className="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity"
-                                                />
-                                                <div className="absolute inset-0 flex items-center justify-center">
-                                                    <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                                                        <Play className="w-10 h-10 text-white fill-current ml-1" />
-                                                    </div>
-                                                </div>
-                                                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent text-left">
-                                                    <span className="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded uppercase mb-2 inline-block">Assista Agora</span>
-                                                    <h4 className="text-xl font-bold text-white">Canal Dr. Rodrigo Duarte Franco</h4>
-                                                    <p className="text-gray-300 text-sm mt-1">Conteúdos sobre ultrassonografia, saúde fetal e muito mais.</p>
-                                                </div>
+                                            <div className="bg-white/20 p-4 rounded-full group-hover:scale-110 transition-transform">
+                                                <Instagram className="w-8 h-8 text-white" />
+                                            </div>
+                                            <div className="text-center">
+                                                <span className="block font-bold text-xl mb-1">Instagram</span>
+                                                <span className="text-pink-100 text-sm">Siga nosso dia a dia</span>
                                             </div>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                         </section>
-
-                        {/* Contact Section */}
-                        <section id="contato" className="scroll-mt-28 mb-12">
-                            <div className="bg-teal-900 rounded-3xl overflow-hidden shadow-xl">
-                                <div className="grid md:grid-cols-2">
-                                    <div className="p-8 md:p-12 text-white space-y-8">
-                                        <div>
-                                            <h2 className="text-3xl font-serif font-bold mb-4">Agende seu Exame</h2>
-                                            <p className="text-teal-200">Entre em contato para marcar sua consulta ou tirar dúvidas sobre procedimentos.</p>
-                                        </div>
+                        
+                        {/* Contact Form Section */}
+                        <section id="contato" className="scroll-mt-28">
+                             <div className="bg-white rounded-3xl shadow-lg border border-teal-100 overflow-hidden flex flex-col md:flex-row">
+                                <div className="md:w-5/12 bg-teal-900 text-white p-8 md:p-12 flex flex-col justify-between">
+                                    <div>
+                                        <h3 className="text-2xl font-serif font-bold mb-6">Informações de Contato</h3>
+                                        <p className="text-teal-100 mb-8">
+                                            Entre em contato para agendar seu exame ou tirar dúvidas. Estamos à disposição.
+                                        </p>
                                         
                                         <div className="space-y-6">
-                                            <div className="flex items-start space-x-4">
-                                                <div className="bg-teal-800 p-3 rounded-lg">
-                                                    <MapPin className="w-6 h-6 text-teal-400" />
-                                                </div>
+                                            <div className="flex items-start gap-4">
+                                                <MapPin className="w-6 h-6 text-teal-400 mt-1" />
                                                 <div>
-                                                    <h3 className="font-bold text-lg">Endereço</h3>
-                                                    <p className="text-teal-100">Rua Melvin Jones, 1243</p>
-                                                    <p className="text-teal-300 text-sm">Nova Andradina - MS, 79750-000</p>
+                                                    <h4 className="font-bold">Localização</h4>
+                                                    <p className="text-teal-100 text-sm">Nova Andradina - MS</p>
                                                 </div>
                                             </div>
-
-                                            <div className="flex items-start space-x-4">
-                                                <div className="bg-teal-800 p-3 rounded-lg">
-                                                    <Phone className="w-6 h-6 text-teal-400" />
-                                                </div>
+                                            <div className="flex items-start gap-4">
+                                                <Phone className="w-6 h-6 text-teal-400 mt-1" />
                                                 <div>
-                                                    <h3 className="font-bold text-lg">Contato</h3>
-                                                    <p className="text-teal-100">(67) 99844-6674</p>
-                                                    <p className="text-teal-300 text-sm">Atendimento somente com agendamento após as 17h</p>
+                                                    <h4 className="font-bold">Telefone / WhatsApp</h4>
+                                                    <p className="text-teal-100 text-sm">(67) 99844-6674</p>
                                                 </div>
                                             </div>
-                                            
-                                            <div className="flex items-start space-x-4">
-                                                    <div className="bg-teal-800 p-3 rounded-lg">
-                                                    <CheckCircle2 className="w-6 h-6 text-teal-400" />
-                                                </div>
+                                            <div className="flex items-start gap-4">
+                                                <Clock className="w-6 h-6 text-teal-400 mt-1" />
                                                 <div>
-                                                    <h3 className="font-bold text-lg">Convênios</h3>
-                                                    <p className="text-teal-100">PROVER e Particular</p>
+                                                    <h4 className="font-bold">Horário</h4>
+                                                    <p className="text-teal-100 text-sm">Segunda a Sexta, horário comercial</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div className="bg-white p-8 md:p-12">
-                                        <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                                            <div>
-                                                <label className="block text-sm font-medium text-gray-700 mb-2">Nome Completo</label>
-                                                <input 
-                                                    type="text" 
-                                                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-gray-50" 
-                                                    placeholder="Seu nome"
-                                                    value={formName}
-                                                    onChange={(e) => setFormName(e.target.value)}
-                                                />
-                                            </div>
-                                            <div>
-                                                <label className="block text-sm font-medium text-gray-700 mb-2">Telefone / WhatsApp</label>
-                                                <input 
-                                                    type="tel" 
-                                                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-gray-50" 
-                                                    placeholder="(67) 99844-6674" 
-                                                    value={formPhone}
-                                                    onChange={(e) => setFormPhone(e.target.value)}
-                                                />
-                                            </div>
-                                            <div>
-                                                <label className="block text-sm font-medium text-gray-700 mb-2">Tipo de Exame</label>
-                                                <select 
-                                                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all bg-gray-50"
-                                                    value={formExam}
-                                                    onChange={(e) => setFormExam(e.target.value)}
-                                                >
-                                                    <option value="">Selecione uma opção</option>
-                                                    {ultrasoundExams.map((exam, idx) => (
-                                                            <option key={idx} value={exam.name}>{exam.name}</option>
-                                                    ))}
-                                                    <option value="Pericia">Perícia Médica</option>
-                                                    <option value="Outro">Outros</option>
-                                                </select>
-                                            </div>
-                                            <button 
-                                                onClick={handleScheduleClick}
-                                                className="w-full bg-teal-600 text-white font-bold py-4 rounded-lg hover:bg-teal-700 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-                                            >
-                                                Solicitar Agendamento
-                                            </button>
-                                        </form>
+                                    
+                                    <div className="mt-8 pt-8 border-t border-teal-800">
+                                        <p className="text-sm text-teal-400 font-medium">Dr. Rodrigo Duarte Franco</p>
+                                        <p className="text-xs text-teal-500">CRM-MS 10087</p>
                                     </div>
                                 </div>
-                            </div>
+
+                                <div className="md:w-7/12 p-8 md:p-12">
+                                    <h3 className="text-2xl font-serif font-bold text-teal-900 mb-6">Solicitar Agendamento</h3>
+                                    <div className="space-y-4">
+                                        <div>
+                                            <label className="block text-sm font-medium text-gray-700 mb-1">Nome Completo</label>
+                                            <input 
+                                                type="text" 
+                                                value={formName}
+                                                onChange={(e) => setFormName(e.target.value)}
+                                                className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 outline-none"
+                                                placeholder="Seu nome"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-medium text-gray-700 mb-1">Telefone</label>
+                                            <input 
+                                                type="text" 
+                                                value={formPhone}
+                                                onChange={(e) => setFormPhone(e.target.value)}
+                                                className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 outline-none"
+                                                placeholder="(00) 00000-0000"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-medium text-gray-700 mb-1">Exame Desejado</label>
+                                            <select 
+                                                value={formExam}
+                                                onChange={(e) => setFormExam(e.target.value)}
+                                                className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 outline-none"
+                                            >
+                                                <option value="">Selecione...</option>
+                                                {ultrasoundExams.map((ex, i) => (
+                                                    <option key={i} value={ex.name}>{ex.name}</option>
+                                                ))}
+                                                <option value="Consulta">Consulta Médica</option>
+                                                <option value="Pericia">Perícia Médica</option>
+                                            </select>
+                                        </div>
+                                        <button 
+                                            onClick={handleScheduleClick}
+                                            className="w-full bg-teal-600 text-white py-4 rounded-xl font-bold shadow-md hover:bg-teal-700 transition-colors flex items-center justify-center gap-2"
+                                        >
+                                            Agendar no WhatsApp
+                                            <ArrowRight className="w-5 h-5" />
+                                        </button>
+                                        <p className="text-xs text-center text-gray-500 mt-2">
+                                            Ao clicar, você será redirecionado para o WhatsApp da clínica.
+                                        </p>
+                                    </div>
+                                </div>
+                             </div>
                         </section>
                     </div>
                 </div>
             </main>
+
+            <Footer />
             
-            {/* WhatsApp Floating Button */}
+            {/* WhatsApp Float Button */}
             <a 
-                href="https://wa.me/5567998446674" 
-                target="_blank" 
+                href="https://wa.me/5567998446674"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:bg-[#20bd5a] transition-all transform hover:scale-110 flex items-center justify-center group"
-                aria-label="Conversar no WhatsApp"
+                className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 hover:scale-110 transition-all z-50 flex items-center justify-center"
+                aria-label="WhatsApp"
             >
-                <svg viewBox="0 0 24 24" className="w-8 h-8 fill-current" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.415.285-.797.207-1.961-.06-2.713-.23-.654-.571-1.23-1.006-1.653l-.156-.156c-1.2-1.2-2.82-1.9-4.515-1.9-3.516 0-6.378 2.862-6.378 6.378 0 1.139.3 2.227.872 3.192l-1.087 3.969 4.099-1.074c.933.509 1.99.78 3.068.78h.005c3.517 0 6.379-2.862 6.379-6.379 0-1.704-.662-3.305-1.868-4.51zm-4.515 10.87c-1.023 0-2.03-.275-2.91-.798l-.208-.123-2.158.565.576-2.103-.136-.216c-.573-.91-1.09-1.96-1.09-3.178 0-3.3 2.685-5.985 5.985-5.985 1.6 0 3.103.623 4.235 1.754 1.132 1.132 1.755 2.636 1.755 4.235 0 3.3-2.685 5.986-5.986 5.986z"/>
-                </svg>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" className="w-8 h-8 brightness-0 invert" alt="WhatsApp" />
             </a>
+
         </div>
     );
 };
 
 export default App;
-    
