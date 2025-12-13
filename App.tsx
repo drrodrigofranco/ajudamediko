@@ -21,9 +21,7 @@ import {
     FileText,
     MapPin,
     Phone,
-    Mail,
-    Award,
-    Briefcase
+    Mail
 } from 'lucide-react';
 
 interface FAQItemProps {
@@ -336,84 +334,32 @@ const App: React.FC = () => {
 
                         {/* Curriculo Section */}
                         <section id="curriculo" className="scroll-mt-28">
-                             <div className="bg-white rounded-3xl shadow-xl border border-teal-100 overflow-hidden">
-                                <div className="bg-teal-900 p-8 md:p-12 text-white relative overflow-hidden">
-                                     <div className="absolute top-0 right-0 p-12 opacity-10 transform translate-x-1/2 -translate-y-1/2">
-                                        <FileText size={200} />
-                                     </div>
-                                     <h2 className="text-3xl font-serif font-bold mb-4 relative z-10">Histórico Profissional</h2>
-                                     <p className="text-teal-200 text-lg max-w-2xl relative z-10">
-                                        Trajetória marcada pela dedicação à medicina diagnóstica, com sólida formação técnica e atuação humanizada.
-                                     </p>
-                                </div>
-                                
-                                <div className="p-8 md:p-12">
-                                    <div className="grid md:grid-cols-2 gap-12">
-                                        
-                                        {/* Formação */}
+                             <div className="bg-white rounded-2xl shadow-lg border border-teal-100 p-8">
+                                <h2 className="text-2xl font-serif font-bold text-teal-900 mb-6 flex items-center">
+                                    <FileText className="mr-3 text-teal-600" />
+                                    Currículo Resumido
+                                </h2>
+                                <div className="space-y-4">
+                                    <div className="flex gap-4">
+                                        <div className="flex-shrink-0 mt-1"><div className="w-2 h-2 rounded-full bg-teal-500"></div></div>
                                         <div>
-                                            <div className="flex items-center mb-6">
-                                                <div className="bg-teal-100 p-2 rounded-lg mr-3">
-                                                    <Award className="text-teal-700 w-6 h-6" />
-                                                </div>
-                                                <h3 className="text-xl font-bold text-teal-900">Formação Acadêmica</h3>
-                                            </div>
-                                            
-                                            <div className="space-y-6 border-l-2 border-teal-100 pl-6 ml-3">
-                                                <div className="relative">
-                                                    <span className="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-teal-500 border-4 border-white"></span>
-                                                    <h4 className="font-bold text-gray-800 text-lg">Graduação em Medicina</h4>
-                                                    <p className="text-teal-600 font-medium text-sm mb-1">CRM-MS 10087</p>
-                                                    <p className="text-gray-600 text-sm">Formação generalista com foco em atendimento integral ao paciente.</p>
-                                                </div>
-                                                
-                                                <div className="relative">
-                                                    <span className="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-teal-500 border-4 border-white"></span>
-                                                    <h4 className="font-bold text-gray-800 text-lg">Pós-Graduação em Ultrassonografia</h4>
-                                                    <p className="text-gray-600 text-sm">Especialização em diagnóstico por imagem, abrangendo ultrassonografia geral, obstétrica e doppler.</p>
-                                                </div>
-
-                                                <div className="relative">
-                                                    <span className="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-teal-500 border-4 border-white"></span>
-                                                    <h4 className="font-bold text-gray-800 text-lg">Ecocardiografia Fetal</h4>
-                                                    <p className="text-gray-600 text-sm">Capacitação específica para avaliação cardíaca fetal avançada.</p>
-                                                </div>
-                                            </div>
+                                            <h4 className="font-bold text-gray-800">Médico Formado</h4>
+                                            <p className="text-gray-600 text-sm">Graduação em Medicina com registro no CRM-MS 10087.</p>
                                         </div>
-
-                                        {/* Atuação */}
+                                    </div>
+                                    <div className="flex gap-4">
+                                        <div className="flex-shrink-0 mt-1"><div className="w-2 h-2 rounded-full bg-teal-500"></div></div>
                                         <div>
-                                            <div className="flex items-center mb-6">
-                                                <div className="bg-teal-100 p-2 rounded-lg mr-3">
-                                                    <Briefcase className="text-teal-700 w-6 h-6" />
-                                                </div>
-                                                <h3 className="text-xl font-bold text-teal-900">Atuação Profissional</h3>
-                                            </div>
-                                            
-                                            <div className="space-y-6">
-                                                <div className="bg-gray-50 p-5 rounded-xl border border-gray-100 hover:border-teal-200 transition-colors">
-                                                    <h4 className="font-bold text-gray-800 mb-2">Médico Ultrassonografista</h4>
-                                                    <p className="text-gray-600 text-sm">
-                                                        Responsável técnico e médico atuante na Clínica Dr. Rodrigo Duarte Franco em Nova Andradina, realizando exames de média e alta complexidade.
-                                                    </p>
-                                                </div>
-
-                                                <div className="bg-gray-50 p-5 rounded-xl border border-gray-100 hover:border-teal-200 transition-colors">
-                                                    <h4 className="font-bold text-gray-800 mb-2">Perito Judicial</h4>
-                                                    <p className="text-gray-600 text-sm">
-                                                        Atuação como Perito Médico nomeado pelo Tribunal de Justiça de Mato Grosso do Sul (TJMS) e Justiça do Trabalho, elaborando laudos técnicos em processos judiciais.
-                                                    </p>
-                                                </div>
-                                                
-                                                <div className="bg-gray-50 p-5 rounded-xl border border-gray-100 hover:border-teal-200 transition-colors">
-                                                    <h4 className="font-bold text-gray-800 mb-2">Assistência Técnica</h4>
-                                                    <p className="text-gray-600 text-sm">
-                                                        Consultoria médica especializada para suporte em litígios e avaliações de saúde.
-                                                    </p>
-                                                </div>
-                                            </div>
+                                            <h4 className="font-bold text-gray-800">Especialista em Diagnóstico por Imagem</h4>
+                                            <p className="text-gray-600 text-sm">Pós-graduação e residência em Ultrassonografia Geral e Ecocardiograma Fetal.</p>
                                         </div>
-
+                                    </div>
+                                    <div className="flex gap-4">
+                                        <div className="flex-shrink-0 mt-1"><div className="w-2 h-2 rounded-full bg-teal-500"></div></div>
+                                        <div>
+                                            <h4 className="font-bold text-gray-800">Perito Judicial</h4>
+                                            <p className="text-gray-600 text-sm">Atuação como perito nomeado em diversas varas cíveis e trabalhistas, com vasta experiência em laudos técnicos.</p>
+                                        </div>
                                     </div>
                                 </div>
                              </div>
