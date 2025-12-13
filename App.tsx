@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import HealthNewsWidget from './components/HealthNewsWidget';
 import Footer from './components/Footer';
 import GestationalCalculator from './components/GestationalCalculator';
-import ChatInterface from './components/ChatInterface';
-import AdBlockerDetector from './components/AdBlockerDetector';
 import { 
     HeartPulse, 
     Menu, 
     X, 
     Baby, 
-    Waves,
+    Waves, 
     ScanLine,
     User,
     Dumbbell,
@@ -23,8 +21,9 @@ import {
     FileText,
     MapPin,
     Phone,
-    Mail,
-    Sparkles
+    CheckCircle,
+    GraduationCap,
+    Stethoscope
 } from 'lucide-react';
 
 interface FAQItemProps {
@@ -54,7 +53,6 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
 
 const App: React.FC = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [adBlockDetected, setAdBlockDetected] = useState(false);
     
     // Form States
     const [formName, setFormName] = useState('');
@@ -64,7 +62,8 @@ const App: React.FC = () => {
     // Usando o link fornecido pelo usuário (Postimages)
     const imgSrc = "https://i.postimg.cc/JnZ8kw3b/585283322-25300808462865092-8130294083600063357-n.jpg";
 
-    const navItems = ['Serviços', 'Calculadoras', 'IA Médica', 'Currículo', 'Dúvidas', 'Notícias', 'Contato'];
+    // Removido "IA Médica" da lista
+    const navItems = ['Serviços', 'Calculadoras', 'Currículo', 'Dúvidas', 'Notícias', 'Contato'];
 
     const normalizeId = (text: string) => {
         return text
@@ -95,29 +94,18 @@ const App: React.FC = () => {
         window.open(url, '_blank');
     };
 
-    useEffect(() => {
-        const checkAdBlock = async () => {
-          try {
-            await fetch(new Request("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", { method: 'HEAD', mode: 'no-cors' }));
-          } catch (error) {
-            setAdBlockDetected(true);
-          }
-        };
-        checkAdBlock();
-    }, []);
-
     const ultrasoundExams = [
-        { name: "Obstétrico", icon: <Baby className="w-6 h-6" />, desc: "Acompanhamento gestacional" },
-        { name: "Abdome Total", icon: <ScanLine className="w-6 h-6" />, desc: "Avaliação de órgãos internos" },
-        { name: "Pélvico", icon: <ScanLine className="w-6 h-6" />, desc: "Útero, ovários e bexiga" },
-        { name: "Próstata", icon: <User className="w-6 h-6" />, desc: "Via abdominal" },
-        { name: "Tireoide", icon: <Aperture className="w-6 h-6" />, desc: "Avaliação de nódulos e cistos" },
-        { name: "Mama", icon: <Activity className="w-6 h-6" />, desc: "Prevenção e diagnóstico" },
-        { name: "Musculoesquelético", icon: <Dumbbell className="w-6 h-6" />, desc: "Articulações e músculos" },
-        { name: "Vascular", icon: <Waves className="w-6 h-6" />, desc: "Doppler colorido" },
-        { name: "Espirometria", icon: <Wind className="w-6 h-6" />, desc: "Prova de função pulmonar" },
-        { name: "Holter 24h", icon: <HeartPulse className="w-6 h-6" />, desc: "Eletrocardiograma contínuo" },
-        { name: "MAPA", icon: <Clock className="w-6 h-6" />, desc: "Monitoramento de pressão 24h" },
+        { name: "Obstétrico", Icon: Baby, desc: "Acompanhamento gestacional" },
+        { name: "Abdome Total", Icon: ScanLine, desc: "Avaliação de órgãos internos" },
+        { name: "Pélvico", Icon: ScanLine, desc: "Útero, ovários e bexiga" },
+        { name: "Próstata", Icon: User, desc: "Via abdominal" },
+        { name: "Tireoide", Icon: Aperture, desc: "Avaliação de nódulos e cistos" },
+        { name: "Mama", Icon: Activity, desc: "Prevenção e diagnóstico" },
+        { name: "Musculoesquelético", Icon: Dumbbell, desc: "Articulações e músculos" },
+        { name: "Vascular", Icon: Waves, desc: "Doppler colorido" },
+        { name: "Espirometria", Icon: Wind, desc: "Prova de função pulmonar" },
+        { name: "Holter 24h", Icon: HeartPulse, desc: "Eletrocardiograma contínuo" },
+        { name: "MAPA", Icon: Clock, desc: "Monitoramento de pressão 24h" },
     ];
 
     const faqList = [
@@ -156,7 +144,6 @@ const App: React.FC = () => {
 
     return (
         <div className="flex flex-col min-h-screen bg-gray-50 font-sans text-gray-800">
-            <AdBlockerDetector detected={adBlockDetected} />
             
             {/* Navbar */}
             <header className="bg-white shadow-sm sticky top-0 z-50 opacity-95 backdrop-blur-sm">
@@ -195,7 +182,7 @@ const App: React.FC = () => {
                          {/* Tablet/Smaller Desktop Menu (Simplified) */}
                          <nav className="hidden md:flex xl:hidden space-x-4 items-center">
                             <button onClick={() => scrollToSection('servicos')} className="text-gray-600 hover:text-teal-600 text-sm font-medium">Serviços</button>
-                             <button onClick={() => scrollToSection('iamedica')} className="text-gray-600 hover:text-teal-600 text-sm font-medium">IA Médica</button>
+                             {/* Link de IA Removido */}
                             <button 
                                 onClick={() => scrollToSection('contato')}
                                 className="bg-teal-600 text-white px-4 py-2 rounded-full font-medium text-sm shadow-md"
@@ -335,7 +322,9 @@ const App: React.FC = () => {
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                                 {ultrasoundExams.map((exam, idx) => (
                                     <div key={idx} className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-teal-200 transition-all text-center flex flex-col items-center">
-                                        <div className="text-teal-600 mb-2">{exam.icon}</div>
+                                        <div className="text-teal-600 mb-2">
+                                            <exam.Icon className="w-6 h-6" />
+                                        </div>
                                         <h4 className="font-bold text-gray-800 text-sm">{exam.name}</h4>
                                         <p className="text-xs text-gray-500 mt-1">{exam.desc}</p>
                                     </div>
@@ -350,51 +339,115 @@ const App: React.FC = () => {
                             </div>
                         </section>
 
-                         {/* Medical AI Section */}
-                         <section id="iamedica" className="scroll-mt-28">
-                            <div className="text-center mb-8">
-                                <div className="inline-flex items-center justify-center p-2 bg-teal-100 rounded-full mb-3">
-                                    <Sparkles className="w-5 h-5 text-teal-600" />
-                                </div>
-                                <h2 className="text-3xl font-serif font-bold text-teal-900">AJUDAMEDIKO</h2>
-                                <p className="text-gray-500 text-sm mt-2">Inteligência Artificial para suporte à decisão clínica</p>
-                            </div>
-                            <div className="bg-white rounded-2xl shadow-xl border border-teal-100 overflow-hidden">
-                                <ChatInterface />
-                            </div>
-                        </section>
+                        {/* SEÇÃO IA MÉDICA REMOVIDA AQUI */}
 
-                        {/* Curriculo Section */}
+                        {/* Curriculo Section Updated */}
                         <section id="curriculo" className="scroll-mt-28">
-                             <div className="bg-white rounded-2xl shadow-lg border border-teal-100 p-8">
-                                <h2 className="text-2xl font-serif font-bold text-teal-900 mb-6 flex items-center">
-                                    <FileText className="mr-3 text-teal-600" />
-                                    Currículo Resumido
-                                </h2>
-                                <div className="space-y-4">
-                                    <div className="flex gap-4">
-                                        <div className="flex-shrink-0 mt-1"><div className="w-2 h-2 rounded-full bg-teal-500"></div></div>
-                                        <div>
-                                            <h4 className="font-bold text-gray-800">Médico Formado</h4>
-                                            <p className="text-gray-600 text-sm">Graduação em Medicina com registro no CRM-MS 10087.</p>
-                                        </div>
+                            <div className="grid lg:grid-cols-2 gap-12">
+                                {/* Academic Formation */}
+                                <div>
+                                    <div className="flex items-center mb-8">
+                                        <GraduationCap className="text-teal-600 w-8 h-8 mr-3" />
+                                        <h2 className="text-2xl font-serif font-bold text-teal-900">Formação Acadêmica</h2>
                                     </div>
-                                    <div className="flex gap-4">
-                                        <div className="flex-shrink-0 mt-1"><div className="w-2 h-2 rounded-full bg-teal-500"></div></div>
-                                        <div>
-                                            <h4 className="font-bold text-gray-800">Especialista em Diagnóstico por Imagem</h4>
-                                            <p className="text-gray-600 text-sm">Pós-graduação e residência em Ultrassonografia Geral e Ecocardiograma Fetal.</p>
+                                    
+                                    <div className="relative border-l-2 border-teal-100 ml-3 space-y-10 pl-8 pb-4">
+                                        {/* Item 1 */}
+                                        <div className="relative">
+                                            <span className="absolute -left-[39px] top-1 bg-teal-500 w-5 h-5 rounded-full border-4 border-white shadow-sm"></span>
+                                            <h3 className="text-lg font-bold text-gray-900">Cursos de Ultrassom - FATESA</h3>
+                                            <p className="text-gray-600 mt-2 text-sm leading-relaxed">
+                                                Ultrassom medicina interna, ultrassom de tireoide, ultrassom de mamas, ultrassom vascular, ultrassom obstétrico, ultrassom endovaginal, ultrassom ecocardiograma fetal, ultrassom musculoesquelético.
+                                            </p>
                                         </div>
-                                    </div>
-                                    <div className="flex gap-4">
-                                        <div className="flex-shrink-0 mt-1"><div className="w-2 h-2 rounded-full bg-teal-500"></div></div>
-                                        <div>
-                                            <h4 className="font-bold text-gray-800">Perito Judicial</h4>
-                                            <p className="text-gray-600 text-sm">Atuação como perito nomeado em diversas varas cíveis e trabalhistas, com vasta experiência em laudos técnicos.</p>
+
+                                        {/* Item 2 */}
+                                        <div className="relative">
+                                            <span className="absolute -left-[39px] top-1 bg-gray-300 w-5 h-5 rounded-full border-4 border-white shadow-sm"></span>
+                                            <h3 className="text-lg font-bold text-gray-900">Graduação em Medicina</h3>
+                                            <span className="text-teal-600 font-bold text-sm block mb-1">2018</span>
+                                            <p className="text-gray-600 text-sm">
+                                                UNEMAT - Universidade Estadual do Mato Grosso - Cáceres - MT
+                                            </p>
+                                        </div>
+
+                                        {/* Item 3 */}
+                                        <div className="relative">
+                                            <span className="absolute -left-[39px] top-1 bg-gray-300 w-5 h-5 rounded-full border-4 border-white shadow-sm"></span>
+                                            <h3 className="text-lg font-bold text-gray-900">Pós-graduação em Perícia Médica</h3>
+                                            <span className="text-teal-600 font-bold text-sm block mb-1">2023</span>
+                                        </div>
+
+                                        {/* Item 4 */}
+                                        <div className="relative">
+                                            <span className="absolute -left-[39px] top-1 bg-gray-300 w-5 h-5 rounded-full border-4 border-white shadow-sm"></span>
+                                            <h3 className="text-lg font-bold text-gray-900">Pós-graduação em Auditoria Hospitalar</h3>
+                                            <span className="text-teal-600 font-bold text-sm block mb-1">2022</span>
+                                        </div>
+
+                                        {/* Item 5 */}
+                                        <div className="relative">
+                                            <span className="absolute -left-[39px] top-1 bg-gray-300 w-5 h-5 rounded-full border-4 border-white shadow-sm"></span>
+                                            <h3 className="text-lg font-bold text-gray-900">Pós-graduação em Acupuntura</h3>
+                                            <span className="text-teal-600 font-bold text-sm block mb-1">2005</span>
+                                        </div>
+
+                                        {/* Item 6 */}
+                                        <div className="relative">
+                                            <span className="absolute -left-[39px] top-1 bg-gray-300 w-5 h-5 rounded-full border-4 border-white shadow-sm"></span>
+                                            <h3 className="text-lg font-bold text-gray-900">Outras Graduações</h3>
+                                            <p className="text-gray-600 text-sm mt-1">
+                                                Fisioterapia (UNOESTE - 2004) e Educação Física (FIFASUL - 2002)
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
-                             </div>
+
+                                {/* Professional Trajectory */}
+                                <div>
+                                    <div className="flex items-center mb-8">
+                                        <Stethoscope className="text-teal-600 w-8 h-8 mr-3" />
+                                        <h2 className="text-2xl font-serif font-bold text-teal-900">Trajetória Profissional</h2>
+                                    </div>
+
+                                    <div className="bg-white p-8 rounded-2xl shadow-lg border border-teal-50">
+                                        <div className="mb-8">
+                                            <h4 className="font-bold text-gray-900 mb-4 border-b border-gray-100 pb-2">Experiência Atual (Nova Andradina e Região):</h4>
+                                            <ul className="space-y-3">
+                                                {[
+                                                    "Médico ESF Prefeitura Municipal Nova Andradina - MS - concursado (desde 2018);",
+                                                    "Diretor clínico e técnico - Médico plantonista no Hospital Municipal de Taquarussu (2020);",
+                                                    "Médico plantonista no UPA de Batayporã;",
+                                                    "Perito judicial do fórum de Batayporã nomeado desde 2021."
+                                                ].map((item, i) => (
+                                                    <li key={i} className="flex items-start text-sm text-gray-600">
+                                                        <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-1.5 mr-3 flex-shrink-0"></span>
+                                                        {item}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+
+                                        <div>
+                                            <h4 className="font-bold text-gray-900 mb-4 border-b border-gray-100 pb-2">Experiência Prévia:</h4>
+                                            <ul className="space-y-3">
+                                                {[
+                                                    "Professor de Educação Física contratado da SEDUC - MS - Anaurilândia - MS (2 anos);",
+                                                    "Fisioterapeuta concursado da secretaria de saúde do Município de Canarana - MT (8 anos);",
+                                                    "Professor universitário na Faculdade do Pantanal - FAPAN - Cáceres - MT (4,5 anos);",
+                                                    "Médico plantonista no Hospital Cassems de Nova Andradina (5 anos);",
+                                                    "Médico plantonista no Hospital Regional de Nova Andradina - MS (5 anos)."
+                                                ].map((item, i) => (
+                                                    <li key={i} className="flex items-start text-sm text-gray-600">
+                                                        <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-1.5 mr-3 flex-shrink-0"></span>
+                                                        {item}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </section>
 
                         {/* FAQ Section */}
@@ -414,91 +467,100 @@ const App: React.FC = () => {
 
                         {/* Contact Section */}
                         <section id="contato" className="scroll-mt-28 mb-12">
-                            <div className="bg-teal-900 rounded-3xl overflow-hidden shadow-xl text-white">
-                                <div className="grid md:grid-cols-2">
-                                    <div className="p-8 lg:p-12">
-                                        <h2 className="text-3xl font-serif font-bold mb-6">Entre em Contato</h2>
-                                        <p className="text-teal-100 mb-8">
-                                            Agende seu exame ou tire suas dúvidas. Estamos prontos para oferecer o melhor atendimento.
-                                        </p>
-                                        
-                                        <div className="space-y-6">
-                                            <div className="flex items-start gap-4">
-                                                <div className="bg-teal-800 p-3 rounded-lg"><Phone className="w-6 h-6" /></div>
-                                                <div>
-                                                    <h3 className="font-bold text-lg">Telefone / WhatsApp</h3>
-                                                    <p className="text-teal-200">(67) 99844-6674</p>
-                                                    <p className="text-teal-400 text-sm mt-1">Segunda a Sexta, das 7h às 17h</p>
-                                                </div>
-                                            </div>
-                                            
-                                            <div className="flex items-start gap-4">
-                                                <div className="bg-teal-800 p-3 rounded-lg"><MapPin className="w-6 h-6" /></div>
-                                                <div>
-                                                    <h3 className="font-bold text-lg">Localização</h3>
-                                                    <p className="text-teal-200">
-                                                        Rua Walter Hubacher, 1088<br/>
-                                                        Centro, Nova Andradina - MS
-                                                    </p>
-                                                </div>
-                                            </div>
+                             <div className="bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row">
+                                {/* Left Side - Info (Dark Green) */}
+                                <div className="md:w-5/12 bg-[#0e4843] text-white p-8 lg:p-12 flex flex-col justify-center">
+                                    <h2 className="text-3xl font-serif font-bold mb-4 text-white">Agende seu Exame</h2>
+                                    <p className="text-teal-100 mb-10 text-sm leading-relaxed">
+                                        Entre em contato para marcar sua consulta ou tirar dúvidas sobre procedimentos.
+                                    </p>
 
-                                            <div className="flex items-start gap-4">
-                                                <div className="bg-teal-800 p-3 rounded-lg"><Mail className="w-6 h-6" /></div>
-                                                <div>
-                                                    <h3 className="font-bold text-lg">E-mail</h3>
-                                                    <p className="text-teal-200">
-                                                        fisiorod@gmail.com
-                                                    </p>
-                                                </div>
+                                    <div className="space-y-8">
+                                        {/* Address */}
+                                        <div className="flex items-start gap-4">
+                                            <div className="bg-[#1c5d57] p-3 rounded-xl flex-shrink-0 text-white">
+                                                <MapPin className="w-6 h-6" />
+                                            </div>
+                                            <div>
+                                                <h3 className="font-bold text-lg mb-1 text-white">Endereço</h3>
+                                                <p className="text-teal-100 text-sm leading-relaxed">
+                                                    Rua Melvin Jones, 1243<br/>
+                                                    Nova Andradina - MS, 79750-000
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        {/* Contact */}
+                                        <div className="flex items-start gap-4">
+                                            <div className="bg-[#1c5d57] p-3 rounded-xl flex-shrink-0 text-white">
+                                                <Phone className="w-6 h-6" />
+                                            </div>
+                                            <div>
+                                                <h3 className="font-bold text-lg mb-1 text-white">Contato</h3>
+                                                <p className="text-teal-100 text-sm font-medium">(67) 99844-6674</p>
+                                                <p className="text-teal-200/80 text-xs mt-1 max-w-[220px]">Atendimento somente com agendamento após as 17h</p>
+                                            </div>
+                                        </div>
+
+                                        {/* Convenios */}
+                                        <div className="flex items-start gap-4">
+                                            <div className="bg-[#1c5d57] p-3 rounded-xl flex-shrink-0 text-white">
+                                                <CheckCircle className="w-6 h-6" />
+                                            </div>
+                                            <div>
+                                                <h3 className="font-bold text-lg mb-1 text-white">Convênios</h3>
+                                                <p className="text-teal-100 text-sm">PROVER e Particular</p>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
 
-                                    <div className="bg-white p-8 lg:p-12 text-gray-800">
-                                        <h3 className="text-xl font-bold text-teal-900 mb-4">Pré-Agendamento Rápido</h3>
-                                        <div className="space-y-4">
-                                            <div>
-                                                <label className="block text-sm font-medium text-gray-700 mb-1">Seu Nome</label>
-                                                <input 
-                                                    type="text" 
-                                                    value={formName}
-                                                    onChange={(e) => setFormName(e.target.value)}
-                                                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 outline-none"
-                                                    placeholder="Digite seu nome completo"
-                                                />
-                                            </div>
-                                            <div>
-                                                <label className="block text-sm font-medium text-gray-700 mb-1">Telefone</label>
-                                                <input 
-                                                    type="tel" 
-                                                    value={formPhone}
-                                                    onChange={(e) => setFormPhone(e.target.value)}
-                                                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 outline-none"
-                                                    placeholder="(67) 99999-9999"
-                                                />
-                                            </div>
-                                            <div>
-                                                <label className="block text-sm font-medium text-gray-700 mb-1">Exame de Interesse</label>
+                                {/* Right Side - Form (White) */}
+                                <div className="md:w-7/12 bg-white p-8 lg:p-12 flex flex-col justify-center">
+                                    <div className="space-y-5">
+                                        <div>
+                                            <label className="block text-sm font-semibold text-gray-700 mb-2">Nome Completo</label>
+                                            <input 
+                                                type="text" 
+                                                value={formName}
+                                                onChange={(e) => setFormName(e.target.value)}
+                                                className="w-full p-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-teal-500 outline-none text-gray-700 placeholder-gray-400 transition-shadow"
+                                                placeholder="Seu nome"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-semibold text-gray-700 mb-2">Telefone / WhatsApp</label>
+                                            <input 
+                                                type="tel" 
+                                                value={formPhone}
+                                                onChange={(e) => setFormPhone(e.target.value)}
+                                                className="w-full p-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-teal-500 outline-none text-gray-700 placeholder-gray-400 transition-shadow"
+                                                placeholder="(67) 99844-6674"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-semibold text-gray-700 mb-2">Tipo de Exame</label>
+                                            <div className="relative">
                                                 <select 
                                                     value={formExam}
                                                     onChange={(e) => setFormExam(e.target.value)}
-                                                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 outline-none"
+                                                    className="w-full p-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-teal-500 outline-none text-gray-700 appearance-none cursor-pointer transition-shadow"
                                                 >
-                                                    <option value="">Selecione um exame...</option>
+                                                    <option value="">Selecione uma opção</option>
                                                     {ultrasoundExams.map((ex, i) => (
                                                         <option key={i} value={ex.name}>{ex.name}</option>
                                                     ))}
                                                     <option value="Outro">Outro / Dúvida</option>
                                                 </select>
+                                                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5 pointer-events-none" />
                                             </div>
-                                            <button 
-                                                onClick={handleScheduleClick}
-                                                className="w-full bg-teal-600 text-white py-3.5 rounded-lg font-bold hover:bg-teal-700 transition-colors shadow-lg mt-2"
-                                            >
-                                                Enviar via WhatsApp
-                                            </button>
                                         </div>
+                                        <button 
+                                            onClick={handleScheduleClick}
+                                            className="w-full bg-[#0d9488] hover:bg-[#0f766e] text-white py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl mt-4 text-base"
+                                        >
+                                            Solicitar Agendamento
+                                        </button>
                                     </div>
                                 </div>
                             </div>
