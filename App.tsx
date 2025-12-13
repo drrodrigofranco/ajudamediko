@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import HealthNewsWidget from './components/HealthNewsWidget';
 import Footer from './components/Footer';
 import GestationalCalculator from './components/GestationalCalculator';
-import ChatInterface from './components/ChatInterface';
 import { 
     HeartPulse, 
     Menu, 
@@ -19,7 +18,6 @@ import {
     ChevronDown,
     ChevronUp,
     Clock,
-    BrainCircuit,
     FileText,
     MapPin,
     Phone,
@@ -62,7 +60,7 @@ const App: React.FC = () => {
     // Usando o link fornecido pelo usuário (Postimages)
     const imgSrc = "https://i.postimg.cc/JnZ8kw3b/585283322-25300808462865092-8130294083600063357-n.jpg";
 
-    const navItems = ['Serviços', 'Calculadoras', 'IA Médica', 'Currículo', 'Dúvidas', 'Notícias', 'Contato'];
+    const navItems = ['Serviços', 'Calculadoras', 'Currículo', 'Dúvidas', 'Notícias', 'Contato'];
 
     const normalizeId = (text: string) => {
         return text
@@ -180,7 +178,6 @@ const App: React.FC = () => {
                          {/* Tablet/Smaller Desktop Menu (Simplified) */}
                          <nav className="hidden md:flex xl:hidden space-x-4 items-center">
                             <button onClick={() => scrollToSection('servicos')} className="text-gray-600 hover:text-teal-600 text-sm font-medium">Serviços</button>
-                            <button onClick={() => scrollToSection('iamedica')} className="text-gray-600 hover:text-teal-600 text-sm font-medium flex items-center"><BrainCircuit className="w-4 h-4 mr-1"/> IA</button>
                             <button 
                                 onClick={() => scrollToSection('contato')}
                                 className="bg-teal-600 text-white px-4 py-2 rounded-full font-medium text-sm shadow-md"
@@ -248,10 +245,6 @@ const App: React.FC = () => {
                                 <div className="flex flex-col sm:flex-row gap-4">
                                     <button onClick={() => scrollToSection('contato')} className="bg-white text-teal-900 px-8 py-3.5 rounded-full font-bold hover:bg-teal-50 transition-colors shadow-lg text-center">
                                         Agendar Consulta
-                                    </button>
-                                    <button onClick={() => scrollToSection('iamedica')} className="bg-transparent border-2 border-teal-400 text-teal-100 px-8 py-3.5 rounded-full font-bold hover:bg-teal-800/50 transition-colors text-center flex items-center justify-center gap-2">
-                                        <BrainCircuit size={20} />
-                                        IA para Médicos
                                     </button>
                                 </div>
                             </div>
@@ -336,23 +329,6 @@ const App: React.FC = () => {
                         <section id="calculadoras" className="scroll-mt-28">
                             <div className="bg-teal-50/50 p-1 rounded-3xl border border-teal-100/50">
                                 <GestationalCalculator />
-                            </div>
-                        </section>
-
-                        {/* IA Medica / Chat Section */}
-                        <section id="iamedica" className="scroll-mt-28">
-                             <div className="mb-8 text-center">
-                                <div className="inline-flex items-center justify-center p-3 bg-teal-100 rounded-full mb-4">
-                                    <BrainCircuit className="w-8 h-8 text-teal-700" />
-                                </div>
-                                <h2 className="text-3xl font-serif font-bold text-teal-900">AJUDAMEDIKO</h2>
-                                <p className="text-gray-600 mt-2 max-w-2xl mx-auto">
-                                    Inteligência Artificial treinada para auxiliar médicos e profissionais de saúde com diretrizes clínicas,
-                                    protocolos e busca rápida de evidências científicas.
-                                </p>
-                            </div>
-                            <div className="max-w-4xl mx-auto">
-                                <ChatInterface />
                             </div>
                         </section>
 
