@@ -1,9 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import HealthNewsWidget from './components/HealthNewsWidget';
+import React, { useState } from 'react';
 import Footer from './components/Footer';
-import GestationalCalculator from './components/GestationalCalculator';
-import ChatInterface from './components/ChatInterface';
-import AdBlockerDetector from './components/AdBlockerDetector';
 import { 
     HeartPulse, 
     Menu, 
@@ -23,8 +19,7 @@ import {
     FileText,
     MapPin,
     Phone,
-    Mail,
-    Sparkles
+    Mail
 } from 'lucide-react';
 
 interface FAQItemProps {
@@ -54,7 +49,6 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
 
 const App: React.FC = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [adBlockDetected, setAdBlockDetected] = useState(false);
     
     // Form States
     const [formName, setFormName] = useState('');
@@ -64,7 +58,7 @@ const App: React.FC = () => {
     // Usando o link fornecido pelo usuário (Postimages)
     const imgSrc = "https://i.postimg.cc/JnZ8kw3b/585283322-25300808462865092-8130294083600063357-n.jpg";
 
-    const navItems = ['Serviços', 'Calculadoras', 'IA Médica', 'Currículo', 'Dúvidas', 'Notícias', 'Contato'];
+    const navItems = ['Serviços', 'Currículo', 'Dúvidas', 'Contato'];
 
     const normalizeId = (text: string) => {
         return text
@@ -94,17 +88,6 @@ const App: React.FC = () => {
         const url = `https://wa.me/${phone}?text=${encodedMessage}`;
         window.open(url, '_blank');
     };
-
-    useEffect(() => {
-        const checkAdBlock = async () => {
-          try {
-            await fetch(new Request("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", { method: 'HEAD', mode: 'no-cors' }));
-          } catch (error) {
-            setAdBlockDetected(true);
-          }
-        };
-        checkAdBlock();
-    }, []);
 
     const ultrasoundExams = [
         { name: "Obstétrico", icon: <Baby className="w-6 h-6" />, desc: "Acompanhamento gestacional" },
@@ -156,8 +139,6 @@ const App: React.FC = () => {
 
     return (
         <div className="flex flex-col min-h-screen bg-gray-50 font-sans text-gray-800">
-            <AdBlockerDetector detected={adBlockDetected} />
-            
             {/* Navbar */}
             <header className="bg-white shadow-sm sticky top-0 z-50 opacity-95 backdrop-blur-sm">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -195,7 +176,6 @@ const App: React.FC = () => {
                          {/* Tablet/Smaller Desktop Menu (Simplified) */}
                          <nav className="hidden md:flex xl:hidden space-x-4 items-center">
                             <button onClick={() => scrollToSection('servicos')} className="text-gray-600 hover:text-teal-600 text-sm font-medium">Serviços</button>
-                             <button onClick={() => scrollToSection('iamedica')} className="text-gray-600 hover:text-teal-600 text-sm font-medium">IA Médica</button>
                             <button 
                                 onClick={() => scrollToSection('contato')}
                                 className="bg-teal-600 text-white px-4 py-2 rounded-full font-medium text-sm shadow-md"
@@ -343,36 +323,6 @@ const App: React.FC = () => {
                             </div>
                         </section>
 
-                        {/* Gestational Calculator Section */}
-                        <section id="calculadoras" className="scroll-mt-28">
-                            <div className="bg-teal-50/50 p-1 rounded-3xl border border-teal-100/50">
-                                <GestationalCalculator />
-                            </div>
-                        </section>
-
-                         {/* AI Section */}
-                        <section id="iamedica" className="scroll-mt-28">
-                            <div className="bg-gradient-to-br from-teal-900 to-teal-800 rounded-3xl p-1 shadow-2xl overflow-hidden border border-teal-700/50">
-                                 <div className="bg-white/5 backdrop-blur-sm rounded-[20px] overflow-hidden">
-                                    <div className="p-8 md:p-12 text-center text-white relative overflow-hidden">
-                                        <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-                                         <div className="relative z-10">
-                                            <div className="inline-flex items-center justify-center p-3 bg-teal-500/20 rounded-full mb-6 ring-1 ring-teal-400/30">
-                                                 <Sparkles className="w-8 h-8 text-teal-300" />
-                                            </div>
-                                            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">AJUDAMEDIKO <span className="text-teal-400">IA</span></h2>
-                                            <p className="text-lg text-teal-100 max-w-2xl mx-auto leading-relaxed">
-                                                Inteligência Artificial treinada para auxiliar profissionais de saúde com protocolos clínicos, interpretação de exames e busca rápida em bases científicas.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="px-4 pb-8 md:px-8 md:pb-12">
-                                         <ChatInterface />
-                                    </div>
-                                 </div>
-                            </div>
-                        </section>
-
                         {/* Curriculo Section */}
                         <section id="curriculo" className="scroll-mt-28">
                              <div className="bg-white rounded-2xl shadow-lg border border-teal-100 p-8">
@@ -414,11 +364,6 @@ const App: React.FC = () => {
                                     <FAQItem key={index} question={faq.question} answer={faq.answer} />
                                 ))}
                             </div>
-                        </section>
-
-                        {/* News Section */}
-                        <section id="noticias" className="scroll-mt-28">
-                            <HealthNewsWidget />
                         </section>
 
                         {/* Contact Section */}
