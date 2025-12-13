@@ -1,21 +1,12 @@
-
 import React, { useState } from 'react';
 import HealthNewsWidget from './components/HealthNewsWidget';
 import Footer from './components/Footer';
 import GestationalCalculator from './components/GestationalCalculator';
+import ChatInterface from './components/ChatInterface';
 import { 
-    Stethoscope, 
     HeartPulse, 
-    Calendar, 
-    Phone, 
-    MapPin, 
-    Award, 
-    GraduationCap, 
     Menu, 
     X, 
-    CheckCircle2,
-    BookOpen,
-    FileText,
     Baby, 
     Waves,
     ScanLine,
@@ -27,13 +18,12 @@ import {
     Wind,
     ChevronDown,
     ChevronUp,
-    HelpCircle,
-    Facebook,
-    Youtube,
-    Instagram,
-    Play,
     Clock,
-    ArrowRight
+    BrainCircuit,
+    FileText,
+    MapPin,
+    Phone,
+    Mail
 } from 'lucide-react';
 
 interface FAQItemProps {
@@ -72,12 +62,13 @@ const App: React.FC = () => {
     // Usando o link fornecido pelo usuário (Postimages)
     const imgSrc = "https://i.postimg.cc/JnZ8kw3b/585283322-25300808462865092-8130294083600063357-n.jpg";
 
-    const navItems = ['Serviços', 'Calculadoras', 'Currículo', 'Dúvidas', 'Notícias', 'Contato'];
+    const navItems = ['Serviços', 'Calculadoras', 'IA Médica', 'Currículo', 'Dúvidas', 'Notícias', 'Contato'];
 
     const normalizeId = (text: string) => {
         return text
             .normalize("NFD")
             .replace(/[\u0300-\u036f]/g, "") // Remove acentos
+            .replace(/\s+/g, "") // Remove espaços
             .toLowerCase();
     };
 
@@ -168,7 +159,7 @@ const App: React.FC = () => {
                         </div>
                         
                         {/* Desktop Menu */}
-                        <nav className="hidden md:flex space-x-8 items-center">
+                        <nav className="hidden xl:flex space-x-8 items-center">
                             {navItems.map((item) => (
                                 <button 
                                     key={item}
@@ -182,9 +173,22 @@ const App: React.FC = () => {
                                 onClick={() => scrollToSection('contato')}
                                 className="bg-teal-600 text-white px-6 py-2.5 rounded-full font-medium hover:bg-teal-700 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                             >
-                                Agendar Exame
+                                Agendar
                             </button>
                         </nav>
+
+                         {/* Tablet/Smaller Desktop Menu (Simplified) */}
+                         <nav className="hidden md:flex xl:hidden space-x-4 items-center">
+                            <button onClick={() => scrollToSection('servicos')} className="text-gray-600 hover:text-teal-600 text-sm font-medium">Serviços</button>
+                            <button onClick={() => scrollToSection('iamedica')} className="text-gray-600 hover:text-teal-600 text-sm font-medium flex items-center"><BrainCircuit className="w-4 h-4 mr-1"/> IA</button>
+                            <button 
+                                onClick={() => scrollToSection('contato')}
+                                className="bg-teal-600 text-white px-4 py-2 rounded-full font-medium text-sm shadow-md"
+                            >
+                                Agendar
+                            </button>
+                        </nav>
+
 
                         {/* Mobile Menu Button */}
                         <div className="md:hidden">
@@ -245,8 +249,9 @@ const App: React.FC = () => {
                                     <button onClick={() => scrollToSection('contato')} className="bg-white text-teal-900 px-8 py-3.5 rounded-full font-bold hover:bg-teal-50 transition-colors shadow-lg text-center">
                                         Agendar Consulta
                                     </button>
-                                    <button onClick={() => scrollToSection('curriculo')} className="bg-transparent border-2 border-teal-400 text-teal-100 px-8 py-3.5 rounded-full font-bold hover:bg-teal-800/50 transition-colors text-center">
-                                        Conheça o Médico
+                                    <button onClick={() => scrollToSection('iamedica')} className="bg-transparent border-2 border-teal-400 text-teal-100 px-8 py-3.5 rounded-full font-bold hover:bg-teal-800/50 transition-colors text-center flex items-center justify-center gap-2">
+                                        <BrainCircuit size={20} />
+                                        IA para Médicos
                                     </button>
                                 </div>
                             </div>
@@ -332,141 +337,65 @@ const App: React.FC = () => {
                             <div className="bg-teal-50/50 p-1 rounded-3xl border border-teal-100/50">
                                 <GestationalCalculator />
                             </div>
-                            <div className="mt-4 bg-white p-6 rounded-xl border border-gray-100 shadow-sm text-sm text-gray-600">
-                                <h4 className="font-bold text-teal-900 mb-2 flex items-center">
-                                    <BookOpen className="w-4 h-4 mr-2" />
-                                    Entendendo os Cálculos
-                                </h4>
-                                <p className="mb-2">
-                                    <strong>DUM (Data da Última Menstruação):</strong> O método mais comum para datar a gravidez, contando o primeiro dia do último ciclo menstrual como o início da gestação.
+                        </section>
+
+                        {/* IA Medica / Chat Section */}
+                        <section id="iamedica" className="scroll-mt-28">
+                             <div className="mb-8 text-center">
+                                <div className="inline-flex items-center justify-center p-3 bg-teal-100 rounded-full mb-4">
+                                    <BrainCircuit className="w-8 h-8 text-teal-700" />
+                                </div>
+                                <h2 className="text-3xl font-serif font-bold text-teal-900">AJUDAMEDIKO</h2>
+                                <p className="text-gray-600 mt-2 max-w-2xl mx-auto">
+                                    Inteligência Artificial treinada para auxiliar médicos e profissionais de saúde com diretrizes clínicas,
+                                    protocolos e busca rápida de evidências científicas.
                                 </p>
-                                <p>
-                                    <strong>DPP (Data Provável do Parto):</strong> Uma estimativa de quando o bebê completará 40 semanas. Apenas 5% dos bebês nascem exatamente na data prevista.
-                                </p>
+                            </div>
+                            <div className="max-w-4xl mx-auto">
+                                <ChatInterface />
                             </div>
                         </section>
 
-                        {/* Curriculum Section */}
+                        {/* Curriculo Section */}
                         <section id="curriculo" className="scroll-mt-28">
-                            <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
-                                <div className="bg-teal-800 p-8 md:p-12 text-white">
-                                    <div className="flex flex-col md:flex-row items-center gap-8">
-                                        <div className="shrink-0">
-                                                <img 
-                                                src={imgSrc} 
-                                                alt="Dr. Rodrigo Duarte Franco" 
-                                                className="w-32 h-32 rounded-full object-cover object-top border-4 border-white/20 shadow-xl"
-                                            />
-                                        </div>
+                             <div className="bg-white rounded-2xl shadow-lg border border-teal-100 p-8">
+                                <h2 className="text-2xl font-serif font-bold text-teal-900 mb-6 flex items-center">
+                                    <FileText className="mr-3 text-teal-600" />
+                                    Currículo Resumido
+                                </h2>
+                                <div className="space-y-4">
+                                    <div className="flex gap-4">
+                                        <div className="flex-shrink-0 mt-1"><div className="w-2 h-2 rounded-full bg-teal-500"></div></div>
                                         <div>
-                                            <h2 className="text-3xl font-serif font-bold mb-2">Dr. Rodrigo Duarte Franco</h2>
-                                            <p className="text-teal-200 font-medium text-lg mb-4">CRM-MS 10087</p>
+                                            <h4 className="font-bold text-gray-800">Médico Formado</h4>
+                                            <p className="text-gray-600 text-sm">Graduação em Medicina com registro no CRM-MS 10087.</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex gap-4">
+                                        <div className="flex-shrink-0 mt-1"><div className="w-2 h-2 rounded-full bg-teal-500"></div></div>
+                                        <div>
+                                            <h4 className="font-bold text-gray-800">Especialista em Diagnóstico por Imagem</h4>
+                                            <p className="text-gray-600 text-sm">Pós-graduação e residência em Ultrassonografia Geral e Ecocardiograma Fetal.</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex gap-4">
+                                        <div className="flex-shrink-0 mt-1"><div className="w-2 h-2 rounded-full bg-teal-500"></div></div>
+                                        <div>
+                                            <h4 className="font-bold text-gray-800">Perito Judicial</h4>
+                                            <p className="text-gray-600 text-sm">Atuação como perito nomeado em diversas varas cíveis e trabalhistas, com vasta experiência em laudos técnicos.</p>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                <div className="p-8 md:p-12 space-y-8">
-                                    {/* Destaque FATESA */}
-                                    <div className="bg-teal-50 rounded-2xl p-6 border border-teal-100">
-                                        <div className="flex items-start gap-4">
-                                            <div className="bg-teal-100 p-3 rounded-lg text-teal-700 mt-1">
-                                                <Award className="w-6 h-6" />
-                                            </div>
-                                            <div>
-                                                <h3 className="text-lg font-bold text-teal-900 mb-2">Cursos em Ultrassonografia</h3>
-                                                <p className="text-gray-700 font-medium">
-                                                    Cursos realizados na FATESA - Tradição de mais de 30 anos em cursos de ultrassonografia.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="grid md:grid-cols-2 gap-8">
-                                        <div>
-                                            <h3 className="flex items-center text-xl font-bold text-gray-800 mb-6">
-                                                <GraduationCap className="w-5 h-5 text-teal-600 mr-2" />
-                                                Formação Acadêmica
-                                            </h3>
-                                            <ul className="space-y-6 relative border-l-2 border-gray-200 ml-3 pl-6 pb-2">
-                                                <li className="relative">
-                                                    <div className="absolute -left-[31px] bg-teal-600 h-4 w-4 rounded-full border-4 border-white"></div>
-                                                    <h4 className="font-bold text-gray-900">Cursos de Ultrassom - FATESA</h4>
-                                                    <p className="text-sm text-gray-600 mt-1">
-                                                        Ultrassom medicina interna, ultrassom de tireoide, ultrassom de mamas, ultrassom vascular, ultrassom obstétrico, ultrassom endovaginal, ultrassom ecocardiograma fetal, ultrassom musculoesquelético.
-                                                    </p>
-                                                </li>
-                                                <li className="relative">
-                                                    <div className="absolute -left-[31px] bg-teal-600 h-4 w-4 rounded-full border-4 border-white"></div>
-                                                    <h4 className="font-bold text-gray-900">Graduação em Medicina</h4>
-                                                    <span className="text-xs text-teal-600 font-semibold block mb-1">2018</span>
-                                                    <p className="text-sm text-gray-600">UNEMAT - Universidade Estadual do Mato Grosso - Cáceres - MT</p>
-                                                </li>
-                                                <li className="relative">
-                                                    <div className="absolute -left-[31px] bg-gray-400 h-4 w-4 rounded-full border-4 border-white"></div>
-                                                    <h4 className="font-bold text-gray-900">Pós-graduação em Perícia Médica</h4>
-                                                    <span className="text-xs text-teal-600 font-semibold block mb-1">2023</span>
-                                                </li>
-                                                <li className="relative">
-                                                    <div className="absolute -left-[31px] bg-gray-400 h-4 w-4 rounded-full border-4 border-white"></div>
-                                                    <h4 className="font-bold text-gray-900">Pós-graduação em Auditoria Hospitalar</h4>
-                                                    <span className="text-xs text-teal-600 font-semibold block mb-1">2022</span>
-                                                </li>
-                                                <li className="relative">
-                                                    <div className="absolute -left-[31px] bg-gray-400 h-4 w-4 rounded-full border-4 border-white"></div>
-                                                    <h4 className="font-bold text-gray-900">Pós-graduação em Acupuntura</h4>
-                                                    <span className="text-xs text-teal-600 font-semibold block mb-1">2005</span>
-                                                </li>
-                                                    <li className="relative">
-                                                    <div className="absolute -left-[31px] bg-gray-300 h-4 w-4 rounded-full border-4 border-white"></div>
-                                                    <h4 className="font-bold text-gray-900">Outras Graduações</h4>
-                                                    <p className="text-sm text-gray-600 mt-1">Fisioterapia (UNOESTE - 2004) e Educação Física (FIFASUL - 2002)</p>
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                        <div>
-                                            <h3 className="flex items-center text-xl font-bold text-gray-800 mb-6">
-                                                <Stethoscope className="w-5 h-5 text-teal-600 mr-2" />
-                                                Trajetória Profissional
-                                            </h3>
-                                            <div className="space-y-6 text-sm text-gray-600 leading-relaxed bg-gray-50 p-6 rounded-xl border border-gray-100">
-                                                <p>
-                                                    <strong className="text-gray-900 block mb-1">Experiência Atual (Nova Andradina e Região):</strong>
-                                                    • Médico ESF Prefeitura Municipal Nova Andradina - MS - concursado (desde 2018);<br/>
-                                                    • Diretor clínico e técnico - Médico plantonista no Hospital Municipal de Taquarussu (2020);<br/> 
-                                                    • Médico plantonista no UPA de Batayporã;<br/>
-                                                    • Perito judicial do fórum de Batayporã nomeado desde 2021.
-                                                </p>
-                                                <p>
-                                                    <strong className="text-gray-900 block mb-1">Experiência Prévia:</strong>
-                                                    • Professor de Educação Física contratado da SEDUC - MS - Anaurilândia - MS (2 anos);<br/> 
-                                                    • Fisioterapeuta concursado da secretaria de saúde do Município de Canarana - MT (8 anos);<br/> 
-                                                    • Professor universitário na Faculdade do Pantanal - FAPAN - Cáceres - MT (4,5 anos);<br/>
-                                                    • Médico plantonista no Hospital Cassems de Nova Andradina (5 anos);<br/>
-                                                    • Médico plantonista no Hospital Regional de Nova Andradina - MS (5 anos).
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                             </div>
                         </section>
 
                         {/* FAQ Section */}
                         <section id="duvidas" className="scroll-mt-28">
-                            <div className="mb-8">
-                                <h3 className="flex items-center text-2xl font-serif font-bold text-teal-900 mb-4">
-                                    <HelpCircle className="w-6 h-6 mr-2 text-teal-600" />
-                                    Dúvidas Frequentes
-                                </h3>
-                                <p className="text-gray-600 mb-6">
-                                    Confira abaixo as respostas para as perguntas mais comuns sobre os exames de ultrassom e nossos atendimentos. Informação de qualidade é o primeiro passo para sua saúde.
-                                </p>
-                                <div className="space-y-4">
-                                    {faqList.map((item, index) => (
-                                        <FAQItem key={index} question={item.question} answer={item.answer} />
-                                    ))}
-                                </div>
+                            <h2 className="text-2xl font-serif font-bold text-teal-900 mb-6 text-center">Dúvidas Frequentes</h2>
+                            <div className="space-y-3 max-w-3xl mx-auto">
+                                {faqList.map((faq, index) => (
+                                    <FAQItem key={index} question={faq.question} answer={faq.answer} />
+                                ))}
                             </div>
                         </section>
 
@@ -475,178 +404,103 @@ const App: React.FC = () => {
                             <HealthNewsWidget />
                         </section>
 
-                        {/* Social Media & Connectivity - New Section */}
-                        <section id="conectar" className="scroll-mt-28 mb-12">
-                            <div className="bg-gradient-to-br from-teal-900 to-teal-800 rounded-3xl overflow-hidden shadow-xl text-white">
-                                <div className="p-8 md:p-12 text-center">
-                                    <h2 className="text-3xl font-serif font-bold mb-6">Conecte-se Conosco</h2>
-                                    <p className="text-teal-100 max-w-2xl mx-auto mb-10 text-lg">
-                                        Acompanhe nosso trabalho nas redes sociais. Vídeos explicativos, novidades sobre Ultrassonografia e muito mais.
-                                    </p>
-                                    
-                                    <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                                        {/* Facebook Card */}
-                                        <a 
-                                            href="https://www.facebook.com/profile.php?id=61584404454201" 
-                                            target="_blank" 
-                                            rel="noopener noreferrer"
-                                            className="bg-[#1877F2] hover:bg-[#166fe5] p-6 rounded-2xl transition-all hover:-translate-y-1 shadow-lg flex items-center justify-center flex-col gap-4 group"
-                                        >
-                                            <div className="bg-white/20 p-4 rounded-full group-hover:scale-110 transition-transform">
-                                                <Facebook className="w-8 h-8 text-white" />
-                                            </div>
-                                            <div className="text-center">
-                                                <span className="block font-bold text-xl mb-1">Facebook</span>
-                                                <span className="text-blue-100 text-sm">Acompanhe nossa página</span>
-                                            </div>
-                                        </a>
-
-                                        {/* Youtube Card */}
-                                        <a 
-                                            href="https://www.youtube.com/@Dr.RodrigoFrancousg" 
-                                            target="_blank" 
-                                            rel="noopener noreferrer"
-                                            className="bg-[#FF0000] hover:bg-[#e60000] p-6 rounded-2xl transition-all hover:-translate-y-1 shadow-lg flex items-center justify-center flex-col gap-4 group"
-                                        >
-                                            <div className="bg-white/20 p-4 rounded-full group-hover:scale-110 transition-transform">
-                                                <Youtube className="w-8 h-8 text-white" />
-                                            </div>
-                                            <div className="text-center">
-                                                <span className="block font-bold text-xl mb-1">YouTube</span>
-                                                <span className="text-red-100 text-sm">Vídeos explicativos</span>
-                                            </div>
-                                        </a>
-
-                                        {/* Instagram Card */}
-                                        <a 
-                                            href="https://www.instagram.com/dr.rodrigofranco/"
-                                            target="_blank" 
-                                            rel="noopener noreferrer"
-                                            className="bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] p-6 rounded-2xl transition-all hover:-translate-y-1 shadow-lg flex items-center justify-center flex-col gap-4 group"
-                                        >
-                                            <div className="bg-white/20 p-4 rounded-full group-hover:scale-110 transition-transform">
-                                                <Instagram className="w-8 h-8 text-white" />
-                                            </div>
-                                            <div className="text-center">
-                                                <span className="block font-bold text-xl mb-1">Instagram</span>
-                                                <span className="text-pink-100 text-sm">Siga nosso dia a dia</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                        
-                        {/* Contact Form Section */}
-                        <section id="contato" className="scroll-mt-28">
-                             <div className="bg-white rounded-3xl shadow-lg border border-teal-100 overflow-hidden flex flex-col md:flex-row">
-                                <div className="md:w-5/12 bg-teal-900 text-white p-8 md:p-12 flex flex-col justify-between">
-                                    <div>
-                                        <h3 className="text-2xl font-serif font-bold mb-6">Informações de Contato</h3>
+                        {/* Contact Section */}
+                        <section id="contato" className="scroll-mt-28 mb-12">
+                            <div className="bg-teal-900 rounded-3xl overflow-hidden shadow-xl text-white">
+                                <div className="grid md:grid-cols-2">
+                                    <div className="p-8 lg:p-12">
+                                        <h2 className="text-3xl font-serif font-bold mb-6">Entre em Contato</h2>
                                         <p className="text-teal-100 mb-8">
-                                            Entre em contato para agendar seu exame ou tirar dúvidas. Estamos à disposição.
+                                            Agende seu exame ou tire suas dúvidas. Estamos prontos para oferecer o melhor atendimento.
                                         </p>
                                         
                                         <div className="space-y-6">
                                             <div className="flex items-start gap-4">
-                                                <MapPin className="w-6 h-6 text-teal-400 mt-1" />
+                                                <div className="bg-teal-800 p-3 rounded-lg"><Phone className="w-6 h-6" /></div>
                                                 <div>
-                                                    <h4 className="font-bold">Localização</h4>
-                                                    <p className="text-teal-100 text-sm">Nova Andradina - MS</p>
+                                                    <h3 className="font-bold text-lg">Telefone / WhatsApp</h3>
+                                                    <p className="text-teal-200">(67) 99844-6674</p>
+                                                    <p className="text-teal-400 text-sm mt-1">Segunda a Sexta, das 7h às 17h</p>
                                                 </div>
                                             </div>
+                                            
                                             <div className="flex items-start gap-4">
-                                                <Phone className="w-6 h-6 text-teal-400 mt-1" />
+                                                <div className="bg-teal-800 p-3 rounded-lg"><MapPin className="w-6 h-6" /></div>
                                                 <div>
-                                                    <h4 className="font-bold">Telefone / WhatsApp</h4>
-                                                    <p className="text-teal-100 text-sm">(67) 99844-6674</p>
+                                                    <h3 className="font-bold text-lg">Localização</h3>
+                                                    <p className="text-teal-200">
+                                                        Rua Walter Hubacher, 1088<br/>
+                                                        Centro, Nova Andradina - MS
+                                                    </p>
                                                 </div>
                                             </div>
-                                            <div className="flex items-start gap-4">
-                                                <Clock className="w-6 h-6 text-teal-400 mt-1" />
-                                                <div>
-                                                    <h4 className="font-bold">Horário</h4>
-                                                    <p className="text-teal-100 text-sm">Segunda a Sexta, horário comercial</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div className="mt-8 pt-8 border-t border-teal-800">
-                                        <p className="text-sm text-teal-400 font-medium">Dr. Rodrigo Duarte Franco</p>
-                                        <p className="text-xs text-teal-500">CRM-MS 10087</p>
-                                    </div>
-                                </div>
 
-                                <div className="md:w-7/12 p-8 md:p-12">
-                                    <h3 className="text-2xl font-serif font-bold text-teal-900 mb-6">Solicitar Agendamento</h3>
-                                    <div className="space-y-4">
-                                        <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-1">Nome Completo</label>
-                                            <input 
-                                                type="text" 
-                                                value={formName}
-                                                onChange={(e) => setFormName(e.target.value)}
-                                                className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 outline-none"
-                                                placeholder="Seu nome"
-                                            />
+                                            <div className="flex items-start gap-4">
+                                                <div className="bg-teal-800 p-3 rounded-lg"><Mail className="w-6 h-6" /></div>
+                                                <div>
+                                                    <h3 className="font-bold text-lg">E-mail</h3>
+                                                    <p className="text-teal-200">
+                                                        fisiorod@gmail.com
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-1">Telefone</label>
-                                            <input 
-                                                type="text" 
-                                                value={formPhone}
-                                                onChange={(e) => setFormPhone(e.target.value)}
-                                                className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 outline-none"
-                                                placeholder="(00) 00000-0000"
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-1">Exame Desejado</label>
-                                            <select 
-                                                value={formExam}
-                                                onChange={(e) => setFormExam(e.target.value)}
-                                                className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 outline-none"
+                                    </div>
+
+                                    <div className="bg-white p-8 lg:p-12 text-gray-800">
+                                        <h3 className="text-xl font-bold text-teal-900 mb-4">Pré-Agendamento Rápido</h3>
+                                        <div className="space-y-4">
+                                            <div>
+                                                <label className="block text-sm font-medium text-gray-700 mb-1">Seu Nome</label>
+                                                <input 
+                                                    type="text" 
+                                                    value={formName}
+                                                    onChange={(e) => setFormName(e.target.value)}
+                                                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 outline-none"
+                                                    placeholder="Digite seu nome completo"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-gray-700 mb-1">Telefone</label>
+                                                <input 
+                                                    type="tel" 
+                                                    value={formPhone}
+                                                    onChange={(e) => setFormPhone(e.target.value)}
+                                                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 outline-none"
+                                                    placeholder="(67) 99999-9999"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-medium text-gray-700 mb-1">Exame de Interesse</label>
+                                                <select 
+                                                    value={formExam}
+                                                    onChange={(e) => setFormExam(e.target.value)}
+                                                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 outline-none"
+                                                >
+                                                    <option value="">Selecione um exame...</option>
+                                                    {ultrasoundExams.map((ex, i) => (
+                                                        <option key={i} value={ex.name}>{ex.name}</option>
+                                                    ))}
+                                                    <option value="Outro">Outro / Dúvida</option>
+                                                </select>
+                                            </div>
+                                            <button 
+                                                onClick={handleScheduleClick}
+                                                className="w-full bg-teal-600 text-white py-3.5 rounded-lg font-bold hover:bg-teal-700 transition-colors shadow-lg mt-2"
                                             >
-                                                <option value="">Selecione...</option>
-                                                {ultrasoundExams.map((ex, i) => (
-                                                    <option key={i} value={ex.name}>{ex.name}</option>
-                                                ))}
-                                                <option value="Consulta">Consulta Médica</option>
-                                                <option value="Pericia">Perícia Médica</option>
-                                            </select>
+                                                Enviar via WhatsApp
+                                            </button>
                                         </div>
-                                        <button 
-                                            onClick={handleScheduleClick}
-                                            className="w-full bg-teal-600 text-white py-4 rounded-xl font-bold shadow-md hover:bg-teal-700 transition-colors flex items-center justify-center gap-2"
-                                        >
-                                            Agendar no WhatsApp
-                                            <ArrowRight className="w-5 h-5" />
-                                        </button>
-                                        <p className="text-xs text-center text-gray-500 mt-2">
-                                            Ao clicar, você será redirecionado para o WhatsApp da clínica.
-                                        </p>
                                     </div>
                                 </div>
-                             </div>
+                            </div>
                         </section>
+
                     </div>
                 </div>
             </main>
 
             <Footer />
-            
-            {/* WhatsApp Float Button */}
-            <a 
-                href="https://wa.me/5567998446674"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 hover:scale-110 transition-all z-50 flex items-center justify-center"
-                aria-label="WhatsApp"
-            >
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" className="w-8 h-8 brightness-0 invert" alt="WhatsApp" />
-            </a>
-
         </div>
     );
 };
