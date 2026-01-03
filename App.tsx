@@ -64,7 +64,7 @@ const App: React.FC = () => {
     const mapImgSrc = "https://i.postimg.cc/28hbWxS9/Captura-de-tela-2025-12-26-144512.jpg";
     const googleMapsLink = "https://maps.app.goo.gl/jgVpSbnESB4ViFom9";
 
-    const navItems = ['SERVIÇOS', 'CALCULADORAS', 'CURRÍCULO', 'DÚVIDAS', 'NOTÍCIAS', 'CONTATO'];
+    const navItems = ['SERVIÇOS', 'CALCULADORAS', 'CURRÍCULO', 'LOCALIZAÇÃO', 'DÚVIDAS', 'NOTÍCIAS', 'CONTATO'];
 
     const normalizeId = (text: string) => {
         return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "").toLowerCase();
@@ -84,6 +84,15 @@ const App: React.FC = () => {
                 behavior: 'smooth'
             });
             setIsMobileMenuOpen(false);
+        }
+    };
+
+    const handleNavClick = (item: string) => {
+        if (item === 'LOCALIZAÇÃO') {
+            window.open(googleMapsLink, '_blank');
+            setIsMobileMenuOpen(false);
+        } else {
+            scrollToSection(normalizeId(item));
         }
     };
 
@@ -172,7 +181,7 @@ const App: React.FC = () => {
                             {navItems.map((item) => (
                                 <button 
                                     key={item} 
-                                    onClick={() => scrollToSection(normalizeId(item))} 
+                                    onClick={() => handleNavClick(item)} 
                                     className="text-gray-500 hover:text-[#14b8a6] font-bold text-[11px] tracking-widest transition-colors uppercase"
                                 >
                                     {item}
@@ -199,7 +208,7 @@ const App: React.FC = () => {
                         {navItems.map((item) => (
                             <button 
                                 key={item} 
-                                onClick={() => scrollToSection(normalizeId(item))} 
+                                onClick={() => handleNavClick(item)} 
                                 className="block w-full text-left py-4 px-2 text-[#0e4843] font-bold text-xs border-b border-gray-50"
                             >
                                 {item}
@@ -245,7 +254,7 @@ const App: React.FC = () => {
                                     <img src={doctorImgSrc} alt="Dr. Rodrigo" className="w-full h-full object-cover rounded-full border-4 border-teal-500/20 shadow-2xl" />
                                 </div>
 
-                                {/* Mapa de Localização ao lado da foto - Tornando clicável e adicionando link do Google Maps */}
+                                {/* Mapa de Localização ao lado da foto */}
                                 <div className="bg-white p-1.5 rounded-2xl shadow-2xl max-w-[240px] border border-white/10 hidden sm:block">
                                     <div className="relative rounded-xl overflow-hidden bg-white group cursor-pointer">
                                         <div 
@@ -335,12 +344,14 @@ const App: React.FC = () => {
                     </div>
                 </section>
 
+                {/* Seção Calculadoras */}
                 <section id="calculadoras" className="py-24 bg-gray-50 scroll-mt-24">
                     <div className="max-w-4xl mx-auto px-4">
                         <GestationalCalculator />
                     </div>
                 </section>
 
+                {/* Seção Currículo */}
                 <section id="curriculo" className="py-24 max-w-6xl mx-auto px-4 scroll-mt-24">
                     <div className="grid lg:grid-cols-2 gap-20">
                         <div className="text-left">
