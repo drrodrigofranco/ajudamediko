@@ -65,7 +65,7 @@ const App: React.FC = () => {
 
     const doctorImgSrc = "https://i.postimg.cc/kXysy26g/Chat-GPT-Image-21-de-fev-de-2026-10-12-59.png";
     const mapImgSrc = "https://i.postimg.cc/28hbWxS9/Captura-de-tela-2025-12-26-144512.jpg";
-    const googleMapsLink = "https://maps.app.goo.gl/jgVpSbnESB4ViFom9";
+    const googleMapsLink = "https://maps.app.goo.gl/aMkRNzPYtTe6jwQJ8";
 
     const navItems = ['SERVIÇOS', 'CALCULADORAS', 'CURRÍCULO', 'LOCALIZAÇÃO', 'DÚVIDAS', 'NOTÍCIAS', 'CONTATO'];
 
@@ -162,22 +162,22 @@ const App: React.FC = () => {
             )}
 
             {/* Top Bar com Redes Sociais */}
-            <div className="bg-[#0e4843] text-white py-2 border-b border-teal-900/30">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-end items-center gap-6">
-                    <a href="https://www.instagram.com/franco.clinica/" target="_blank" rel="noopener noreferrer" className="hover:text-[#14b8a6] transition-colors flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase">
-                        <Instagram size={14} />
+            <div className="bg-[#0e4843] text-white py-3 border-b border-teal-900/30">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-end items-center gap-8">
+                    <a href="https://www.instagram.com/franco.clinica/" target="_blank" rel="noopener noreferrer" className="hover:text-[#14b8a6] transition-colors flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase">
+                        <Instagram size={18} />
                         <span className="hidden sm:inline">Instagram</span>
                     </a>
-                    <a href="https://www.facebook.com/profile.php?id=61584404454201" target="_blank" rel="noopener noreferrer" className="hover:text-[#14b8a6] transition-colors flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase">
-                        <Facebook size={14} />
+                    <a href="https://www.facebook.com/profile.php?id=61584404454201" target="_blank" rel="noopener noreferrer" className="hover:text-[#14b8a6] transition-colors flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase">
+                        <Facebook size={18} />
                         <span className="hidden sm:inline">Facebook</span>
                     </a>
-                    <a href="https://www.youtube.com/@Dr.Francos" target="_blank" rel="noopener noreferrer" className="hover:text-[#14b8a6] transition-colors flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase">
-                        <Youtube size={14} />
+                    <a href="https://www.youtube.com/@Dr.Francos" target="_blank" rel="noopener noreferrer" className="hover:text-[#14b8a6] transition-colors flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase">
+                        <Youtube size={18} />
                         <span className="hidden sm:inline">YouTube</span>
                     </a>
-                    <a href="https://www.tiktok.com/@dr.rodrigofranco" target="_blank" rel="noopener noreferrer" className="hover:text-[#14b8a6] transition-colors flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase">
-                        <svg size={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-[14px] h-[14px]">
+                    <a href="https://www.tiktok.com/@dr.rodrigofranco" target="_blank" rel="noopener noreferrer" className="hover:text-[#14b8a6] transition-colors flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase">
+                        <svg size={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-[18px] h-[18px]">
                             <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
                         </svg>
                         <span className="hidden sm:inline">TikTok</span>
@@ -326,7 +326,7 @@ const App: React.FC = () => {
                 {/* Seção Serviços */}
                 <section id="servicos" className="py-24 max-w-6xl mx-auto px-4 scroll-mt-24">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl font-serif font-bold text-[#0e4843] mb-4">Excelência em Diagnóstico por Imagem</h2>
+                        <h2 className="text-3xl font-serif font-bold text-[#0e4843] mb-4">Atendimento e Exames de Execelência</h2>
                         <div className="h-1 w-16 bg-[#14b8a6] mx-auto mb-8 rounded-full"></div>
                         <p className="text-gray-500 max-w-3xl mx-auto text-sm leading-relaxed">
                             A ultrassonografia é uma ferramenta essencial na medicina moderna, permitindo a visualização não invasiva de estruturas internas do corpo em tempo real. Utilizamos equipamentos de alta resolução para garantir a precisão necessária em cada laudo.
