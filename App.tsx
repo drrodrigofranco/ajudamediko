@@ -326,7 +326,7 @@ const App: React.FC = () => {
                 {/* Seção Serviços */}
                 <section id="servicos" className="py-24 max-w-6xl mx-auto px-4 scroll-mt-24">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl font-serif font-bold text-[#0e4843] mb-4">Atendimento e Exames de Execelência</h2>
+                        <h2 className="text-3xl font-serif font-bold text-[#0e4843] mb-4">Atendimento e Exames com atenção e humanidade</h2>
                         <div className="h-1 w-16 bg-[#14b8a6] mx-auto mb-8 rounded-full"></div>
                         <p className="text-gray-500 max-w-3xl mx-auto text-sm leading-relaxed">
                             A ultrassonografia é uma ferramenta essencial na medicina moderna, permitindo a visualização não invasiva de estruturas internas do corpo em tempo real. Utilizamos equipamentos de alta resolução para garantir a precisão necessária em cada laudo.
