@@ -25,7 +25,10 @@ import {
     GraduationCap, 
     Stethoscope,
     ExternalLink,
-    Maximize2
+    Maximize2,
+    Instagram,
+    Facebook,
+    Youtube
 } from 'lucide-react';
 
 interface FAQItemProps {
@@ -60,7 +63,7 @@ const App: React.FC = () => {
     const [formPhone, setFormPhone] = useState('');
     const [formExam, setFormExam] = useState('');
 
-    const doctorImgSrc = "https://i.postimg.cc/JnZ8kw3b/585283322-25300808462865092-8130294083600063357-n.jpg";
+    const doctorImgSrc = "https://i.postimg.cc/kXysy26g/Chat-GPT-Image-21-de-fev-de-2026-10-12-59.png";
     const mapImgSrc = "https://i.postimg.cc/28hbWxS9/Captura-de-tela-2025-12-26-144512.jpg";
     const googleMapsLink = "https://maps.app.goo.gl/jgVpSbnESB4ViFom9";
 
@@ -98,16 +101,18 @@ const App: React.FC = () => {
 
     const handleScheduleClick = () => {
         const phone = "5567998446674";
-        const message = `Olá Dr. Rodrigo, gostaria de solicitar um agendamento pelo site.\n\n*Paciente:* ${formName || 'Não informado'}\n*Contato:* ${formPhone || 'Não informado'}\n*Exame Desejado:* ${formExam || 'Não selecionado'}`;
+        const message = `Olá Clínica Franco, gostaria de solicitar um agendamento pelo site.\n\n*Paciente:* ${formName || 'Não informado'}\n*Contato:* ${formPhone || 'Não informado'}\n*Serviço/Exame Desejado:* ${formExam || 'Não selecionado'}`;
         window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
     };
 
     const ultrasoundExams = [
-        { name: "Obstétrico", Icon: Baby, desc: "Acompanhamento gestacional" },
-        { name: "Abdome Total", Icon: ScanLine, desc: "Avaliação de órgãos internos" },
-        { name: "Pélvico", Icon: ScanLine, desc: "Útero, ovários e bexiga" },
-        { name: "Próstata", Icon: User, desc: "Via abdominal" },
-        { name: "Tireoide", Icon: Aperture, desc: "Avaliação de nódulos e cistos" },
+        {name: "Obstétrico com Doppler", Icon: Baby, desc: "Avaliação da circulação fetal" },
+        {name: "Obstétrico sem Doppler", Icon: Baby, desc: "Acompanhamento de rotina" },
+        {name: "Morfológico 1º Trimestre", Icon: Baby, desc: "Rastreamento de malformações" },
+        {name: "Abdome Total", Icon: ScanLine, desc: "Avaliação de órgãos internos" },
+        {name: "Pélvico", Icon: ScanLine, desc: "Útero, ovários e bexiga" },
+        {name: "Próstata", Icon: User, desc: "Via abdominal" },
+        {name: "Tireoide (com e sem Doppler)", Icon: Aperture, desc: "Avaliação de nódulos e cistos" },
         { name: "Mama", Icon: Activity, desc: "Prevenção e diagnóstico" },
         { name: "Musculoesquelético", Icon: Dumbbell, desc: "Articulações e músculos" },
         { name: "Vascular", Icon: Waves, desc: "Doppler colorido" },
@@ -116,6 +121,8 @@ const App: React.FC = () => {
         { name: "MAPA", Icon: Clock, desc: "Monitoramento de pressão 24h" },
         { name: "Ecocardiograma Fetal", Icon: HeartPulse, desc: "Avaliação cardíaca fetal" },
         { name: "Transvaginal", Icon: ScanLine, desc: "Avaliação detalhada interna" },
+        { name: "Clínica Geral", Icon: Stethoscope, desc: "Atendimento médico integral" },
+        { name: "Geriatria", Icon: User, desc: "Saúde na terceira idade" },
     ];
 
     return (
@@ -154,6 +161,30 @@ const App: React.FC = () => {
                 </div>
             )}
 
+            {/* Top Bar com Redes Sociais */}
+            <div className="bg-[#0e4843] text-white py-2 border-b border-teal-900/30">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-end items-center gap-6">
+                    <a href="https://www.instagram.com/franco.clinica/" target="_blank" rel="noopener noreferrer" className="hover:text-[#14b8a6] transition-colors flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase">
+                        <Instagram size={14} />
+                        <span className="hidden sm:inline">Instagram</span>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61584404454201" target="_blank" rel="noopener noreferrer" className="hover:text-[#14b8a6] transition-colors flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase">
+                        <Facebook size={14} />
+                        <span className="hidden sm:inline">Facebook</span>
+                    </a>
+                    <a href="https://www.youtube.com/@Dr.Francos" target="_blank" rel="noopener noreferrer" className="hover:text-[#14b8a6] transition-colors flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase">
+                        <Youtube size={14} />
+                        <span className="hidden sm:inline">YouTube</span>
+                    </a>
+                    <a href="https://www.tiktok.com/@dr.rodrigofranco" target="_blank" rel="noopener noreferrer" className="hover:text-[#14b8a6] transition-colors flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase">
+                        <svg size={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-[14px] h-[14px]">
+                            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                        </svg>
+                        <span className="hidden sm:inline">TikTok</span>
+                    </a>
+                </div>
+            </div>
+
             {/* Cabeçalho */}
             <header className="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -164,14 +195,14 @@ const App: React.FC = () => {
                             </div>
                             <div className="flex flex-col">
                                 <h1 className="text-xl md:text-2xl font-serif font-bold text-[#0e4843] leading-none tracking-tight">
-                                    Dr. Rodrigo Duarte Franco
+                                    Clínica Franco
                                 </h1>
                                 <div className="mt-1.5 flex flex-col">
-                                    <span className="text-[11px] font-bold text-[#14b8a6] uppercase tracking-wider">
-                                        CRM-MS 10087
+                                    <span className="text-[10px] font-bold text-[#14b8a6] uppercase tracking-wider">
+                                        Dr. Rodrigo (CRM 10087) | Dr. Lucas (CRM 7462)
                                     </span>
                                     <span className="text-[9px] text-[#14b8a6] font-bold uppercase tracking-widest mt-0.5">
-                                        ULTRASSONOGRAFIA, PERÍCIA MÉDICA E CLÍNICA MÉDICA
+                                        ULTRASSONOGRAFIA, GERIATRIA, CLÍNICA GERAL E PERÍCIAS MÉDICAS
                                     </span>
                                 </div>
                             </div>
@@ -235,12 +266,13 @@ const App: React.FC = () => {
                                     Diagnóstico e Atendimentos
                                 </div>
                                 <h2 className="text-5xl lg:text-7xl font-serif font-bold leading-tight mb-8">
-                                    Ecocardiograma Fetal, <br/>
-                                    Ultrassonografia Avançada, <br/>
+                                    Ultrassonografia, <br/>
+                                    Geriatria, <br/>
+                                    Clínica Geral e <br/>
                                     Perícias Médicas
                                 </h2>
                                 <p className="text-lg text-teal-50/70 mb-10 leading-relaxed max-w-xl">
-                                    Tecnologia de ponta e olhar experiente para acompanhar o desenvolvimento da vida e cuidar da sua saúde. Perícia Médica e diagnósticos precisos em Nova Andradina-MS.
+                                    Cuidado multigeracional com tecnologia de ponta. Dr. Rodrigo Franco e Dr. Lucas Franco unindo experiência e dedicação para a saúde da sua família em Nova Andradina-MS.
                                 </p>
                                 <button onClick={() => scrollToSection('contato')} className="bg-white text-[#0e4843] px-10 py-4 rounded-full font-bold shadow-lg hover:bg-teal-50 transition-all">
                                     Agendar Consulta
@@ -251,7 +283,7 @@ const App: React.FC = () => {
                             <div className="lg:w-1/2 flex flex-col sm:flex-row items-center justify-center gap-6">
                                 <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[420px] lg:h-[420px]">
                                     <div className="absolute inset-0 border-2 border-teal-400/20 rounded-full animate-pulse"></div>
-                                    <img src={doctorImgSrc} alt="Dr. Rodrigo" className="w-full h-full object-cover rounded-full border-4 border-teal-500/20 shadow-2xl" />
+                                    <img src={doctorImgSrc} alt="Clínica Franco - Dr. Rodrigo e Dr. Lucas" className="w-full h-full object-cover rounded-full border-4 border-teal-500/20 shadow-2xl" />
                                 </div>
 
                                 {/* Mapa de Localização ao lado da foto */}
@@ -352,103 +384,236 @@ const App: React.FC = () => {
                 </section>
 
                 {/* Seção Currículo */}
-                <section id="curriculo" className="py-24 max-w-6xl mx-auto px-4 scroll-mt-24">
-                    <div className="grid lg:grid-cols-2 gap-20">
-                        <div className="text-left">
-                            <div className="flex items-center gap-4 mb-12">
-                                <div className="text-[#0e4843] flex items-center">
-                                    <GraduationCap className="w-10 h-10 mr-4" />
-                                    <h2 className="text-3xl font-serif font-bold">Formação Acadêmica</h2>
-                                </div>
-                            </div>
-                            <div className="border-l-2 border-[#ccfbf1] ml-5 pl-12 space-y-12">
+                <section id="curriculo" className="py-24 max-w-7xl mx-auto px-4 scroll-mt-24">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl font-serif font-bold text-[#0e4843] mb-4">Nossos Profissionais</h2>
+                        <div className="h-1 w-16 bg-[#14b8a6] mx-auto mb-8 rounded-full"></div>
+                    </div>
+
+                    <div className="space-y-24">
+                        {/* Dr. Rodrigo */}
+                        <div className="bg-white rounded-[40px] p-8 md:p-12 shadow-sm border border-gray-100 mb-12">
+                            <div className="flex flex-col md:flex-row items-center gap-8">
                                 <div className="relative">
-                                    <div className="absolute -left-[57px] top-1.5 w-6 h-6 bg-[#14b8a6] rounded-full border-4 border-white shadow-sm"></div>
-                                    <h4 className="font-bold text-gray-900 text-xl">Cursos de Ultrassom - FATESA</h4>
-                                    <p className="text-gray-500 text-sm mt-3 leading-relaxed">
-                                        Ultrassom medicina interna, ultrassom de tireoide, ultrassom de mamas, ultrassom vascular, ultrassom obstétrico, ultrassom endovaginal, ultrassom ecocardiograma fetal, ultrassom musculoesquelético.
+                                    <div className="w-48 h-48 rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                                        <img 
+                                            src="https://i.postimg.cc/3R41Y9xs/Chat-GPT-Image-18-de-fev-de-2026-09-48-23.png" 
+                                            alt="Dr. Rodrigo Franco"
+                                            className="w-full h-full object-cover"
+                                            referrerPolicy="no-referrer"
+                                        />
+                                    </div>
+                                    <div className="absolute -bottom-4 -right-4 bg-[#14b8a6] text-white p-3 rounded-xl shadow-lg">
+                                        <HeartPulse size={24} />
+                                    </div>
+                                </div>
+                                <div className="text-center md:text-left">
+                                    <h3 className="text-4xl font-serif font-bold text-[#0e4843] mb-2">Dr. Rodrigo Franco</h3>
+                                    <p className="text-[#14b8a6] font-bold uppercase tracking-widest text-sm mb-4">CRM-MS 10087</p>
+                                    <p className="text-gray-500 max-w-xl leading-relaxed">
+                                        Atendimento com ampla experiência em diagnóstico por imagem e perícia médica. Dedicado a oferecer um atendimento humanizado e preciso para toda a família.
                                     </p>
-                                </div>
-                                <div className="relative">
-                                    <div className="absolute -left-[57px] top-1.5 w-6 h-6 bg-gray-200 rounded-full border-4 border-white"></div>
-                                    <h4 className="font-bold text-gray-900 text-xl">Graduação em Medicina</h4>
-                                    <span className="text-[#14b8a6] font-bold text-sm block mt-1">2018</span>
-                                    <p className="text-gray-500 text-sm mt-1">UNEMAT - Universidade Estadual do Mato Grosso - Cáceres - MT</p>
-                                </div>
-                                <div className="relative">
-                                    <div className="absolute -left-[57px] top-1.5 w-6 h-6 bg-gray-200 rounded-full border-4 border-white"></div>
-                                    <h4 className="font-bold text-gray-900 text-xl">Pós-graduação em Perícia Médica</h4>
-                                    <span className="text-[#14b8a6] font-bold text-sm block mt-1">2023</span>
-                                </div>
-                                <div className="relative">
-                                    <div className="absolute -left-[57px] top-1.5 w-6 h-6 bg-gray-200 rounded-full border-4 border-white"></div>
-                                    <h4 className="font-bold text-gray-900 text-xl">Pós-graduação em Auditoria Hospitalar</h4>
-                                    <span className="text-[#14b8a6] font-bold text-sm block mt-1">2022</span>
-                                </div>
-                                <div className="relative">
-                                    <div className="absolute -left-[57px] top-1.5 w-6 h-6 bg-gray-200 rounded-full border-4 border-white"></div>
-                                    <h4 className="font-bold text-gray-900 text-xl">Pós-graduação em Acupuntura</h4>
-                                    <span className="text-[#14b8a6] font-bold text-sm block mt-1">2005</span>
-                                </div>
-                                <div className="relative">
-                                    <div className="absolute -left-[57px] top-1.5 w-6 h-6 bg-gray-200 rounded-full border-4 border-white"></div>
-                                    <h4 className="font-bold text-gray-900 text-xl">Outras Graduações</h4>
-                                    <p className="text-gray-500 text-sm mt-1">Fisioterapia (UNOESTE - 2004) e Educação Física (FIFASUL - 2002)</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="text-left">
-                            <div className="flex items-center gap-4 mb-12">
-                                <div className="text-[#0e4843] flex items-center">
-                                    <Stethoscope className="w-10 h-10 mr-4" />
-                                    <h2 className="text-3xl font-serif font-bold">Trajetória Profissional</h2>
+                        <div className="grid lg:grid-cols-2 gap-20">
+                            <div className="text-left">
+                                <div className="flex items-center gap-4 mb-12">
+                                    <div className="text-[#0e4843] flex items-center">
+                                        <GraduationCap className="w-10 h-10 mr-4" />
+                                        <h2 className="text-3xl font-serif font-bold">Formação Acadêmica</h2>
+                                    </div>
+                                </div>
+                                <div className="border-l-2 border-[#ccfbf1] ml-5 pl-12 space-y-12">
+                                    <div className="relative">
+                                        <div className="absolute -left-[57px] top-1.5 w-6 h-6 bg-[#14b8a6] rounded-full border-4 border-white shadow-sm"></div>
+                                        <h4 className="font-bold text-gray-900 text-xl">Cursos de Ultrassom - FATESA</h4>
+                                        <p className="text-gray-500 text-sm mt-3 leading-relaxed">
+                                            Ultrassom medicina interna, ultrassom de tireoide, ultrassom de mamas, ultrassom vascular, ultrassom obstétrico, ultrassom endovaginal, ultrassom ecocardiograma fetal, ultrassom musculoesquelético.
+                                        </p>
+                                    </div>
+                                    <div className="relative">
+                                        <div className="absolute -left-[57px] top-1.5 w-6 h-6 bg-gray-200 rounded-full border-4 border-white"></div>
+                                        <h4 className="font-bold text-gray-900 text-xl">Graduação em Medicina</h4>
+                                        <span className="text-[#14b8a6] font-bold text-sm block mt-1">2018</span>
+                                        <p className="text-gray-500 text-sm mt-1">UNEMAT - Universidade Estadual do Mato Grosso - Cáceres - MT</p>
+                                    </div>
+                                    <div className="relative">
+                                        <div className="absolute -left-[57px] top-1.5 w-6 h-6 bg-gray-200 rounded-full border-4 border-white"></div>
+                                        <h4 className="font-bold text-gray-900 text-xl">Pós-graduação em Perícia Médica</h4>
+                                        <span className="text-[#14b8a6] font-bold text-sm block mt-1">2023</span>
+                                    </div>
+                                    <div className="relative">
+                                        <div className="absolute -left-[57px] top-1.5 w-6 h-6 bg-gray-200 rounded-full border-4 border-white"></div>
+                                        <h4 className="font-bold text-gray-900 text-xl">Pós-graduação em Auditoria Hospitalar</h4>
+                                        <span className="text-[#14b8a6] font-bold text-sm block mt-1">2022</span>
+                                    </div>
+                                    <div className="relative">
+                                        <div className="absolute -left-[57px] top-1.5 w-6 h-6 bg-gray-200 rounded-full border-4 border-white"></div>
+                                        <h4 className="font-bold text-gray-900 text-xl">Pós-graduação em Acupuntura</h4>
+                                        <span className="text-[#14b8a6] font-bold text-sm block mt-1">2005</span>
+                                    </div>
+                                    <div className="relative">
+                                        <div className="absolute -left-[57px] top-1.5 w-6 h-6 bg-gray-200 rounded-full border-4 border-white"></div>
+                                        <h4 className="font-bold text-gray-900 text-xl">Outras Graduações</h4>
+                                        <p className="text-gray-500 text-sm mt-1">Fisioterapia (UNOESTE - 2004) e Educação Física (FIFASUL - 2002)</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="bg-white p-12 rounded-3xl shadow-sm border border-gray-100 h-full">
-                                <h5 className="font-bold text-[#0e4843] mb-8 text-lg">Experiência Atual (Nova Andradina e Região):</h5>
-                                <ul className="space-y-5 text-sm text-gray-600">
-                                    <li className="flex items-start gap-4">
-                                        <div className="w-2 h-2 bg-[#14b8a6] rounded-full mt-2 flex-shrink-0"></div>
-                                        <span>Médico ESF Prefeitura Municipal Nova Andradina - MS - concursado (desde 2018);</span>
-                                    </li>
-                                    <li className="flex items-start gap-4">
-                                        <div className="w-2 h-2 bg-[#14b8a6] rounded-full mt-2 flex-shrink-0"></div>
-                                        <span>Diretor clínico e técnico - Médico plantonista no Hospital Municipal de Taquarussu (2020);</span>
-                                    </li>
-                                    <li className="flex items-start gap-4">
-                                        <div className="w-2 h-2 bg-[#14b8a6] rounded-full mt-2 flex-shrink-0"></div>
-                                        <span>Médico plantonista no UPA de Batayporã;</span>
-                                    </li>
-                                    <li className="flex items-start gap-4">
-                                        <div className="w-2 h-2 bg-[#14b8a6] rounded-full mt-2 flex-shrink-0"></div>
-                                        <span>Perito judicial do fórum de Batayporã nomeado desde 2021.</span>
-                                    </li>
-                                </ul>
 
-                                <h5 className="font-bold text-[#0e4843] mt-12 mb-8 text-lg border-t border-gray-50 pt-8">Experiência Prévia:</h5>
-                                <ul className="space-y-5 text-sm text-gray-500">
-                                    <li className="flex items-start gap-4">
-                                        <div className="w-2 h-2 bg-gray-200 rounded-full mt-2 flex-shrink-0"></div>
-                                        <span>Professor de Educação Física contratado da SEDUC - MS - Anaurilândia - MS (2 anos);</span>
-                                    </li>
-                                    <li className="flex items-start gap-4">
-                                        <div className="w-2 h-2 bg-gray-200 rounded-full mt-2 flex-shrink-0"></div>
-                                        <span>Fisioterapeuta concursado da secretaria de saúde do Município de Canarana - MT (8 anos);</span>
-                                    </li>
-                                    <li className="flex items-start gap-4">
-                                        <div className="w-2 h-2 bg-gray-200 rounded-full mt-2 flex-shrink-0"></div>
-                                        <span>Professor universitário na Faculdade do Pantanal - FAPAN - Cáceres - MT (4,5 anos);</span>
-                                    </li>
-                                    <li className="flex items-start gap-4">
-                                        <div className="w-2 h-2 bg-gray-200 rounded-full mt-2 flex-shrink-0"></div>
-                                        <span>Médico plantonista no Hospital Cassems de Nova Andradina (5 anos);</span>
-                                    </li>
-                                    <li className="flex items-start gap-4">
-                                        <div className="w-2 h-2 bg-gray-200 rounded-full mt-2 flex-shrink-0"></div>
-                                        <span>Médico plantonista no Hospital Regional de Nova Andradina - MS (5 anos).</span>
-                                    </li>
-                                </ul>
+                            <div className="text-left">
+                                <div className="flex items-center gap-4 mb-12">
+                                    <div className="text-[#0e4843] flex items-center">
+                                        <Stethoscope className="w-10 h-10 mr-4" />
+                                        <h2 className="text-3xl font-serif font-bold">Trajetória Profissional</h2>
+                                    </div>
+                                </div>
+                                <div className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
+                                    <div className="mb-10">
+                                        <h4 className="font-bold text-gray-900 mb-6">Experiência Atual (Nova Andradina e Região):</h4>
+                                        <ul className="space-y-4 text-sm text-gray-600">
+                                            <li className="flex items-start gap-4">
+                                                <div className="w-2 h-2 bg-[#14b8a6] rounded-full mt-2 flex-shrink-0"></div>
+                                                <span>Médico ESF Prefeitura Municipal Nova Andradina - MS - concursado (desde 2018);</span>
+                                            </li>
+                                            <li className="flex items-start gap-4">
+                                                <div className="w-2 h-2 bg-[#14b8a6] rounded-full mt-2 flex-shrink-0"></div>
+                                                <span>Diretor clínico e técnico - Médico plantonista no Hospital Municipal de Taquarussu (2020);</span>
+                                            </li>
+                                            <li className="flex items-start gap-4">
+                                                <div className="w-2 h-2 bg-[#14b8a6] rounded-full mt-2 flex-shrink-0"></div>
+                                                <span>Médico plantonista no UPA de Batayporã;</span>
+                                            </li>
+                                            <li className="flex items-start gap-4">
+                                                <div className="w-2 h-2 bg-[#14b8a6] rounded-full mt-2 flex-shrink-0"></div>
+                                                <span>Perito judicial do fórum de Batayporã nomeado desde 2021.</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div>
+                                        <h4 className="font-bold text-gray-900 mb-6">Experiência Prévia:</h4>
+                                        <ul className="space-y-4 text-sm text-gray-600">
+                                            <li className="flex items-start gap-4">
+                                                <div className="w-2 h-2 bg-gray-200 rounded-full mt-2 flex-shrink-0"></div>
+                                                <span>Professor de Educação Física contratado da SEDUC - MS - Anaurilândia - MS (2 anos);</span>
+                                            </li>
+                                            <li className="flex items-start gap-4">
+                                                <div className="w-2 h-2 bg-gray-200 rounded-full mt-2 flex-shrink-0"></div>
+                                                <span>Fisioterapeuta concursado da secretaria de saúde do Município de Canarana - MT (8 anos);</span>
+                                            </li>
+                                            <li className="flex items-start gap-4">
+                                                <div className="w-2 h-2 bg-gray-200 rounded-full mt-2 flex-shrink-0"></div>
+                                                <span>Professor universitário na Faculdade do Pantanal - FAPAN - Cáceres - MT (4,5 anos);</span>
+                                            </li>
+                                            <li className="flex items-start gap-4">
+                                                <div className="w-2 h-2 bg-gray-200 rounded-full mt-2 flex-shrink-0"></div>
+                                                <span>Médico plantonista no Hospital Cassems de Nova Andradina (5 anos);</span>
+                                            </li>
+                                            <li className="flex items-start gap-4">
+                                                <div className="w-2 h-2 bg-gray-200 rounded-full mt-2 flex-shrink-0"></div>
+                                                <span>Médico plantonista no Hospital Regional de Nova Andradina - MS (5 anos).</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Dr. Lucas */}
+                        <div className="bg-white rounded-[40px] p-8 md:p-12 shadow-sm border border-gray-100 mb-12 mt-24 pt-16 border-t border-gray-100">
+                            <div className="flex flex-col md:flex-row-reverse items-center gap-8">
+                                <div className="relative">
+                                    <div className="w-48 h-48 rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                                        <img 
+                                            src="https://i.postimg.cc/tTYS7p2c/Whats-App-Image-2026-02-21-at-10-33-13.jpg" 
+                                            alt="Dr. Lucas Franco"
+                                            className="w-full h-full object-cover"
+                                            referrerPolicy="no-referrer"
+                                        />
+                                    </div>
+                                    <div className="absolute -bottom-4 -left-4 bg-[#14b8a6] text-white p-3 rounded-xl shadow-lg">
+                                        <Stethoscope size={24} />
+                                    </div>
+                                </div>
+                                <div className="text-center md:text-right flex-grow">
+                                    <h3 className="text-4xl font-serif font-bold text-[#0e4843] mb-2">Dr. Lucas Franco</h3>
+                                    <p className="text-[#14b8a6] font-bold uppercase tracking-widest text-sm mb-4">CRM-MS 7462</p>
+                                    <p className="text-gray-500 max-w-xl ml-auto leading-relaxed">
+                                        Médico dedicado ao atendimento integral, com vasta experiência em medicina de urgência, emergência e cuidados intensivos. Focado no envelhecimento saudável e na resolução clínica de seus pacientes.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="grid lg:grid-cols-2 gap-20">
+                            <div className="text-left">
+                                <div className="flex items-center gap-4 mb-12">
+                                    <div className="text-[#0e4843] flex items-center">
+                                        <GraduationCap className="w-10 h-10 mr-4" />
+                                        <h2 className="text-3xl font-serif font-bold">Formação Acadêmica</h2>
+                                    </div>
+                                </div>
+                                <div className="border-l-2 border-[#ccfbf1] ml-5 pl-12 space-y-12">
+                                    <div className="relative">
+                                        <div className="absolute -left-[57px] top-1.5 w-6 h-6 bg-[#14b8a6] rounded-full border-4 border-white shadow-sm"></div>
+                                        <h4 className="font-bold text-gray-900 text-xl">Graduação em Medicina</h4>
+                                        <span className="text-[#14b8a6] font-bold text-sm block mt-1">Turma de 2013</span>
+                                        <p className="text-gray-500 text-sm mt-1">Famepp (UNOESTE) - Faculdade de Medicina de Presidente Prudente</p>
+                                    </div>
+                                    <div className="relative">
+                                        <div className="absolute -left-[57px] top-1.5 w-6 h-6 bg-gray-200 rounded-full border-4 border-white"></div>
+                                        <h4 className="font-bold text-gray-900 text-xl">Pós-graduação em Medicina Intensiva</h4>
+                                        <p className="text-gray-500 text-sm mt-1">AMIB - Associação de Medicina Intensiva Brasileira (Incompleta)</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="text-left">
+                                <div className="flex items-center gap-4 mb-12">
+                                    <div className="text-[#0e4843] flex items-center">
+                                        <Activity className="w-10 h-10 mr-4" />
+                                        <h2 className="text-3xl font-serif font-bold">Trajetória e Atuação</h2>
+                                    </div>
+                                </div>
+                                <div className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
+                                    <div className="mb-10">
+                                        <h4 className="font-bold text-gray-900 mb-6">Experiência Profissional:</h4>
+                                        <ul className="space-y-4 text-sm text-gray-600">
+                                            <li className="flex items-start gap-4">
+                                                <div className="w-2 h-2 bg-[#14b8a6] rounded-full mt-2 flex-shrink-0"></div>
+                                                <span>Atendimento em Unidades de Emergência (desde 2014);</span>
+                                            </li>
+                                            <li className="flex items-start gap-4">
+                                                <div className="w-2 h-2 bg-[#14b8a6] rounded-full mt-2 flex-shrink-0"></div>
+                                                <span>Atuação em UTI - Unidade de Terapia Intensiva (desde 2016);</span>
+                                            </li>
+                                            <li className="flex items-start gap-4">
+                                                <div className="w-2 h-2 bg-[#14b8a6] rounded-full mt-2 flex-shrink-0"></div>
+                                                <span>Médico ESF Prefeitura Municipal Nova Andradina - MS - concursado (desde 2019).</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div className="bg-teal-50 p-6 rounded-2xl border border-teal-100">
+                                        <h4 className="text-[#0e4843] font-bold text-lg mb-4">Foco de Atendimento:</h4>
+                                        <div className="grid grid-cols-1 gap-3">
+                                            <div className="flex items-center gap-3 text-gray-700">
+                                                <CheckCircle size={18} className="text-[#14b8a6]" />
+                                                <span>Geriatria e Envelhecimento Saudável</span>
+                                            </div>
+                                            <div className="flex items-center gap-3 text-gray-700">
+                                                <CheckCircle size={18} className="text-[#14b8a6]" />
+                                                <span>Clínica Geral e Check-up</span>
+                                            </div>
+                                            <div className="flex items-center gap-3 text-gray-700">
+                                                <CheckCircle size={18} className="text-[#14b8a6]" />
+                                                <span>Pequenos Procedimentos Cirúrgicos</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -459,6 +624,7 @@ const App: React.FC = () => {
                     <FAQItem question="Quais exames exigem preparo especial?" answer="Abdome exige jejum de 6-8h; pélvico e próstata exigem bexiga cheia; exames como Holter e MAPA exigem banho prévio e roupas confortáveis." />
                     <FAQItem question="É necessário jejum para realizar o Ultrassom de Abdome Total?" answer="Sim, jejum de 6 a 8 horas para adultos para reduzir gases e permitir melhor visualização." />
                     <FAQItem question="O que é o Ecocardiograma Fetal e quando devo fazer?" answer="Exame detalhado do coração fetal, indicado idealmente entre 24ª e 28ª semana de gestação." />
+                    <FAQItem question="Quando realizar o Morfológico de 1º Trimestre?" answer="Indicado entre a 11ª e 14ª semana de gestação para avaliar o risco de alterações genéticas e malformações precoces." />
                     <FAQItem question="Qual a diferença entre Ultrassom Pélvico e Transvaginal?" answer="O pélvico é via abdominal (bexiga cheia) e o transvaginal é via interna (imagens mais detalhadas)." />
                     <FAQItem question="Aceitam convênios médicos?" answer="Sim, atendemos PROVER e Particular. Entre em contato para outros convênios." />
                     <FAQItem question="Como funciona a Perícia Médica?" answer="Atuamos como assistentes técnicos em processos judiciais, elaborando quesitos e acompanhando perícias oficiais." />
