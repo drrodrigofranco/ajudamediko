@@ -25,17 +25,17 @@ const Footer: React.FC = () => {
                     Dedicados à Medicina, Ultrassonografia, Clínica Geral, Geriatria e Perícias Médicas. Atendimento humanizado e diagnósticos precisos em Nova Andradina e região.
                 </p>
                 <div className="flex gap-4">
-                    <a href="https://www.instagram.com/franco.clinica/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:bg-teal-600 hover:text-white transition-all">
-                        <Instagram size={18} />
+                    <a href="https://www.instagram.com/franco.clinica/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-3 rounded-full hover:bg-teal-600 hover:text-white transition-all">
+                        <Instagram size={22} />
                     </a>
-                    <a href="https://www.facebook.com/profile.php?id=61584404454201" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:bg-teal-600 hover:text-white transition-all">
-                        <Facebook size={18} />
+                    <a href="https://www.facebook.com/profile.php?id=61584404454201" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-3 rounded-full hover:bg-teal-600 hover:text-white transition-all">
+                        <Facebook size={22} />
                     </a>
-                    <a href="https://www.youtube.com/@Dr.Francos" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:bg-teal-600 hover:text-white transition-all">
-                        <Youtube size={18} />
+                    <a href="https://www.youtube.com/@Dr.Francos" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-3 rounded-full hover:bg-teal-600 hover:text-white transition-all">
+                        <Youtube size={22} />
                     </a>
-                    <a href="https://www.tiktok.com/@dr.rodrigofranco" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full hover:bg-teal-600 hover:text-white transition-all">
-                        <svg size={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-[18px] h-[18px]">
+                    <a href="https://www.tiktok.com/@dr.rodrigofranco" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-3 rounded-full hover:bg-teal-600 hover:text-white transition-all">
+                        <svg size={22} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-[22px] h-[22px]">
                             <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
                         </svg>
                     </a>
