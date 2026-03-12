@@ -51,20 +51,20 @@ const Navbar: React.FC<NavbarProps> = ({
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-24">
+        <div className="flex justify-between items-center h-20 md:h-24">
           <div className="flex items-center cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
-            <div className="bg-[#14b8a6] p-2.5 rounded-lg mr-4 shadow-sm">
-              <HeartPulse className="text-white h-7 w-7" />
+            <div className="bg-[#14b8a6] p-2 rounded-lg mr-3 md:mr-4 shadow-sm">
+              <HeartPulse className="text-white h-5 w-5 md:h-7 md:w-7" />
             </div>
             <div className="flex flex-col">
-              <h1 className="text-xl md:text-2xl font-serif font-bold text-[#0e4843] leading-none tracking-tight">
+              <h1 className="text-lg md:text-2xl font-serif font-bold text-[#0e4843] leading-none tracking-tight">
                 Clínica Franco
               </h1>
-              <div className="mt-1.5 flex flex-col">
-                <span className="text-[10px] font-bold text-[#14b8a6] uppercase tracking-wider">
+              <div className="mt-1 flex flex-col">
+                <span className="text-[8px] md:text-[10px] font-bold text-[#14b8a6] uppercase tracking-wider">
                   Dr. Rodrigo (CRM 10087) | Dr. Lucas (CRM 7462)
                 </span>
-                <span className="text-[9px] text-[#14b8a6] font-bold uppercase tracking-widest mt-0.5">
+                <span className="text-[7px] md:text-[9px] text-[#14b8a6] font-bold uppercase tracking-widest mt-0.5 max-w-[200px] md:max-w-none">
                   ULTRASSONOGRAFIA, GERIATRIA, CLÍNICA GERAL E PERÍCIAS MÉDICAS
                 </span>
               </div>

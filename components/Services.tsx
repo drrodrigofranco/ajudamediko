@@ -1,8 +1,9 @@
 
 import React, { useState } from 'react';
-import { Baby, FileText, Scale, Search, LucideIcon } from 'lucide-react';
+import { Baby, FileText, Scale, Search, LucideIcon, Stethoscope, HeartPulse } from 'lucide-react';
 
 interface Exam {
+  id?: string;
   name: string;
   Icon: LucideIcon;
   desc: string;
@@ -14,6 +15,12 @@ interface ServicesProps {
 
 const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
   const [searchTerm, setSearchTerm] = useState('');
+
+  const handleExamClick = (id?: string) => {
+    if (id) {
+      window.dispatchEvent(new CustomEvent('openExamsDrawer', { detail: { examId: id } }));
+    }
+  };
 
   const filteredExams = ultrasoundExams.filter(exam => 
     exam.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -32,9 +39,26 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
 
       <div className="grid md:grid-cols-2 gap-8 mb-20">
         <div className="bg-white rounded-3xl p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-4">
-            <span className="bg-amber-100 text-amber-700 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Especialidade</span>
+          <div className="bg-[#f0fdfa] p-5 rounded-2xl mb-8 group-hover:bg-[#14b8a6] group-hover:text-white transition-all duration-300">
+            <Stethoscope className="w-8 h-8" />
           </div>
+          <h3 className="text-xl font-bold text-[#0e4843] mb-4">Consulta Médica (Clínica Geral)</h3>
+          <p className="text-gray-500 text-sm mb-8 leading-relaxed">
+            Com vasta experiência como médico da família, oferecemos um cuidado integral e humanizado. A consulta serve para o diagnóstico de doenças, acompanhamento de condições crônicas e, principalmente, para a prevenção, garantindo saúde em todas as fases da vida.
+          </p>
+        </div>
+
+        <div className="bg-white rounded-3xl p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group relative overflow-hidden">
+          <div className="bg-[#f0fdfa] p-5 rounded-2xl mb-8 group-hover:bg-[#14b8a6] group-hover:text-white transition-all duration-300">
+            <HeartPulse className="w-8 h-8" />
+          </div>
+          <h3 className="text-xl font-bold text-[#0e4843] mb-4">Atendimento em Geriatria</h3>
+          <p className="text-gray-500 text-sm mb-8 leading-relaxed">
+            Foco na saúde e bem-estar da terceira idade. Nosso atendimento em geriatria visa a manutenção da autonomia, prevenção de quedas, manejo de polifarmácia e o tratamento especializado de condições típicas do envelhecimento, sempre com foco na qualidade de vida.
+          </p>
+        </div>
+
+        <div className="bg-white rounded-3xl p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group relative overflow-hidden">
           <div className="bg-[#f0fdfa] p-5 rounded-2xl mb-8 group-hover:bg-[#14b8a6] group-hover:text-white transition-all duration-300">
             <Baby className="w-8 h-8" />
           </div>
@@ -80,10 +104,15 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
         {filteredExams.length > 0 ? (
           filteredExams.map((ex, i) => (
-            <div key={i} className="bg-white p-8 rounded-2xl border border-gray-50 shadow-sm flex flex-col items-center text-center hover:border-[#14b8a6]/30 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
+            <div 
+              key={i} 
+              onClick={() => handleExamClick(ex.id)}
+              className="bg-white p-8 rounded-2xl border border-gray-50 shadow-sm flex flex-col items-center text-center hover:border-[#14b8a6]/30 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group cursor-pointer"
+            >
               <div className="text-[#14b8a6] mb-4 group-hover:scale-110 transition-transform"><ex.Icon size={28} /></div>
               <h4 className="font-bold text-gray-800 text-sm mb-1">{ex.name}</h4>
-              <p className="text-[10px] text-gray-400 font-medium">{ex.desc}</p>
+              <p className="text-[10px] text-gray-400 font-medium mb-3">{ex.desc}</p>
+              <span className="text-[9px] font-bold text-[#14b8a6] opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-widest">Saiba Mais</span>
             </div>
           ))
         ) : (

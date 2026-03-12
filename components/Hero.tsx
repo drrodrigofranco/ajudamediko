@@ -18,7 +18,7 @@ const Hero: React.FC<HeroProps> = ({
   googleMapsLink 
 }) => {
   return (
-    <section className="bg-[#0e4843] text-white py-16 lg:py-24 relative overflow-hidden">
+    <section className="bg-[#0e4843] text-white pt-40 pb-20 lg:py-24 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
@@ -31,11 +31,8 @@ const Hero: React.FC<HeroProps> = ({
               <span className="w-2 h-2 bg-[#4ade80] rounded-full inline-block mr-2"></span>
               Diagnóstico e Atendimentos
             </div>
-            <h2 className="text-5xl lg:text-7xl font-serif font-bold leading-tight mb-8">
-              Ultrassonografia, <br/>
-              Geriatria, <br/>
-              Clínica Geral e <br/>
-              Perícias Médicas
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-bold leading-tight mb-8">
+              Ultrassonografia, Geriatria, Clínica Geral e Perícias Médicas
             </h2>
             <p className="text-lg text-teal-50/70 mb-10 leading-relaxed max-w-xl">
               Cuidado multigeracional com tecnologia de ponta. Dr. Rodrigo Franco e Dr. Lucas Franco unindo experiência e dedicação para a saúde da sua família em Nova Andradina-MS.
