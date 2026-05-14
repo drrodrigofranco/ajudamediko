@@ -18,10 +18,10 @@ const Curriculum: React.FC = () => {
 
       <div className="space-y-24">
         {/* Dr. Rodrigo */}
-        <div className="bg-white rounded-[40px] p-8 md:p-12 shadow-sm border border-gray-100 mb-12 hover:shadow-md transition-shadow">
+        <div className="bg-white rounded-[40px] p-6 md:p-12 shadow-sm border border-gray-100 mb-12 hover:shadow-md transition-shadow">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="relative">
-              <div className="w-48 h-48 rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform hover:rotate-3 transition-transform">
+              <div className="w-40 h-40 md:w-48 md:h-48 rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform hover:rotate-3 transition-transform">
                 <img 
                   src="https://i.postimg.cc/3R41Y9xs/Chat-GPT-Image-18-de-fev-de-2026-09-48-23.png" 
                   alt="Dr. Rodrigo Franco"
@@ -34,7 +34,7 @@ const Curriculum: React.FC = () => {
               </div>
             </div>
             <div className="text-center md:text-left">
-              <h3 className="text-4xl font-serif font-bold text-[#0e4843] mb-2">Dr. Rodrigo Franco</h3>
+              <h3 className="text-3xl md:text-4xl font-serif font-bold text-[#0e4843] mb-2">Dr. Rodrigo Franco</h3>
               <p className="text-[#14b8a6] font-bold uppercase tracking-widest text-sm mb-4">CRM-MS 10087</p>
               <p className="text-gray-500 max-w-xl leading-relaxed">
                 Atendimento com ampla experiência em diagnóstico por imagem e perícia médica. Dedicado a oferecer um atendimento humanizado e preciso para toda a família.
@@ -67,23 +67,15 @@ const Curriculum: React.FC = () => {
               </div>
               <div className="relative">
                 <div className="absolute -left-[57px] top-1.5 w-6 h-6 bg-gray-200 rounded-full border-4 border-white"></div>
-                <h4 className="font-bold text-gray-900 text-xl">Pós-graduação em Perícia Médica</h4>
-                <span className="text-[#14b8a6] font-bold text-sm block mt-1">2023</span>
-              </div>
-              <div className="relative">
-                <div className="absolute -left-[57px] top-1.5 w-6 h-6 bg-gray-200 rounded-full border-4 border-white"></div>
-                <h4 className="font-bold text-gray-900 text-xl">Pós-graduação em Auditoria Hospitalar</h4>
-                <span className="text-[#14b8a6] font-bold text-sm block mt-1">2022</span>
-              </div>
-              <div className="relative">
-                <div className="absolute -left-[57px] top-1.5 w-6 h-6 bg-gray-200 rounded-full border-4 border-white"></div>
-                <h4 className="font-bold text-gray-900 text-xl">Pós-graduação em Acupuntura</h4>
-                <span className="text-[#14b8a6] font-bold text-sm block mt-1">2005</span>
+                <h4 className="font-bold text-gray-900 text-xl">5 Pós-graduações</h4>
               </div>
               <div className="relative">
                 <div className="absolute -left-[57px] top-1.5 w-6 h-6 bg-gray-200 rounded-full border-4 border-white"></div>
                 <h4 className="font-bold text-gray-900 text-xl">Outras Graduações</h4>
                 <p className="text-gray-500 text-sm mt-1">Fisioterapia (UNOESTE - 2004) e Educação Física (FIFASUL - 2002)</p>
+                <a href="http://lattes.cnpq.br/2901086695714310" target="_blank" rel="noopener noreferrer" className="text-[#14b8a6] hover:underline text-xl font-bold mt-4 block italic">
+                  Acesse currículo completo clicando aqui
+                </a>
               </div>
             </div>
           </div>
@@ -95,7 +87,7 @@ const Curriculum: React.FC = () => {
                 <h2 className="text-3xl font-serif font-bold">Trajetória Profissional</h2>
               </div>
             </div>
-            <div className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
+            <div className="bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-gray-100">
               <div className="mb-10">
                 <h4 className="font-bold text-gray-900 mb-6">Experiência Atual (Nova Andradina e Região):</h4>
                 <ul className="space-y-4 text-sm text-gray-600">
@@ -148,10 +140,10 @@ const Curriculum: React.FC = () => {
         </div>
 
         {/* Dr. Lucas */}
-        <div className="bg-white rounded-[40px] p-8 md:p-12 shadow-sm border border-gray-100 mb-12 mt-24 pt-16 border-t border-gray-100 hover:shadow-md transition-shadow">
+        <div className="bg-white rounded-[40px] p-6 md:p-12 shadow-sm border border-gray-100 mb-12 mt-24 pt-16 border-t border-gray-100 hover:shadow-md transition-shadow">
           <div className="flex flex-col md:flex-row-reverse items-center gap-8">
             <div className="relative">
-              <div className="w-48 h-48 rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform hover:-rotate-3 transition-transform">
+              <div className="w-40 h-40 md:w-48 md:h-48 rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform hover:-rotate-3 transition-transform">
                 <img 
                   src="https://i.postimg.cc/tTYS7p2c/Whats-App-Image-2026-02-21-at-10-33-13.jpg" 
                   alt="Dr. Lucas Franco"
@@ -164,7 +156,7 @@ const Curriculum: React.FC = () => {
               </div>
             </div>
             <div className="text-center md:text-right flex-grow">
-              <h3 className="text-4xl font-serif font-bold text-[#0e4843] mb-2">Dr. Lucas Franco</h3>
+              <h3 className="text-3xl md:text-4xl font-serif font-bold text-[#0e4843] mb-2">Dr. Lucas Franco</h3>
               <p className="text-[#14b8a6] font-bold uppercase tracking-widest text-sm mb-4">CRM-MS 7462</p>
               <p className="text-gray-500 max-w-xl ml-auto leading-relaxed">
                 Médico dedicado ao atendimento integral, com vasta experiência em medicina de urgência, emergência e cuidados intensivos. Focado no envelhecimento saudável e na resolução clínica de seus pacientes.
@@ -203,7 +195,7 @@ const Curriculum: React.FC = () => {
                 <h2 className="text-3xl font-serif font-bold">Trajetória e Atuação</h2>
               </div>
             </div>
-            <div className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
+            <div className="bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-gray-100">
               <div className="mb-10">
                 <h4 className="font-bold text-gray-900 mb-6">Experiência Profissional:</h4>
                 <ul className="space-y-4 text-sm text-gray-600">
@@ -227,7 +219,7 @@ const Curriculum: React.FC = () => {
                 <div className="grid grid-cols-1 gap-3">
                   <div className="flex items-center gap-3 text-gray-700">
                     <CheckCircle size={18} className="text-[#14b8a6]" />
-                    <span>Geriatria e Envelhecimento Saudável</span>
+                    <span>Saúde do Idoso e Envelhecimento Saudável</span>
                   </div>
                   <div className="flex items-center gap-3 text-gray-700">
                     <CheckCircle size={18} className="text-[#14b8a6]" />

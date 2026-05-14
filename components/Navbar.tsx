@@ -61,11 +61,11 @@ const Navbar: React.FC<NavbarProps> = ({
                 Clínica Franco
               </h1>
               <div className="mt-1 flex flex-col">
-                <span className="text-[8px] md:text-[10px] font-bold text-[#14b8a6] uppercase tracking-wider">
+                <span className="text-[9px] md:text-[10px] font-bold text-[#14b8a6] uppercase tracking-wider">
                   Dr. Rodrigo (CRM 10087) | Dr. Lucas (CRM 7462)
                 </span>
-                <span className="text-[7px] md:text-[9px] text-[#14b8a6] font-bold uppercase tracking-widest mt-0.5 max-w-[200px] md:max-w-none">
-                  ULTRASSONOGRAFIA, GERIATRIA, CLÍNICA GERAL E PERÍCIAS MÉDICAS
+                <span className="text-[8px] md:text-[9px] text-[#14b8a6] font-bold uppercase tracking-widest mt-0.5 max-w-[200px] md:max-w-none">
+                  ULTRASSONOGRAFIA, SAÚDE DO IDOSO, CLÍNICA GERAL E PERÍCIAS MÉDICAS
                 </span>
               </div>
             </div>

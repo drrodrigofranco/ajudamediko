@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
                     </div>
                 </div>
                 <p className="text-sm leading-relaxed mb-6">
-                    Dedicados à Medicina, Ultrassonografia, Clínica Geral, Geriatria e Perícias Médicas. Atendimento humanizado e diagnósticos precisos em Nova Andradina e região.
+                    Dedicados à Medicina, Ultrassonografia, Clínica Geral, Saúde do Idoso e Perícias Médicas. Atendimento humanizado e diagnósticos precisos em Nova Andradina e região.
                 </p>
                 <div className="flex gap-4">
                     <a href="https://www.instagram.com/franco.clinica/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-3 rounded-full hover:bg-teal-600 hover:text-white transition-all">
@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
                 <ul className="space-y-2">
                     <li><a href="#" className="hover:text-teal-400 transition-colors">Início</a></li>
                     <li><a href="#serviços" className="hover:text-teal-400 transition-colors">Exames</a></li>
-                    <li><a href="#currículo" className="hover:text-teal-400 transition-colors">Currículo</a></li>
+                    <li><a href="http://lattes.cnpq.br/2901086695714310" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition-colors">Currículo</a></li>
                     <li><a href="#contato" className="hover:text-teal-400 transition-colors">Agendamento</a></li>
                     <li className="pt-2 border-t border-gray-800 mt-2">
                         <a href="/politica-de-privacidade.html" className="text-xs hover:text-teal-400 transition-colors block py-1">Política de Privacidade</a>

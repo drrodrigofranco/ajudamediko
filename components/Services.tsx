@@ -38,7 +38,7 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
       </div>
 
       <div className="grid md:grid-cols-2 gap-8 mb-20">
-        <div className="bg-white rounded-3xl p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group relative overflow-hidden">
+        <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group relative overflow-hidden">
           <div className="bg-[#f0fdfa] p-5 rounded-2xl mb-8 group-hover:bg-[#14b8a6] group-hover:text-white transition-all duration-300">
             <Stethoscope className="w-8 h-8" />
           </div>
@@ -48,17 +48,17 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
           </p>
         </div>
 
-        <div className="bg-white rounded-3xl p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group relative overflow-hidden">
+        <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group relative overflow-hidden">
           <div className="bg-[#f0fdfa] p-5 rounded-2xl mb-8 group-hover:bg-[#14b8a6] group-hover:text-white transition-all duration-300">
             <HeartPulse className="w-8 h-8" />
           </div>
-          <h3 className="text-xl font-bold text-[#0e4843] mb-4">Atendimento em Geriatria</h3>
+          <h3 className="text-xl font-bold text-[#0e4843] mb-4">Saúde do Idoso</h3>
           <p className="text-gray-500 text-sm mb-8 leading-relaxed">
-            Foco na saúde e bem-estar da terceira idade. Nosso atendimento em geriatria visa a manutenção da autonomia, prevenção de quedas, manejo de polifarmácia e o tratamento especializado de condições típicas do envelhecimento, sempre com foco na qualidade de vida.
+            Foco na saúde e bem-estar da terceira idade. Nosso atendimento em saúde do idoso visa a manutenção da autonomia, prevenção de quedas, manejo de polifarmácia e o tratamento especializado de condições típicas do envelhecimento, sempre com foco na qualidade de vida.
           </p>
         </div>
 
-        <div className="bg-white rounded-3xl p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group relative overflow-hidden">
+        <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group relative overflow-hidden">
           <div className="bg-[#f0fdfa] p-5 rounded-2xl mb-8 group-hover:bg-[#14b8a6] group-hover:text-white transition-all duration-300">
             <Baby className="w-8 h-8" />
           </div>
@@ -71,7 +71,7 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
           </a>
         </div>
 
-        <div className="bg-white rounded-3xl p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group">
+        <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group">
           <div className="bg-[#f0fdfa] p-5 rounded-2xl mb-8 group-hover:bg-[#14b8a6] group-hover:text-white transition-all duration-300">
             <FileText className="w-8 h-8" />
           </div>
@@ -107,7 +107,7 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
             <div 
               key={i} 
               onClick={() => handleExamClick(ex.id)}
-              className="bg-white p-8 rounded-2xl border border-gray-50 shadow-sm flex flex-col items-center text-center hover:border-[#14b8a6]/30 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group cursor-pointer"
+              className="bg-white p-4 sm:p-8 rounded-2xl border border-gray-50 shadow-sm flex flex-col items-center text-center hover:border-[#14b8a6]/30 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group cursor-pointer"
             >
               <div className="text-[#14b8a6] mb-4 group-hover:scale-110 transition-transform"><ex.Icon size={28} /></div>
               <h4 className="font-bold text-gray-800 text-sm mb-1">{ex.name}</h4>

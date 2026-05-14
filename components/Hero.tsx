@@ -32,7 +32,7 @@ const Hero: React.FC<HeroProps> = ({
               Diagnóstico e Atendimentos
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-bold leading-tight mb-8">
-              Ultrassonografia, Geriatria, Clínica Geral e Perícias Médicas
+              Ultrassonografia, Saúde do Idoso, Clínica Geral e Perícias Médicas
             </h2>
             <p className="text-lg text-teal-50/70 mb-10 leading-relaxed max-w-xl">
               Cuidado multigeracional com tecnologia de ponta. Dr. Rodrigo Franco e Dr. Lucas Franco unindo experiência e dedicação para a saúde da sua família em Nova Andradina-MS.
