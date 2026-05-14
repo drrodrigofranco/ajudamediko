@@ -51,45 +51,45 @@ const Navbar: React.FC<NavbarProps> = ({
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20 md:h-24">
-          <div className="flex items-center cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
-            <div className="bg-[#14b8a6] p-2 rounded-lg mr-3 md:mr-4 shadow-sm">
+        <div className="flex justify-between items-center h-20 md:h-28">
+          <div className="flex items-center cursor-pointer flex-shrink-0 mr-4" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
+            <div className="hidden sm:block bg-[#14b8a6] p-2 rounded-lg mr-3 md:mr-4 shadow-sm flex-shrink-0">
               <HeartPulse className="text-white h-5 w-5 md:h-7 md:w-7" />
             </div>
-            <div className="flex flex-col">
-              <h1 className="text-lg md:text-2xl font-serif font-bold text-[#0e4843] leading-none tracking-tight">
+            <div className="flex flex-col min-w-0">
+              <h1 className="text-xl md:text-2xl font-serif font-bold text-[#0e4843] leading-tight tracking-tight whitespace-nowrap">
                 Clínica Franco
               </h1>
-              <div className="mt-1 flex flex-col">
-                <span className="text-[9px] md:text-[10px] font-bold text-[#14b8a6] uppercase tracking-wider">
+              <div className="mt-0.5 flex flex-col">
+                <span className="text-[8px] md:text-[10px] font-bold text-[#14b8a6] uppercase tracking-wider whitespace-nowrap">
                   Dr. Rodrigo (CRM 10087) | Dr. Lucas (CRM 7462)
                 </span>
-                <span className="text-[8px] md:text-[9px] text-[#14b8a6] font-bold uppercase tracking-widest mt-0.5 max-w-[200px] md:max-w-none">
+                <span className="text-[7px] md:text-[8px] lg:text-[9px] text-[#14b8a6] font-bold uppercase tracking-widest mt-0.5 opacity-80 leading-tight md:max-w-none max-w-[180px]">
                   ULTRASSONOGRAFIA, SAÚDE DO IDOSO, CLÍNICA GERAL E PERÍCIAS MÉDICAS
                 </span>
               </div>
             </div>
           </div>
           
-          <nav className="hidden xl:flex space-x-10 items-center">
+          <nav className="hidden lg:flex space-x-4 xl:space-x-8 items-center">
             {navItems.map((item) => (
               <button 
                 key={item} 
                 onClick={() => handleNavClick(item)} 
-                className="text-gray-500 hover:text-[#14b8a6] font-bold text-[11px] tracking-widest transition-colors uppercase"
+                className="text-gray-500 hover:text-[#14b8a6] font-bold text-[10px] xl:text-[11px] tracking-wider xl:tracking-widest transition-colors uppercase whitespace-nowrap"
               >
                 {item}
               </button>
             ))}
             <button 
               onClick={() => scrollToSection('contato')} 
-              className="bg-[#14b8a6] text-white px-10 py-3 rounded-full font-bold text-sm hover:bg-[#0d9488] transition-all shadow-md active:scale-95"
+              className="bg-[#14b8a6] text-white px-6 xl:px-10 py-3 rounded-full font-bold text-xs xl:text-sm hover:bg-[#0d9488] transition-all shadow-md active:scale-95 whitespace-nowrap"
             >
               Agendar
             </button>
           </nav>
 
-          <div className="xl:hidden">
+          <div className="lg:hidden">
             <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-[#0e4843] p-2">
               {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
