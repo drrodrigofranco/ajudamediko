@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { X, MapPin, ExternalLink } from 'lucide-react';
+import { trackGetDirections } from '../gtag';
 
 interface MapModalProps {
   isOpen: boolean;
@@ -39,6 +40,7 @@ const MapModal: React.FC<MapModalProps> = ({
             href={googleMapsLink} 
             target="_blank" 
             rel="noopener noreferrer"
+            onClick={trackGetDirections}
             className="bg-[#14b8a6] text-white px-8 py-4 rounded-full font-bold flex items-center gap-3 hover:bg-[#0d9488] transition-all shadow-xl"
           >
             <MapPin size={20} />

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { trackGetDirections } from './gtag';
 import HealthNewsWidget from './components/HealthNewsWidget';
 import Footer from './components/Footer';
 import GestationalCalculator from './components/GestationalCalculator';
@@ -61,6 +62,7 @@ const App: React.FC = () => {
 
     const handleNavClick = (item: string) => {
         if (item === 'LOCALIZAÇÃO') {
+            trackGetDirections();
             window.open(googleMapsLink, '_blank');
             setIsMobileMenuOpen(false);
         } else {

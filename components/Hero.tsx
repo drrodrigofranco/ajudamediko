@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Maximize2, ExternalLink } from 'lucide-react';
+import { trackGetDirections } from '../gtag';
 
 interface HeroProps {
   scrollToSection: (id: string) => void;
@@ -81,7 +82,10 @@ const Hero: React.FC<HeroProps> = ({
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-[9px] bg-teal-600 text-white px-2 py-1 rounded flex items-center gap-1 hover:bg-teal-500 transition-colors"
-                      onClick={(e) => e.stopPropagation()}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        trackGetDirections();
+                      }}
                     >
                       VER MAPA <ExternalLink size={8} />
                     </a>
