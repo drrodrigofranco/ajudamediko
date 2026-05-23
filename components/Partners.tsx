@@ -1,11 +1,12 @@
 
 import React from 'react';
+import { Tag } from 'lucide-react';
 
 const Partners: React.FC = () => {
   const partners = [
     {
-      name: 'Amena Saúde e Benefícios',
-      logo: 'https://cdn-fnkbo.nitrocdn.com/EoNJkCKeBGIgfRutXoQwKESLKzAAVJAj/assets/images/optimized/wp-content/uploads/2024/06/f02a3dfac65af8ae5956fc4a1270d832.1-7.png',
+      name: 'Planos de Descontos',
+      isCustom: true,
     },
     {
       name: 'Prover Saúde',
@@ -27,12 +28,21 @@ const Partners: React.FC = () => {
         <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 hover:opacity-100 transition-opacity duration-500">
           {partners.map((partner) => (
             <div key={partner.name} className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
-              <img 
-                src={partner.logo} 
-                alt={partner.name} 
-                className="h-12 md:h-16 w-auto object-contain"
-                referrerPolicy="no-referrer"
-              />
+              {partner.isCustom ? (
+                <div className="flex items-center gap-2.5 px-4 py-2 border border-gray-200 rounded-xl bg-gray-50/50 shadow-xs">
+                  <Tag className="text-[#14b8a6] w-5 h-5" />
+                  <span className="font-sans font-bold text-gray-700 text-xs md:text-sm uppercase tracking-wider whitespace-nowrap">
+                    Planos de Descontos
+                  </span>
+                </div>
+              ) : (
+                <img 
+                  src={partner.logo} 
+                  alt={partner.name} 
+                  className="h-12 md:h-16 w-auto object-contain"
+                  referrerPolicy="no-referrer"
+                />
+              )}
             </div>
           ))}
         </div>
