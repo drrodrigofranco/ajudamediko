@@ -33,7 +33,7 @@ const App: React.FC = () => {
     const [formPhone, setFormPhone] = useState('');
     const [formExam, setFormExam] = useState('');
 
-    const doctorImgSrc = "https://i.postimg.cc/kXysy26g/Chat-GPT-Image-21-de-fev-de-2026-10-12-59.png";
+    const doctorImgSrc = "https://i.ibb.co/zVFk0ycs/Three-men-as-doctors-2-K-202607101520.jpg";
     const mapImgSrc = "https://i.postimg.cc/28hbWxS9/Captura-de-tela-2025-12-26-144512.jpg";
     const googleMapsLink = "https://maps.app.goo.gl/aMkRNzPYtTe6jwQJ8";
 
