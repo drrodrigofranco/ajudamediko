@@ -58,7 +58,7 @@ const Navbar: React.FC<NavbarProps> = ({
             </div>
             <div className="flex flex-col min-w-0">
               <h1 className="text-xl md:text-2xl font-serif font-bold text-[#0e4843] leading-tight tracking-tight whitespace-nowrap">
-                Clínica Franco
+                Clínica Franco + Associados
               </h1>
               <div className="mt-0.5 flex flex-col">
                 <span className="text-[8px] md:text-[10px] font-bold text-[#14b8a6] uppercase tracking-wider whitespace-nowrap">

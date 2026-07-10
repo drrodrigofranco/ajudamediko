@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
                         <div className="bg-teal-600 p-1.5 rounded mr-2">
                              <HeartPulse className="text-white h-5 w-5" />
                         </div>
-                        <span className="text-xl font-serif font-bold text-white">Clínica Franco</span>
+                        <span className="text-xl font-serif font-bold text-white">Clínica Franco + Associados</span>
                     </div>
                     <div className="flex flex-col text-xs text-teal-400 font-medium mt-1 ml-9">
                         <span>Dr. Rodrigo Franco - CRM-MS 10087</span>
@@ -76,7 +76,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="mt-12 border-t border-gray-800 pt-8 text-center text-sm">
-            <p>&copy; {new Date().getFullYear()} Clínica Franco. Todos os direitos reservados.</p>
+            <p>&copy; {new Date().getFullYear()} Clínica Franco + Associados. Todos os direitos reservados.</p>
             <p className="mt-2 text-gray-500">Nova Andradina - MS</p>
         </div>
       </div>
