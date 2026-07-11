@@ -65,7 +65,7 @@ const Navbar: React.FC<NavbarProps> = ({
                   Dr. Rodrigo (CRM 10087) | Dr. Lucas (CRM 7462)
                 </span>
                 <span className="text-[7px] md:text-[8px] lg:text-[9px] text-[#14b8a6] font-bold uppercase tracking-widest mt-0.5 opacity-80 leading-tight md:max-w-none max-w-[180px]">
-                  ULTRASSONOGRAFIA, SAÚDE DO IDOSO, CLÍNICA GERAL E PERÍCIAS MÉDICAS
+                  ULTRASSOM MORFOLÓGICO, DOPPLER E 3D, SAÚDE DO IDOSO, SAÚDE MENTAL, SAÚDE NEUROLÓGICA
                 </span>
               </div>
             </div>

@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
                     </div>
                 </div>
                 <p className="text-sm leading-relaxed mb-6">
-                    Dedicados à Medicina, Ultrassonografia, Clínica Geral, Saúde do Idoso e Perícias Médicas. Atendimento humanizado e diagnósticos precisos em Nova Andradina e região.
+                    Dedicados ao Ultrassom Morfológico, Doppler e 3D, Saúde do Idoso, Saúde Mental e Saúde Neurológica. Atendimento humanizado e diagnósticos precisos em Nova Andradina e região.
                 </p>
                 <div className="flex gap-4">
                     <a href="https://www.instagram.com/franco.clinica/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-3 rounded-full hover:bg-teal-600 hover:text-white transition-all">
