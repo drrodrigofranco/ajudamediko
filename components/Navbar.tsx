@@ -71,26 +71,18 @@ const Navbar: React.FC<NavbarProps> = ({
             </div>
           </div>
           
-          <nav className="hidden lg:flex space-x-4 xl:space-x-8 items-center">
-            {navItems.map((item) => (
-              <button 
-                key={item} 
-                onClick={() => handleNavClick(item)} 
-                className="text-gray-500 hover:text-[#14b8a6] font-bold text-[10px] xl:text-[11px] tracking-wider xl:tracking-widest transition-colors uppercase whitespace-nowrap"
-              >
-                {item}
-              </button>
-            ))}
-            <button 
-              onClick={() => scrollToSection('contato')} 
-              className="bg-[#14b8a6] text-white px-6 xl:px-10 py-3 rounded-full font-bold text-xs xl:text-sm hover:bg-[#0d9488] transition-all shadow-md active:scale-95 whitespace-nowrap"
+          <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+            <button
+              onClick={() => scrollToSection('contato')}
+              className="hidden sm:inline-flex bg-[#14b8a6] text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-[#0d9488] transition-all shadow-md active:scale-95 whitespace-nowrap"
             >
               Agendar
             </button>
-          </nav>
-
-          <div className="lg:hidden">
-            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-[#0e4843] p-2">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Abrir menu"
+              className="text-[#0e4843] p-2 hover:text-[#14b8a6] transition-colors"
+            >
               {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
@@ -98,7 +90,7 @@ const Navbar: React.FC<NavbarProps> = ({
       </div>
 
       {isMobileMenuOpen && (
-        <div className="xl:hidden bg-white border-t border-gray-100 py-6 px-4 space-y-4 shadow-lg absolute w-full z-40">
+        <div className="bg-white border-t border-gray-100 py-6 px-4 space-y-4 shadow-lg absolute w-full z-40">
           {navItems.map((item) => (
             <button 
               key={item} 
