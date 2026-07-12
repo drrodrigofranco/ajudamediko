@@ -4,7 +4,24 @@ import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import puppeteer from 'puppeteer';
+
+// Lanca o Chromium certo para cada ambiente:
+// - Na Vercel/CI (Linux enxuto): puppeteer-core + @sparticuz/chromium
+// - Local (Windows/Mac): puppeteer normal, que traz o proprio Chromium
+async function launchBrowser() {
+  const onServer = !!(process.env.VERCEL || process.env.CI);
+  if (onServer) {
+    const chromium = (await import('@sparticuz/chromium')).default;
+    const puppeteer = (await import('puppeteer-core')).default;
+    return puppeteer.launch({
+      args: [...chromium.args, '--no-sandbox', '--disable-setuid-sandbox'],
+      executablePath: await chromium.executablePath(),
+      headless: true,
+    });
+  }
+  const puppeteer = (await import('puppeteer')).default;
+  return puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+}
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.join(__dirname, 'dist');
@@ -46,10 +63,7 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
 
 async function main() {
   await new Promise(r => server.listen(PORT, r));
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
-  });
+  const browser = await launchBrowser();
   const page = await browser.newPage();
   page.on('pageerror', e => console.log('  pageerror:', e.message));
 
