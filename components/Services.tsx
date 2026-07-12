@@ -66,9 +66,23 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
           <p className="text-gray-500 text-sm mb-8 leading-relaxed">
             Exame detalhado do coração do bebê ainda no útero. Fundamental para detectar precocemente cardiopatias congênitas e planejar o melhor acompanhamento. A detecção precoce pode salvar vidas e preparar a equipe médica para o nascimento.
           </p>
-          <a href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/L14598.htm" target="_blank" rel="noopener noreferrer" className="flex items-center text-[#14b8a6] text-[10px] font-bold border border-[#ccfbf1] px-4 py-2 rounded-lg hover:bg-[#14b8a6] hover:text-white transition-all">
-            <Scale size={14} className="mr-2" /> Lei do Ecocardiograma Fetal
-          </a>
+          <div className="flex flex-wrap gap-3">
+            <a href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/L14598.htm" target="_blank" rel="noopener noreferrer" className="flex items-center text-[#14b8a6] text-[10px] font-bold border border-[#ccfbf1] px-4 py-2 rounded-lg hover:bg-[#14b8a6] hover:text-white transition-all">
+              <Scale size={14} className="mr-2" /> Lei do Ecocardiograma Fetal
+            </a>
+            <a 
+              href="/exame/ecofetal" 
+              onClick={(e) => {
+                e.preventDefault();
+                window.history.pushState({}, '', '/exame/ecofetal');
+                window.dispatchEvent(new PopStateEvent('popstate'));
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="flex items-center text-white bg-[#14b8a6] text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-[#0d9488] transition-all"
+            >
+              Ver Guia e Preparação
+            </a>
+          </div>
         </div>
 
         <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group">

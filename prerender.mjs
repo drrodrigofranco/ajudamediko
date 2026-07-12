@@ -61,33 +61,72 @@ const server = http.createServer((req, res) => {
 
 const wait = (ms) => new Promise(r => setTimeout(r, ms));
 
+const EXAM_IDS = [
+  'ecofetal',
+  'obstetrico_doppler',
+  'obstetrico_sem_doppler',
+  'morfologico1',
+  'morfologico2',
+  'abdometotal',
+  'pelvico',
+  'transvaginal',
+  'prostata',
+  'tireoide',
+  'carotidas',
+  'mama',
+  'articulacao_ombro',
+  'articulacao_cotovelo',
+  'articulacao_punho',
+  'articulacao_joelho',
+  'articulacao_tornozelo',
+  'vascular',
+  'espirometria',
+  'holter',
+  'mapa'
+];
+
 async function main() {
   await new Promise(r => server.listen(PORT, r));
   const browser = await launchBrowser();
   const page = await browser.newPage();
   page.on('pageerror', e => console.log('  pageerror:', e.message));
 
-  await page.goto(`http://localhost:${PORT}/`, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  const targets = [
+    { url: '/', file: 'index.html' },
+    ...EXAM_IDS.map(id => ({ url: `/exame/${id}`, file: `exame/${id}/index.html` }))
+  ];
 
-  // Espera o React montar e o texto-chave aparecer no corpo.
-  await page.waitForFunction(
-    () => {
-      const t = document.body ? document.body.innerText : '';
-      return t.includes('Nova Andradina') || document.querySelectorAll('h1,h2').length >= 3;
-    },
-    { timeout: 45000 }
-  ).catch(() => console.log('  aviso: seletor-chave nao confirmado, seguindo assim mesmo'));
+  console.log(`🚀 Iniciando pré-renderização de ${targets.length} páginas...`);
 
-  await wait(2500); // deixa animacoes/lazy assentarem
+  for (const target of targets) {
+    console.log(`  [Prerender] Navegando para ${target.url}...`);
+    await page.goto(`http://localhost:${PORT}${target.url}`, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
-  const html = await page.evaluate(() => '<!DOCTYPE html>\n' + document.documentElement.outerHTML);
+    // Espera o React montar
+    await page.waitForFunction(
+      () => {
+        const t = document.body ? document.body.innerText : '';
+        return t.includes('Clínica Franco') || document.querySelectorAll('h1,h2').length >= 2;
+      },
+      { timeout: 30000 }
+    ).catch(() => console.log(`  aviso: seletor-chave nao confirmado para ${target.url}, seguindo...`));
 
-  const outPath = path.join(DIST, 'index.html');
-  fs.writeFileSync(outPath, html, 'utf-8');
+    await wait(1000); // tempo curto para animacoes assentarem
 
-  const bodyText = await page.evaluate(() => document.body.innerText.replace(/\s+/g, ' ').trim().length);
-  console.log(`✅ prerender ok — ${html.length} bytes gravados, ~${bodyText} chars de texto visivel no body`);
+    const html = await page.evaluate(() => '<!DOCTYPE html>\n' + document.documentElement.outerHTML);
 
+    const outPath = path.join(DIST, target.file);
+    const outDir = path.dirname(outPath);
+    if (!fs.existsSync(outDir)) {
+      fs.mkdirSync(outDir, { recursive: true });
+    }
+    fs.writeFileSync(outPath, html, 'utf-8');
+
+    const bodyText = await page.evaluate(() => document.body.innerText.replace(/\s+/g, ' ').trim().length);
+    console.log(`  ✅ Gravado ${target.file} (${html.length} bytes, ~${bodyText} chars de texto)`);
+  }
+
+  console.log('✅ Pré-renderização de todas as páginas concluída!');
   await browser.close();
   server.close();
 }

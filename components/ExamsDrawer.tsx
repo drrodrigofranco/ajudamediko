@@ -408,10 +408,25 @@ const ExamsDrawer: React.FC = () => {
                         const contactSection = document.getElementById('contato');
                         if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
                       }}
-                      className="w-full bg-[#0e4843] text-white py-4 rounded-2xl font-bold hover:bg-[#14b8a6] transition-all shadow-lg mt-8"
+                      className="w-full bg-[#0e4843] text-white py-4 rounded-2xl font-bold hover:bg-[#14b8a6] transition-all shadow-lg mt-8 text-center"
                     >
                       Agendar este Exame
                     </button>
+
+                    <a 
+                      href={`/exame/${selectedExam.id}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setIsOpen(false);
+                        setSelectedExam(null);
+                        window.history.pushState({}, '', `/exame/${selectedExam.id}`);
+                        window.dispatchEvent(new PopStateEvent('popstate'));
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }}
+                      className="w-full border border-gray-200 text-[#0e4843] py-4 rounded-2xl font-bold hover:bg-gray-50 transition-all text-center block mt-3 text-sm shadow-sm"
+                    >
+                      Ver Guia de Preparação e Preços
+                    </a>
                   </div>
                 </motion.div>
               )}

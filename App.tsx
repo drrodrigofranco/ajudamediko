@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { trackGetDirections } from './gtag';
 import HealthNewsWidget from './components/HealthNewsWidget';
 import Footer from './components/Footer';
@@ -12,6 +12,7 @@ import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import MapModal from './components/MapModal';
 import ExamsDrawer from './components/ExamsDrawer';
+import ExamDetailPage from './components/ExamDetailPage';
 import { 
     Baby, 
     ScanLine, 
@@ -32,6 +33,22 @@ const App: React.FC = () => {
     const [formName, setFormName] = useState('');
     const [formPhone, setFormPhone] = useState('');
     const [formExam, setFormExam] = useState('');
+    const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
+    useEffect(() => {
+        const handleLocationChange = () => {
+            setCurrentPath(window.location.pathname);
+        };
+        window.addEventListener('popstate', handleLocationChange);
+        return () => window.removeEventListener('popstate', handleLocationChange);
+    }, []);
+
+    const navigateTo = (path: string, e?: React.MouseEvent) => {
+        if (e) e.preventDefault();
+        window.history.pushState({}, '', path);
+        window.dispatchEvent(new PopStateEvent('popstate'));
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
     const doctorImgSrc = "https://i.ibb.co/2YsJv4SD/Four-people-doctor-clothes-posing-202607101541.jpg";
     const mapImgSrc = "https://i.postimg.cc/28hbWxS9/Captura-de-tela-2025-12-26-144512.jpg";
@@ -99,6 +116,21 @@ const App: React.FC = () => {
         { id: 'ecofetal', name: "Ecocardiograma Fetal", Icon: HeartPulse, desc: "Avaliação cardíaca fetal" },
         { id: 'transvaginal', name: "Transvaginal", Icon: ScanLine, desc: "Avaliação detalhada interna" },
     ];
+
+    if (currentPath.startsWith('/exame/')) {
+        const examId = currentPath.replace('/exame/', '').split('/')[0];
+        return (
+            <div className="flex flex-col min-h-screen bg-white font-sans text-gray-800">
+                <MapModal 
+                    isOpen={isMapModalOpen} 
+                    onClose={() => setIsMapModalOpen(false)} 
+                    mapImgSrc={mapImgSrc} 
+                    googleMapsLink={googleMapsLink} 
+                />
+                <ExamDetailPage examId={examId} navigateTo={navigateTo} />
+            </div>
+        );
+    }
 
     return (
         <div className="flex flex-col min-h-screen bg-white font-sans text-gray-800">
