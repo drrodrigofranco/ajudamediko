@@ -34,7 +34,7 @@ export const examsData: ExamData[] = [
       'Trazer exames de ultrassom gestacional anteriores.'
     ],
     duration: '60 minutos',
-    price: 'R$ 500,00',
+    price: 'Consultar equipe',
     howItIsDone: 'Realizado via abdominal. O médico aplica um gel aquecido no abdome da gestante e desliza o transdutor, analisando detalhadamente as câmaras, válvulas e vasos sanguíneos do coração fetal.',
     whenItIsDone: 'Indicado idealmente entre a 24ª e a 28ª semana de gestação.',
     purpose: 'Avaliar a anatomia e a função do coração do bebê, identificar arritmias ou cardiopatias e planejar o suporte neonatal imediato.',
@@ -66,7 +66,7 @@ export const examsData: ExamData[] = [
       'Trazer a carteira de pré-natal e ultrassons anteriores.'
     ],
     duration: '45 minutos',
-    price: 'R$ 450,00',
+    price: 'Consultar equipe',
     howItIsDone: 'O exame é feito por via abdominal. A tecnologia Doppler converte os fluxos de sangue em sinais sonoros e imagens coloridas na tela, permitindo avaliar a velocidade e a resistência da circulação sanguínea.',
     whenItIsDone: 'Geralmente solicitado a partir do terceiro trimestre (28ª semana), ou antes se houver indicação médica específica.',
     purpose: 'Verificar a oxigenação e nutrição fetal, avaliar o funcionamento da placenta e diagnosticar precocemente o sofrimento ou restrição de crescimento fetal.',
@@ -98,7 +98,7 @@ export const examsData: ExamData[] = [
       'Trazer exames anteriores.'
     ],
     duration: '30 minutos',
-    price: 'R$ 350,00',
+    price: 'Consultar equipe',
     howItIsDone: 'Realizado via abdominal. Um gel é aplicado sobre a pele do abdome e o médico desliza o transdutor para obter imagens em tempo real do feto dentro do saco gestacional.',
     whenItIsDone: 'Pode ser realizado em qualquer fase da gravidez como acompanhamento de rotina do pré-natal.',
     purpose: 'Confirmar os batimentos cardíacos fetais, medir o crescimento, verificar o volume de líquido amniótico e avaliar a localização da placenta.',
@@ -130,7 +130,7 @@ export const examsData: ExamData[] = [
       'Trazer exames anteriores.'
     ],
     duration: '45 minutos',
-    price: 'R$ 550,00',
+    price: 'Consultar equipe',
     howItIsDone: 'Geralmente realizado por via abdominal, mas em alguns casos pode requerer complementação por via transvaginal para obter detalhes mais nítidos das estruturas do bebê.',
     whenItIsDone: 'Deve ser realizado obrigatoriamente entre 11 semanas e 13 semanas e 6 dias (idade gestacional baseada no comprimento do bebê).',
     purpose: 'Medir a Translucência Nucal (TN), avaliar o osso nasal, avaliar o fluxo sanguíneo no ducto venoso e realizar a triagem estatística de riscos cromossômicos.',
@@ -162,7 +162,7 @@ export const examsData: ExamData[] = [
       'Trazer todos os ultrassons anteriores, principalmente o morfológico de 1º trimestre.'
     ],
     duration: '60 minutos',
-    price: 'R$ 600,00',
+    price: 'Consultar equipe',
     howItIsDone: 'Realizado por via transabdominal. O médico examina sistematicamente o cérebro, a face, a coluna vertebral, o coração, os rins, o estômago, a bexiga, os membros superiores e inferiores e os dedos do bebê.',
     whenItIsDone: 'Indicado idealmente entre a 20ª e 24ª semana de gestação.',
     purpose: 'Detectar malformações estruturais congênitas, avaliar a inserção do cordão umbilical, a localização da placenta e medir o colo do útero (avaliação de risco de parto prematuro).',
@@ -194,7 +194,7 @@ export const examsData: ExamData[] = [
       'Evitar refrigerantes, bebidas gasosas ou alimentos que causem gases no dia anterior.'
     ],
     duration: '30 minutos',
-    price: 'R$ 380,00',
+    price: 'Consultar equipe',
     howItIsDone: 'O paciente permanece deitado. O gel é aplicado no abdome e o transdutor é deslizado em diversas direções. Pode ser solicitado que o paciente prenda a respiração por alguns segundos para obter imagens estáveis.',
     whenItIsDone: 'Indicado para investigar dor abdominal, pedras na vesícula ou rins, acompanhamento de cistos, gordura no fígado (esteatose) e avaliação urinária.',
     purpose: 'Detectar cálculos (pedras), tumores, cistos, abscessos, dilatações, inflamações e avaliar o tamanho e aspecto dos órgãos abdominais.',
@@ -206,7 +206,7 @@ export const examsData: ExamData[] = [
       },
       {
         question: 'Posso tomar meus medicamentos contínuos antes do exame?',
-        answer: 'Sim, com pequenos goles de água. Medicamentos para pressão, diabetes ou coração não devem ser interrompidos.'
+        answer: 'Sim, com pequenos golpes de água. Medicamentos para pressão, diabetes ou coração não devem ser interrompidos.'
       },
       {
         question: 'O exame avalia o estômago e o intestino?',
@@ -225,7 +225,7 @@ export const examsData: ExamData[] = [
       'Beber de 4 a 6 copos de água 1 hora antes do exame e reter a urina. A bexiga muito cheia afasta as alças intestinais e serve como janela acústica.'
     ],
     duration: '20 minutos',
-    price: 'R$ 300,00',
+    price: 'Consultar equipe',
     howItIsDone: 'Realizado via abdominal. Um gel condutor é aplicado no baixo ventre e o transdutor é movido para mapear a região pélvica.',
     whenItIsDone: 'Exame de rotina ginecológica, investigação de dores pélvicas, cólicas intensas, sangramento anormal ou suspeita de miomas.',
     purpose: 'Avaliar o volume e contorno uterino, a espessura do endométrio, a presença de cistos nos ovários, miomas ou massas pélvicas.',
@@ -257,7 +257,7 @@ export const examsData: ExamData[] = [
       'Usar roupas fáceis de tirar (sendo necessária a remoção das roupas da cintura para baixo).'
     ],
     duration: '20 minutos',
-    price: 'R$ 320,00',
+    price: 'Consultar equipe',
     howItIsDone: 'Um transdutor fino, protegido com preservativo descartável e gel lubrificante estéril, é inserido delicadamente no canal vaginal. O exame é geralmente indolor e rápido.',
     whenItIsDone: 'Avaliação ginecológica periódica, investigação de dor pélvica, sangramento uterino anormal, suspeita de gravidez precoce ou controle de ovulação.',
     purpose: 'Medir com precisão a espessura endometrial, detectar pólipos, miomas, cistos ovarianos, sinais de endometriose e confirmar gestações iniciais.',
@@ -288,7 +288,7 @@ export const examsData: ExamData[] = [
       'Beber de 4 a 5 copos de água 1 hora antes do exame e reter a urina (bexiga cheia é indispensável para visualização da próstata por cima do osso pélvico).'
     ],
     duration: '20 minutos',
-    price: 'R$ 320,00',
+    price: 'Consultar equipe',
     howItIsDone: 'O paciente deita-se de costas. O gel é aplicado sobre o abdome inferior e o transdutor é deslizado. Após a primeira avaliação da bexiga cheia e próstata, o paciente vai ao banheiro urinar e retorna para medir o resíduo pós-miccional.',
     whenItIsDone: 'Indicado no rastreamento de hiperplasia prostática benigna, queixas de jato urinário fraco, aumento da frequência urinária noturna ou alterações no exame de PSA.',
     purpose: 'Medir o volume da próstata, verificar a presença de nódulos ou calcificações, avaliar a parede da bexiga e quantificar a urina que resta na bexiga pós-micção.',
@@ -320,7 +320,7 @@ export const examsData: ExamData[] = [
       'Trazer exames anteriores da tireoide (incluindo exames de sangue TSH/T4 livre).'
     ],
     duration: '25 minutos',
-    price: 'R$ 350,00',
+    price: 'Consultar equipe',
     howItIsDone: 'O paciente deita-se com o pescoço estendido (geralmente apoiado sobre um travesseiro sob os ombros). O gel é aplicado na região anterior do pescoço e o transdutor é movido suavemente.',
     whenItIsDone: 'Solicitado ao palpar nódulos no pescoço, acompanhamento de bócio, hipotireoidismo, hipertireoidismo ou histórico familiar de câncer de tireoide.',
     purpose: 'Mapear nódulos (tamanho, formato, presença de microcalcificações) e avaliar a vascularização (Doppler) para classificar o risco (sistema TI-RADS).',
@@ -351,7 +351,7 @@ export const examsData: ExamData[] = [
       'Usar roupas com decote ou gola aberta para expor o pescoço.'
     ],
     duration: '30 minutos',
-    price: 'R$ 420,00',
+    price: 'Consultar equipe',
     howItIsDone: 'O paciente fica deitado. O médico aplica gel nas laterais do pescoço e desliza o transdutor vascular, ouvindo o fluxo de sangue e medindo a espessura das paredes arteriais e a velocidade do sangue.',
     whenItIsDone: 'Indicado para pacientes com hipertensão, diabetes, colesterol alto, fumantes, com sopro carotídeo ou histórico de AVC/infarto na família.',
     purpose: 'Pesquisar o espessamento das artérias (estrias de gordura) e detectar estenoses (estreitamentos) causadas por placas de aterosclerose.',
@@ -383,7 +383,7 @@ export const examsData: ExamData[] = [
       'Trazer mamografias e ultrassons de mama anteriores.'
     ],
     duration: '25 minutos',
-    price: 'R$ 320,00',
+    price: 'Consultar equipe',
     howItIsDone: 'A paciente deita-se com o tórax exposto e os braços levantados atrás da cabeça. O transdutor é deslizado sobre toda a extensão das duas mamas e na região das axilas (pesquisa de linfonodos).',
     whenItIsDone: 'Indicado para investigação de nódulos palpáveis, secreções mamárias, dor nas mamas (mastalgia) e como rastreamento complementar anual.',
     purpose: 'Diferenciar nódulos sólidos (fibroadenomas, cistos complexos ou tumores) de cistos simples cheios de líquido (geralmente benignos), além de guiar biópsias.',
@@ -414,7 +414,7 @@ export const examsData: ExamData[] = [
       'Usar roupas folgadas ou regata para facilitar a exposição da articulação do ombro.'
     ],
     duration: '20 minutos',
-    price: 'R$ 340,00',
+    price: 'Consultar equipe',
     howItIsDone: 'O paciente senta-se na maca e o médico realiza o exame movendo o braço do paciente em diferentes posições. O exame dinâmico ajuda a identificar pinçamentos de tendões em tempo real.',
     whenItIsDone: 'Indicado para dores persistentes no ombro, dificuldade para levantar o braço, estalos articulares ou após quedas e traumas.',
     purpose: 'Diagnosticar bursite subacromial, tendinite do supraespinal, rupturas tendíneas (manguito rotador) e depósitos de cálcio (tendinite calcárea).',
@@ -445,7 +445,7 @@ export const examsData: ExamData[] = [
       'Usar camiseta de manga curta.'
     ],
     duration: '20 minutos',
-    price: 'R$ 340,00',
+    price: 'Consultar equipe',
     howItIsDone: 'O paciente fica sentado com o cotovelo apoiado. O transdutor analisa a face lateral (busca de epicondilite lateral) e medial da articulação.',
     whenItIsDone: 'Dor ao digitar, dor ao carregar peso, inchaço na articulação ou suspeita de "cotovelo de tenista".',
     purpose: 'Diagnosticar epicondilite lateral e medial, bursite olecraniana, derrames articulares e lesões de ligamentos colaterais.',
@@ -476,7 +476,7 @@ export const examsData: ExamData[] = [
       'Retirar relógio, pulseiras ou anéis da mão a ser examinada.'
     ],
     duration: '20 minutos',
-    price: 'R$ 340,00',
+    price: 'Consultar equipe',
     howItIsDone: 'O paciente senta-se e apoia a mão sobre um suporte. O médico avalia a parte da frente (palmar) e de trás (dorsal) do punho com gel condutor.',
     whenItIsDone: 'Dormência ou formigamento nos dedos (polegar, indicador e médio), dor ao digitar, calosidades dolorosas ou presença de caroço (cisto).',
     purpose: 'Avaliar a espessura do nervo mediano (Síndrome do Túnel do Carpo), diagnosticar tendinite de De Quervain e identificar cistos sinoviais.',
@@ -507,7 +507,7 @@ export const examsData: ExamData[] = [
       'Usar shorts ou roupas curtas que permitam expor totalmente o joelho e a coxa.'
     ],
     duration: '20 minutos',
-    price: 'R$ 340,00',
+    price: 'Consultar equipe',
     howItIsDone: 'O paciente deita-se de barriga para cima para avaliar a frente do joelho e, posteriormente, vira de bruços para que o médico examine a fossa poplítea (atrás do joelho).',
     whenItIsDone: 'Dores na frente do joelho ao subir escadas, inchaço articular (água no joelho), traumas esportivos ou caroço atrás do joelho.',
     purpose: 'Diagnosticar tendinite patelar, tendinite quadricipital, cisto de Baker, lesões nos ligamentos colaterais e derrame articular.',
@@ -538,7 +538,7 @@ export const examsData: ExamData[] = [
       'Usar shorts ou calça que possa ser dobrada até o joelho, facilitando o acesso ao tornozelo e pé.'
     ],
     duration: '20 minutos',
-    price: 'R$ 340,00',
+    price: 'Consultar equipe',
     howItIsDone: 'O exame é realizado com o paciente sentado ou deitado, movendo o pé em diferentes direções para testar a integridade ligamentar dinamicamente.',
     whenItIsDone: 'Dor crônica no calcanhar, após entorses (torções de pé), suspeita de ruptura de tendão ou dor na sola do pé.',
     purpose: 'Avaliar tendinite de Aquiles, fascite plantar, rupturas de ligamentos laterais e esporão de calcâneo.',
@@ -569,7 +569,7 @@ export const examsData: ExamData[] = [
       'Usar roupas confortáveis. Para pernas, é necessário vestir shorts ou roupas fáceis de expor os membros inferiores.'
     ],
     duration: '40 minutos',
-    price: 'R$ 480,00',
+    price: 'Consultar equipe',
     howItIsDone: 'Realizado com o paciente em pé (para avaliar varizes e refluxo venoso) ou deitado (para pesquisar trombose). O médico aperta levemente a panturrilha/braço para testar a compressão e a velocidade de fluxo das veias.',
     whenItIsDone: 'Inchaço repentino em uma das pernas com dor, varizes dolorosas, pernas cansadas, histórico de trombose ou dor ao caminhar (claudicação).',
     purpose: 'Diagnosticar trombose venosa profunda (TVP), insuficiência venosa (varizes e refluxo da veia safena) e obstrução arterial periférica.',
@@ -585,7 +585,7 @@ export const examsData: ExamData[] = [
       },
       {
         question: 'O exame causa dor?',
-        answer: 'Apenas uma leve pressão é aplicada com o transdutor para verificar se as veias são colapsáveis (o que descarta trombose). Pode causar um leve desconforto se a perna já estiver muito dolorida.'
+        answer: 'Apenas uma leve pressão é aplicada com o transdutor para verificar se as veias são colapsáveis (o que descarta trombose). Pode causar um leve desconforto se a perna já estiver muito dorida.'
       }
     ]
   },
@@ -602,7 +602,7 @@ export const examsData: ExamData[] = [
       'Se usar broncodilatadores (bombinhas de asma), verificar com nossa equipe o tempo de suspensão necessário.'
     ],
     duration: '30 minutos',
-    price: 'R$ 280,00',
+    price: 'Consultar equipe',
     howItIsDone: 'O paciente senta-se e coloca um clipe nasal para evitar a saída de ar pelo nariz. Ele inspira o máximo de ar possível e depois sopra com força máxima e rapidez em um bocal conectado ao espirômetro.',
     whenItIsDone: 'Falta de ar crônica, chiado no peito, tosse persistente, acompanhamento de asma ou DPOC e avaliação pré-operatória de grandes cirurgias.',
     purpose: 'Quantificar obstruções brônquicas e avaliar a capacidade pulmonar total.',
@@ -634,7 +634,7 @@ export const examsData: ExamData[] = [
       'Homens podem precisar realizar tricotomia (depilação) em pontos específicos do tórax para fixação dos eletrodos.'
     ],
     duration: '24 horas de monitoramento',
-    price: 'R$ 350,00',
+    price: 'Consultar equipe',
     howItIsDone: 'Vários eletrodos adesivos são colados no peito do paciente e conectados por cabos a um pequeno gravador digital preso na cintura. O paciente anota em um diário suas atividades e quaisquer sintomas sentidos.',
     whenItIsDone: 'Investigação de arritmias, palpitações, desmaios sem causa aparente, tonturas ou controle de marca-passo.',
     purpose: 'Identificar extra-sístoles, bloqueios de condução cardíaca, episódios de taquicardia e correlacionar os sintomas descritos pelo paciente com os registros elétricos.',
@@ -665,7 +665,7 @@ export const examsData: ExamData[] = [
       'Vestir camisa ou blusa folgada com mangas largas para acomodar o manguito inflável no braço.'
     ],
     duration: '24 horas de monitoramento',
-    price: 'R$ 350,00',
+    price: 'Consultar equipe',
     howItIsDone: 'Uma braçadeira de pressão (manguito) é colocada no braço não dominante do paciente e conectada a um pequeno compressor automático fixado na cintura. O aparelho infla sozinho a cada 15-20 minutos durante o dia e a cada 30 minutos à noite.',
     whenItIsDone: 'Diagnóstico de hipertensão arterial, avaliação da eficácia dos medicamentos de pressão, suspeita de hipertensão do jaleco branco (pressão que sobe apenas no consultório) ou tonturas.',
     purpose: 'Mapear a média da pressão arterial diurna e noturna, e verificar a presença do descenso sistólico no sono (queda esperada da pressão à noite).',

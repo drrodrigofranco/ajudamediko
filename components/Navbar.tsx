@@ -29,7 +29,7 @@ const Navbar: React.FC<NavbarProps> = ({
       {/* Top Bar com Redes Sociais */}
       <div className="bg-[#0e4843] text-white py-3 border-b border-teal-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-end items-center gap-8">
-          <a href="https://www.instagram.com/franco.clinica/" target="_blank" rel="noopener noreferrer" className="hover:text-[#14b8a6] transition-colors flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase">
+          <a href="https://www.instagram.com/clinicafrancoo/" target="_blank" rel="noopener noreferrer" className="hover:text-[#14b8a6] transition-colors flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase">
             <Instagram size={20} />
             <span className="hidden sm:inline">Instagram</span>
           </a>

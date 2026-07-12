@@ -187,13 +187,13 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
                   </div>
                 </div>
 
-                {exam.price && exam.price !== 'Sob Consulta' && (
+                {exam.price && (
                   <div className="flex items-center gap-4">
                     <div className="bg-teal-500/20 p-3 rounded-2xl text-[#14b8a6]">
                       <Icons.CreditCard className="w-6 h-6" />
                     </div>
                     <div>
-                      <h4 className="text-xs uppercase tracking-widest text-teal-300 font-bold">Valor Estimado</h4>
+                      <h4 className="text-xs uppercase tracking-widest text-teal-300 font-bold">Valor</h4>
                       <p className="font-bold text-sm">{exam.price} <span className="text-[10px] text-teal-100 font-normal">(consulte convênios)</span></p>
                     </div>
                   </div>
