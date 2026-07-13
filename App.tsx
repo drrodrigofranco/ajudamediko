@@ -16,6 +16,7 @@ import ExamDetailPage from './components/ExamDetailPage';
 import ExamsComparisonPage from './components/ExamsComparisonPage';
 import GuidelineFirstTrimesterPage from './components/GuidelineFirstTrimesterPage';
 import CardioRespiratoryExamsPage from './components/CardioRespiratoryExamsPage';
+import PregnancyGuidePage from './components/PregnancyGuidePage';
 import { 
     Baby, 
     ScanLine, 
@@ -176,6 +177,20 @@ const App: React.FC = () => {
                     googleMapsLink={googleMapsLink} 
                 />
                 <CardioRespiratoryExamsPage navigateTo={navigateTo} />
+            </div>
+        );
+    }
+
+    if (currentPath === '/dicas-gestantes' || currentPath === '/dicas-gestantes/') {
+        return (
+            <div className="flex flex-col min-h-screen bg-white font-sans text-gray-800">
+                <MapModal 
+                    isOpen={isMapModalOpen} 
+                    onClose={() => setIsMapModalOpen(false)} 
+                    mapImgSrc={mapImgSrc} 
+                    googleMapsLink={googleMapsLink} 
+                />
+                <PregnancyGuidePage navigateTo={navigateTo} />
             </div>
         );
     }

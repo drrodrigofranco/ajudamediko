@@ -92,6 +92,20 @@ const Footer: React.FC = () => {
                         Exames Cardiorrespiratórios
                       </a>
                     </li>
+                    <li>
+                      <a 
+                        href="/dicas-gestantes" 
+                        onClick={(e) => {
+                          e.preventDefault();
+                          window.history.pushState({}, '', '/dicas-gestantes');
+                          window.dispatchEvent(new PopStateEvent('popstate'));
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
+                        className="hover:text-teal-400 transition-colors"
+                      >
+                        Guia da Gestante
+                      </a>
+                    </li>
                     <li className="pt-2 border-t border-gray-800 mt-2">
                         <a href="/politica-de-privacidade.html" className="text-xs hover:text-teal-400 transition-colors block py-1">Política de Privacidade</a>
                     </li>
