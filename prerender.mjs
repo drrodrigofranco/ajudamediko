@@ -93,6 +93,7 @@ async function main() {
 
   const targets = [
     { url: '/', file: 'index.html' },
+    { url: '/entenda-exames', file: 'entenda-exames/index.html' },
     ...EXAM_IDS.map(id => ({ url: `/exame/${id}`, file: `exame/${id}/index.html` }))
   ];
 

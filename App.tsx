@@ -13,6 +13,7 @@ import Contact from './components/Contact';
 import MapModal from './components/MapModal';
 import ExamsDrawer from './components/ExamsDrawer';
 import ExamDetailPage from './components/ExamDetailPage';
+import ExamsComparisonPage from './components/ExamsComparisonPage';
 import { 
     Baby, 
     ScanLine, 
@@ -54,7 +55,7 @@ const App: React.FC = () => {
     const mapImgSrc = "https://i.postimg.cc/28hbWxS9/Captura-de-tela-2025-12-26-144512.jpg";
     const googleMapsLink = "https://maps.app.goo.gl/aMkRNzPYtTe6jwQJ8";
 
-    const navItems = ['SERVIÇOS', 'CONVÊNIOS', 'CALCULADORAS', 'CURRÍCULO', 'LOCALIZAÇÃO', 'DÚVIDAS', 'NOTÍCIAS', 'CONTATO'];
+    const navItems = ['SERVIÇOS', 'ENTENDA OS EXAMES', 'CONVÊNIOS', 'CALCULADORAS', 'CURRÍCULO', 'LOCALIZAÇÃO', 'DÚVIDAS', 'NOTÍCIAS', 'CONTATO'];
 
     const normalizeId = (text: string) => {
         return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "").toLowerCase();
@@ -81,6 +82,9 @@ const App: React.FC = () => {
         if (item === 'LOCALIZAÇÃO') {
             trackGetDirections();
             window.open(googleMapsLink, '_blank');
+            setIsMobileMenuOpen(false);
+        } else if (item === 'ENTENDA OS EXAMES') {
+            navigateTo('/entenda-exames');
             setIsMobileMenuOpen(false);
         } else {
             scrollToSection(normalizeId(item));
@@ -128,6 +132,20 @@ const App: React.FC = () => {
                     googleMapsLink={googleMapsLink} 
                 />
                 <ExamDetailPage examId={examId} navigateTo={navigateTo} />
+            </div>
+        );
+    }
+
+    if (currentPath === '/entenda-exames' || currentPath === '/entenda-exames/') {
+        return (
+            <div className="flex flex-col min-h-screen bg-white font-sans text-gray-800">
+                <MapModal 
+                    isOpen={isMapModalOpen} 
+                    onClose={() => setIsMapModalOpen(false)} 
+                    mapImgSrc={mapImgSrc} 
+                    googleMapsLink={googleMapsLink} 
+                />
+                <ExamsComparisonPage navigateTo={navigateTo} />
             </div>
         );
     }
