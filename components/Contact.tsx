@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { MapPin, Phone, CheckCircle } from 'lucide-react';
+import { MapPin, Phone, CheckCircle, Globe } from 'lucide-react';
 
 interface ContactProps {
   formName: string;
@@ -63,8 +63,15 @@ const Contact: React.FC<ContactProps> = ({
             <div className="flex gap-5">
               <div className="bg-[#1c5d57] p-3.5 rounded-2xl"><CheckCircle className="text-[#14b8a6]" /></div>
               <div>
-                <h4 className="font-bold mb-1 text-base">Convênios</h4>
-                <p className="text-[11px] text-teal-100/70">PROVER e Particular</p>
+                <h4 className="font-bold mb-1 text-base">Atendimentos</h4>
+                <p className="text-[11px] text-teal-100/70">PROVER, Oeste Saúde, MaterDei, PAX, AMENA e Particular</p>
+              </div>
+            </div>
+            <div className="flex gap-5">
+              <div className="bg-[#1c5d57] p-3.5 rounded-2xl"><Globe className="text-[#14b8a6]" /></div>
+              <div>
+                <h4 className="font-bold mb-1 text-base">Região de Atendimento</h4>
+                <p className="text-[11px] text-teal-100/70">Pacientes de Nova Andradina, Rosana (SP), Ivinhema, Anaurilândia, Batayporã, Deodápolis, Angélica e região.</p>
               </div>
             </div>
           </div>
