@@ -7,6 +7,9 @@ interface PregnancyGuidePageProps {
 
 const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) => {
   const [activeTrim, setActiveTrim] = useState<1 | 2 | 3>(1);
+  const [dum, setDum] = useState<string>('');
+  const [weeksInput, setWeeksInput] = useState<string>('');
+  const [monthsInput, setMonthsInput] = useState<string>('');
   const whatsappUrl = "https://wa.me/5567998446674?text=Ol%C3%A1%21+Estou+gr%C3%A1vida+e+gostaria+de+agendar+meus+exames+obst%C3%A9tricos.";
 
   const trimesterData = {
@@ -79,6 +82,101 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
   };
 
   const activeData = trimesterData[activeTrim];
+
+  // Gestational Age Calculation based on DUM
+  let gestationalAgeText = '';
+  let dppText = '';
+  let currentTrimester = '';
+  let remainingTimeText = '';
+  let calculationStatus: 'pending' | 'success' | 'error' = 'pending';
+
+  if (dum) {
+    const dumDate = new Date(dum + 'T00:00:00');
+    const today = new Date();
+    
+    dumDate.setHours(0, 0, 0, 0);
+    today.setHours(0, 0, 0, 0);
+
+    if (dumDate > today) {
+      calculationStatus = 'error';
+    } else {
+      const diffTime = Math.abs(today.getTime() - dumDate.getTime());
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      
+      const weeks = Math.floor(diffDays / 7);
+      const days = diffDays % 7;
+
+      if (weeks >= 42) {
+        calculationStatus = 'error';
+      } else {
+        calculationStatus = 'success';
+        gestationalAgeText = `${weeks} semanas e ${days} dias`;
+        
+        const dppDate = new Date(dumDate.getTime());
+        dppDate.setDate(dppDate.getDate() + 280);
+        const options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'long', year: 'numeric' };
+        dppText = dppDate.toLocaleDateString('pt-BR', options);
+
+        if (weeks < 14) {
+          currentTrimester = '1º Trimestre';
+        } else if (weeks < 28) {
+          currentTrimester = '2º Trimestre';
+        } else {
+          currentTrimester = '3º Trimestre';
+        }
+
+        const totalDaysRemaining = 280 - diffDays;
+        if (totalDaysRemaining > 0) {
+          const remWeeks = Math.floor(totalDaysRemaining / 7);
+          const remDays = totalDaysRemaining % 7;
+          remainingTimeText = `${remWeeks} semanas e ${remDays} dias`;
+        } else {
+          remainingTimeText = 'Chegou à data provável do parto!';
+        }
+      }
+    }
+  }
+
+  // Weeks to Months Conversion
+  let weeksToMonthsResult = '';
+  if (weeksInput) {
+    const w = parseFloat(weeksInput);
+    if (w >= 1 && w <= 42) {
+      if (w <= 4) weeksToMonthsResult = '1º Mês (1º Trimestre)';
+      else if (w <= 8) weeksToMonthsResult = '2º Mês (1º Trimestre)';
+      else if (w <= 12) weeksToMonthsResult = '3º Mês (1º Trimestre)';
+      else if (w <= 16) weeksToMonthsResult = '4º Mês (2º Trimestre)';
+      else if (w <= 20) weeksToMonthsResult = '5º Mês (2º Trimestre)';
+      else if (w <= 24) weeksToMonthsResult = '6º Mês (2º Trimestre)';
+      else if (w <= 28) weeksToMonthsResult = '7º Mês (3º Trimestre)';
+      else if (w <= 32) weeksToMonthsResult = '8º Mês (3º Trimestre)';
+      else weeksToMonthsResult = '9º Mês (3º Trimestre)';
+    } else {
+      weeksToMonthsResult = 'Insira semanas entre 1 e 42';
+    }
+  }
+
+  // Months to Weeks Conversion
+  let monthsToWeeksResult = '';
+  if (monthsInput) {
+    const m = parseInt(monthsInput);
+    if (m >= 1 && m <= 9) {
+      const ranges = {
+        1: '1 a 4 semanas (1º Trimestre)',
+        2: '5 a 8 semanas (1º Trimestre)',
+        3: '9 a 12 semanas (1º Trimestre)',
+        4: '13 a 16 semanas (2º Trimestre)',
+        5: '17 a 20 semanas (2º Trimestre)',
+        6: '21 a 24 semanas (2º Trimestre)',
+        7: '25 a 28 semanas (3º Trimestre)',
+        8: '29 a 32 semanas (3º Trimestre)',
+        9: '33 a 40 semanas (3º Trimestre)',
+      };
+      monthsToWeeksResult = ranges[m as keyof typeof ranges];
+    } else {
+      monthsToWeeksResult = 'Insira um mês válido de 1 a 9';
+    }
+  }
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 font-sans text-gray-800 antialiased">
@@ -176,6 +274,158 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Ferramentas e Calculadoras da Gestante */}
+      <section className="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
+        <div className="grid lg:grid-cols-2 gap-12">
+          {/* Col 1: Calculadora de Idade Gestacional */}
+          <div className="bg-white rounded-3xl border border-gray-100 shadow-md p-8 sm:p-10 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="bg-teal-50 p-2.5 rounded-xl text-[#14b8a6]">
+                  <Icons.Calculator className="w-6 h-6" />
+                </div>
+                <div>
+                  <span className="text-[#14b8a6] font-bold text-xs uppercase tracking-widest">Ferramentas Úteis</span>
+                  <h3 className="text-2xl font-serif font-bold text-[#0e4843]">Calculadora Gestacional</h3>
+                </div>
+              </div>
+              
+              <p className="text-gray-500 text-xs leading-relaxed mb-6">
+                Informe a data do primeiro dia da sua Última Menstruação (DUM) para saber a sua idade gestacional atualizada e a data prevista para o nascimento.
+              </p>
+
+              <div className="space-y-4">
+                <div>
+                  <label className="text-[10px] font-bold text-gray-400 uppercase mb-2 block tracking-widest">Data da Última Menstruação (DUM)</label>
+                  <input 
+                    type="date"
+                    value={dum}
+                    onChange={(e) => setDum(e.target.value)}
+                    className="w-full bg-gray-50 border border-gray-100 p-4 rounded-xl outline-none focus:ring-2 focus:ring-[#14b8a6]/20 transition-all text-sm font-semibold"
+                  />
+                </div>
+
+                {calculationStatus === 'success' && (
+                  <div className="bg-teal-50/50 border border-teal-500/10 p-5 rounded-2xl space-y-4 mt-6">
+                    <div className="flex justify-between items-center text-xs border-b border-teal-500/5 pb-2">
+                      <span className="text-gray-500">Idade Gestacional Atual:</span>
+                      <strong className="text-[#0e4843] text-sm">{gestationalAgeText}</strong>
+                    </div>
+                    <div className="flex justify-between items-center text-xs border-b border-teal-500/5 pb-2">
+                      <span className="text-gray-500">Data Provável do Parto (DPP):</span>
+                      <strong className="text-[#0e4843] text-sm">{dppText}</strong>
+                    </div>
+                    <div className="flex justify-between items-center text-xs border-b border-teal-500/5 pb-2">
+                      <span className="text-gray-500">Trimestre Atual:</span>
+                      <span className="px-2.5 py-0.5 rounded-full bg-[#14b8a6] text-white font-bold text-[9px] uppercase tracking-wider">{currentTrimester}</span>
+                    </div>
+                    <div className="flex justify-between items-center text-xs pb-1">
+                      <span className="text-gray-500">Tempo de Espera Restante:</span>
+                      <strong className="text-teal-700 text-xs">{remainingTimeText}</strong>
+                    </div>
+                  </div>
+                )}
+
+                {calculationStatus === 'error' && (
+                  <div className="bg-red-50 text-red-600 p-4 rounded-xl text-xs font-bold border border-red-100">
+                    A data inserida é inválida ou incompatível com uma gestação ativa (limite de 42 semanas). Por favor, verifique.
+                  </div>
+                )}
+              </div>
+            </div>
+            
+            {calculationStatus === 'success' && (
+              <div className="mt-6 pt-6 border-t border-gray-100">
+                <a 
+                  href={whatsappUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-full inline-flex items-center justify-center gap-2 bg-[#14b8a6] hover:bg-[#0d9488] text-white text-xs font-bold py-3.5 rounded-xl transition-all shadow-sm"
+                >
+                  <Icons.Calendar className="w-4 h-4" />
+                  Agendar exames para {gestationalAgeText}
+                </a>
+              </div>
+            )}
+          </div>
+
+          {/* Col 2: Conversor e Tabela */}
+          <div className="bg-white rounded-3xl border border-gray-100 shadow-md p-8 sm:p-10 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="bg-teal-50 p-2.5 rounded-xl text-[#14b8a6]">
+                  <Icons.RefreshCw className="w-6 h-6" />
+                </div>
+                <div>
+                  <span className="text-[#14b8a6] font-bold text-xs uppercase tracking-widest">Conversor Rápido</span>
+                  <h3 className="text-2xl font-serif font-bold text-[#0e4843]">Meses e Semanas</h3>
+                </div>
+              </div>
+
+              <p className="text-gray-500 text-xs leading-relaxed mb-6">
+                Converta de forma fácil semanas de gravidez em meses gestacionais ou vice-versa, facilitando a comunicação com seu obstetra.
+              </p>
+
+              <div className="grid sm:grid-cols-2 gap-6 mb-6">
+                <div className="space-y-2">
+                  <label className="text-[10px] font-bold text-gray-400 uppercase block tracking-widest">Semanas em Meses</label>
+                  <input 
+                    type="number"
+                    min="1"
+                    max="42"
+                    placeholder="Ex: 20"
+                    value={weeksInput}
+                    onChange={(e) => {
+                      setWeeksInput(e.target.value);
+                      setMonthsInput('');
+                    }}
+                    className="w-full bg-gray-50 border border-gray-100 p-3.5 rounded-xl outline-none focus:ring-2 focus:ring-[#14b8a6]/20 transition-all text-sm font-semibold"
+                  />
+                  {weeksInput && (
+                    <div className="p-3 bg-teal-50/50 rounded-xl text-left border border-teal-500/5">
+                      <p className="text-[10px] font-bold text-teal-800 uppercase tracking-widest">Resultado aproximado</p>
+                      <p className="text-xs text-gray-700 font-bold mt-1">{weeksToMonthsResult}</p>
+                    </div>
+                  )}
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-[10px] font-bold text-gray-400 uppercase block tracking-widest">Mês em Semanas</label>
+                  <input 
+                    type="number"
+                    min="1"
+                    max="9"
+                    placeholder="Ex: 5"
+                    value={monthsInput}
+                    onChange={(e) => {
+                      setMonthsInput(e.target.value);
+                      setWeeksInput('');
+                    }}
+                    className="w-full bg-gray-50 border border-gray-100 p-3.5 rounded-xl outline-none focus:ring-2 focus:ring-[#14b8a6]/20 transition-all text-sm font-semibold"
+                  />
+                  {monthsInput && (
+                    <div className="p-3 bg-teal-50/50 rounded-xl text-left border border-teal-500/5">
+                      <p className="text-[10px] font-bold text-teal-800 uppercase tracking-widest">Resultado aproximado</p>
+                      <p className="text-xs text-gray-700 font-bold mt-1">{monthsToWeeksResult}</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Tabela estática de equivalência */}
+              <div className="bg-gray-50 rounded-2xl p-5 border border-gray-100 text-xs">
+                <h4 className="font-bold text-[#0e4843] mb-3 text-center uppercase tracking-wider text-[10px]">Tabela de Correspondência Médica</h4>
+                <div className="grid grid-cols-3 gap-2 text-center text-[10px] font-semibold text-gray-500">
+                  <div className="bg-white p-2 rounded border border-gray-100">1º a 3º Mês<br/><span className="text-[#0e4843] font-bold">1 a 12 semanas</span></div>
+                  <div className="bg-white p-2 rounded border border-gray-100">4º a 6º Mês<br/><span className="text-[#0e4843] font-bold">13 a 24 semanas</span></div>
+                  <div className="bg-white p-2 rounded border border-gray-100">7º a 9º Mês<br/><span className="text-[#0e4843] font-bold">25 a 40 semanas</span></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
