@@ -64,6 +64,20 @@ const Footer: React.FC = () => {
                         Entenda os Exames
                       </a>
                     </li>
+                    <li>
+                      <a 
+                        href="/diretriz-primeiro-trimestre" 
+                        onClick={(e) => {
+                          e.preventDefault();
+                          window.history.pushState({}, '', '/diretriz-primeiro-trimestre');
+                          window.dispatchEvent(new PopStateEvent('popstate'));
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
+                        className="hover:text-teal-400 transition-colors"
+                      >
+                        Diretriz AMB: 1º Trimestre
+                      </a>
+                    </li>
                     <li className="pt-2 border-t border-gray-800 mt-2">
                         <a href="/politica-de-privacidade.html" className="text-xs hover:text-teal-400 transition-colors block py-1">Política de Privacidade</a>
                     </li>

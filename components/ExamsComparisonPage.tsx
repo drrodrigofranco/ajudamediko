@@ -94,6 +94,27 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
                 </div>
               </div>
             </div>
+
+            <div className="bg-teal-50/50 p-6 rounded-2xl border border-teal-500/10 mt-6 text-left">
+              <h4 className="font-bold text-sm text-[#0e4843] flex items-center gap-2">
+                <Icons.BookOpen className="w-4 h-4 text-[#14b8a6]" />
+                Estudo Científico da AMB
+              </h4>
+              <p className="text-xs text-gray-500 mt-2 leading-relaxed">
+                A Associação Médica Brasileira (AMB) publicou diretrizes completas sobre a importância e protocolos do ultrassom no primeiro trimestre da gravidez.
+              </p>
+              <a 
+                href="/diretriz-primeiro-trimestre" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateTo('/diretriz-primeiro-trimestre', e);
+                }}
+                className="inline-flex items-center text-xs font-bold text-[#14b8a6] hover:text-[#0d9488] mt-3 gap-1 transition-colors"
+              >
+                Ler Resumo da Diretriz
+                <Icons.ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
           </div>
           
           <div className="lg:w-1/2 relative w-full">
