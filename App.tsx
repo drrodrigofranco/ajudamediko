@@ -57,7 +57,7 @@ const App: React.FC = () => {
     const mapImgSrc = "https://i.postimg.cc/28hbWxS9/Captura-de-tela-2025-12-26-144512.jpg";
     const googleMapsLink = "https://maps.app.goo.gl/aMkRNzPYtTe6jwQJ8";
 
-    const navItems = ['SERVIÇOS', 'ENTENDA OS EXAMES', 'CONVÊNIOS', 'CALCULADORAS', 'CURRÍCULO', 'LOCALIZAÇÃO', 'DÚVIDAS', 'NOTÍCIAS', 'CONTATO'];
+    const navItems = ['SERVIÇOS', 'ENTENDA OS EXAMES', 'ATENDIMENTOS', 'CALCULADORAS', 'CURRÍCULO', 'LOCALIZAÇÃO', 'DÚVIDAS', 'NOTÍCIAS', 'CONTATO'];
 
     const normalizeId = (text: string) => {
         return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "").toLowerCase();
