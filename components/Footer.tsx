@@ -122,6 +122,7 @@ const Footer: React.FC = () => {
                     <li>Ecocardiograma Fetal</li>
                     <li>Obstétrico com e sem Doppler</li>
                     <li>Morfológico de 1º Trimestre</li>
+                    <li>Morfológico de 2º Trimestre</li>
                     <li>Ultrassom Vascular (Doppler)</li>
                     <li>Ultrassom Musculoesquelético</li>
                     <li>Abdome, Próstata e Pélvico</li>

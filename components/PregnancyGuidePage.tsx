@@ -53,7 +53,7 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
         },
         {
           title: "Ultrassom Morfológico de 2º Trimestre",
-          text: "Exame essencial realizado entre a 20ª e 24ª semana. O médico avalia detalhadamente toda a anatomia fetal (coração, cérebro, membros, rins, coluna), a inserção do cordão umbilical e a posição da placenta."
+          text: "Realizado idealmente entre a 20ª e 24ª semana. Este exame avalia detalhadamente toda a anatomia fetal (cérebro, face, lábios, perfil, coração, tórax, abdome, rins, bexiga, coluna vertebral e membros) e realiza medições precisas (biometria) para monitorar o crescimento. Analisa também a placenta, líquido amniótico, cordão umbilical e, com o Doppler colorido, avalia o fluxo sanguíneo para rastrear riscos de pré-eclâmpsia e restrição de crescimento. Não exige preparo prévio."
         }
       ]
     },
@@ -587,11 +587,16 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
               <li><a href="/exame/obstetrico_doppler" onClick={(e) => navigateTo('/exame/obstetrico_doppler', e)} className="hover:text-[#14b8a6] transition-colors">Obstétrico com Doppler</a></li>
               <li><a href="/exame/ecofetal" onClick={(e) => navigateTo('/exame/ecofetal', e)} className="hover:text-[#14b8a6] transition-colors">Ecocardiograma Fetal</a></li>
               <li><a href="/exame/morfologico1" onClick={(e) => navigateTo('/exame/morfologico1', e)} className="hover:text-[#14b8a6] transition-colors">Morfológico de 1º Trimestre</a></li>
+              <li><a href="/exame/morfologico2" onClick={(e) => navigateTo('/exame/morfologico2', e)} className="hover:text-[#14b8a6] transition-colors">Morfológico de 2º Trimestre</a></li>
             </ul>
           </div>
           <div>
             <h3 className="font-bold text-sm tracking-widest uppercase mb-6">Canais de Contato</h3>
-            <p className="text-[#14b8a6] font-extrabold text-lg mb-2">+55 67 99844-6674</p>
+            <p className="text-[#14b8a6] font-extrabold text-lg mb-2">
+              <a href="https://wa.me/5567998446674" target="_blank" rel="noopener noreferrer" className="hover:text-teal-300 transition-colors">
+                +55 67 99844-6674
+              </a>
+            </p>
             <p className="text-teal-50/50 text-[10px] leading-relaxed">
               Atendimento de Segunda a sexta, 07:00 às 18:00
             </p>

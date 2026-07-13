@@ -57,7 +57,12 @@ const Contact: React.FC<ContactProps> = ({
               <div className="bg-[#1c5d57] p-3.5 rounded-2xl"><Phone className="text-[#14b8a6]" /></div>
               <div>
                 <h4 className="font-bold mb-1 text-base">Contato</h4>
-                <p className="text-[11px] text-teal-100/70">(67) 99844-6674<br/>Atendimento somente com agendamento após as 17h</p>
+                <p className="text-[11px] text-teal-100/70">
+                  <a href="https://wa.me/5567998446674" target="_blank" rel="noopener noreferrer" className="hover:text-teal-300 underline transition-colors">
+                    (67) 99844-6674
+                  </a>
+                  <br/>Atendimento somente com agendamento após as 17h
+                </p>
               </div>
             </div>
             <div className="flex gap-5">
