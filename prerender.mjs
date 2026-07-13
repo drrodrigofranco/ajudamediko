@@ -95,6 +95,7 @@ async function main() {
     { url: '/', file: 'index.html' },
     { url: '/entenda-exames', file: 'entenda-exames/index.html' },
     { url: '/diretriz-primeiro-trimestre', file: 'diretriz-primeiro-trimestre/index.html' },
+    { url: '/exames-cardiorespiratorios', file: 'exames-cardiorespiratorios/index.html' },
     ...EXAM_IDS.map(id => ({ url: `/exame/${id}`, file: `exame/${id}/index.html` }))
   ];
 

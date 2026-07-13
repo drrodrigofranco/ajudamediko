@@ -78,6 +78,20 @@ const Footer: React.FC = () => {
                         Diretriz AMB: 1º Trimestre
                       </a>
                     </li>
+                    <li>
+                      <a 
+                        href="/exames-cardiorespiratorios" 
+                        onClick={(e) => {
+                          e.preventDefault();
+                          window.history.pushState({}, '', '/exames-cardiorespiratorios');
+                          window.dispatchEvent(new PopStateEvent('popstate'));
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
+                        className="hover:text-teal-400 transition-colors"
+                      >
+                        Exames Cardiorrespiratórios
+                      </a>
+                    </li>
                     <li className="pt-2 border-t border-gray-800 mt-2">
                         <a href="/politica-de-privacidade.html" className="text-xs hover:text-teal-400 transition-colors block py-1">Política de Privacidade</a>
                     </li>
