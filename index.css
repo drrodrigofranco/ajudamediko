@@ -23,3 +23,29 @@ html, body, #root {
 .animate-shake {
   animation: shake 0.3s ease-in-out;
 }
+
+/* Seta apontando para o Instagram (movimento horizontal) */
+@keyframes nudge-right {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(6px); }
+}
+
+.animate-nudge-right {
+  animation: nudge-right 1s ease-in-out infinite;
+}
+
+/* Brilho pulsante ao redor do botão do Instagram */
+@keyframes insta-glow {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(225, 48, 108, 0.55);
+  }
+  50% {
+    transform: scale(1.06);
+    box-shadow: 0 0 0 8px rgba(225, 48, 108, 0);
+  }
+}
+
+.animate-insta-glow {
+  animation: insta-glow 1.8s ease-in-out infinite;
+}

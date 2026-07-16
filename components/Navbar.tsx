@@ -1,12 +1,13 @@
 
 import React from 'react';
 import { 
-  Instagram, 
-  Facebook, 
-  Youtube, 
-  HeartPulse, 
-  Menu, 
-  X 
+  Instagram,
+  Facebook,
+  Youtube,
+  HeartPulse,
+  Menu,
+  X,
+  ArrowRight
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -29,10 +30,23 @@ const Navbar: React.FC<NavbarProps> = ({
       {/* Top Bar com Redes Sociais */}
       <div className="bg-[#0e4843] text-white py-3 border-b border-teal-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-end items-center gap-8">
-          <a href="https://www.instagram.com/clinicafrancoo/" target="_blank" rel="noopener noreferrer" className="hover:text-[#14b8a6] transition-colors flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase">
-            <Instagram size={20} />
-            <span className="hidden sm:inline">Instagram</span>
-          </a>
+          {/* Instagram — CTA em destaque para ganhar seguidores */}
+          <div className="flex items-center gap-2">
+            <span className="hidden md:inline text-[11px] font-bold tracking-widest uppercase text-[#14b8a6]">
+              Siga-nos!
+            </span>
+            <ArrowRight className="hidden md:block h-5 w-5 text-[#14b8a6] animate-nudge-right" />
+            <a
+              href="https://www.instagram.com/clinicafrancoo/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Siga a Clínica Franco no Instagram"
+              className="animate-insta-glow flex items-center gap-2 rounded-full bg-gradient-to-tr from-[#feda75] via-[#d62976] to-[#4f5bd5] px-3 py-1.5 text-[11px] font-bold uppercase tracking-widest text-white shadow-md transition-transform hover:brightness-110"
+            >
+              <Instagram size={26} />
+              <span className="hidden sm:inline">Instagram</span>
+            </a>
+          </div>
           <a href="https://www.facebook.com/profile.php?id=61584404454201" target="_blank" rel="noopener noreferrer" className="hover:text-[#14b8a6] transition-colors flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase">
             <Facebook size={20} />
             <span className="hidden sm:inline">Facebook</span>
