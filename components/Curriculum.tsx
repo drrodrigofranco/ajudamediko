@@ -1,11 +1,13 @@
 
 import React from 'react';
-import { 
-  GraduationCap, 
-  HeartPulse, 
-  Stethoscope, 
-  Activity, 
-  CheckCircle 
+import {
+  GraduationCap,
+  HeartPulse,
+  Stethoscope,
+  Activity,
+  CheckCircle,
+  Brain,
+  User
 } from 'lucide-react';
 
 const Curriculum: React.FC = () => {
@@ -228,6 +230,100 @@ const Curriculum: React.FC = () => {
                   <div className="flex items-center gap-3 text-gray-700">
                     <CheckCircle size={18} className="text-[#14b8a6]" />
                     <span>Pequenos Procedimentos Cirúrgicos</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Dr. Guilherme */}
+        <div className="bg-white rounded-[40px] p-6 md:p-12 shadow-sm border border-gray-100 mb-12 mt-24 pt-16 border-t border-gray-100 hover:shadow-md transition-shadow">
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="relative">
+              <div className="w-40 h-40 md:w-48 md:h-48 rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform hover:rotate-3 transition-transform bg-teal-50 flex items-center justify-center">
+                <User size={80} className="text-[#14b8a6]" />
+              </div>
+              <div className="absolute -bottom-4 -right-4 bg-[#14b8a6] text-white p-3 rounded-xl shadow-lg">
+                <Brain size={24} />
+              </div>
+            </div>
+            <div className="text-center md:text-left">
+              <h3 className="text-3xl md:text-4xl font-serif font-bold text-[#0e4843] mb-2">Dr. Guilherme Henrique Zandoná</h3>
+              <p className="text-[#14b8a6] font-bold uppercase tracking-widest text-sm mb-4">CRM-MS 6347</p>
+              <p className="text-gray-500 max-w-xl leading-relaxed">
+                Médico com especialização em Neurologia, atuação consolidada em clínica médica, urgência e avaliação neurológica em Nova Andradina e região.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-20">
+          <div className="text-left">
+            <div className="flex items-center gap-4 mb-12">
+              <div className="text-[#0e4843] flex items-center">
+                <GraduationCap className="w-10 h-10 mr-4" />
+                <h2 className="text-3xl font-serif font-bold">Formação Acadêmica</h2>
+              </div>
+            </div>
+            <div className="border-l-2 border-[#ccfbf1] ml-5 pl-12 space-y-12">
+              <div className="relative">
+                <div className="absolute -left-[57px] top-1.5 w-6 h-6 bg-[#14b8a6] rounded-full border-4 border-white shadow-sm"></div>
+                <h4 className="font-bold text-gray-900 text-xl">Graduação em Medicina</h4>
+                <p className="text-gray-500 text-sm mt-1">Universidade do Oeste Paulista (UNOESTE) - Presidente Prudente - SP</p>
+              </div>
+              <div className="relative">
+                <div className="absolute -left-[57px] top-1.5 w-6 h-6 bg-gray-200 rounded-full border-4 border-white"></div>
+                <h4 className="font-bold text-gray-900 text-xl">Pós-graduação em Neurologia</h4>
+                <p className="text-gray-500 text-sm mt-1">Especialização em Neurologia</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-left">
+            <div className="flex items-center gap-4 mb-12">
+              <div className="text-[#0e4843] flex items-center">
+                <Activity className="w-10 h-10 mr-4" />
+                <h2 className="text-3xl font-serif font-bold">Trajetória e Atuação</h2>
+              </div>
+            </div>
+            <div className="bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-gray-100">
+              <div className="mb-10">
+                <h4 className="font-bold text-gray-900 mb-6">Experiência Profissional:</h4>
+                <ul className="space-y-4 text-sm text-gray-600">
+                  <li className="flex items-start gap-4">
+                    <div className="w-2 h-2 bg-[#14b8a6] rounded-full mt-2 flex-shrink-0"></div>
+                    <span>Departamento de Clínica Médica - Hospital Regional de Nova Andradina (2018 - 2024);</span>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <div className="w-2 h-2 bg-[#14b8a6] rounded-full mt-2 flex-shrink-0"></div>
+                    <span>Médico de Pronto Socorro (Urgência) - Hospital Cassems de Nova Andradina;</span>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <div className="w-2 h-2 bg-[#14b8a6] rounded-full mt-2 flex-shrink-0"></div>
+                    <span>Médico de Clínica Médica e Avaliação Neurológica - Hospital Cassems de Nova Andradina;</span>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <div className="w-2 h-2 bg-[#14b8a6] rounded-full mt-2 flex-shrink-0"></div>
+                    <span>Policlínica Amena.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-teal-50 p-6 rounded-2xl border border-teal-100">
+                <h4 className="text-[#0e4843] font-bold text-lg mb-4">Foco de Atendimento:</h4>
+                <div className="grid grid-cols-1 gap-3">
+                  <div className="flex items-center gap-3 text-gray-700">
+                    <CheckCircle size={18} className="text-[#14b8a6]" />
+                    <span>Avaliação Neurológica</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-gray-700">
+                    <CheckCircle size={18} className="text-[#14b8a6]" />
+                    <span>Clínica Médica</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-gray-700">
+                    <CheckCircle size={18} className="text-[#14b8a6]" />
+                    <span>Urgência e Emergência</span>
                   </div>
                 </div>
               </div>
