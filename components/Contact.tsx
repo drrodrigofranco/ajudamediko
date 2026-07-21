@@ -61,7 +61,7 @@ const Contact: React.FC<ContactProps> = ({
                   <a href="https://wa.me/5567998446674" target="_blank" rel="noopener noreferrer" className="hover:text-teal-300 underline transition-colors">
                     (67) 99844-6674
                   </a>
-                  <br/>Atendimento somente com agendamento após as 17h
+                  <br/>Atendimento com agendamento, Segunda a Sábado, das 6h às 22h
                 </p>
               </div>
             </div>

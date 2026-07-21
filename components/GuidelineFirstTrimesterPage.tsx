@@ -1,11 +1,17 @@
 import React from 'react';
 import * as Icons from 'lucide-react';
+import { useSEO } from '../hooks/useSEO';
 
 interface GuidelineFirstTrimesterPageProps {
   navigateTo: (path: string, e: React.MouseEvent) => void;
 }
 
 const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = ({ navigateTo }) => {
+  useSEO({
+    title: 'Diretriz AMB: Ultrassom no 1º Trimestre | Clínica Franco + Associados - Nova Andradina - MS',
+    description: 'Recomendações oficiais da AMB para exames de ultrassonografia até a 13ª semana de gestação. Clínica Franco + Associados, Nova Andradina - MS.',
+    path: '/diretriz-primeiro-trimestre',
+  });
   const whatsappUrl = "https://wa.me/5567998446674?text=Ol%C3%A1%21+Gostaria+de+agendar+um+ultrassom+obst%C3%A9trico+de+primeiro+trimestre.";
   const pdfUrl = "https://amb.org.br/wp-content/uploads/2021/04/ULTRASSONOGRAFIA-NO-PRIMEIRO-TRIMESTRE-DA-GRAVIDEZ-FINAL-12.09.2020.pdf";
 

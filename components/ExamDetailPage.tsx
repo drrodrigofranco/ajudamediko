@@ -1,6 +1,7 @@
 import React from 'react';
 import * as Icons from 'lucide-react';
 import { examsData, ExamData } from '../examsData';
+import { useSEO } from '../hooks/useSEO';
 
 interface ExamDetailPageProps {
   examId: string;
@@ -9,6 +10,16 @@ interface ExamDetailPageProps {
 
 const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) => {
   const exam = examsData.find(e => e.id === examId);
+
+  useSEO({
+    title: exam
+      ? `${exam.name} em Nova Andradina - MS | Clínica Franco + Associados`
+      : 'Exame não encontrado | Clínica Franco + Associados',
+    description: exam
+      ? `${exam.shortDesc} Agende seu ${exam.name} em Nova Andradina - MS com a Clínica Franco + Associados.`.slice(0, 160)
+      : 'Exame não encontrado. Veja todos os exames disponíveis na Clínica Franco + Associados em Nova Andradina - MS.',
+    path: `/exame/${examId}`,
+  });
 
   if (!exam) {
     return (

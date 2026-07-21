@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import * as Icons from 'lucide-react';
+import { useSEO } from '../hooks/useSEO';
 
 interface PregnancyGuidePageProps {
   navigateTo: (path: string, e: React.MouseEvent) => void;
 }
 
 const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) => {
+  useSEO({
+    title: 'Guia Completo da Gestante | Clínica Franco + Associados - Nova Andradina - MS',
+    description: 'Cuidados por trimestre e cronograma ideal de exames obstétricos para uma gestação tranquila. Clínica Franco + Associados, Nova Andradina - MS.',
+    path: '/dicas-gestantes',
+  });
   const [activeTrim, setActiveTrim] = useState<1 | 2 | 3>(1);
   const [dum, setDum] = useState<string>('');
   const [weeksInput, setWeeksInput] = useState<string>('');

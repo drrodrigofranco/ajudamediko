@@ -1,11 +1,17 @@
 import React from 'react';
 import * as Icons from 'lucide-react';
+import { useSEO } from '../hooks/useSEO';
 
 interface ExamsComparisonPageProps {
   navigateTo: (path: string, e: React.MouseEvent) => void;
 }
 
 const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo }) => {
+  useSEO({
+    title: 'Entenda a Diferença entre Exames de Imagem | Clínica Franco + Associados - Nova Andradina - MS',
+    description: 'Ultrassom, Raio-X, Tomografia e Ressonância: descubra como cada exame funciona e quando é indicado. Clínica Franco + Associados, Nova Andradina - MS.',
+    path: '/entenda-exames',
+  });
   const whatsappUrl = "https://wa.me/5567998446674?text=Ol%C3%A1%21+Gostaria+de+tirar+d%C3%BAvidas+sobre+exames+de+ultrassom+pelo+site.";
 
   return (

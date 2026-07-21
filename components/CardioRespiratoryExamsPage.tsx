@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import * as Icons from 'lucide-react';
+import { useSEO } from '../hooks/useSEO';
 
 interface CardioRespiratoryExamsPageProps {
   navigateTo: (path: string, e: React.MouseEvent) => void;
 }
 
 const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({ navigateTo }) => {
+  useSEO({
+    title: 'Exames Cardiorrespiratórios: Holter, MAPA e Espirometria | Clínica Franco + Associados - Nova Andradina - MS',
+    description: 'Avaliação da função pulmonar, pressão arterial de 24h e ritmo cardíaco. Holter, MAPA e Espirometria na Clínica Franco + Associados, Nova Andradina - MS.',
+    path: '/exames-cardiorespiratorios',
+  });
   const [activeTab, setActiveTab] = useState<'holter' | 'mapa' | 'espirometria'>('holter');
   const whatsappUrl = "https://wa.me/5567998446674?text=Ol%C3%A1%21+Gostaria+de+agendar+um+exame+cardiorrespirat%C3%B3rio+pelo+site.";
 

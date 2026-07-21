@@ -17,7 +17,8 @@ import ExamsComparisonPage from './components/ExamsComparisonPage';
 import GuidelineFirstTrimesterPage from './components/GuidelineFirstTrimesterPage';
 import CardioRespiratoryExamsPage from './components/CardioRespiratoryExamsPage';
 import PregnancyGuidePage from './components/PregnancyGuidePage';
-import { 
+import { useSEO } from './hooks/useSEO';
+import {
     Baby, 
     ScanLine, 
     User, 
@@ -38,6 +39,13 @@ const App: React.FC = () => {
     const [formPhone, setFormPhone] = useState('');
     const [formExam, setFormExam] = useState('');
     const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
+    useSEO({
+        title: 'Ultrassom - Clínica Franco + Associados - Nova Andradina - MS',
+        description: 'Clínica Franco + Associados: Ultrassom Morfológico, Doppler e 3D, Saúde do Idoso, Saúde Mental e Saúde Neurológica em Nova Andradina - MS. Especialistas em Ultrassom Obstétrico e Exames Ultrassom em Nova Andradina.',
+        path: '/',
+        enabled: currentPath === '/' || currentPath === '',
+    });
 
     useEffect(() => {
         const handleLocationChange = () => {
