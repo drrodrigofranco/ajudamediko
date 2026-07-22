@@ -6,8 +6,7 @@ import {
   Stethoscope,
   Activity,
   CheckCircle,
-  Brain,
-  User
+  Brain
 } from 'lucide-react';
 
 const Curriculum: React.FC = () => {
@@ -241,8 +240,12 @@ const Curriculum: React.FC = () => {
         <div className="bg-white rounded-[40px] p-6 md:p-12 shadow-sm border border-gray-100 mb-12 mt-24 pt-16 border-t border-gray-100 hover:shadow-md transition-shadow">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="relative">
-              <div className="w-40 h-40 md:w-48 md:h-48 rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform hover:rotate-3 transition-transform bg-teal-50 flex items-center justify-center">
-                <User size={80} className="text-[#14b8a6]" />
+              <div className="w-40 h-40 md:w-48 md:h-48 rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform hover:rotate-3 transition-transform">
+                <img
+                  src="/images/dr-guilherme-zandona.jpg"
+                  alt="Dr. Guilherme Henrique Zandoná"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="absolute -bottom-4 -right-4 bg-[#14b8a6] text-white p-3 rounded-xl shadow-lg">
                 <Brain size={24} />
