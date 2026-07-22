@@ -9,7 +9,7 @@ interface GuidelineFirstTrimesterPageProps {
 const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = ({ navigateTo }) => {
   useSEO({
     title: 'Diretriz AMB: Ultrassom no 1º Trimestre | Clínica Franco + Associados - Nova Andradina - MS',
-    description: 'Recomendações oficiais da AMB para exames de ultrassonografia até a 13ª semana de gestação. Clínica Franco + Associados, Nova Andradina - MS.',
+    description: 'Recomendações oficiais da AMB para exames de ultrassonografia até a 13ª semana de gestação. Clínica Franco + Associados atende Nova Andradina e região: Batayporã, Ivinhema, Anaurilândia, Deodápolis, Angélica e Rosana (SP).',
     path: '/diretriz-primeiro-trimestre',
   });
   const whatsappUrl = "https://wa.me/5567998446674?text=Ol%C3%A1%21+Gostaria+de+agendar+um+ultrassom+obst%C3%A9trico+de+primeiro+trimestre.";
@@ -58,8 +58,11 @@ const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold leading-tight mb-8">
             Diretriz AMB: Ultrassom no 1º Trimestre
           </h1>
-          <p className="text-lg text-teal-50/80 mb-10 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-lg text-teal-50/80 mb-4 leading-relaxed max-w-2xl mx-auto">
             Entenda as recomendações oficiais da Associação Médica Brasileira (AMB) para exames de ultrassonografia realizados até a 13ª semana de gestação.
+          </p>
+          <p className="text-xs text-teal-200/50 mb-8 max-w-xl mx-auto">
+            Atendimento em Nova Andradina - MS, recebendo também pacientes de Batayporã, Ivinhema, Anaurilândia, Deodápolis, Angélica e Rosana (SP).
           </p>
           <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#1c5d57] text-[#5eead4] text-xs font-bold uppercase tracking-wider">
             <Icons.BookOpen className="w-4 h-4 text-teal-300" />
@@ -197,6 +200,7 @@ const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = 
             <h3 className="font-serif font-bold text-xl mb-6">Clínica Franco <span className="text-[#14b8a6]">+</span> Associados</h3>
             <p className="text-teal-50/70 text-xs leading-relaxed max-w-xs mb-4">
               Rua Melvin Jones, 1243 (Antigo Hospital Santa Helena, Sala 3)<br />Nova Andradina - MS
+              <br /><br />Atendemos também pacientes de Batayporã, Ivinhema, Anaurilândia, Angélica, Deodápolis e Rosana (SP).
             </p>
             <a href="https://maps.app.goo.gl/aMkRNzPYtTe6jwQJ8" target="_blank" rel="noopener noreferrer" className="text-teal-300 hover:text-teal-400 font-semibold text-xs inline-flex items-center gap-1.5 transition-colors">
               Ver no Google Maps

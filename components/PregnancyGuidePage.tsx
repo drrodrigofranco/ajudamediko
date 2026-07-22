@@ -9,7 +9,7 @@ interface PregnancyGuidePageProps {
 const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) => {
   useSEO({
     title: 'Guia Completo da Gestante | Clínica Franco + Associados - Nova Andradina - MS',
-    description: 'Cuidados por trimestre e cronograma ideal de exames obstétricos para uma gestação tranquila. Clínica Franco + Associados, Nova Andradina - MS.',
+    description: 'Cuidados por trimestre e cronograma ideal de exames obstétricos para uma gestação tranquila. Clínica Franco + Associados atende Nova Andradina e região: Batayporã, Ivinhema, Anaurilândia, Deodápolis, Angélica e Rosana (SP).',
     path: '/dicas-gestantes',
   });
   const [activeTrim, setActiveTrim] = useState<1 | 2 | 3>(1);
@@ -227,10 +227,13 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
           <h1 className="text-4xl sm:text-5xl font-serif font-bold leading-tight mb-6">
             Guia Completo da Gestante
           </h1>
-          <p className="text-base text-teal-50/80 mb-8 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base text-teal-50/80 mb-4 leading-relaxed max-w-2xl mx-auto">
             Dicas essenciais, cuidados recomendados a cada trimestre e o cronograma ideal de exames para uma gestação tranquila e saudável.
           </p>
-          
+          <p className="text-xs text-teal-200/50 mb-8 max-w-xl mx-auto">
+            Atendimento em Nova Andradina - MS, recebendo também gestantes de Batayporã, Ivinhema, Anaurilândia, Deodápolis, Angélica e Rosana (SP).
+          </p>
+
           {/* Trimester selection buttons */}
           <div className="flex flex-wrap justify-center gap-3 mt-4">
             <button 
@@ -581,6 +584,7 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
             <h3 className="font-serif font-bold text-xl mb-6">Clínica Franco <span className="text-[#14b8a6]">+</span> Associados</h3>
             <p className="text-teal-50/70 text-xs leading-relaxed max-w-xs mb-4">
               Rua Melvin Jones, 1243 (Antigo Hospital Santa Helena, Sala 3)<br />Nova Andradina - MS
+              <br /><br />Atendemos também pacientes de Batayporã, Ivinhema, Anaurilândia, Angélica, Deodápolis e Rosana (SP).
             </p>
             <a href="https://maps.app.goo.gl/aMkRNzPYtTe6jwQJ8" target="_blank" rel="noopener noreferrer" className="text-teal-300 hover:text-teal-400 font-semibold text-xs inline-flex items-center gap-1.5 transition-colors">
               Ver no Google Maps
