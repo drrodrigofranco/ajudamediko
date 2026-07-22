@@ -42,7 +42,7 @@ const App: React.FC = () => {
 
     useSEO({
         title: 'Ultrassom - Clínica Franco + Associados - Nova Andradina - MS',
-        description: 'Clínica Franco + Associados: Ultrassom Morfológico, Doppler e 3D, Saúde do Idoso, Saúde Mental e Saúde Neurológica em Nova Andradina - MS. Especialistas em Ultrassom Obstétrico e Exames Ultrassom em Nova Andradina.',
+        description: 'Clínica Franco + Associados: Ultrassom Morfológico, Doppler e 3D, Saúde do Idoso, Saúde Mental e Saúde Neurológica em Nova Andradina - MS. Atendimento em Ultrassom Obstétrico e Exames de Ultrassonografia em Nova Andradina.',
         path: '/',
         enabled: currentPath === '/' || currentPath === '',
     });
@@ -62,8 +62,8 @@ const App: React.FC = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    const doctorImgSrc = "https://i.ibb.co/2YsJv4SD/Four-people-doctor-clothes-posing-202607101541.jpg";
-    const mapImgSrc = "https://i.postimg.cc/28hbWxS9/Captura-de-tela-2025-12-26-144512.jpg";
+    const doctorImgSrc = "/images/equipe-clinica-franco.jpg";
+    const mapImgSrc = "/images/mapa-localizacao.jpg";
     const googleMapsLink = "https://maps.app.goo.gl/aMkRNzPYtTe6jwQJ8";
 
     const navItems = ['SERVIÇOS', 'ENTENDA OS EXAMES', 'ATENDIMENTOS', 'CALCULADORAS', 'CURRÍCULO', 'LOCALIZAÇÃO', 'DÚVIDAS', 'NOTÍCIAS', 'CONTATO'];

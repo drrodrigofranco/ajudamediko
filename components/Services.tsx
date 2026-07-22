@@ -54,7 +54,7 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
           </div>
           <h3 className="text-xl font-bold text-[#0e4843] mb-4">Saúde do Idoso</h3>
           <p className="text-gray-500 text-sm mb-8 leading-relaxed">
-            Foco na saúde e bem-estar da terceira idade. Nosso atendimento em saúde do idoso visa a manutenção da autonomia, prevenção de quedas, manejo de polifarmácia e o tratamento especializado de condições típicas do envelhecimento, sempre com foco na qualidade de vida.
+            Foco na saúde e bem-estar da terceira idade. Nosso atendimento em saúde do idoso visa a manutenção da autonomia, prevenção de quedas, manejo de polifarmácia e o cuidado dedicado a condições típicas do envelhecimento, sempre com foco na qualidade de vida.
           </p>
         </div>
 
