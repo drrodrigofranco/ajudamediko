@@ -66,7 +66,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20 md:h-28">
-          <div className="flex items-center cursor-pointer flex-shrink-0 mr-4" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
+          <div className="flex items-center cursor-pointer min-w-0 md:flex-shrink-0 mr-4" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
             <div className="hidden sm:block bg-[#14b8a6] p-2 rounded-lg mr-3 md:mr-4 shadow-sm flex-shrink-0">
               <HeartPulse className="text-white h-5 w-5 md:h-7 md:w-7" />
             </div>
@@ -75,8 +75,8 @@ const Navbar: React.FC<NavbarProps> = ({
                 Clínica Franco + Associados
               </p>
               <div className="mt-0.5 flex flex-col">
-                <span className="text-[8px] md:text-[10px] font-bold text-[#14b8a6] uppercase tracking-wider whitespace-nowrap">
-                  Dr. Rodrigo (CRM 10087) | Dr. Lucas (CRM 7462)
+                <span className="text-[8px] md:text-[10px] font-bold text-[#14b8a6] uppercase tracking-wider md:whitespace-nowrap">
+                  Dr. Rodrigo (CRM 10087) | Dr. Lucas (CRM 7462) | Dr. Guilherme (CRM 6347)
                 </span>
                 <span className="text-[7px] md:text-[8px] lg:text-[9px] text-[#14b8a6] font-bold uppercase tracking-widest mt-0.5 opacity-80 leading-tight md:max-w-none max-w-[180px]">
                   ULTRASSOM MORFOLÓGICO, DOPPLER E 3D, SAÚDE DO IDOSO, SAÚDE MENTAL, SAÚDE NEUROLÓGICA
