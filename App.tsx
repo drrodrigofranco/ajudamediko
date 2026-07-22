@@ -41,7 +41,7 @@ const App: React.FC = () => {
     const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
     useSEO({
-        title: 'Ultrassom - Clínica Franco + Associados - Nova Andradina - MS',
+        title: 'Ultrassom - Clínica Franco - Nova Andradina - MS',
         description: 'Clínica Franco + Associados: Ultrassom Morfológico, Doppler e 3D, Saúde do Idoso, Saúde Mental e Saúde Neurológica em Nova Andradina - MS. Atendimento em Ultrassom Obstétrico e Exames de Ultrassonografia em Nova Andradina.',
         path: '/',
         enabled: currentPath === '/' || currentPath === '',
