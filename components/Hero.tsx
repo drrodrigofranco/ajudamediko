@@ -32,9 +32,9 @@ const Hero: React.FC<HeroProps> = ({
               <span className="w-2 h-2 bg-[#4ade80] rounded-full inline-block mr-2"></span>
               Diagnóstico e Atendimentos
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-bold leading-tight mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-bold leading-tight mb-8">
               Ultrassom Morfológico, Doppler e 3D, Saúde do Idoso, Saúde Mental e Saúde Neurológica
-            </h2>
+            </h1>
             <p className="text-lg text-teal-50/70 mb-10 leading-relaxed max-w-xl">
               Cuidado multigeracional com tecnologia de ponta. Dr. Rodrigo Franco e Dr. Lucas Franco unindo experiência e dedicação para a saúde da sua família em Nova Andradina-MS.
             </p>

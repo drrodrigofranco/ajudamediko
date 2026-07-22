@@ -10,11 +10,11 @@ const Partners: React.FC = () => {
     },
     {
       name: 'Prover Saúde',
-      logo: 'http://proversaude.com.br/wp-content/uploads/2018/02/logo_prover.png',
+      logo: '/images/logo-prover-saude.png',
     },
     {
       name: 'Oeste Saúde',
-      logo: 'https://cdn.afpesp.org.br/images/paginas/beneficios/saude/logo-corp-e-oeste.png',
+      logo: '/images/logo-oeste-saude.png',
     },
     {
       name: 'MaterDei',

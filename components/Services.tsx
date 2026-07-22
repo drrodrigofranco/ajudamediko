@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Baby, FileText, Scale, Search, LucideIcon, Stethoscope, HeartPulse } from 'lucide-react';
+import { Baby, FileText, Scale, Search, LucideIcon, Stethoscope, HeartPulse, Brain } from 'lucide-react';
 
 interface Exam {
   id?: string;
@@ -54,7 +54,17 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
           </div>
           <h3 className="text-xl font-bold text-[#0e4843] mb-4">Saúde do Idoso</h3>
           <p className="text-gray-500 text-sm mb-8 leading-relaxed">
-            Foco na saúde e bem-estar da terceira idade. Nosso atendimento em saúde do idoso visa a manutenção da autonomia, prevenção de quedas, manejo de polifarmácia e o tratamento especializado de condições típicas do envelhecimento, sempre com foco na qualidade de vida.
+            Foco na saúde e bem-estar da terceira idade. Nosso atendimento em saúde do idoso visa a manutenção da autonomia, prevenção de quedas, manejo de polifarmácia e o cuidado dedicado a condições típicas do envelhecimento, sempre com foco na qualidade de vida.
+          </p>
+        </div>
+
+        <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group relative overflow-hidden">
+          <div className="bg-[#f0fdfa] p-5 rounded-2xl mb-8 group-hover:bg-[#14b8a6] group-hover:text-white transition-all duration-300">
+            <Brain className="w-8 h-8" />
+          </div>
+          <h3 className="text-xl font-bold text-[#0e4843] mb-4">Saúde Neurológica</h3>
+          <p className="text-gray-500 text-sm mb-8 leading-relaxed">
+            Atendimento em clínica geral e avaliação neurológica para queixas como cefaleia, tontura, alterações de memória e distúrbios do sono. Condução cuidadosa da história clínica, com acompanhamento contínuo em Nova Andradina e região.
           </p>
         </div>
 

@@ -24,8 +24,8 @@ const Curriculum: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="relative">
               <div className="w-40 h-40 md:w-48 md:h-48 rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform hover:rotate-3 transition-transform">
-                <img 
-                  src="https://i.postimg.cc/3R41Y9xs/Chat-GPT-Image-18-de-fev-de-2026-09-48-23.png" 
+                <img
+                  src="/images/dr-rodrigo-franco.jpg"
                   alt="Dr. Rodrigo Franco"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
@@ -39,7 +39,7 @@ const Curriculum: React.FC = () => {
               <h3 className="text-3xl md:text-4xl font-serif font-bold text-[#0e4843] mb-2">Dr. Rodrigo Franco</h3>
               <p className="text-[#14b8a6] font-bold uppercase tracking-widest text-sm mb-4">CRM-MS 10087</p>
               <p className="text-gray-500 max-w-xl leading-relaxed">
-                Atendimento com ampla experiência em diagnóstico por imagem e perícia médica. Dedicado a oferecer um atendimento humanizado e preciso para toda a família.
+                Atendimento em ultrassonografia diagnóstica, consultas de clínica geral e perícias médicas judiciais, com dedicação a um cuidado humanizado e preciso para toda a família.
               </p>
             </div>
           </div>
@@ -146,8 +146,8 @@ const Curriculum: React.FC = () => {
           <div className="flex flex-col md:flex-row-reverse items-center gap-8">
             <div className="relative">
               <div className="w-40 h-40 md:w-48 md:h-48 rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform hover:-rotate-3 transition-transform">
-                <img 
-                  src="https://i.postimg.cc/tTYS7p2c/Whats-App-Image-2026-02-21-at-10-33-13.jpg" 
+                <img
+                  src="/images/dr-lucas-franco.jpg"
                   alt="Dr. Lucas Franco"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
@@ -252,7 +252,7 @@ const Curriculum: React.FC = () => {
               <h3 className="text-3xl md:text-4xl font-serif font-bold text-[#0e4843] mb-2">Dr. Guilherme Henrique Zandoná</h3>
               <p className="text-[#14b8a6] font-bold uppercase tracking-widest text-sm mb-4">CRM-MS 6347</p>
               <p className="text-gray-500 max-w-xl leading-relaxed">
-                Médico com especialização em Neurologia, atuação consolidada em clínica médica, urgência e avaliação neurológica em Nova Andradina e região.
+                Médico com atuação em clínica geral e avaliação neurológica, experiência consolidada em urgência e emergência em Nova Andradina e região.
               </p>
             </div>
           </div>
@@ -275,7 +275,7 @@ const Curriculum: React.FC = () => {
               <div className="relative">
                 <div className="absolute -left-[57px] top-1.5 w-6 h-6 bg-gray-200 rounded-full border-4 border-white"></div>
                 <h4 className="font-bold text-gray-900 text-xl">Pós-graduação em Neurologia</h4>
-                <p className="text-gray-500 text-sm mt-1">Especialização em Neurologia</p>
+                <p className="text-gray-500 text-sm mt-1">Curso de pós-graduação com ênfase em Neurologia</p>
               </div>
             </div>
           </div>
