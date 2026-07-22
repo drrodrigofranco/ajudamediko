@@ -9,7 +9,7 @@ interface CardioRespiratoryExamsPageProps {
 const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({ navigateTo }) => {
   useSEO({
     title: 'Exames Cardiorrespiratórios: Holter, MAPA e Espirometria | Clínica Franco + Associados - Nova Andradina - MS',
-    description: 'Avaliação da função pulmonar, pressão arterial de 24h e ritmo cardíaco. Holter, MAPA e Espirometria na Clínica Franco + Associados, Nova Andradina - MS.',
+    description: 'Avaliação da função pulmonar, pressão arterial de 24h e ritmo cardíaco. Holter, MAPA e Espirometria na Clínica Franco + Associados, atendendo Nova Andradina e região: Batayporã, Ivinhema, Anaurilândia, Deodápolis, Angélica e Rosana (SP).',
     path: '/exames-cardiorespiratorios',
   });
   const [activeTab, setActiveTab] = useState<'holter' | 'mapa' | 'espirometria'>('holter');
@@ -145,10 +145,13 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
           <h1 className="text-4xl sm:text-5xl font-serif font-bold leading-tight mb-6">
             Exames Cardiorrespiratórios
           </h1>
-          <p className="text-base text-teal-50/80 mb-8 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base text-teal-50/80 mb-4 leading-relaxed max-w-2xl mx-auto">
             Além do ultrassom, oferecemos tecnologia de ponta para avaliar a função pulmonar, pressão arterial de 24h e ritmos elétricos do coração.
           </p>
-          
+          <p className="text-xs text-teal-200/50 mb-8 max-w-xl mx-auto">
+            Atendimento em Nova Andradina - MS, recebendo também pacientes de Batayporã, Ivinhema, Anaurilândia, Deodápolis, Angélica e Rosana (SP).
+          </p>
+
           {/* Tab buttons */}
           <div className="flex flex-wrap justify-center gap-3 mt-4">
             <button 
@@ -282,6 +285,7 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
             <h3 className="font-serif font-bold text-xl mb-6">Clínica Franco <span className="text-[#14b8a6]">+</span> Associados</h3>
             <p className="text-teal-50/70 text-xs leading-relaxed max-w-xs mb-4">
               Rua Melvin Jones, 1243 (Antigo Hospital Santa Helena, Sala 3)<br />Nova Andradina - MS
+              <br /><br />Atendemos também pacientes de Batayporã, Ivinhema, Anaurilândia, Angélica, Deodápolis e Rosana (SP).
             </p>
             <a href="https://maps.app.goo.gl/aMkRNzPYtTe6jwQJ8" target="_blank" rel="noopener noreferrer" className="text-teal-300 hover:text-teal-400 font-semibold text-xs inline-flex items-center gap-1.5 transition-colors">
               Ver no Google Maps
