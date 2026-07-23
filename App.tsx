@@ -41,8 +41,8 @@ const App: React.FC = () => {
     const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
     useSEO({
-        title: 'Ultrassom - Clínica Franco - Nova Andradina - MS',
-        description: 'Clínica Franco + Associados: Ultrassom Morfológico, Doppler e 3D, Saúde do Idoso, Saúde Mental e Saúde Neurológica em Nova Andradina - MS. Atendimento em Ultrassom Obstétrico e Exames de Ultrassonografia em Nova Andradina.',
+        title: 'Ultrassom em Nova Andradina - MS | Clínica Franco',
+        description: 'Ultrassom em Nova Andradina - MS: Morfológico, Doppler e 3D, Ecocardiograma Fetal, Saúde do Idoso, Saúde Mental e Saúde Neurológica. Clínica Franco + Associados. Agende pelo WhatsApp: (67) 99844-6674.',
         path: '/',
         enabled: currentPath === '/' || currentPath === '',
     });
