@@ -32,11 +32,14 @@ const Hero: React.FC<HeroProps> = ({
               <span className="w-2 h-2 bg-[#4ade80] rounded-full inline-block mr-2"></span>
               Diagnóstico e Atendimentos
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-bold leading-tight mb-8">
-              Ultrassom Morfológico, Doppler e 3D, Saúde do Idoso, Saúde Mental e Saúde Neurológica
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-bold leading-tight mb-4">
+              Ultrassom em Nova Andradina — Clínica Franco + Associados
             </h1>
+            <p className="text-base sm:text-lg text-teal-200/70 font-semibold mb-6 max-w-xl">
+              Morfológico, Doppler e 3D · Saúde do Idoso · Saúde Mental · Saúde Neurológica
+            </p>
             <p className="text-lg text-teal-50/70 mb-10 leading-relaxed max-w-xl">
-              Cuidado multigeracional com tecnologia de ponta. Dr. Rodrigo Franco e Dr. Lucas Franco unindo experiência e dedicação para a saúde da sua família em Nova Andradina-MS.
+              Referência em ultrassom em Nova Andradina e região. Dr. Rodrigo Franco, Dr. Lucas Franco e Dr. Guilherme Zandoná — cuidado multigeracional com precisão diagnóstica para toda a família.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <button onClick={() => scrollToSection('contato')} className="bg-[#14b8a6] text-white px-10 py-4 rounded-full font-bold shadow-lg hover:bg-[#0d9488] transition-all transform hover:-translate-y-1">
@@ -53,7 +56,7 @@ const Hero: React.FC<HeroProps> = ({
               <div className="absolute inset-0 border-2 border-teal-400/20 rounded-3xl animate-pulse group-hover:animate-none group-hover:scale-105 transition-transform duration-500"></div>
               <img 
                 src={doctorImgSrc} 
-                alt="Clínica Franco - Dr. Rodrigo e Dr. Lucas" 
+                alt="Clínica Franco - Ultrassom em Nova Andradina - Dr. Rodrigo e Dr. Lucas Franco"
                 className="w-full h-full object-cover rounded-3xl border-4 border-teal-500/20 shadow-2xl transition-all duration-500 group-hover:rounded-2xl" 
               />
             </div>
@@ -69,7 +72,7 @@ const Hero: React.FC<HeroProps> = ({
                 </div>
                 <img 
                   src={mapImgSrc} 
-                  alt="Localização" 
+                  alt="Localização Clínica Franco - Rua Melvin Jones 1243 Centro Nova Andradina MS"
                   className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500" 
                   onClick={() => setIsMapModalOpen(true)}
                 />

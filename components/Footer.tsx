@@ -3,6 +3,13 @@ import React from 'react';
 import { HeartPulse, Instagram, Facebook, Youtube } from 'lucide-react';
 
 const Footer: React.FC = () => {
+  const goTo = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    e.preventDefault();
+    window.history.pushState({}, '', path);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className="bg-gray-900 text-gray-400 border-t border-gray-800">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
@@ -120,15 +127,28 @@ const Footer: React.FC = () => {
             <div className="col-span-1">
                 <h3 className="text-white font-bold mb-4 uppercase text-sm tracking-wider">Atendimentos</h3>
                 <ul className="space-y-2 text-sm">
-                    <li>Ecocardiograma Fetal</li>
-                    <li>Obstétrico com e sem Doppler</li>
-                    <li>Morfológico de 1º Trimestre</li>
-                    <li>Morfológico de 2º Trimestre</li>
-                    <li>Ultrassom Vascular (Doppler)</li>
-                    <li>Ultrassom Musculoesquelético</li>
-                    <li>Abdome, Próstata e Pélvico</li>
-                    <li>Espirometria</li>
-                    <li>Perícia Médica</li>
+                    <li><a href="/exame/ecofetal" onClick={(e) => goTo(e, '/exame/ecofetal')} className="hover:text-teal-400 transition-colors">Ecocardiograma Fetal</a></li>
+                    <li><a href="/exame/obstetrico_doppler" onClick={(e) => goTo(e, '/exame/obstetrico_doppler')} className="hover:text-teal-400 transition-colors">Obstétrico com Doppler</a></li>
+                    <li><a href="/exame/obstetrico_sem_doppler" onClick={(e) => goTo(e, '/exame/obstetrico_sem_doppler')} className="hover:text-teal-400 transition-colors">Obstétrico sem Doppler</a></li>
+                    <li><a href="/exame/morfologico1" onClick={(e) => goTo(e, '/exame/morfologico1')} className="hover:text-teal-400 transition-colors">Morfológico de 1º Trimestre</a></li>
+                    <li><a href="/exame/morfologico2" onClick={(e) => goTo(e, '/exame/morfologico2')} className="hover:text-teal-400 transition-colors">Morfológico de 2º Trimestre</a></li>
+                    <li><a href="/exame/abdometotal" onClick={(e) => goTo(e, '/exame/abdometotal')} className="hover:text-teal-400 transition-colors">Abdome Total</a></li>
+                    <li><a href="/exame/pelvico" onClick={(e) => goTo(e, '/exame/pelvico')} className="hover:text-teal-400 transition-colors">Pélvico</a></li>
+                    <li><a href="/exame/transvaginal" onClick={(e) => goTo(e, '/exame/transvaginal')} className="hover:text-teal-400 transition-colors">Transvaginal</a></li>
+                    <li><a href="/exame/prostata" onClick={(e) => goTo(e, '/exame/prostata')} className="hover:text-teal-400 transition-colors">Próstata</a></li>
+                    <li><a href="/exame/tireoide" onClick={(e) => goTo(e, '/exame/tireoide')} className="hover:text-teal-400 transition-colors">Tireoide</a></li>
+                    <li><a href="/exame/mama" onClick={(e) => goTo(e, '/exame/mama')} className="hover:text-teal-400 transition-colors">Mama</a></li>
+                    <li><a href="/exame/carotidas" onClick={(e) => goTo(e, '/exame/carotidas')} className="hover:text-teal-400 transition-colors">Carótidas</a></li>
+                    <li><a href="/exame/vascular" onClick={(e) => goTo(e, '/exame/vascular')} className="hover:text-teal-400 transition-colors">Vascular com Doppler</a></li>
+                    <li><a href="/exame/articulacao_ombro" onClick={(e) => goTo(e, '/exame/articulacao_ombro')} className="hover:text-teal-400 transition-colors">Articulação: Ombro</a></li>
+                    <li><a href="/exame/articulacao_cotovelo" onClick={(e) => goTo(e, '/exame/articulacao_cotovelo')} className="hover:text-teal-400 transition-colors">Articulação: Cotovelo</a></li>
+                    <li><a href="/exame/articulacao_punho" onClick={(e) => goTo(e, '/exame/articulacao_punho')} className="hover:text-teal-400 transition-colors">Articulação: Punho</a></li>
+                    <li><a href="/exame/articulacao_joelho" onClick={(e) => goTo(e, '/exame/articulacao_joelho')} className="hover:text-teal-400 transition-colors">Articulação: Joelho</a></li>
+                    <li><a href="/exame/articulacao_tornozelo" onClick={(e) => goTo(e, '/exame/articulacao_tornozelo')} className="hover:text-teal-400 transition-colors">Articulação: Tornozelo</a></li>
+                    <li><a href="/exame/espirometria" onClick={(e) => goTo(e, '/exame/espirometria')} className="hover:text-teal-400 transition-colors">Espirometria</a></li>
+                    <li><a href="/exame/holter" onClick={(e) => goTo(e, '/exame/holter')} className="hover:text-teal-400 transition-colors">Holter 24h</a></li>
+                    <li><a href="/exame/mapa" onClick={(e) => goTo(e, '/exame/mapa')} className="hover:text-teal-400 transition-colors">MAPA 24h</a></li>
+                    <li className="text-gray-500">Perícia Médica</li>
                 </ul>
             </div>
         </div>

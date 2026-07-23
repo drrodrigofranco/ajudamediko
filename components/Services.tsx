@@ -152,16 +152,20 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
         {filteredExams.length > 0 ? (
           filteredExams.map((ex, i) => (
-            <div 
-              key={i} 
-              onClick={() => handleExamClick(ex.id)}
+            <a
+              key={i}
+              href={`/exame/${ex.id}`}
+              onClick={(e) => {
+                e.preventDefault();
+                handleExamClick(ex.id);
+              }}
               className="bg-white p-4 sm:p-8 rounded-2xl border border-gray-50 shadow-sm flex flex-col items-center text-center hover:border-[#14b8a6]/30 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group cursor-pointer"
             >
               <div className="text-[#14b8a6] mb-4 group-hover:scale-110 transition-transform"><ex.Icon size={28} /></div>
-              <h4 className="font-bold text-gray-800 text-sm mb-1">{ex.name}</h4>
+              <h3 className="font-bold text-gray-800 text-sm mb-1">{ex.name}</h3>
               <p className="text-[10px] text-gray-400 font-medium mb-3">{ex.desc}</p>
               <span className="text-[9px] font-bold text-[#14b8a6] opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-widest">Saiba Mais</span>
-            </div>
+            </a>
           ))
         ) : (
           <div className="col-span-full py-12 text-center text-gray-400">
