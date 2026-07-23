@@ -252,7 +252,7 @@ const ExamsDrawer: React.FC = () => {
       {/* Botão Lateral (Aba) */}
       <button 
         onClick={() => setIsOpen(true)}
-        className="fixed right-0 top-[85%] -translate-y-1/2 z-[60] bg-[#0e4843] text-white py-8 px-3 md:py-12 md:px-6 rounded-l-2xl md:rounded-l-[40px] shadow-[0_0_40px_rgba(20,184,166,0.3)] flex flex-col items-center gap-4 md:gap-6 hover:bg-[#14b8a6] transition-all group border-y border-l border-teal-400/40 hover:pr-5 md:hover:pr-8"
+        className="fixed right-0 top-[85%] md:top-1/2 -translate-y-1/2 z-[60] bg-[#0e4843] text-white py-8 px-3 md:py-12 md:px-6 rounded-l-2xl md:rounded-l-[40px] shadow-[0_0_40px_rgba(20,184,166,0.3)] flex flex-col items-center gap-4 md:gap-6 hover:bg-[#14b8a6] transition-all group border-y border-l border-teal-400/40 hover:pr-5 md:hover:pr-8"
       >
         <div className="relative">
           <div className="absolute -inset-1 md:-inset-2 bg-teal-400/20 rounded-full blur-md md:blur-lg group-hover:bg-white/20 transition-all"></div>
