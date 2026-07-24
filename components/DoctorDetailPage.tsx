@@ -19,10 +19,10 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
 
   useSEO({
     title: doctor
-      ? `${doctor.name} (${doctor.crm}) em Nova Andradina - MS | Clínica Franco + Associados`
+      ? doctor.seoTitle || `${doctor.name} (${doctor.crm}) em Nova Andradina - MS | Clínica Franco + Associados`
       : 'Médico não encontrado | Clínica Franco + Associados',
     description: doctor
-      ? `${doctor.shortBio}`.slice(0, 160)
+      ? (doctor.seoDescription || doctor.shortBio).slice(0, 160)
       : 'Médico não encontrado. Conheça toda a equipe da Clínica Franco + Associados em Nova Andradina - MS.',
     path: `/medico/${doctorId}`,
   });
@@ -139,7 +139,9 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
                   <Icons.Info className="text-[#14b8a6] w-5 h-5" />
                   Sobre o Médico
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{doctor.longBio}</p>
+                {doctor.longBio.map((paragraph, i) => (
+                  <p key={i} className="text-gray-600 text-sm leading-relaxed">{paragraph}</p>
+                ))}
               </div>
 
               <hr className="border-gray-100" />
@@ -189,6 +191,26 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
                   </div>
                 ))}
               </div>
+
+              {doctor.procedures && doctor.procedures.length > 0 && (
+                <>
+                  <hr className="border-gray-100" />
+                  <div className="space-y-4">
+                    <h3 className="text-lg font-serif font-bold text-[#0e4843] flex items-center gap-2">
+                      <Icons.Stethoscope className="text-[#14b8a6] w-5 h-5" />
+                      Pequenos Procedimentos Ambulatoriais
+                    </h3>
+                    <ul className="space-y-3 text-sm text-gray-600">
+                      {doctor.procedures.map((proc, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <div className="w-1.5 h-1.5 bg-[#14b8a6] rounded-full mt-2 flex-shrink-0"></div>
+                          <span>{proc}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </>
+              )}
             </div>
           </div>
 

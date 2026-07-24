@@ -22,12 +22,17 @@ export interface DoctorData {
   photoHeight: number;
   iconName: 'HeartPulse' | 'Stethoscope' | 'Brain';
   shortBio: string;
-  longBio: string;
+  longBio: string[];
   specialtyLabel: string;
   education: DoctorEducationItem[];
   experience: DoctorExperienceGroup[];
+  procedures?: string[];
   focusAreas: string[];
   lattesUrl?: string;
+  // Overrides opcionais de title/description da pagina (ver hooks/useSEO). Sem eles,
+  // DoctorDetailPage usa um template generico com nome + CRM + shortBio.
+  seoTitle?: string;
+  seoDescription?: string;
 }
 
 export const doctorsData: DoctorData[] = [
@@ -41,7 +46,9 @@ export const doctorsData: DoctorData[] = [
     iconName: 'HeartPulse',
     specialtyLabel: 'Ultrassonografia Diagnóstica e Perícia Médica',
     shortBio: 'Atendimento em ultrassonografia diagnóstica, consultas de clínica geral e perícias médicas judiciais, com dedicação a um cuidado humanizado e preciso para toda a família.',
-    longBio: 'Médico com ampla experiência em diagnóstico por imagem, atuando em Nova Andradina - MS e região desde 2018. Realiza exames de ultrassonografia obstétrica, morfológica, vascular e musculoesquelética, além de atuar como perito judicial nomeado pelo fórum de Batayporã. Formado em Medicina pela UNEMAT, com cursos de especialização em ultrassom pela FATESA e outras graduações em Fisioterapia e Educação Física.',
+    longBio: [
+      'Médico com ampla experiência em diagnóstico por imagem, atuando em Nova Andradina - MS e região desde 2018. Realiza exames de ultrassonografia obstétrica, morfológica, vascular e musculoesquelética, além de atuar como perito judicial nomeado pelo fórum de Batayporã. Formado em Medicina pela UNEMAT, com cursos de especialização em ultrassom pela FATESA e outras graduações em Fisioterapia e Educação Física.',
+    ],
     education: [
       {
         title: 'Cursos de Ultrassom - FATESA',
@@ -84,37 +91,52 @@ export const doctorsData: DoctorData[] = [
   },
   {
     id: 'lucas-franco',
-    name: 'Dr. Lucas Franco',
+    name: 'Dr. Lucas Duarte Franco',
     crm: 'CRM-MS 7462',
     photo: '/images/dr-lucas-franco.jpg',
     photoWidth: 450,
     photoHeight: 675,
     iconName: 'Stethoscope',
-    specialtyLabel: 'Saúde do Idoso e Medicina de Urgência',
-    shortBio: 'Médico dedicado ao atendimento integral, com vasta experiência em medicina de urgência, emergência e cuidados intensivos. Focado no envelhecimento saudável e na resolução clínica de seus pacientes.',
-    longBio: 'Médico formado pela Famepp (UNOESTE), com atuação consolidada em unidades de emergência e terapia intensiva desde 2014. Em Nova Andradina - MS, atende como médico ESF pela Prefeitura Municipal desde 2019, com foco em saúde do idoso, envelhecimento saudável, clínica geral e pequenos procedimentos cirúrgicos.',
+    specialtyLabel: 'Atendimento Clínico ao Adulto e Saúde do Idoso',
+    shortBio: 'Médico formado pela Faculdade de Medicina de Presidente Prudente (FAMEPP) em 2013, com mais de uma década de atuação em Clínica Médica, Urgência e Emergência, UTI e Atenção Primária à Saúde, com atenção especial à saúde do idoso em Nova Andradina - MS.',
+    seoTitle: 'Dr. Lucas Duarte Franco (CRM-MS 7462) - Saúde do Idoso em Nova Andradina - MS | Clínica Franco + Associados',
+    seoDescription: 'Atendimento clínico ao adulto e à pessoa idosa em Nova Andradina - MS: acompanhamento geriátrico, check-up clínico, controle de doenças crônicas e pequenos procedimentos com o Dr. Lucas Duarte Franco.',
+    longBio: [
+      'Atuo há mais de uma década na assistência médica, com experiência em Clínica Médica, Medicina de Urgência e Emergência, Unidade de Terapia Intensiva (UTI) e Atenção Primária à Saúde. Desde 2019, exerço minhas atividades na Estratégia Saúde da Família, acompanhando pacientes de forma contínua, com foco na prevenção, diagnóstico e tratamento das principais condições de saúde.',
+      'Em consultório, realizo atendimento clínico de adultos e idosos, oferecendo acompanhamento de doenças agudas e crônicas, check-up clínico, avaliação de fatores de risco cardiovascular, controle da hipertensão arterial, diabetes mellitus, dislipidemias, hipotireoidismo, obesidade e outras condições frequentes da prática clínica.',
+      'Meu compromisso é oferecer um atendimento ético, humanizado e baseado em evidências científicas, valorizando a escuta, a prevenção, o diagnóstico precoce e o acompanhamento individualizado de cada paciente.',
+    ],
     education: [
       {
         title: 'Graduação em Medicina',
-        year: 'Turma de 2013',
-        institution: 'Famepp (UNOESTE) - Faculdade de Medicina de Presidente Prudente',
-      },
-      {
-        title: 'Pós-graduação em Medicina Intensiva',
-        institution: 'AMIB - Associação de Medicina Intensiva Brasileira (Incompleta)',
+        year: '2013',
+        institution: 'Faculdade de Medicina de Presidente Prudente (FAMEPP)',
       },
     ],
     experience: [
       {
         label: 'Experiência Profissional:',
         items: [
-          'Atendimento em Unidades de Emergência (desde 2014);',
-          'Atuação em UTI - Unidade de Terapia Intensiva (desde 2016);',
-          'Médico ESF Prefeitura Municipal Nova Andradina - MS - concursado (desde 2019).',
+          'Clínica Médica, Medicina de Urgência e Emergência, UTI e Atenção Primária à Saúde (mais de uma década de atuação);',
+          'Estratégia Saúde da Família (ESF) - Prefeitura Municipal de Nova Andradina - MS (desde 2019).',
         ],
       },
     ],
-    focusAreas: ['Saúde do Idoso e Envelhecimento Saudável', 'Clínica Geral e Check-up', 'Pequenos Procedimentos Cirúrgicos'],
+    procedures: [
+      'Remoção de verrugas;',
+      'Remoção de cistos cutâneos (cistos sebáceos e outras lesões benignas da pele);',
+      'Tratamento cirúrgico de unha encravada (cantoplastia);',
+      'Biópsias de pequenas lesões de pele.',
+    ],
+    focusAreas: [
+      'Clínica Médica',
+      'Saúde do Adulto',
+      'Saúde do Idoso e Acompanhamento Geriátrico',
+      'Medicina Preventiva',
+      'Check-up Clínico',
+      'Controle de Doenças Crônicas',
+      'Pequenas Cirurgias Ambulatoriais',
+    ],
   },
   {
     id: 'guilherme-zandona',
@@ -126,7 +148,9 @@ export const doctorsData: DoctorData[] = [
     iconName: 'Brain',
     specialtyLabel: 'Clínica Médica e Avaliação Neurológica',
     shortBio: 'Médico com atuação em clínica geral e avaliação neurológica, experiência consolidada em urgência e emergência em Nova Andradina e região.',
-    longBio: 'Médico formado pela Universidade do Oeste Paulista (UNOESTE), com pós-graduação em Neurologia. Atuou no Departamento de Clínica Médica do Hospital Regional de Nova Andradina entre 2018 e 2024, e atende atualmente no Pronto Socorro e na Avaliação Neurológica do Hospital Cassems, além da Policlínica Amena.',
+    longBio: [
+      'Médico formado pela Universidade do Oeste Paulista (UNOESTE), com pós-graduação em Neurologia. Atuou no Departamento de Clínica Médica do Hospital Regional de Nova Andradina entre 2018 e 2024, e atende atualmente no Pronto Socorro e na Avaliação Neurológica do Hospital Cassems, além da Policlínica Amena.',
+    ],
     education: [
       {
         title: 'Graduação em Medicina',

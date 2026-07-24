@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
                     </div>
                     <div className="flex flex-col text-xs text-teal-400 font-medium mt-1 ml-9">
                         <span>Dr. Rodrigo Franco - CRM-MS 10087</span>
-                        <span>Dr. Lucas Franco - CRM-MS 7462</span>
+                        <span>Dr. Lucas Duarte Franco - CRM-MS 7462</span>
                         <span>Dr. Guilherme Zandoná - CRM-MS 6347</span>
                     </div>
                 </div>

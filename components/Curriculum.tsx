@@ -163,7 +163,7 @@ const Curriculum: React.FC<CurriculumProps> = ({ navigateTo }) => {
               <div className="w-40 h-40 md:w-48 md:h-48 rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform hover:-rotate-3 transition-transform">
                 <img
                   src="/images/dr-lucas-franco.jpg"
-                  alt="Dr. Lucas Franco - Médico em Nova Andradina - CRM-MS 7462"
+                  alt="Dr. Lucas Duarte Franco - Saúde do Idoso em Nova Andradina - CRM-MS 7462"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                   width={450}
@@ -176,10 +176,10 @@ const Curriculum: React.FC<CurriculumProps> = ({ navigateTo }) => {
               </div>
             </div>
             <div className="text-center md:text-right flex-grow">
-              <h3 className="text-3xl md:text-4xl font-serif font-bold text-[#0e4843] mb-2">Dr. Lucas Franco</h3>
+              <h3 className="text-3xl md:text-4xl font-serif font-bold text-[#0e4843] mb-2">Dr. Lucas Duarte Franco</h3>
               <p className="text-[#14b8a6] font-bold uppercase tracking-widest text-sm mb-4">CRM-MS 7462</p>
               <p className="text-gray-500 max-w-xl ml-auto leading-relaxed">
-                Médico dedicado ao atendimento integral, com vasta experiência em medicina de urgência, emergência e cuidados intensivos. Focado no envelhecimento saudável e na resolução clínica de seus pacientes.
+                Médico dedicado ao atendimento clínico do adulto e à saúde do idoso em Nova Andradina, com vasta experiência em Clínica Médica, Urgência e Emergência e UTI. Acompanhamento contínuo focado em prevenção e envelhecimento saudável.
               </p>
               <a
                 href="/medico/lucas-franco"
