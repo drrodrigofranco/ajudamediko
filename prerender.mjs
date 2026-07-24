@@ -44,12 +44,26 @@ const TYPES = {
   '.woff2': 'font/woff2',
 };
 
+// Copia "limpa" do dist/index.html (saida crua do `vite build`, #root vazio),
+// lida ANTES de qualquer pagina ser pre-renderizada. O index.tsx agora usa
+// hydrateRoot quando #root ja chega com conteudo; se o fallback abaixo lesse
+// dist/index.html direto do disco a cada requisicao, a partir da segunda rota
+// do loop ele serviria o HTML da HOME ja pre-renderizada (pois o arquivo eh
+// sobrescrito a cada iteracao) como shell de TODAS as rotas seguintes -
+// causando mismatch de hidratacao (React error #418/#423) em toda pagina
+// depois da primeira. Servindo sempre esta copia em memoria, cada rota nova
+// sempre monta a partir do shell vazio de verdade (cai no createRoot).
+const PRISTINE_SHELL = fs.readFileSync(path.join(DIST, 'index.html'), 'utf-8');
+
 const server = http.createServer((req, res) => {
   try {
     let urlPath = decodeURIComponent(req.url.split('?')[0]);
     let filePath = path.join(DIST, urlPath);
-    if (urlPath === '/' || !fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
-      filePath = path.join(DIST, 'index.html'); // fallback SPA
+    const needsFallback = urlPath === '/' || !fs.existsSync(filePath) || fs.statSync(filePath).isDirectory();
+    if (needsFallback) {
+      res.writeHead(200, { 'Content-Type': TYPES['.html'] });
+      res.end(PRISTINE_SHELL);
+      return;
     }
     const ext = path.extname(filePath).toLowerCase();
     res.writeHead(200, { 'Content-Type': TYPES[ext] || 'application/octet-stream' });
