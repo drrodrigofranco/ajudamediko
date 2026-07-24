@@ -166,7 +166,7 @@ const Curriculum: React.FC<CurriculumProps> = ({ navigateTo }) => {
                   alt="Dr. Lucas Duarte Franco - Saúde do Idoso em Nova Andradina - CRM-MS 7462"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
-                  width={450}
+                  width={554}
                   height={675}
                   loading="lazy"
                 />
