@@ -54,10 +54,14 @@ const Hero: React.FC<HeroProps> = ({
           <div className="lg:w-1/2 flex flex-col sm:flex-row items-center justify-center gap-6">
             <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[420px] lg:h-[420px] group">
               <div className="absolute inset-0 border-2 border-teal-400/20 rounded-3xl animate-pulse group-hover:animate-none group-hover:scale-105 transition-transform duration-500"></div>
-              <img 
-                src={doctorImgSrc} 
+              <img
+                src={doctorImgSrc}
                 alt="Clínica Franco - Ultrassom em Nova Andradina - Dr. Rodrigo e Dr. Lucas Franco"
-                className="w-full h-full object-cover rounded-3xl border-4 border-teal-500/20 shadow-2xl transition-all duration-500 group-hover:rounded-2xl" 
+                className="w-full h-full object-cover rounded-3xl border-4 border-teal-500/20 shadow-2xl transition-all duration-500 group-hover:rounded-2xl"
+                width={900}
+                height={1613}
+                fetchPriority="high"
+                loading="eager"
               />
             </div>
 
@@ -70,10 +74,12 @@ const Hero: React.FC<HeroProps> = ({
                 >
                   <Maximize2 className="text-white drop-shadow-lg" size={32} />
                 </div>
-                <img 
-                  src={mapImgSrc} 
+                <img
+                  src={mapImgSrc}
                   alt="Localização Clínica Franco - Rua Melvin Jones 1243 Centro Nova Andradina MS"
-                  className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500" 
+                  className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  width={600}
+                  height={336}
                   onClick={() => setIsMapModalOpen(true)}
                 />
                 <div className="absolute bottom-0 inset-x-0 bg-black/80 p-3 z-20">

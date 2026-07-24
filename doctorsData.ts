@@ -18,6 +18,8 @@ export interface DoctorData {
   name: string;
   crm: string;
   photo: string;
+  photoWidth: number;
+  photoHeight: number;
   iconName: 'HeartPulse' | 'Stethoscope' | 'Brain';
   shortBio: string;
   longBio: string;
@@ -34,6 +36,8 @@ export const doctorsData: DoctorData[] = [
     name: 'Dr. Rodrigo Franco',
     crm: 'CRM-MS 10087',
     photo: '/images/dr-rodrigo-franco.jpg',
+    photoWidth: 450,
+    photoHeight: 675,
     iconName: 'HeartPulse',
     specialtyLabel: 'Ultrassonografia Diagnóstica e Perícia Médica',
     shortBio: 'Atendimento em ultrassonografia diagnóstica, consultas de clínica geral e perícias médicas judiciais, com dedicação a um cuidado humanizado e preciso para toda a família.',
@@ -83,6 +87,8 @@ export const doctorsData: DoctorData[] = [
     name: 'Dr. Lucas Franco',
     crm: 'CRM-MS 7462',
     photo: '/images/dr-lucas-franco.jpg',
+    photoWidth: 450,
+    photoHeight: 675,
     iconName: 'Stethoscope',
     specialtyLabel: 'Saúde do Idoso e Medicina de Urgência',
     shortBio: 'Médico dedicado ao atendimento integral, com vasta experiência em medicina de urgência, emergência e cuidados intensivos. Focado no envelhecimento saudável e na resolução clínica de seus pacientes.',
@@ -115,6 +121,8 @@ export const doctorsData: DoctorData[] = [
     name: 'Dr. Guilherme Henrique Zandoná',
     crm: 'CRM-MS 6347',
     photo: '/images/dr-guilherme-zandona.jpg',
+    photoWidth: 450,
+    photoHeight: 600,
     iconName: 'Brain',
     specialtyLabel: 'Clínica Médica e Avaliação Neurológica',
     shortBio: 'Médico com atuação em clínica geral e avaliação neurológica, experiência consolidada em urgência e emergência em Nova Andradina e região.',

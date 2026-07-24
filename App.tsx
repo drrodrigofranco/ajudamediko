@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { trackGetDirections } from './gtag';
 import HealthNewsWidget from './components/HealthNewsWidget';
 import Footer from './components/Footer';
@@ -12,13 +12,23 @@ import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import MapModal from './components/MapModal';
 import ExamsDrawer from './components/ExamsDrawer';
-import ExamDetailPage from './components/ExamDetailPage';
-import DoctorDetailPage from './components/DoctorDetailPage';
-import ExamsComparisonPage from './components/ExamsComparisonPage';
-import GuidelineFirstTrimesterPage from './components/GuidelineFirstTrimesterPage';
-import CardioRespiratoryExamsPage from './components/CardioRespiratoryExamsPage';
-import PregnancyGuidePage from './components/PregnancyGuidePage';
 import { useSEO } from './hooks/useSEO';
+
+// Paginas de rota carregadas sob demanda (code-splitting): sem isso, um visitante
+// da home baixava o JS de todas as ~30 rotas de uma vez (bundle unico de 1.26MB).
+// Cada import() vira um chunk separado que so e buscado quando a rota e visitada.
+const ExamDetailPage = lazy(() => import('./components/ExamDetailPage'));
+const DoctorDetailPage = lazy(() => import('./components/DoctorDetailPage'));
+const ExamsComparisonPage = lazy(() => import('./components/ExamsComparisonPage'));
+const GuidelineFirstTrimesterPage = lazy(() => import('./components/GuidelineFirstTrimesterPage'));
+const CardioRespiratoryExamsPage = lazy(() => import('./components/CardioRespiratoryExamsPage'));
+const PregnancyGuidePage = lazy(() => import('./components/PregnancyGuidePage'));
+
+const RouteFallback: React.FC = () => (
+    <div className="min-h-screen flex items-center justify-center bg-white">
+        <div className="w-8 h-8 border-4 border-[#14b8a6] border-t-transparent rounded-full animate-spin"></div>
+    </div>
+);
 import {
     Baby, 
     ScanLine, 
@@ -143,7 +153,9 @@ const App: React.FC = () => {
                     mapImgSrc={mapImgSrc} 
                     googleMapsLink={googleMapsLink} 
                 />
-                <ExamDetailPage examId={examId} navigateTo={navigateTo} />
+                <Suspense fallback={<RouteFallback />}>
+                    <ExamDetailPage examId={examId} navigateTo={navigateTo} />
+                </Suspense>
             </div>
         );
     }
@@ -158,7 +170,9 @@ const App: React.FC = () => {
                     mapImgSrc={mapImgSrc}
                     googleMapsLink={googleMapsLink}
                 />
-                <DoctorDetailPage doctorId={doctorId} navigateTo={navigateTo} />
+                <Suspense fallback={<RouteFallback />}>
+                    <DoctorDetailPage doctorId={doctorId} navigateTo={navigateTo} />
+                </Suspense>
             </div>
         );
     }
@@ -172,7 +186,9 @@ const App: React.FC = () => {
                     mapImgSrc={mapImgSrc} 
                     googleMapsLink={googleMapsLink} 
                 />
-                <ExamsComparisonPage navigateTo={navigateTo} />
+                <Suspense fallback={<RouteFallback />}>
+                    <ExamsComparisonPage navigateTo={navigateTo} />
+                </Suspense>
             </div>
         );
     }
@@ -186,7 +202,9 @@ const App: React.FC = () => {
                     mapImgSrc={mapImgSrc} 
                     googleMapsLink={googleMapsLink} 
                 />
-                <GuidelineFirstTrimesterPage navigateTo={navigateTo} />
+                <Suspense fallback={<RouteFallback />}>
+                    <GuidelineFirstTrimesterPage navigateTo={navigateTo} />
+                </Suspense>
             </div>
         );
     }
@@ -200,7 +218,9 @@ const App: React.FC = () => {
                     mapImgSrc={mapImgSrc} 
                     googleMapsLink={googleMapsLink} 
                 />
-                <CardioRespiratoryExamsPage navigateTo={navigateTo} />
+                <Suspense fallback={<RouteFallback />}>
+                    <CardioRespiratoryExamsPage navigateTo={navigateTo} />
+                </Suspense>
             </div>
         );
     }
@@ -214,7 +234,9 @@ const App: React.FC = () => {
                     mapImgSrc={mapImgSrc} 
                     googleMapsLink={googleMapsLink} 
                 />
-                <PregnancyGuidePage navigateTo={navigateTo} />
+                <Suspense fallback={<RouteFallback />}>
+                    <PregnancyGuidePage navigateTo={navigateTo} />
+                </Suspense>
             </div>
         );
     }

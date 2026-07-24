@@ -104,7 +104,15 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
             Voltar para a Home
           </a>
           <div className="w-32 h-32 md:w-40 md:h-40 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 mx-auto mb-8">
-            <img src={doctor.photo} alt={`${doctor.name} - ${doctor.specialtyLabel} - ${doctor.crm}`} className="w-full h-full object-cover" />
+            <img
+              src={doctor.photo}
+              alt={`${doctor.name} - ${doctor.specialtyLabel} - ${doctor.crm}`}
+              className="w-full h-full object-cover"
+              width={doctor.photoWidth}
+              height={doctor.photoHeight}
+              fetchPriority="high"
+              loading="eager"
+            />
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold leading-tight mb-4">
             {doctor.name}

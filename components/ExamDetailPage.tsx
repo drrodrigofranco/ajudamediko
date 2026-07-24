@@ -1,5 +1,18 @@
 import React from 'react';
 import * as Icons from 'lucide-react';
+import {
+  Activity,
+  Aperture,
+  Baby,
+  Clock,
+  Dumbbell,
+  HeartPulse,
+  ScanLine,
+  User,
+  Waves,
+  Wind,
+  HelpCircle,
+} from 'lucide-react';
 import { examsData, ExamData } from '../examsData';
 import { useSEO } from '../hooks/useSEO';
 
@@ -7,6 +20,22 @@ interface ExamDetailPageProps {
   examId: string;
   navigateTo: (path: string, e: React.MouseEvent) => void;
 }
+
+// Mapa estatico dos icones usados em examsData.ts (iconName). Acesso computado
+// (Icons[variavel]) sobre `import * as Icons` impede o Rollup de fazer tree-shaking
+// e forca a biblioteca lucide-react inteira no bundle - por isso um objeto fixo aqui.
+const EXAM_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+  Activity,
+  Aperture,
+  Baby,
+  Clock,
+  Dumbbell,
+  HeartPulse,
+  ScanLine,
+  User,
+  Waves,
+  Wind,
+};
 
 const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) => {
   const exam = examsData.find(e => e.id === examId);
@@ -37,7 +66,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
   }
 
   // Dynamically resolve icon from name
-  const IconComponent = (Icons as any)[exam.iconName] || Icons.HelpCircle;
+  const IconComponent = EXAM_ICONS[exam.iconName] || HelpCircle;
   const whatsappUrl = `https://wa.me/5567998446674?text=${encodeURIComponent(`Olá! Gostaria de solicitar um agendamento para o exame: *${exam.name}* pelo site.`)}`;
 
   return (

@@ -33,6 +33,9 @@ const Curriculum: React.FC<CurriculumProps> = ({ navigateTo }) => {
                   alt="Dr. Rodrigo Franco - Ultrassom em Nova Andradina - CRM-MS 10087"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
+                  width={450}
+                  height={675}
+                  loading="lazy"
                 />
               </div>
               <div className="absolute -bottom-4 -right-4 bg-[#14b8a6] text-white p-3 rounded-xl shadow-lg">
@@ -163,6 +166,9 @@ const Curriculum: React.FC<CurriculumProps> = ({ navigateTo }) => {
                   alt="Dr. Lucas Franco - Médico em Nova Andradina - CRM-MS 7462"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
+                  width={450}
+                  height={675}
+                  loading="lazy"
                 />
               </div>
               <div className="absolute -bottom-4 -left-4 bg-[#14b8a6] text-white p-3 rounded-xl shadow-lg">
@@ -266,6 +272,9 @@ const Curriculum: React.FC<CurriculumProps> = ({ navigateTo }) => {
                   src="/images/dr-guilherme-zandona.jpg"
                   alt="Dr. Guilherme Zandoná - Avaliação Neurológica em Nova Andradina - CRM-MS 6347"
                   className="w-full h-full object-cover"
+                  width={450}
+                  height={600}
+                  loading="lazy"
                 />
               </div>
               <div className="absolute -bottom-4 -right-4 bg-[#14b8a6] text-white p-3 rounded-xl shadow-lg">
