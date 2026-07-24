@@ -6,10 +6,15 @@ import {
   Stethoscope,
   Activity,
   CheckCircle,
-  Brain
+  Brain,
+  ChevronRight
 } from 'lucide-react';
 
-const Curriculum: React.FC = () => {
+interface CurriculumProps {
+  navigateTo: (path: string, e: React.MouseEvent) => void;
+}
+
+const Curriculum: React.FC<CurriculumProps> = ({ navigateTo }) => {
   return (
     <section id="curriculo" className="py-24 max-w-7xl mx-auto px-4 scroll-mt-24">
       <div className="text-center mb-16">
@@ -40,6 +45,14 @@ const Curriculum: React.FC = () => {
               <p className="text-gray-500 max-w-xl leading-relaxed">
                 Atendimento em ultrassonografia diagnóstica, consultas de clínica geral e perícias médicas judiciais, com dedicação a um cuidado humanizado e preciso para toda a família.
               </p>
+              <a
+                href="/medico/rodrigo-franco"
+                onClick={(e) => navigateTo('/medico/rodrigo-franco', e)}
+                className="inline-flex items-center gap-1 text-[#14b8a6] hover:text-[#0d9488] font-bold text-sm mt-4 transition-colors"
+              >
+                Ver perfil completo
+                <ChevronRight className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </div>
@@ -162,6 +175,14 @@ const Curriculum: React.FC = () => {
               <p className="text-gray-500 max-w-xl ml-auto leading-relaxed">
                 Médico dedicado ao atendimento integral, com vasta experiência em medicina de urgência, emergência e cuidados intensivos. Focado no envelhecimento saudável e na resolução clínica de seus pacientes.
               </p>
+              <a
+                href="/medico/lucas-franco"
+                onClick={(e) => navigateTo('/medico/lucas-franco', e)}
+                className="inline-flex items-center gap-1 text-[#14b8a6] hover:text-[#0d9488] font-bold text-sm mt-4 transition-colors md:ml-auto md:justify-end w-full"
+              >
+                Ver perfil completo
+                <ChevronRight className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </div>
@@ -257,6 +278,14 @@ const Curriculum: React.FC = () => {
               <p className="text-gray-500 max-w-xl leading-relaxed">
                 Médico com atuação em clínica geral e avaliação neurológica, experiência consolidada em urgência e emergência em Nova Andradina e região.
               </p>
+              <a
+                href="/medico/guilherme-zandona"
+                onClick={(e) => navigateTo('/medico/guilherme-zandona', e)}
+                className="inline-flex items-center gap-1 text-[#14b8a6] hover:text-[#0d9488] font-bold text-sm mt-4 transition-colors"
+              >
+                Ver perfil completo
+                <ChevronRight className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </div>

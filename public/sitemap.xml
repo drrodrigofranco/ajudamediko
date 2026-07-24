@@ -157,6 +157,25 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- Médicos -->
+  <url>
+    <loc>https://ajudamediko.com.br/medico/rodrigo-franco</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ajudamediko.com.br/medico/lucas-franco</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ajudamediko.com.br/medico/guilherme-zandona</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- Políticas e Termos -->
   <url>
     <loc>https://ajudamediko.com.br/politica-de-privacidade.html</loc>

@@ -304,7 +304,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
               </a>
             </p>
             <p className="text-teal-50/50 text-[10px] leading-relaxed">
-              Atendimento de Segunda a sexta, 07:00 às 18:00
+              Atendimento de Segunda a Sábado, 06:00 às 22:00
             </p>
           </div>
         </div>

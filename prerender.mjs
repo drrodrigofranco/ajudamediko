@@ -99,6 +99,12 @@ const EXAM_IDS = [
   'mapa'
 ];
 
+const DOCTOR_IDS = [
+  'rodrigo-franco',
+  'lucas-franco',
+  'guilherme-zandona'
+];
+
 async function main() {
   await new Promise(r => server.listen(PORT, r));
   const browser = await launchBrowser();
@@ -111,7 +117,8 @@ async function main() {
     { url: '/diretriz-primeiro-trimestre', file: 'diretriz-primeiro-trimestre/index.html' },
     { url: '/exames-cardiorespiratorios', file: 'exames-cardiorespiratorios/index.html' },
     { url: '/dicas-gestantes', file: 'dicas-gestantes/index.html' },
-    ...EXAM_IDS.map(id => ({ url: `/exame/${id}`, file: `exame/${id}/index.html` }))
+    ...EXAM_IDS.map(id => ({ url: `/exame/${id}`, file: `exame/${id}/index.html` })),
+    ...DOCTOR_IDS.map(id => ({ url: `/medico/${id}`, file: `medico/${id}/index.html` }))
   ];
 
   console.log(`🚀 Iniciando pré-renderização de ${targets.length} páginas...`);

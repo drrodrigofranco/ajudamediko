@@ -13,6 +13,7 @@ import Contact from './components/Contact';
 import MapModal from './components/MapModal';
 import ExamsDrawer from './components/ExamsDrawer';
 import ExamDetailPage from './components/ExamDetailPage';
+import DoctorDetailPage from './components/DoctorDetailPage';
 import ExamsComparisonPage from './components/ExamsComparisonPage';
 import GuidelineFirstTrimesterPage from './components/GuidelineFirstTrimesterPage';
 import CardioRespiratoryExamsPage from './components/CardioRespiratoryExamsPage';
@@ -147,6 +148,21 @@ const App: React.FC = () => {
         );
     }
 
+    if (currentPath.startsWith('/medico/')) {
+        const doctorId = currentPath.replace('/medico/', '').split('/')[0];
+        return (
+            <div className="flex flex-col min-h-screen bg-white font-sans text-gray-800">
+                <MapModal
+                    isOpen={isMapModalOpen}
+                    onClose={() => setIsMapModalOpen(false)}
+                    mapImgSrc={mapImgSrc}
+                    googleMapsLink={googleMapsLink}
+                />
+                <DoctorDetailPage doctorId={doctorId} navigateTo={navigateTo} />
+            </div>
+        );
+    }
+
     if (currentPath === '/entenda-exames' || currentPath === '/entenda-exames/') {
         return (
             <div className="flex flex-col min-h-screen bg-white font-sans text-gray-800">
@@ -239,7 +255,7 @@ const App: React.FC = () => {
                     </div>
                 </section>
 
-                <Curriculum />
+                <Curriculum navigateTo={navigateTo} />
 
                 <FAQ />
 
