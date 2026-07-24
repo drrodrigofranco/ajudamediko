@@ -20,6 +20,9 @@ export interface DoctorData {
   photo: string;
   photoWidth: number;
   photoHeight: number;
+  // Ancoragem do object-cover para fotos com pouca folga acima da cabeça no
+  // enquadramento original. Sem o campo, o crop fica centralizado (padrão).
+  photoObjectPosition?: 'center' | 'top';
   iconName: 'HeartPulse' | 'Stethoscope' | 'Brain';
   shortBio: string;
   longBio: string[];
@@ -96,6 +99,7 @@ export const doctorsData: DoctorData[] = [
     photo: '/images/dr-lucas-franco.jpg',
     photoWidth: 554,
     photoHeight: 675,
+    photoObjectPosition: 'top',
     iconName: 'Stethoscope',
     specialtyLabel: 'Atendimento Clínico ao Adulto e Saúde do Idoso',
     shortBio: 'Médico formado pela Faculdade de Medicina de Presidente Prudente (FAMEPP) em 2013, com mais de uma década de atuação em Clínica Médica, Urgência e Emergência, UTI e Atenção Primária à Saúde, com atenção especial à saúde do idoso em Nova Andradina - MS.',

@@ -164,7 +164,7 @@ const Curriculum: React.FC<CurriculumProps> = ({ navigateTo }) => {
                 <img
                   src="/images/dr-lucas-franco.jpg"
                   alt="Dr. Lucas Duarte Franco - Saúde do Idoso em Nova Andradina - CRM-MS 7462"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                   referrerPolicy="no-referrer"
                   width={554}
                   height={675}

@@ -107,7 +107,7 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
             <img
               src={doctor.photo}
               alt={`${doctor.name} - ${doctor.specialtyLabel} - ${doctor.crm}`}
-              className="w-full h-full object-cover"
+              className={`w-full h-full object-cover ${doctor.photoObjectPosition === 'top' ? 'object-top' : ''}`}
               width={doctor.photoWidth}
               height={doctor.photoHeight}
               fetchPriority="high"
