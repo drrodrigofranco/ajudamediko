@@ -94,7 +94,7 @@ export const doctorsData: DoctorData[] = [
     name: 'Dr. Lucas Duarte Franco',
     crm: 'CRM-MS 7462',
     photo: '/images/dr-lucas-franco.jpg',
-    photoWidth: 450,
+    photoWidth: 554,
     photoHeight: 675,
     iconName: 'Stethoscope',
     specialtyLabel: 'Atendimento Clínico ao Adulto e Saúde do Idoso',
