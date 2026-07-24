@@ -52,7 +52,7 @@ const Hero: React.FC<HeroProps> = ({
           </div>
           
           <div className="lg:w-1/2 flex flex-col sm:flex-row items-center justify-center gap-6">
-            <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[420px] lg:h-[420px] group">
+            <div className="relative w-full max-w-md sm:max-w-sm lg:max-w-[380px] aspect-[900/502] group">
               <div className="absolute inset-0 border-2 border-teal-400/20 rounded-3xl animate-pulse group-hover:animate-none group-hover:scale-105 transition-transform duration-500"></div>
               <img
                 src={doctorImgSrc}
