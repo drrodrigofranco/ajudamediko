@@ -1,14 +1,11 @@
 # Rascunhos de Artigos Originais — Clínica Franco + Associados
 
-> **STATUS: RASCUNHO — AGUARDANDO REVISÃO MÉDICA.**
-> Nenhum destes textos está publicado no site. Cada um precisa ser lido, corrigido e aprovado
-> pelo médico responsável (o que assina) antes de entrar no ar. Objetivo: substituir a seção
-> "Curadoria de Notícias" (que hoje só linka para sites de terceiros) por conteúdo original
-> assinado, com CRM — isso é o que fortalece a autoridade do próprio site nas buscas, em vez
-> de mandar essa autoridade para fora.
->
-> Depois que cada um for aprovado, é só avisar que eu adapto o `HealthNewsWidget.tsx` (ou crio
-> um componente novo) para publicar com o texto final, autor e data.
+> **ATUALIZAÇÃO 2026-07-25:** os artigos 1-3 (Ecocardiograma Fetal, Translucência Nucal,
+> Espirometria — todos de autoria do Dr. Rodrigo Franco) foram **APROVADOS E PUBLICADOS** pelo
+> próprio Dr. Rodrigo. Texto final em `articlesData.ts`, renderizado em `components/HealthNewsWidget.tsx`.
+> Os artigos 4-6 (Abdome Total, Check-up do Idoso, Avaliação Neurológica) continuam como
+> **RASCUNHO — AGUARDANDO REVISÃO MÉDICA** (Dr. Lucas e Dr. Guilherme ainda não revisaram os
+> deles). Não publicar 4-6 sem aprovação do médico correspondente.
 
 ---
 

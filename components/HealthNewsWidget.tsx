@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { HealthNews } from '../types';
-import { Activity, ChevronRight, FileText } from 'lucide-react';
+import { Activity, ChevronRight, FileText, Stethoscope } from 'lucide-react';
+import { articlesData } from '../articlesData';
 
 const HealthNewsWidget: React.FC = () => {
     // Lista estática de notícias para não depender da IA
@@ -9,21 +10,6 @@ const HealthNewsWidget: React.FC = () => {
           title: "Por que contratar um Perito Médico?",
           summary: "Descubra o papel fundamental do assistente técnico em processos judiciais e como a expertise médica contribui para decisões assertivas e justas.",
           url: "https://www.jpaservicosmedicos.com.br/porque-contratar-um-perito"
-        },
-        {
-          title: "Ecocardiograma Fetal: Quando e por que fazer?",
-          summary: "Entenda a importância deste exame fundamental na avaliação da saúde do bebê ainda durante a gestação e quando ele é indicado.",
-          url: "https://hospitalsanmichele.com.br/2025/02/21/ecocardiograma-fetal-quando-e-por-que-fazer-a-importancia-do-exame-na-avaliacao-da-saude-do-bebe/"
-        },
-        {
-          title: "Tudo sobre Espirometria",
-          summary: "Resumo completo sobre definição, indicações, técnica e análise dos resultados deste exame de função pulmonar.",
-          url: "https://sanarmed.com/resumo-de-espirometria-definicao-indicacoes-tecnica-e-analise-do-resultados/"
-        },
-        {
-          title: "Entenda a Translucência Nucal",
-          summary: "Saiba a importância da medição da nuca do feto no primeiro trimestre para o rastreamento de condições genéticas.",
-          url: "https://eigierdiagnosticos.com.br/blog/o-que-e-translucencia-nucal/"
         },
         {
           title: "Tudo sobre o Ultrassom de Abdome Total",
@@ -43,12 +29,41 @@ const HealthNewsWidget: React.FC = () => {
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-teal-100">
             <div className="bg-teal-800 p-6 text-white flex items-center justify-between">
                 <div>
-                    <h3 className="text-xl font-serif font-semibold">Atualizações em Medicina Fetal</h3>
-                    <p className="text-teal-100 text-sm mt-1">Curadoria de Notícias e Artigos</p>
+                    <h3 className="text-xl font-serif font-semibold">Artigos da Clínica Franco</h3>
+                    <p className="text-teal-100 text-sm mt-1">Escritos e assinados pelos nossos médicos</p>
                 </div>
-                <Activity className="text-teal-300" size={28} />
+                <Stethoscope className="text-teal-300" size={28} />
             </div>
-            
+
+            <div className="divide-y divide-gray-100">
+                {articlesData.map((article) => (
+                    <article key={article.id} className="p-6">
+                        <h4 className="text-lg font-bold text-gray-800 mb-1">{article.title}</h4>
+                        <p className="text-xs font-semibold text-teal-700 mb-4">
+                            {article.authorName} · {article.authorCrm}
+                        </p>
+                        <div className="space-y-3">
+                            {article.body.map((paragraph, i) => (
+                                <p key={i} className="text-gray-600 text-sm leading-relaxed">
+                                    {paragraph}
+                                </p>
+                            ))}
+                        </div>
+                        <p className="text-xs text-gray-400 italic mt-4 leading-relaxed">
+                            {article.disclaimer}
+                        </p>
+                    </article>
+                ))}
+            </div>
+
+            <div className="bg-teal-800/90 p-6 text-white flex items-center justify-between border-t border-teal-900/20">
+                <div>
+                    <h3 className="text-lg font-serif font-semibold">Outras Referências</h3>
+                    <p className="text-teal-100 text-xs mt-1">Notícias e artigos de terceiros sobre os temas dos nossos exames</p>
+                </div>
+                <Activity className="text-teal-300" size={24} />
+            </div>
+
             <div className="p-0">
                 <div className="divide-y divide-gray-100">
                     {newsList.map((news, index) => (
