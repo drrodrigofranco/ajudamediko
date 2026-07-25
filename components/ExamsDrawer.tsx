@@ -249,16 +249,22 @@ const ExamsDrawer: React.FC = () => {
 
   return (
     <>
-      {/* Botão Lateral (Aba) */}
-      <button 
+      {/* Botão Lateral (Aba) - no mobile vira um icone compacto (bottom-right, mesmo
+          tamanho do balao do WhatsApp que fica no bottom-left) em vez da aba vertical
+          alta, que na tela toda (top-85%) cortava o texto do Hero na primeira dobra
+          (achado critico da auditoria visual de 2026-07-25). A partir do md: (tablet+,
+          onde ha espaco de sobra e a auditoria nao encontrou sobreposicao) volta a ser
+          a aba vertical centralizada de sempre. */}
+      <button
         onClick={() => setIsOpen(true)}
-        className="fixed right-0 top-[85%] md:top-1/2 -translate-y-1/2 z-[60] bg-[#0e4843] text-white py-8 px-3 md:py-12 md:px-6 rounded-l-2xl md:rounded-l-[40px] shadow-[0_0_40px_rgba(20,184,166,0.3)] flex flex-col items-center gap-4 md:gap-6 hover:bg-[#14b8a6] transition-all group border-y border-l border-teal-400/40 hover:pr-5 md:hover:pr-8"
+        aria-label="Abrir guia de exames"
+        className="fixed right-8 bottom-8 md:right-0 md:top-1/2 md:bottom-auto md:-translate-y-1/2 z-[60] bg-[#0e4843] text-white p-5 md:py-12 md:px-6 rounded-full md:rounded-l-[40px] shadow-[0_0_40px_rgba(20,184,166,0.3)] flex flex-col items-center gap-0 md:gap-6 hover:bg-[#14b8a6] transition-all group border md:border-y md:border-l border-teal-400/40 md:hover:pr-8"
       >
         <div className="relative">
           <div className="absolute -inset-1 md:-inset-2 bg-teal-400/20 rounded-full blur-md md:blur-lg group-hover:bg-white/20 transition-all"></div>
-          <ClipboardList className="relative group-hover:scale-110 transition-transform text-[#14b8a6] group-hover:text-white w-7 h-7 md:w-10 md:h-10" />
+          <ClipboardList className="relative group-hover:scale-110 transition-transform text-[#14b8a6] group-hover:text-white w-8 h-8 md:w-10 md:h-10" />
         </div>
-        <span className="[writing-mode:vertical-rl] text-[11px] md:text-[16px] font-black tracking-[0.25em] uppercase drop-shadow-sm">Guia de Exames</span>
+        <span className="hidden md:inline [writing-mode:vertical-rl] text-[16px] font-black tracking-[0.25em] uppercase drop-shadow-sm">Guia de Exames</span>
       </button>
 
       {/* Overlay */}

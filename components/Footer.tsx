@@ -154,6 +154,11 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="mt-12 border-t border-gray-800 pt-8 text-center text-sm">
+            <p className="max-w-3xl mx-auto text-xs text-gray-500 leading-relaxed mb-6">
+                As informações deste site têm caráter educativo e não substituem consulta, diagnóstico ou
+                tratamento médico. Sempre procure orientação de um profissional de saúde qualificado para
+                dúvidas sobre sua condição.
+            </p>
             <p>&copy; {new Date().getFullYear()} Clínica Franco + Associados. Todos os direitos reservados.</p>
             <p className="mt-2 text-gray-500">Nova Andradina - MS</p>
         </div>
