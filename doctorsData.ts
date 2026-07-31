@@ -103,7 +103,7 @@ export const doctorsData: DoctorData[] = [
     iconName: 'Stethoscope',
     specialtyLabel: 'Atendimento Clínico ao Adulto e Saúde do Idoso',
     shortBio: 'Médico formado pela Faculdade de Medicina de Presidente Prudente (FAMEPP) em 2013, com mais de uma década de atuação em Clínica Médica, Urgência e Emergência, UTI e Atenção Primária à Saúde, com atenção especial à saúde do idoso em Nova Andradina - MS.',
-    seoTitle: 'Dr. Lucas Duarte Franco (CRM-MS 7462) - Saúde do Idoso em Nova Andradina - MS | Clínica Franco + Associados',
+    seoTitle: 'Dr. Lucas Duarte Franco (CRM-MS 7462) - Saúde do Idoso em Nova Andradina - MS | Clínica Franco',
     seoDescription: 'Atendimento clínico ao adulto e à pessoa idosa em Nova Andradina - MS: acompanhamento geriátrico, check-up clínico, controle de doenças crônicas e pequenos procedimentos com o Dr. Lucas Duarte Franco.',
     longBio: [
       'Atuo há mais de uma década na assistência médica, com experiência em Clínica Médica, Medicina de Urgência e Emergência, Unidade de Terapia Intensiva (UTI) e Atenção Primária à Saúde. Desde 2019, exerço minhas atividades na Estratégia Saúde da Família, acompanhando pacientes de forma contínua, com foco na prevenção, diagnóstico e tratamento das principais condições de saúde.',

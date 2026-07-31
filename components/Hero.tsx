@@ -33,7 +33,7 @@ const Hero: React.FC<HeroProps> = ({
               Diagnóstico e Atendimentos
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-bold leading-tight mb-4">
-              Ultrassom em Nova Andradina — Clínica Franco + Associados
+              Ultrassom em Nova Andradina — Clínica Franco
             </h1>
             <p className="text-base sm:text-lg text-teal-200/70 font-semibold mb-6 max-w-xl">
               Morfológico, Doppler e 3D · Saúde do Idoso · Saúde Mental · Saúde Neurológica

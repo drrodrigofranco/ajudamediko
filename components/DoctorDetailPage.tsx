@@ -19,11 +19,11 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
 
   useSEO({
     title: doctor
-      ? doctor.seoTitle || `${doctor.name} (${doctor.crm}) em Nova Andradina - MS | Clínica Franco + Associados`
-      : 'Médico não encontrado | Clínica Franco + Associados',
+      ? doctor.seoTitle || `${doctor.name} (${doctor.crm}) em Nova Andradina - MS | Clínica Franco`
+      : 'Médico não encontrado | Clínica Franco',
     description: doctor
       ? (doctor.seoDescription || doctor.shortBio).slice(0, 160)
-      : 'Médico não encontrado. Conheça toda a equipe da Clínica Franco + Associados em Nova Andradina - MS.',
+      : 'Médico não encontrado. Conheça toda a equipe da Clínica Franco em Nova Andradina - MS.',
     path: `/medico/${doctorId}`,
   });
 
@@ -71,7 +71,7 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <a href="/" onClick={(e) => navigateTo('/', e)} className="flex items-center gap-2 group">
             <span className="bg-[#0e4843] text-white p-2 rounded-xl text-xs font-black tracking-wider transition-all group-hover:bg-[#14b8a6]">US</span>
-            <span className="font-serif font-bold text-xl text-[#0e4843] tracking-tight">Clínica Franco <span className="text-[#14b8a6]">+</span> Associados</span>
+            <span className="font-serif font-bold text-xl text-[#0e4843] tracking-tight">Clínica Franco</span>
           </a>
           <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-[#0e4843]/80">
             <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-[#14b8a6] transition-colors">HOME</a>
@@ -288,7 +288,7 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
       <footer className="bg-[#0e4843] text-white pt-16 pb-12 border-t border-teal-500/10 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-12 text-left mb-12">
           <div>
-            <h3 className="font-serif font-bold text-xl mb-6">Clínica Franco <span className="text-[#14b8a6]">+</span> Associados</h3>
+            <h3 className="font-serif font-bold text-xl mb-6">Clínica Franco</h3>
             <p className="text-teal-50/70 text-xs leading-relaxed max-w-xs mb-4">
               Rua Melvin Jones, 1243<br />Nova Andradina - MS
             </p>
@@ -320,7 +320,7 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-teal-500/10 pt-8 text-center text-[10px] text-teal-50/40">
-          <p>&copy; 2026 Clínica Franco + Associados. Todos os direitos reservados. Responsável Técnico: Dr. Rodrigo Duarte Franco.</p>
+          <p>&copy; 2026 Clínica Franco. Todos os direitos reservados. Responsável Técnico: Dr. Rodrigo Duarte Franco.</p>
         </div>
       </footer>
     </div>
