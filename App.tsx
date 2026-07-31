@@ -54,7 +54,7 @@ const App: React.FC = () => {
 
     useSEO({
         title: 'Ultrassom em Nova Andradina - MS | Clínica Franco',
-        description: 'Ultrassom em Nova Andradina - MS: Morfológico, Obstétrico com Doppler e 3D, Abdominal, Tireoide, Mama, Próstata, Vascular e outros exames. Clínica Franco. Agende pelo WhatsApp: (67) 99844-6674.',
+        description: 'Ultrassom em Nova Andradina - MS: Morfológico, Obstétrico com Doppler e 3D, Abdominal e outros exames na Clínica Franco. Agende pelo WhatsApp: (67) 99844-6674.',
         path: '/',
         enabled: currentPath === '/' || currentPath === '',
     });
