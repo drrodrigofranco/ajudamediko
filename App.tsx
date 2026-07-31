@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import GestationalCalculator from './components/GestationalCalculator';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import About from './components/About';
 import Partners from './components/Partners';
 import Services from './components/Services';
 import Curriculum from './components/Curriculum';
@@ -77,7 +78,7 @@ const App: React.FC = () => {
     const mapImgSrc = "/images/mapa-localizacao.jpg";
     const googleMapsLink = "https://maps.app.goo.gl/aMkRNzPYtTe6jwQJ8";
 
-    const navItems = ['SERVIÇOS', 'ENTENDA OS EXAMES', 'ATENDIMENTOS', 'CALCULADORAS', 'CURRÍCULO', 'LOCALIZAÇÃO', 'DÚVIDAS', 'NOTÍCIAS', 'CONTATO'];
+    const navItems = ['SOBRE', 'SERVIÇOS', 'ENTENDA OS EXAMES', 'ATENDIMENTOS', 'CALCULADORAS', 'CURRÍCULO', 'LOCALIZAÇÃO', 'DÚVIDAS', 'NOTÍCIAS', 'CONTATO'];
 
     const normalizeId = (text: string) => {
         return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "").toLowerCase();
@@ -266,6 +267,8 @@ const App: React.FC = () => {
                     mapImgSrc={mapImgSrc} 
                     googleMapsLink={googleMapsLink} 
                 />
+
+                <About />
 
                 <Partners />
 
