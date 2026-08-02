@@ -407,7 +407,7 @@ export const examsData: ExamData[] = [
     id: 'articulacao_ombro',
     name: 'Ultrassom de Articulação: Ombro',
     shortDesc: 'Avaliação de tendões, ligamentos e bursas do ombro.',
-    longDesc: 'O ultrassom do ombro avalia tendões do manguito rotador, ligamentos, cartilagens iniciais e a presença de líquido inflamatório na articulação. Excelente para diagnosticar tendinites e bursites.',
+    longDesc: 'O ultrassom do ombro avalia tendões do manguito rotador, ligamentos, cartilagens iniciais e a presença de líquido inflamatório na articulação. Excelente para diagnosticar tendinites e bursites. Por ser um exame dinâmico (o médico movimenta o braço durante a avaliação), consegue flagrar pinçamentos e atritos tendíneos que só aparecem em determinadas posições - algo que exames estáticos como a ressonância não capturam da mesma forma.',
     iconName: 'Dumbbell',
     preparation: [
       'Não exige jejum.',
@@ -431,6 +431,10 @@ export const examsData: ExamData[] = [
       {
         question: 'Bursite tem cura?',
         answer: 'Sim. A bursite é uma inflamação da bursa (bolsa de líquido amortecedora) e o tratamento envolve fisioterapia, anti-inflamatórios ou infiltração orientada por ultrassom.'
+      },
+      {
+        question: 'Preciso de pedido médico para agendar o ultrassom de ombro?',
+        answer: 'Sim, é um exame de imagem que precisa de solicitação médica (ortopedista, clínico geral ou fisioterapeuta com pedido). Na Clínica Franco você pode agendar apresentando o pedido no dia do exame.'
       }
     ]
   },
@@ -438,7 +442,7 @@ export const examsData: ExamData[] = [
     id: 'articulacao_cotovelo',
     name: 'Ultrassom de Articulação: Cotovelo',
     shortDesc: 'Diagnóstico de epicondilite e tendinites no cotovelo.',
-    longDesc: 'Exame focado em avaliar as estruturas tendíneas e ligamentares do cotovelo. Muito comum em esportistas (tenistas/golfistas) e profissionais com esforço repetitivo.',
+    longDesc: 'Exame focado em avaliar as estruturas tendíneas e ligamentares do cotovelo. Muito comum em esportistas (tenistas/golfistas) e profissionais com esforço repetitivo, como digitadores, cabeleireiros e trabalhadores manuais. A comparação com o cotovelo do lado saudável, quando possível, ajuda a confirmar pequenas espessuras ou irregularidades no tendão que passariam despercebidas em uma avaliação isolada.',
     iconName: 'Dumbbell',
     preparation: [
       'Não exige jejum.',
@@ -462,6 +466,10 @@ export const examsData: ExamData[] = [
       {
         question: 'Como é tratada a epicondilite?',
         answer: 'O tratamento costuma incluir repouso de atividades repetitivas, fisioterapia, alongamentos e uso de órteses.'
+      },
+      {
+        question: 'Quanto tempo leva pra sair o resultado do ultrassom de cotovelo?',
+        answer: 'O laudo costuma ser entregue no mesmo dia ou em até 24h, e as imagens já são discutidas com o paciente durante a própria consulta.'
       }
     ]
   },
@@ -469,7 +477,7 @@ export const examsData: ExamData[] = [
     id: 'articulacao_punho',
     name: 'Ultrassom de Articulação: Punho',
     shortDesc: 'Investigação de cisto sinovial e síndrome do túnel do carpo.',
-    longDesc: 'Avalia tendões flexores e extensores do punho, o nervo mediano (túnel do carpo) e a presença de pequenos cistos articulares muito comuns na região dorsal do punho.',
+    longDesc: 'Avalia tendões flexores e extensores do punho, o nervo mediano (túnel do carpo) e a presença de pequenos cistos articulares muito comuns na região dorsal do punho. É um dos exames de imagem mais solicitados por quem trabalha muitas horas no computador ou no celular, já que a sobrecarga repetitiva do punho é a principal causa das queixas avaliadas aqui.',
     iconName: 'Dumbbell',
     preparation: [
       'Não exige jejum.',
@@ -493,6 +501,10 @@ export const examsData: ExamData[] = [
       {
         question: 'O que é a tendinite de De Quervain?',
         answer: 'É uma inflamação dolorosa dos tendões da base do polegar, muito comum em mães recentes (pelo movimento de segurar o bebê) e digitadores.'
+      },
+      {
+        question: 'Formigamento no punho sempre é túnel do carpo?',
+        answer: 'Não necessariamente - formigamento também pode vir de compressões mais altas, como no cotovelo ou na coluna cervical. O ultrassom ajuda a diferenciar quando a causa está localizada no próprio punho.'
       }
     ]
   },
@@ -500,7 +512,7 @@ export const examsData: ExamData[] = [
     id: 'articulacao_joelho',
     name: 'Ultrassom de Articulação: Joelho',
     shortDesc: 'Avaliação de tendões, menisco externo e cisto de Baker.',
-    longDesc: 'O ultrassom do joelho é um exame dinâmico focado em avaliar as estruturas extra-articulares, como o tendão patelar, quadríceps, ligamentos colaterais e a presença de acúmulo de líquido (derrame).',
+    longDesc: 'O ultrassom do joelho é um exame dinâmico focado em avaliar as estruturas extra-articulares, como o tendão patelar, quadríceps, ligamentos colaterais e a presença de acúmulo de líquido (derrame). É bastante usado tanto para queixas do dia a dia (dor ao subir escada, inchaço após esforço) quanto no acompanhamento de atletas amadores e corredores.',
     iconName: 'Dumbbell',
     preparation: [
       'Não exige jejum.',
@@ -524,6 +536,10 @@ export const examsData: ExamData[] = [
       {
         question: 'Derrame articular tem cura?',
         answer: 'Sim, o derrame articular (água no joelho) é um sintoma de inflamação. Tratar a causa subjacente (repouso, gelo, infiltração ou fisioterapia) resolve o acúmulo de líquido.'
+      },
+      {
+        question: 'O ultrassom de joelho dói?',
+        answer: 'Não. É um exame indolor - o desconforto máximo é a pressão leve do transdutor sobre uma área já inflamada, algo bem tolerável para a maioria dos pacientes.'
       }
     ]
   },
@@ -531,7 +547,7 @@ export const examsData: ExamData[] = [
     id: 'articulacao_tornozelo',
     name: 'Ultrassom de Articulação: Tornozelo',
     shortDesc: 'Avaliação do tendão de Aquiles e ligamentos após entorses.',
-    longDesc: 'O ultrassom do tornozelo é muito utilizado para avaliar tendinopatias (especialmente do tendão calcâneo / Aquiles) e diagnosticar estiramentos ou rupturas de ligamentos após torções.',
+    longDesc: 'O ultrassom do tornozelo é muito utilizado para avaliar tendinopatias (especialmente do tendão calcâneo / Aquiles) e diagnosticar estiramentos ou rupturas de ligamentos após torções. Também é a primeira escolha para investigar dor crônica no calcanhar ao caminhar ou pisar em falso, situação muito comum em corredores e em quem passa longos períodos em pé.',
     iconName: 'Dumbbell',
     preparation: [
       'Não exige jejum.',
@@ -555,6 +571,10 @@ export const examsData: ExamData[] = [
       {
         question: 'Como tratar fascite plantar?',
         answer: 'Fascite plantar é tratada com fisioterapia, alongamento da sola do pé e panturrilha, palmilhas amortecedoras e controle de peso.'
+      },
+      {
+        question: 'Depois de uma torção, quanto tempo devo esperar pra fazer o ultrassom?',
+        answer: 'Pode ser feito logo nos primeiros dias após a torção, mas o médico pode pedir para repetir depois de alguns dias caso o inchaço inicial dificulte a visualização completa dos ligamentos.'
       }
     ]
   },

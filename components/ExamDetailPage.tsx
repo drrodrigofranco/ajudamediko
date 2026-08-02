@@ -238,17 +238,15 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
                   </div>
                 </div>
 
-                {exam.price && (
-                  <div className="flex items-center gap-4">
-                    <div className="bg-teal-500/20 p-3 rounded-2xl text-[#14b8a6]">
-                      <Icons.CreditCard className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h4 className="text-xs uppercase tracking-widest text-teal-300 font-bold">Valor</h4>
-                      <p className="font-bold text-sm">{exam.price} <span className="text-[10px] text-teal-100 font-normal">(consulte convênios)</span></p>
-                    </div>
+                <div className="flex items-center gap-4">
+                  <div className="bg-teal-500/20 p-3 rounded-2xl text-[#14b8a6]">
+                    <Icons.CreditCard className="w-6 h-6" />
                   </div>
-                )}
+                  <div>
+                    <h4 className="text-xs uppercase tracking-widest text-teal-300 font-bold">Valor</h4>
+                    <p className="font-bold text-sm">Preços acessíveis <span className="text-[10px] text-teal-100 font-normal">- fale conosco</span></p>
+                  </div>
+                </div>
 
                 <a 
                   href={whatsappUrl} 
@@ -276,6 +274,24 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
                   </li>
                 ))}
               </ul>
+            </div>
+
+            {/* Convenios aceitos */}
+            <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+              <h3 className="text-base font-bold text-[#0e4843] mb-4 flex items-center gap-2">
+                <Icons.ShieldCheck className="text-[#14b8a6] w-5 h-5" />
+                Convênios Aceitos
+              </h3>
+              <p className="text-xs text-gray-500 leading-relaxed mb-3">
+                Atendemos particular e os seguintes convênios/planos de desconto:
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {['Prover Saúde', 'Oeste Saúde', 'MaterDei', 'PAX', 'AMENA'].map((nome) => (
+                  <span key={nome} className="text-[11px] font-bold text-[#0e4843] bg-teal-50 px-3 py-1.5 rounded-full">
+                    {nome}
+                  </span>
+                ))}
+              </div>
             </div>
 
             {/* Other exams navigation */}
