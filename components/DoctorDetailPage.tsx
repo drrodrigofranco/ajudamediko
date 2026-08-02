@@ -2,6 +2,7 @@ import React from 'react';
 import * as Icons from 'lucide-react';
 import { doctorsData } from '../doctorsData';
 import { useSEO } from '../hooks/useSEO';
+import { useJsonLd } from '../hooks/useJsonLd';
 
 interface DoctorDetailPageProps {
   doctorId: string;
@@ -27,24 +28,27 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
     path: `/medico/${doctorId}`,
   });
 
-  React.useEffect(() => {
-    if (!doctor) return;
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'doctor-jsonld';
-    script.text = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'Physician',
-      name: doctor.name,
-      identifier: doctor.crm,
-      image: `https://ajudamediko.com.br${doctor.photo}`,
-      url: `https://ajudamediko.com.br/medico/${doctor.id}`,
-      medicalSpecialty: doctor.specialtyLabel,
-      worksFor: { '@id': 'https://ajudamediko.com.br/#medicalbusiness' },
-    });
-    document.head.appendChild(script);
-    return () => { script.remove(); };
-  }, [doctor]);
+  useJsonLd('doctor-jsonld', doctor ? {
+    '@context': 'https://schema.org',
+    '@type': 'Physician',
+    '@id': `https://ajudamediko.com.br/medico/${doctor.id}#physician`,
+    name: doctor.name,
+    identifier: doctor.crm,
+    image: `https://ajudamediko.com.br${doctor.photo}`,
+    url: `https://ajudamediko.com.br/medico/${doctor.id}`,
+    description: doctor.specialtyLabel,
+    worksFor: { '@id': 'https://ajudamediko.com.br/#medicalbusiness' },
+  } : null);
+
+  useJsonLd('doctor-breadcrumb-jsonld', doctor ? {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ajudamediko.com.br/' },
+      { '@type': 'ListItem', position: 2, name: 'Equipe', item: 'https://ajudamediko.com.br/#curriculo' },
+      { '@type': 'ListItem', position: 3, name: doctor.name, item: `https://ajudamediko.com.br/medico/${doctor.id}` },
+    ],
+  } : null);
 
   if (!doctor) {
     return (

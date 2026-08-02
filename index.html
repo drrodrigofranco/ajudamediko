@@ -105,6 +105,7 @@
     "employee": [
       {
         "@type": "Physician",
+        "@id": "https://ajudamediko.com.br/medico/rodrigo-franco#physician",
         "name": "Dr. Rodrigo Franco",
         "identifier": "CRM-MS 10087",
         "url": "https://ajudamediko.com.br/medico/rodrigo-franco",
@@ -113,6 +114,7 @@
       },
       {
         "@type": "Physician",
+        "@id": "https://ajudamediko.com.br/medico/lucas-franco#physician",
         "name": "Dr. Lucas Duarte Franco",
         "identifier": "CRM-MS 7462",
         "url": "https://ajudamediko.com.br/medico/lucas-franco",
@@ -121,6 +123,7 @@
       },
       {
         "@type": "Physician",
+        "@id": "https://ajudamediko.com.br/medico/guilherme-zandona#physician",
         "name": "Dr. Guilherme Henrique Zandoná",
         "identifier": "CRM-MS 6347",
         "url": "https://ajudamediko.com.br/medico/guilherme-zandona",
@@ -165,6 +168,19 @@
         { "@type": "MedicalTest", "name": "MAPA", "description": "Monitoramento de pressão 24h" }
       ]
     }
+  }
+  </script>
+
+  <!-- Structured Data (JSON-LD) - WebSite (ajuda o Google a entender a estrutura do site) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://ajudamediko.com.br/#website",
+    "url": "https://ajudamediko.com.br",
+    "name": "Clínica Franco",
+    "publisher": { "@id": "https://ajudamediko.com.br/#medicalbusiness" },
+    "inLanguage": "pt-BR"
   }
   </script>
 
