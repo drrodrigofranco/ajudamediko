@@ -27,7 +27,7 @@ const About: React.FC = () => {
     <section id="sobre" className="py-24 bg-gray-50 scroll-mt-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-sm font-bold text-teal-600 uppercase tracking-widest">Quem Somos</h2>
+          <h2 className="text-sm font-bold text-[#0f766e] uppercase tracking-widest">Quem Somos</h2>
           <div className="h-0.5 w-8 bg-teal-200 mx-auto mt-2 mb-6"></div>
           <h3 className="text-3xl font-serif font-bold text-[#0e4843] mb-6">Sobre a Clínica Franco</h3>
           <p className="text-gray-500 max-w-3xl mx-auto leading-relaxed">

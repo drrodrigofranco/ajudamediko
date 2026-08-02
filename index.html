@@ -210,25 +210,36 @@
 
   <!-- Google tag (gtag.js) - um unico carregamento do runtime, configurando as duas
        propriedades (Ads + GA4). Antes eram dois <script src> separados, cada um
-       baixando o gtag.js inteiro (~150-180KB) - dobrava o peso do analytics a toa. -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KKPFVK7H1R">
-  </script>
+       baixando o gtag.js inteiro (~150-180KB) - dobrava o peso do analytics a toa.
+
+       O <script src=".../gtag/js"> em si (~187KB) tambem foi movido pra dentro do
+       requestIdleCallback abaixo: as chamadas gtag() so empilham em window.dataLayer
+       (custo insignificante) e sao processadas assim que o runtime chega, entao dá
+       pra atrasar o download/parse/exec do arquivo inteiro pra depois do LCP/TTI sem
+       perder o pageview - so adia por um instante a hora que ele é registrado. -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-KKPFVK7H1R');
 
-    // Config do Google Ads (conversao de "como chegar") e adiada para quando a
-    // pagina ficar ociosa: cada gtag('config', ID) novo faz o runtime do
-    // gtag.js buscar um script adicional por destino, e isso competia com a
-    // hidratacao do React pelo main thread bem na janela do LCP/INP (ver
-    // auditoria de performance de 2026-07-25, TBT de 1,1s).
-    var loadAdsConfig = function () { gtag('config', 'AW-17670106209'); };
+    var loadGtagRuntime = function () {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-KKPFVK7H1R';
+      document.head.appendChild(s);
+
+      // Config do Google Ads (conversao de "como chegar") e adiada para quando a
+      // pagina ficar ociosa: cada gtag('config', ID) novo faz o runtime do
+      // gtag.js buscar um script adicional por destino, e isso competia com a
+      // hidratacao do React pelo main thread bem na janela do LCP/INP (ver
+      // auditoria de performance de 2026-07-25, TBT de 1,1s).
+      gtag('config', 'AW-17670106209');
+    };
     if ('requestIdleCallback' in window) {
-      requestIdleCallback(loadAdsConfig, { timeout: 4000 });
+      requestIdleCallback(loadGtagRuntime, { timeout: 4000 });
     } else {
-      setTimeout(loadAdsConfig, 2000);
+      setTimeout(loadGtagRuntime, 2000);
     }
   </script>
 

@@ -43,15 +43,15 @@ const Navbar: React.FC<NavbarProps> = ({
               <span className="hidden sm:inline">Instagram</span>
             </a>
           </div>
-          <a href="https://www.facebook.com/profile.php?id=61584404454201" target="_blank" rel="noopener noreferrer" className="hover:text-[#14b8a6] transition-colors flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase">
+          <a href="https://www.facebook.com/profile.php?id=61584404454201" target="_blank" rel="noopener noreferrer" aria-label="Facebook da Clínica Franco" className="hover:text-[#14b8a6] transition-colors flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase">
             <Facebook size={20} />
             <span className="hidden sm:inline">Facebook</span>
           </a>
-          <a href="https://www.youtube.com/@Dr.Francos" target="_blank" rel="noopener noreferrer" className="hover:text-[#14b8a6] transition-colors flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase">
+          <a href="https://www.youtube.com/@Dr.Francos" target="_blank" rel="noopener noreferrer" aria-label="YouTube da Clínica Franco" className="hover:text-[#14b8a6] transition-colors flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase">
             <Youtube size={20} />
             <span className="hidden sm:inline">YouTube</span>
           </a>
-          <a href="https://www.tiktok.com/@dr.rodrigofranco" target="_blank" rel="noopener noreferrer" className="hover:text-[#14b8a6] transition-colors flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase">
+          <a href="https://www.tiktok.com/@dr.rodrigofranco" target="_blank" rel="noopener noreferrer" aria-label="TikTok da Clínica Franco" className="hover:text-[#14b8a6] transition-colors flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase">
             <svg size={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-[20px] h-[20px]">
               <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
             </svg>
@@ -86,10 +86,10 @@ const Navbar: React.FC<NavbarProps> = ({
                 Clínica Franco
               </p>
               <div className="mt-0.5 flex flex-col">
-                <span className="text-[8px] md:text-[10px] font-bold text-[#14b8a6] uppercase tracking-wider md:whitespace-nowrap">
+                <span className="text-[8px] md:text-[10px] font-bold text-[#0e4843] uppercase tracking-wider md:whitespace-nowrap">
                   Dr. Rodrigo (CRM 10087) | Dr. Lucas (CRM 7462) | Dr. Guilherme (CRM 6347)
                 </span>
-                <span className="text-[7px] md:text-[8px] lg:text-[9px] text-[#14b8a6] font-bold uppercase tracking-widest mt-0.5 opacity-80 leading-tight md:max-w-none max-w-[180px]">
+                <span className="text-[7px] md:text-[8px] lg:text-[9px] text-[#0e4843] font-bold uppercase tracking-widest mt-0.5 leading-tight md:max-w-none max-w-[180px]">
                   ULTRASSOM MORFOLÓGICO, DOPPLER E 3D, SAÚDE DO IDOSO, SAÚDE MENTAL, SAÚDE NEUROLÓGICA
                 </span>
               </div>
@@ -99,7 +99,7 @@ const Navbar: React.FC<NavbarProps> = ({
           <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
             <button
               onClick={() => scrollToSection('contato')}
-              className="inline-flex bg-[#14b8a6] text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-bold text-xs sm:text-sm hover:bg-[#0d9488] transition-all shadow-md active:scale-95 whitespace-nowrap"
+              className="inline-flex bg-[#0f766e] text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-bold text-xs sm:text-sm hover:bg-[#0d9488] transition-all shadow-md active:scale-95 whitespace-nowrap"
             >
               Agendar
             </button>

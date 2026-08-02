@@ -62,14 +62,14 @@ const Curriculum: React.FC<CurriculumProps> = ({ navigateTo }) => {
                   </div>
                   <div className={`text-center ${reversed ? 'md:text-right flex-grow' : 'md:text-left'}`}>
                     <h3 className="text-3xl md:text-4xl font-serif font-bold text-[#0e4843] mb-2">{doctor.name}</h3>
-                    <p className="text-[#14b8a6] font-bold uppercase tracking-widest text-sm mb-4">{doctor.crm}</p>
+                    <p className="text-[#0f766e] font-bold uppercase tracking-widest text-sm mb-4">{doctor.crm}</p>
                     <p className={`text-gray-500 max-w-xl leading-relaxed ${reversed ? 'ml-auto' : ''}`}>
                       {doctor.shortBio}
                     </p>
                     <a
                       href={`/medico/${doctor.id}`}
                       onClick={(e) => navigateTo(`/medico/${doctor.id}`, e)}
-                      className={`inline-flex items-center gap-1 text-[#14b8a6] hover:text-[#0d9488] font-bold text-sm mt-4 transition-colors ${reversed ? 'md:ml-auto md:justify-end w-full' : ''}`}
+                      className={`inline-flex items-center gap-1 text-[#0f766e] hover:text-[#0d9488] font-bold text-sm mt-4 transition-colors ${reversed ? 'md:ml-auto md:justify-end w-full' : ''}`}
                     >
                       Ver perfil completo
                       <ChevronRight className="w-4 h-4" />
@@ -84,7 +84,7 @@ const Curriculum: React.FC<CurriculumProps> = ({ navigateTo }) => {
                   <div className="flex items-center gap-4 mb-12">
                     <div className="text-[#0e4843] flex items-center">
                       <GraduationCap className="w-10 h-10 mr-4" />
-                      <h2 className="text-3xl font-serif font-bold">Formação Acadêmica</h2>
+                      <h3 className="text-3xl font-serif font-bold">Formação Acadêmica</h3>
                     </div>
                   </div>
                   <div className="border-l-2 border-[#ccfbf1] ml-5 pl-12 space-y-12">
@@ -92,14 +92,14 @@ const Curriculum: React.FC<CurriculumProps> = ({ navigateTo }) => {
                       <div key={i} className="relative">
                         <div className={`absolute -left-[57px] top-1.5 w-6 h-6 rounded-full border-4 border-white ${i === 0 ? 'bg-[#14b8a6] shadow-sm' : 'bg-gray-200'}`}></div>
                         <h4 className="font-bold text-gray-900 text-xl">{edu.title}</h4>
-                        {edu.year && <span className="text-[#14b8a6] font-bold text-sm block mt-1">{edu.year}</span>}
+                        {edu.year && <span className="text-[#0f766e] font-bold text-sm block mt-1">{edu.year}</span>}
                         {edu.institution && <p className="text-gray-500 text-sm mt-1">{edu.institution}</p>}
                         {edu.description && <p className="text-gray-500 text-sm mt-3 leading-relaxed">{edu.description}</p>}
                       </div>
                     ))}
                   </div>
                   {doctor.lattesUrl && (
-                    <a href={doctor.lattesUrl} target="_blank" rel="noopener noreferrer" className="text-[#14b8a6] hover:underline text-xl font-bold mt-8 ml-12 block italic">
+                    <a href={doctor.lattesUrl} target="_blank" rel="noopener noreferrer" className="text-[#0f766e] hover:underline text-xl font-bold mt-8 ml-12 block italic">
                       Acesse currículo completo clicando aqui
                     </a>
                   )}
@@ -109,7 +109,7 @@ const Curriculum: React.FC<CurriculumProps> = ({ navigateTo }) => {
                   <div className="flex items-center gap-4 mb-12">
                     <div className="text-[#0e4843] flex items-center">
                       <Stethoscope className="w-10 h-10 mr-4" />
-                      <h2 className="text-3xl font-serif font-bold">Trajetória Profissional</h2>
+                      <h3 className="text-3xl font-serif font-bold">Trajetória Profissional</h3>
                     </div>
                   </div>
                   <div className="bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-gray-100">

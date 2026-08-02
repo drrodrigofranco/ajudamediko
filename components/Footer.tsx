@@ -33,16 +33,16 @@ const Footer: React.FC = () => {
                     Dedicados ao Ultrassom Morfológico, Doppler e 3D, Saúde do Idoso, Saúde Mental e Saúde Neurológica. Atendimento humanizado e diagnósticos precisos em Nova Andradina, atendendo também pacientes de Batayporã, Ivinhema, Anaurilândia, Angélica, Deodápolis e Rosana (SP).
                 </p>
                 <div className="flex gap-4">
-                    <a href="https://www.instagram.com/clinicafrancoo/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-3 rounded-full hover:bg-teal-600 hover:text-white transition-all">
+                    <a href="https://www.instagram.com/clinicafrancoo/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Clínica Franco" className="bg-gray-800 p-3 rounded-full hover:bg-teal-600 hover:text-white transition-all">
                         <Instagram size={22} />
                     </a>
-                    <a href="https://www.facebook.com/profile.php?id=61584404454201" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-3 rounded-full hover:bg-teal-600 hover:text-white transition-all">
+                    <a href="https://www.facebook.com/profile.php?id=61584404454201" target="_blank" rel="noopener noreferrer" aria-label="Facebook da Clínica Franco" className="bg-gray-800 p-3 rounded-full hover:bg-teal-600 hover:text-white transition-all">
                         <Facebook size={22} />
                     </a>
-                    <a href="https://www.youtube.com/@Dr.Francos" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-3 rounded-full hover:bg-teal-600 hover:text-white transition-all">
+                    <a href="https://www.youtube.com/@Dr.Francos" target="_blank" rel="noopener noreferrer" aria-label="YouTube da Clínica Franco" className="bg-gray-800 p-3 rounded-full hover:bg-teal-600 hover:text-white transition-all">
                         <Youtube size={22} />
                     </a>
-                    <a href="https://www.tiktok.com/@dr.rodrigofranco" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-3 rounded-full hover:bg-teal-600 hover:text-white transition-all">
+                    <a href="https://www.tiktok.com/@dr.rodrigofranco" target="_blank" rel="noopener noreferrer" aria-label="TikTok da Clínica Franco" className="bg-gray-800 p-3 rounded-full hover:bg-teal-600 hover:text-white transition-all">
                         <svg size={22} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-[22px] h-[22px]">
                             <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
                         </svg>
@@ -148,19 +148,19 @@ const Footer: React.FC = () => {
                     <li><a href="/exame/espirometria" onClick={(e) => goTo(e, '/exame/espirometria')} className="hover:text-teal-400 transition-colors">Espirometria</a></li>
                     <li><a href="/exame/holter" onClick={(e) => goTo(e, '/exame/holter')} className="hover:text-teal-400 transition-colors">Holter 24h</a></li>
                     <li><a href="/exame/mapa" onClick={(e) => goTo(e, '/exame/mapa')} className="hover:text-teal-400 transition-colors">MAPA 24h</a></li>
-                    <li className="text-gray-500">Perícia Médica</li>
+                    <li className="text-gray-400">Perícia Médica</li>
                 </ul>
             </div>
         </div>
 
         <div className="mt-12 border-t border-gray-800 pt-8 text-center text-sm">
-            <p className="max-w-3xl mx-auto text-xs text-gray-500 leading-relaxed mb-6">
+            <p className="max-w-3xl mx-auto text-xs text-gray-400 leading-relaxed mb-6">
                 As informações deste site têm caráter educativo e não substituem consulta, diagnóstico ou
                 tratamento médico. Sempre procure orientação de um profissional de saúde qualificado para
                 dúvidas sobre sua condição.
             </p>
             <p>&copy; {new Date().getFullYear()} Clínica Franco. Todos os direitos reservados.</p>
-            <p className="mt-2 text-gray-500">Nova Andradina - MS</p>
+            <p className="mt-2 text-gray-400">Nova Andradina - MS</p>
         </div>
       </div>
     </footer>

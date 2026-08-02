@@ -42,7 +42,7 @@ const Hero: React.FC<HeroProps> = ({
               Referência em ultrassom em Nova Andradina e região. Dr. Rodrigo Franco, Dr. Lucas Duarte Franco e Dr. Guilherme Zandoná — cuidado multigeracional com precisão diagnóstica para toda a família.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button onClick={() => scrollToSection('contato')} className="bg-[#14b8a6] text-white px-10 py-4 rounded-full font-bold shadow-lg hover:bg-[#0d9488] transition-all transform hover:-translate-y-1">
+              <button onClick={() => scrollToSection('contato')} className="bg-[#0f766e] text-white px-10 py-4 rounded-full font-bold shadow-lg hover:bg-[#0d9488] transition-all transform hover:-translate-y-1">
                 Agendar Consulta
               </button>
               <button onClick={() => scrollToSection('servicos')} className="bg-white/10 backdrop-blur-sm text-white border border-white/20 px-10 py-4 rounded-full font-bold hover:bg-white/20 transition-all">

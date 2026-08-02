@@ -309,8 +309,9 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
 
               <div className="space-y-4">
                 <div>
-                  <label className="text-[10px] font-bold text-gray-400 uppercase mb-2 block tracking-widest">Data da Última Menstruação (DUM)</label>
-                  <input 
+                  <label htmlFor="pg-dum-date" className="text-[10px] font-bold text-gray-400 uppercase mb-2 block tracking-widest">Data da Última Menstruação (DUM)</label>
+                  <input
+                    id="pg-dum-date"
                     type="date"
                     value={dum}
                     onChange={(e) => setDum(e.target.value)}
@@ -381,8 +382,9 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
 
               <div className="grid sm:grid-cols-2 gap-6 mb-6">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-bold text-gray-400 uppercase block tracking-widest">Semanas em Meses</label>
-                  <input 
+                  <label htmlFor="pg-weeks-to-months" className="text-[10px] font-bold text-gray-400 uppercase block tracking-widest">Semanas em Meses</label>
+                  <input
+                    id="pg-weeks-to-months"
                     type="number"
                     min="1"
                     max="42"
@@ -403,8 +405,9 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-bold text-gray-400 uppercase block tracking-widest">Mês em Semanas</label>
-                  <input 
+                  <label htmlFor="pg-months-to-weeks" className="text-[10px] font-bold text-gray-400 uppercase block tracking-widest">Mês em Semanas</label>
+                  <input
+                    id="pg-months-to-weeks"
                     type="number"
                     min="1"
                     max="9"

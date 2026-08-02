@@ -43,20 +43,20 @@ const Contact: React.FC<ContactProps> = ({
       <div className="bg-white rounded-[40px] shadow-2xl overflow-hidden flex flex-col md:flex-row border border-gray-50">
         <div className="md:w-5/12 bg-[#0e4843] text-white p-14 text-left flex flex-col justify-center">
           <h2 className="text-4xl font-serif font-bold mb-6">Agende seu Exame</h2>
-          <p className="text-teal-100/60 mb-14 text-sm leading-relaxed">Entre em contato para marcar sua consulta ou tirar dúvidas sobre procedimentos médicos e periciais.</p>
+          <p className="text-teal-100/80 mb-14 text-sm leading-relaxed">Entre em contato para marcar sua consulta ou tirar dúvidas sobre procedimentos médicos e periciais.</p>
           
           <div className="space-y-12">
             <div className="flex gap-5">
               <div className="bg-[#1c5d57] p-3.5 rounded-2xl"><MapPin className="text-[#14b8a6]" /></div>
               <div>
-                <h4 className="font-bold mb-1 text-base">Endereço</h4>
+                <h3 className="font-bold mb-1 text-base">Endereço</h3>
                 <p className="text-[11px] text-teal-100/70">Rua Melvin Jones, 1243<br/>Nova Andradina - MS, 79750-000</p>
               </div>
             </div>
             <div className="flex gap-5">
               <div className="bg-[#1c5d57] p-3.5 rounded-2xl"><Phone className="text-[#14b8a6]" /></div>
               <div>
-                <h4 className="font-bold mb-1 text-base">Contato</h4>
+                <h3 className="font-bold mb-1 text-base">Contato</h3>
                 <p className="text-[11px] text-teal-100/70">
                   <a href="https://wa.me/5567998446674" target="_blank" rel="noopener noreferrer" className="hover:text-teal-300 underline transition-colors">
                     (67) 99844-6674
@@ -68,14 +68,14 @@ const Contact: React.FC<ContactProps> = ({
             <div className="flex gap-5">
               <div className="bg-[#1c5d57] p-3.5 rounded-2xl"><CheckCircle className="text-[#14b8a6]" /></div>
               <div>
-                <h4 className="font-bold mb-1 text-base">Atendimentos</h4>
+                <h3 className="font-bold mb-1 text-base">Atendimentos</h3>
                 <p className="text-[11px] text-teal-100/70">PROVER, Oeste Saúde, MaterDei, PAX, AMENA e Particular</p>
               </div>
             </div>
             <div className="flex gap-5">
               <div className="bg-[#1c5d57] p-3.5 rounded-2xl"><Globe className="text-[#14b8a6]" /></div>
               <div>
-                <h4 className="font-bold mb-1 text-base">Região de Atendimento</h4>
+                <h3 className="font-bold mb-1 text-base">Região de Atendimento</h3>
                 <p className="text-[11px] text-teal-100/70">Pacientes de Nova Andradina, Rosana (SP), Ivinhema, Anaurilândia, Batayporã, Deodápolis, Angélica e região.</p>
               </div>
             </div>
@@ -90,27 +90,30 @@ const Contact: React.FC<ContactProps> = ({
               </div>
             )}
             <div>
-              <label className="text-[10px] font-bold text-gray-400 uppercase mb-3 block tracking-widest">Nome Completo</label>
-              <input 
-                value={formName} 
+              <label htmlFor="contact-name" className="text-[10px] font-bold text-gray-500 uppercase mb-3 block tracking-widest">Nome Completo</label>
+              <input
+                id="contact-name"
+                value={formName}
                 onChange={e => setFormName(e.target.value)} 
                 className="w-full bg-gray-50 border border-gray-100 p-5 rounded-2xl outline-none focus:ring-2 focus:ring-[#14b8a6]/20 transition-all text-sm" 
                 placeholder="Seu nome" 
               />
             </div>
             <div>
-              <label className="text-[10px] font-bold text-gray-400 uppercase mb-3 block tracking-widest">Telefone / WhatsApp</label>
-              <input 
-                value={formPhone} 
+              <label htmlFor="contact-phone" className="text-[10px] font-bold text-gray-500 uppercase mb-3 block tracking-widest">Telefone / WhatsApp</label>
+              <input
+                id="contact-phone"
+                value={formPhone}
                 onChange={e => setFormPhone(e.target.value)} 
                 className="w-full bg-gray-50 border border-gray-100 p-5 rounded-2xl outline-none focus:ring-2 focus:ring-[#14b8a6]/20 transition-all text-sm" 
                 placeholder="(67) 99844-6674" 
               />
             </div>
             <div>
-              <label className="text-[10px] font-bold text-gray-400 uppercase mb-3 block tracking-widest">Tipo de Exame</label>
-              <select 
-                value={formExam} 
+              <label htmlFor="contact-exam" className="text-[10px] font-bold text-gray-500 uppercase mb-3 block tracking-widest">Tipo de Exame</label>
+              <select
+                id="contact-exam"
+                value={formExam}
                 onChange={e => setFormExam(e.target.value)} 
                 className="w-full bg-gray-50 border border-gray-100 p-5 rounded-2xl outline-none focus:ring-2 focus:ring-[#14b8a6]/20 transition-all text-sm text-gray-500 appearance-none"
               >
@@ -120,7 +123,7 @@ const Contact: React.FC<ContactProps> = ({
             </div>
             <button 
               onClick={validateAndSchedule} 
-              className="w-full bg-[#14b8a6] text-white py-5 rounded-2xl font-bold shadow-lg hover:bg-[#0f766e] transition-all transform active:scale-95 text-sm uppercase tracking-wider"
+              className="w-full bg-[#0f766e] text-white py-5 rounded-2xl font-bold shadow-lg hover:bg-[#0d9488] transition-all transform active:scale-95 text-sm uppercase tracking-wider"
             >
               Solicitar Agendamento
             </button>

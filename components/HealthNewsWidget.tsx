@@ -49,7 +49,7 @@ const HealthNewsWidget: React.FC = () => {
                                 </p>
                             ))}
                         </div>
-                        <p className="text-xs text-gray-400 italic mt-4 leading-relaxed">
+                        <p className="text-xs text-gray-500 italic mt-4 leading-relaxed">
                             {article.disclaimer}
                         </p>
                     </article>
@@ -83,7 +83,7 @@ const HealthNewsWidget: React.FC = () => {
                                         href={news.url} 
                                         target="_blank" 
                                         rel="noopener noreferrer" 
-                                        className="inline-flex items-center text-sm font-semibold text-teal-600 hover:text-teal-800 transition-colors"
+                                        className="inline-flex items-center text-sm font-semibold text-[#0f766e] hover:text-teal-800 transition-colors"
                                     >
                                         Ler fonte completa
                                         <ChevronRight size={16} className="ml-1" />
@@ -94,7 +94,7 @@ const HealthNewsWidget: React.FC = () => {
                     ))}
                 </div>
             </div>
-             <div className="bg-gray-50 p-4 text-center border-t border-gray-100 text-xs text-gray-400">
+             <div className="bg-gray-50 p-4 text-center border-t border-gray-100 text-xs text-gray-500">
                 Fontes obtidas via busca de referências públicas
             </div>
         </div>

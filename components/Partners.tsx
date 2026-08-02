@@ -34,10 +34,10 @@ const Partners: React.FC = () => {
     <section id="atendimentos" className="bg-white py-12 border-b border-gray-50 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
-          <h2 className="text-sm font-bold text-teal-600 uppercase tracking-widest">Atendimentos</h2>
+          <h2 className="text-sm font-bold text-[#0f766e] uppercase tracking-widest">Atendimentos</h2>
           <div className="h-0.5 w-8 bg-teal-200 mx-auto mt-2"></div>
         </div>
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 hover:opacity-100 transition-opacity duration-500">
+        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-90 hover:opacity-100 transition-opacity duration-500">
           {partners.map((partner) => (
             <div key={partner.name} className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
               {partner.isCustom ? (
@@ -58,7 +58,7 @@ const Partners: React.FC = () => {
             </div>
           ))}
         </div>
-        <p className="text-center text-xs text-gray-400 mt-8">
+        <p className="text-center text-xs text-gray-500 mt-8">
           * Atendemos consultas particulares, planos corporativos, convênios de saúde e planos de assistência familiar e funerária locais.
         </p>
       </div>
