@@ -31,7 +31,7 @@ const About: React.FC = () => {
           <div className="h-0.5 w-8 bg-teal-200 mx-auto mt-2 mb-6"></div>
           <h3 className="text-3xl font-serif font-bold text-[#0e4843] mb-6">Sobre a Clínica Franco</h3>
           <p className="text-gray-500 max-w-3xl mx-auto leading-relaxed">
-            A Clínica Franco é o seu centro de diagnóstico médico por imagem de referência em Nova Andradina, MS. Somos capacitados em ultrassonografia de alta precisão, tecnologia e atendimento humanizado.
+            A Clínica Franco é o centro de diagnóstico por imagem de referência em Nova Andradina - MS, equipado com ultrassom de última geração e uma equipe dedicada a um atendimento humanizado. Além da ampla variedade de exames de ultrassonografia — com destaque para os morfológicos e os exames com Doppler — também oferecemos consultas de clínica geral, com atenção especial à saúde do idoso e à saúde neurológica, além do serviço de laudos periciais médicos.
           </p>
         </div>
 
