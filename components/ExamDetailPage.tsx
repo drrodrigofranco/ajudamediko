@@ -151,7 +151,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
               <div className="space-y-3">
                 <h3 className="text-lg font-serif font-bold text-[#0e4843] flex items-center gap-2">
                   <Icons.Info className="text-[#14b8a6] w-5 h-5" />
-                  Sobre o Exame
+                  O que é este exame?
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed">{exam.longDesc}</p>
               </div>
@@ -162,7 +162,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
                 <div className="space-y-3">
                   <h3 className="text-lg font-serif font-bold text-[#0e4843] flex items-center gap-2">
                     <Icons.Stethoscope className="text-[#14b8a6] w-5 h-5" />
-                    Como é Feito
+                    Como é feito o exame?
                   </h3>
                   <p className="text-gray-600 text-sm leading-relaxed">{exam.howItIsDone}</p>
                 </div>
@@ -170,7 +170,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
                 <div className="space-y-3">
                   <h3 className="text-lg font-serif font-bold text-[#0e4843] flex items-center gap-2">
                     <Icons.Target className="text-[#14b8a6] w-5 h-5" />
-                    Indicação e Utilidade
+                    Para que serve e quando é indicado?
                   </h3>
                   <p className="text-gray-600 text-sm leading-relaxed">{exam.purpose}</p>
                 </div>
@@ -182,7 +182,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
                   <div className="space-y-3">
                     <h3 className="text-lg font-serif font-bold text-[#0e4843] flex items-center gap-2">
                       <Icons.Calendar className="text-[#14b8a6] w-5 h-5" />
-                      Quando Realizar
+                      Quando devo realizar este exame?
                     </h3>
                     <p className="text-gray-600 text-sm leading-relaxed">{exam.whenItIsDone}</p>
                   </div>

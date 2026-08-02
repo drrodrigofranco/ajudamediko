@@ -1,0 +1,32 @@
+# Clínica Franco
+
+> Clínica de diagnóstico por imagem e clínica médica em Nova Andradina - MS, Brasil.
+> Ultrassom morfológico, obstétrico com Doppler e 3D, ultrassom musculoesquelético,
+> exames cardiorrespiratórios (Holter, MAPA, espirometria), saúde do idoso, saúde
+> mental e saúde neurológica, e perícia médica judicial.
+
+Endereço: Rua Melvin Jones, 1243, Nova Andradina - MS, 79750-000, Brasil.
+Telefone/WhatsApp: +55 67 99844-6674.
+Horário: Segunda a Sábado, 06:00 às 22:00 (com agendamento).
+Atende também: Batayporã, Ivinhema, Anaurilândia, Deodápolis, Angélica (MS) e Rosana (SP).
+
+## Equipe médica
+
+- [Dr. Rodrigo Franco](https://ajudamediko.com.br/medico/rodrigo-franco) - CRM-MS 10087 - Ultrassonografia diagnóstica e perícia médica.
+- [Dr. Lucas Duarte Franco](https://ajudamediko.com.br/medico/lucas-franco) - CRM-MS 7462 - Atendimento clínico ao adulto e saúde do idoso.
+- [Dr. Guilherme Henrique Zandoná](https://ajudamediko.com.br/medico/guilherme-zandona) - CRM-MS 6347 - Clínica médica e avaliação neurológica.
+
+## Páginas principais
+
+- [Página inicial](https://ajudamediko.com.br/) - visão geral da clínica, equipe e serviços.
+- [Entenda os Exames](https://ajudamediko.com.br/entenda-exames) - diferenças entre ultrassom, raio-X, tomografia e ressonância.
+- [Guia da Gestante](https://ajudamediko.com.br/dicas-gestantes) - cuidados e cronograma de exames por trimestre.
+- [Exames Cardiorrespiratórios](https://ajudamediko.com.br/exames-cardiorespiratorios) - Holter, MAPA e espirometria.
+- Cada exame de ultrassom tem uma página dedicada em `/exame/{id}` (ex: `/exame/prostata`, `/exame/carotidas`), listadas em `sitemap.xml`.
+
+## Convênios aceitos
+Particular, Prover Saúde, Oeste Saúde, MaterDei, PAX e AMENA.
+
+## Observação
+Este arquivo é informativo para agentes de IA; não substitui `robots.txt` nem `sitemap.xml`,
+que continuam sendo a referência oficial de rastreamento.

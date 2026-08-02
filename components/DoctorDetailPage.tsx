@@ -141,7 +141,7 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
               <div className="space-y-3">
                 <h3 className="text-lg font-serif font-bold text-[#0e4843] flex items-center gap-2">
                   <Icons.Info className="text-[#14b8a6] w-5 h-5" />
-                  Sobre o Médico
+                  Quem é {doctor.name}?
                 </h3>
                 {doctor.longBio.map((paragraph, i) => (
                   <p key={i} className="text-gray-600 text-sm leading-relaxed">{paragraph}</p>
