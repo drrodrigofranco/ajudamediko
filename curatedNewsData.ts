@@ -1,14 +1,15 @@
-// Resumos curados de noticias/materias de saude de fontes externas confiaveis
-// (Fiocruz, Ministerio da Saude, OMS/Agencia Brasil, PubMed/LILACS/BIREME e
-// veiculos de saude equivalentes). Cada item e um resumo curto + link para a
-// fonte original - nunca copiamos o texto integral de terceiros (direito
-// autoral). Pensado para ser alimentado por uma rotina agendada que busca e
-// resume noticias novas a cada poucos dias; novos itens entram no topo do array.
+// Materias curadas de saude a partir de fontes externas confiaveis (Fiocruz,
+// Ministerio da Saude, OMS/Agencia Brasil, PubMed/LILACS/BIREME e veiculos de
+// saude equivalentes). Cada item e uma materia completa (varios paragrafos),
+// sempre reescrita/parafraseada por nos e citando a fonte por nome no texto -
+// nunca copiamos o texto integral de terceiros (direito autoral). Pensado
+// para ser alimentado por uma rotina agendada que busca e escreve materias
+// novas a cada poucos dias; novos itens entram no topo do array.
 
 export interface CuratedNewsItem {
   id: string; // slug unico
   title: string;
-  summary: string; // 2-4 frases, escrito/resumido por nos, nunca copiado da fonte
+  summary: string; // materia completa em varios paragrafos (separados por \n\n), parafraseada por nos e citando a fonte no texto - nunca copiada da fonte
   sourceName: string; // nome do veiculo/instituicao
   sourceUrl: string;
   publishedOn: string; // YYYY-MM-DD (data da materia original ou da curadoria)
