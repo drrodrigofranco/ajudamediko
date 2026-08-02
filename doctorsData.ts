@@ -45,7 +45,7 @@ export const doctorsData: DoctorData[] = [
     crm: 'CRM-MS 10087',
     photo: '/images/dr-rodrigo-franco.jpg',
     photoWidth: 450,
-    photoHeight: 675,
+    photoHeight: 599,
     iconName: 'HeartPulse',
     specialtyLabel: 'Ultrassonografia Diagnóstica e Perícia Médica',
     shortBio: 'Atendimento em ultrassonografia diagnóstica, consultas de clínica geral e perícias médicas judiciais, com dedicação a um cuidado humanizado e preciso para toda a família.',

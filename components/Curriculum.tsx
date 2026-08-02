@@ -34,7 +34,7 @@ const Curriculum: React.FC<CurriculumProps> = ({ navigateTo }) => {
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                   width={450}
-                  height={675}
+                  height={599}
                   loading="lazy"
                 />
               </div>
