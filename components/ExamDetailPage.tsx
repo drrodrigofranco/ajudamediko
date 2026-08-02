@@ -51,6 +51,16 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
     path: `/exame/${examId}`,
   });
 
+  useJsonLd('faq-jsonld', exam ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: exam.faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+    })),
+  } : null);
+
   useJsonLd('exam-breadcrumb-jsonld', exam ? {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',

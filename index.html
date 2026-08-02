@@ -184,71 +184,10 @@
   }
   </script>
 
-  <!-- Structured Data (JSON-LD) - FAQ (deve refletir a secao Duvidas Frequentes em components/FAQ.tsx) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Quais exames exigem preparo especial?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Cada exame de ultrassom tem um preparo específico. O abdome total exige jejum de 6 a 8 horas para reduzir gases intestinais e melhorar a visualização dos órgãos. Exames pélvicos e de próstata exigem bexiga cheia (beber água e segurar a urina antes do exame). Já o Holter e o MAPA pedem banho tomado antes da colocação do aparelho e roupas confortáveis, já que o equipamento fica no corpo por 24 horas. Ao agendar, a Clínica Franco informa o preparo exato do seu exame."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "É necessário jejum para realizar o Ultrassom de Abdome Total?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sim. Recomendamos jejum de 6 a 8 horas para adultos antes do ultrassom de abdome total. O jejum reduz a quantidade de gases no intestino, que atrapalham a passagem do som e prejudicam a qualidade da imagem, principalmente na avaliação do fígado, vesícula biliar e pâncreas."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "O que é o Ecocardiograma Fetal e quando devo fazer?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "O ecocardiograma fetal é um ultrassom especializado que avalia detalhadamente a estrutura e o funcionamento do coração do bebê ainda na gestação, permitindo identificar precocemente cardiopatias congênitas. É indicado idealmente entre a 24ª e a 28ª semana de gestação, e pode ser solicitado por gestantes de risco habitual ou com fatores de risco específicos (histórico familiar, diabetes, uso de certos medicamentos)."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Quando realizar o Morfológico de 1º Trimestre?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "O ultrassom morfológico de 1º trimestre é indicado entre a 11ª e a 14ª semana de gestação. Nessa janela é possível medir a translucência nucal e outros marcadores que ajudam a avaliar o risco de alterações genéticas (como síndrome de Down) e malformações precoces, além de confirmar a idade gestacional com maior precisão."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Qual a diferença entre Ultrassom Pélvico e Transvaginal?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "O ultrassom pélvico é feito por via abdominal, com a bexiga cheia servindo de 'janela acústica' para visualizar útero, ovários e bexiga. Já o transvaginal é feito por via interna, com um transdutor específico, e não exige bexiga cheia - por estar mais próximo dos órgãos, costuma fornecer imagens mais detalhadas do endométrio e dos ovários. O médico indica qual é o mais adequado conforme a queixa e se a paciente já teve relações sexuais."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Quais convênios a Clínica Franco aceita?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Atendemos particular e os convênios/planos de desconto Prover Saúde, Oeste Saúde, MaterDei, PAX e AMENA. Para outros convênios não listados aqui, entre em contato pelo WhatsApp antes de agendar para confirmarmos a cobertura do seu plano."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Como funciona a Perícia Médica?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A Clínica Franco atua como assistente técnico em processos judiciais, elaborando quesitos e acompanhando perícias oficiais em varas cíveis, previdenciárias e trabalhistas. O Dr. Rodrigo Franco é perito judicial nomeado pelo fórum de Batayporã desde 2021, prestando esse serviço tanto para partes quanto por nomeação judicial em Nova Andradina e região."
-        }
-      }
-    ]
-  }
-  </script>
+  <!-- FAQPage JSON-LD nao fica mais fixo aqui: cada pagina injeta o proprio (ou
+       nenhum) dinamicamente via hooks/useJsonLd.ts, batendo com o FAQ que
+       realmente aparece na tela daquela pagina (ver components/FAQ.tsx para a
+       home e components/ExamDetailPage.tsx para cada exame). -->
 
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230d9488%22/><text x=%2250%22 y=%2250%22 font-family=%22sans-serif%22 font-weight=%22bold%22 font-size=%2255%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.35em%22>US</text></svg>">
