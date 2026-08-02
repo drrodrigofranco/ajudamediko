@@ -205,13 +205,8 @@ const Curriculum: React.FC<CurriculumProps> = ({ navigateTo }) => {
               <div className="relative">
                 <div className="absolute -left-[57px] top-1.5 w-6 h-6 bg-[#14b8a6] rounded-full border-4 border-white shadow-sm"></div>
                 <h4 className="font-bold text-gray-900 text-xl">Graduação em Medicina</h4>
-                <span className="text-[#14b8a6] font-bold text-sm block mt-1">Turma de 2013</span>
-                <p className="text-gray-500 text-sm mt-1">Famepp (UNOESTE) - Faculdade de Medicina de Presidente Prudente</p>
-              </div>
-              <div className="relative">
-                <div className="absolute -left-[57px] top-1.5 w-6 h-6 bg-gray-200 rounded-full border-4 border-white"></div>
-                <h4 className="font-bold text-gray-900 text-xl">Pós-graduação em Medicina Intensiva</h4>
-                <p className="text-gray-500 text-sm mt-1">AMIB - Associação de Medicina Intensiva Brasileira (Incompleta)</p>
+                <span className="text-[#14b8a6] font-bold text-sm block mt-1">2013</span>
+                <p className="text-gray-500 text-sm mt-1">Faculdade de Medicina de Presidente Prudente (FAMEPP)</p>
               </div>
             </div>
           </div>
@@ -229,15 +224,11 @@ const Curriculum: React.FC<CurriculumProps> = ({ navigateTo }) => {
                 <ul className="space-y-4 text-sm text-gray-600">
                   <li className="flex items-start gap-4">
                     <div className="w-2 h-2 bg-[#14b8a6] rounded-full mt-2 flex-shrink-0"></div>
-                    <span>Atendimento em Unidades de Emergência (desde 2014);</span>
+                    <span>Clínica Médica, Medicina de Urgência e Emergência, UTI e Atenção Primária à Saúde (mais de uma década de atuação);</span>
                   </li>
                   <li className="flex items-start gap-4">
                     <div className="w-2 h-2 bg-[#14b8a6] rounded-full mt-2 flex-shrink-0"></div>
-                    <span>Atuação em UTI - Unidade de Terapia Intensiva (desde 2016);</span>
-                  </li>
-                  <li className="flex items-start gap-4">
-                    <div className="w-2 h-2 bg-[#14b8a6] rounded-full mt-2 flex-shrink-0"></div>
-                    <span>Médico ESF Prefeitura Municipal Nova Andradina - MS - concursado (desde 2019).</span>
+                    <span>Estratégia Saúde da Família (ESF) - Prefeitura Municipal de Nova Andradina - MS (desde 2019).</span>
                   </li>
                 </ul>
               </div>
@@ -247,15 +238,15 @@ const Curriculum: React.FC<CurriculumProps> = ({ navigateTo }) => {
                 <div className="grid grid-cols-1 gap-3">
                   <div className="flex items-center gap-3 text-gray-700">
                     <CheckCircle size={18} className="text-[#14b8a6]" />
-                    <span>Saúde do Idoso e Envelhecimento Saudável</span>
+                    <span>Saúde do Idoso e Acompanhamento Geriátrico</span>
                   </div>
                   <div className="flex items-center gap-3 text-gray-700">
                     <CheckCircle size={18} className="text-[#14b8a6]" />
-                    <span>Clínica Geral e Check-up</span>
+                    <span>Clínica Médica e Check-up Clínico</span>
                   </div>
                   <div className="flex items-center gap-3 text-gray-700">
                     <CheckCircle size={18} className="text-[#14b8a6]" />
-                    <span>Pequenos Procedimentos Cirúrgicos</span>
+                    <span>Pequenas Cirurgias Ambulatoriais</span>
                   </div>
                 </div>
               </div>
