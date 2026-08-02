@@ -97,7 +97,11 @@ const BlogPage: React.FC<BlogPageProps> = ({ navigateTo }) => {
                   <span className="font-semibold text-[#14b8a6]">{news.sourceName}</span>
                 </div>
                 <h2 className="text-xl font-serif font-bold text-[#0e4843] mb-3">{news.title}</h2>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">{news.summary}</p>
+                <div className="text-gray-600 text-sm leading-relaxed mb-4 space-y-3">
+                  {news.summary.split('\n\n').map((paragraph, i) => (
+                    <p key={i}>{paragraph}</p>
+                  ))}
+                </div>
                 <a
                   href={news.sourceUrl}
                   target="_blank"
