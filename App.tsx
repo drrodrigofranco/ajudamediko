@@ -24,6 +24,7 @@ const ExamsComparisonPage = lazy(() => import('./components/ExamsComparisonPage'
 const GuidelineFirstTrimesterPage = lazy(() => import('./components/GuidelineFirstTrimesterPage'));
 const CardioRespiratoryExamsPage = lazy(() => import('./components/CardioRespiratoryExamsPage'));
 const PregnancyGuidePage = lazy(() => import('./components/PregnancyGuidePage'));
+const BlogPage = lazy(() => import('./components/BlogPage'));
 
 const RouteFallback: React.FC = () => (
     <div className="min-h-screen flex items-center justify-center bg-white">
@@ -78,7 +79,7 @@ const App: React.FC = () => {
     const mapImgSrc = "/images/mapa-localizacao.jpg";
     const googleMapsLink = "https://maps.app.goo.gl/aMkRNzPYtTe6jwQJ8";
 
-    const navItems = ['SOBRE', 'SERVIÇOS', 'ENTENDA OS EXAMES', 'ATENDIMENTOS', 'CALCULADORAS', 'CURRÍCULO', 'LOCALIZAÇÃO', 'DÚVIDAS', 'NOTÍCIAS', 'CONTATO'];
+    const navItems = ['SOBRE', 'SERVIÇOS', 'ENTENDA OS EXAMES', 'ATENDIMENTOS', 'CALCULADORAS', 'CURRÍCULO', 'LOCALIZAÇÃO', 'DÚVIDAS', 'NOTÍCIAS', 'BLOG', 'CONTATO'];
 
     const normalizeId = (text: string) => {
         return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "").toLowerCase();
@@ -108,6 +109,9 @@ const App: React.FC = () => {
             setIsMobileMenuOpen(false);
         } else if (item === 'ENTENDA OS EXAMES') {
             navigateTo('/entenda-exames');
+            setIsMobileMenuOpen(false);
+        } else if (item === 'BLOG') {
+            navigateTo('/blog');
             setIsMobileMenuOpen(false);
         } else {
             scrollToSection(normalizeId(item));
@@ -237,6 +241,22 @@ const App: React.FC = () => {
                 />
                 <Suspense fallback={<RouteFallback />}>
                     <PregnancyGuidePage navigateTo={navigateTo} />
+                </Suspense>
+            </div>
+        );
+    }
+
+    if (currentPath === '/blog' || currentPath === '/blog/') {
+        return (
+            <div className="flex flex-col min-h-screen bg-white font-sans text-gray-800">
+                <MapModal
+                    isOpen={isMapModalOpen}
+                    onClose={() => setIsMapModalOpen(false)}
+                    mapImgSrc={mapImgSrc}
+                    googleMapsLink={googleMapsLink}
+                />
+                <Suspense fallback={<RouteFallback />}>
+                    <BlogPage navigateTo={navigateTo} />
                 </Suspense>
             </div>
         );
