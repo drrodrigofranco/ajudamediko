@@ -19,7 +19,7 @@
 ---
 
 ## 🎯 O que é o projeto
-Website institucional dinâmico da **Clínica Franco + Associados** (Nova Andradina - MS), focado em serviços médicos de Ultrassonografia (Dr. Rodrigo Franco) e Saúde Mental/Neurologia (Dr. Lucas Franco).
+Website institucional dinâmico da **Clínica Franco** (Nova Andradina - MS), focado em serviços médicos de Ultrassonografia (Dr. Rodrigo Franco) e Saúde Mental/Neurologia (Dr. Lucas Franco).
 Possui uma calculadora gestacional integrada, widget de notícias e páginas de destino específicas para exames críticos.
 
 **Stack:** React 18, Vite 6, Tailwind CSS 4, Lucide React, TypeScript.

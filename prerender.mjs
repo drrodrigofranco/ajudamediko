@@ -111,6 +111,29 @@ async function main() {
   const page = await browser.newPage();
   page.on('pageerror', e => console.log('  pageerror:', e.message));
 
+  // Bloqueia requests de analytics/ads durante o crawl local. Sem isso, o gtag.js
+  // real chega a disparar (ex: pixel de conversao do Google Ads) durante a propria
+  // pre-renderizacao, e como o snapshot final e document.documentElement.outerHTML,
+  // esses scripts injetados dinamicamente (com a URL do servidor local,
+  // localhost:${PORT}, gravada no proprio pixel) ficam congelados no HTML estatico
+  // e vao pra producao - quebrando a atribuicao de conversao pra usuarios reais.
+  const BLOCKED_HOSTS = [
+    'googletagmanager.com',
+    'google-analytics.com',
+    'doubleclick.net',
+    'googleadservices.com',
+    'googlesyndication.com',
+  ];
+  await page.setRequestInterception(true);
+  page.on('request', (req) => {
+    const url = req.url();
+    if (BLOCKED_HOSTS.some((host) => url.includes(host))) {
+      req.abort();
+    } else {
+      req.continue();
+    }
+  });
+
   const targets = [
     { url: '/', file: 'index.html' },
     { url: '/entenda-exames', file: 'entenda-exames/index.html' },
