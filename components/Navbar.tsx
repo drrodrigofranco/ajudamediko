@@ -1,12 +1,10 @@
 
 import React from 'react';
-import { 
+import {
   Instagram,
   Facebook,
   Youtube,
   HeartPulse,
-  Menu,
-  X,
   ArrowRight
 } from 'lucide-react';
 
@@ -18,12 +16,10 @@ interface NavbarProps {
   scrollToSection: (id: string) => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ 
-  navItems, 
-  isMobileMenuOpen, 
-  setIsMobileMenuOpen, 
-  handleNavClick, 
-  scrollToSection 
+const Navbar: React.FC<NavbarProps> = ({
+  navItems,
+  handleNavClick,
+  scrollToSection
 }) => {
   return (
     <header className="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-100">
@@ -64,6 +60,21 @@ const Navbar: React.FC<NavbarProps> = ({
         </div>
       </div>
 
+      {/* Navegação — sempre visível, sem depender de clique em hambúrguer */}
+      <nav className="bg-white border-b border-gray-100 overflow-x-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-1 py-2">
+          {navItems.map((item) => (
+            <button
+              key={item}
+              onClick={() => handleNavClick(item)}
+              className="flex-shrink-0 whitespace-nowrap px-3 py-1.5 text-[11px] font-bold tracking-wide text-[#0e4843] rounded-full hover:bg-[#14b8a6] hover:text-white transition-colors"
+            >
+              {item}
+            </button>
+          ))}
+        </div>
+      </nav>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20 md:h-28">
           <div className="flex items-center cursor-pointer min-w-0 md:flex-shrink-0 mr-4" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
@@ -88,40 +99,13 @@ const Navbar: React.FC<NavbarProps> = ({
           <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
             <button
               onClick={() => scrollToSection('contato')}
-              className="hidden sm:inline-flex bg-[#14b8a6] text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-[#0d9488] transition-all shadow-md active:scale-95 whitespace-nowrap"
+              className="inline-flex bg-[#14b8a6] text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-bold text-xs sm:text-sm hover:bg-[#0d9488] transition-all shadow-md active:scale-95 whitespace-nowrap"
             >
               Agendar
-            </button>
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Abrir menu"
-              className="text-[#0e4843] p-2 hover:text-[#14b8a6] transition-colors"
-            >
-              {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
         </div>
       </div>
-
-      {isMobileMenuOpen && (
-        <div className="bg-white border-t border-gray-100 py-6 px-4 space-y-4 shadow-lg absolute w-full z-40">
-          {navItems.map((item) => (
-            <button 
-              key={item} 
-              onClick={() => handleNavClick(item)} 
-              className="block w-full text-left py-4 px-2 text-[#0e4843] font-bold text-xs border-b border-gray-50"
-            >
-              {item}
-            </button>
-          ))}
-          <button 
-            onClick={() => scrollToSection('contato')} 
-            className="w-full bg-[#14b8a6] text-white py-4 rounded-xl font-bold text-sm"
-          >
-            AGENDAR AGORA
-          </button>
-        </div>
-      )}
     </header>
   );
 };
