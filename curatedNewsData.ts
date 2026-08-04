@@ -17,6 +17,22 @@ export interface CuratedNewsItem {
 
 export const curatedNews: CuratedNewsItem[] = [
   {
+    id: 'ms-sarampo-vacinacao-sp-2026',
+    title: 'Ministério da Saúde amplia recomendação de vacina contra sarampo em cidades de SP',
+    summary: 'Diante de 17 casos confirmados de sarampo no Brasil em 2026 - a maioria em acompanhamento em São Paulo, Guarulhos e São Bernardo do Campo -, o Ministério da Saúde ampliou a recomendação de vacinação contra a doença para toda a população de 6 meses a 59 anos nesses municípios. A medida ocorre durante a Campanha Nacional de Multivacinação (3 de agosto a 1º de setembro), com Dia D marcado para 22 de agosto. Manter a caderneta de vacinação em dia continua sendo a principal forma de evitar a reintrodução do sarampo no país.',
+    sourceName: 'Ministério da Saúde (gov.br)',
+    sourceUrl: 'https://www.gov.br/saude/pt-br/assuntos/noticias-ms/2026/julho/ministerio-da-saude-amplia-recomendacao-de-vacinacao-contra-o-sarampo-em-tres-municipios-de-sao-paulo',
+    publishedOn: '2026-08-04',
+  },
+  {
+    id: 'fiocruz-agosto-dourado-aleitamento-2026',
+    title: 'Agosto Dourado: Fiocruz reforça a importância da amamentação e da doação de leite humano',
+    summary: 'Na campanha Agosto Dourado, a Fiocruz destacou os benefícios do aleitamento materno, recomendando início na primeira hora de vida, exclusividade até os 6 meses e continuidade até os 2 anos ou mais, já que o leite humano protege contra infecções respiratórias e diarreias. A instituição também reforçou o pedido de doação de leite humano e de frascos de vidro para bancos de leite, que sustentam o cuidado de recém-nascidos prematuros internados em UTI neonatal.',
+    sourceName: 'Fiocruz',
+    sourceUrl: 'https://fiocruz.br/noticia/2026/07/agosto-dourado-fiocruz-reforca-importancia-da-amamentacao-e-doacao-de-leite-humano',
+    publishedOn: '2026-08-04',
+  },
+  {
     id: 'fiocruz-julho-amarelo-hepatites-2026',
     title: 'Julho Amarelo: Fiocruz alerta para a prevenção das hepatites virais',
     summary: 'A Fiocruz reforçou, na campanha Julho Amarelo, a importância do diagnóstico precoce e da vacinação contra as hepatites virais, que muitas vezes não apresentam sintomas claros nas fases iniciais. A instituição destaca o rastreamento em grupos de maior risco e o acompanhamento médico regular como principais ferramentas de prevenção.',
