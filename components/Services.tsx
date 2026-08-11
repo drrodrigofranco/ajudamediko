@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Baby, FileText, Scale, Search, LucideIcon, Stethoscope, HeartPulse, Brain } from 'lucide-react';
+import { Baby, FileText, Scale, Search, LucideIcon, Stethoscope, HeartPulse, Brain, ChevronRight } from 'lucide-react';
 
 interface Exam {
   id?: string;
@@ -32,9 +32,22 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
       <div className="text-center mb-16">
         <h2 className="text-3xl font-serif font-bold text-[#0e4843] mb-4">Atendimento e Exames com atenção e humanidade</h2>
         <div className="h-1 w-16 bg-[#14b8a6] mx-auto mb-8 rounded-full"></div>
-        <p className="text-gray-500 max-w-3xl mx-auto text-sm leading-relaxed">
+        <p className="text-gray-500 max-w-3xl mx-auto text-sm leading-relaxed mb-6">
           A ultrassonografia é uma ferramenta essencial na medicina moderna, permitindo a visualização não invasiva de estruturas internas do corpo em tempo real. Utilizamos equipamentos de alta resolução para garantir a precisão necessária em cada laudo.
         </p>
+        <a
+          href="/servicos"
+          onClick={(e) => {
+            e.preventDefault();
+            window.history.pushState({}, '', '/servicos');
+            window.dispatchEvent(new PopStateEvent('popstate'));
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          className="inline-flex items-center gap-1.5 text-[#0f766e] hover:text-[#0d9488] font-bold text-sm transition-colors"
+        >
+          Ver catálogo completo de serviços
+          <ChevronRight className="w-4 h-4" />
+        </a>
       </div>
 
       <div className="grid md:grid-cols-2 gap-8 mb-20">
@@ -65,6 +78,16 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
           <h3 className="text-xl font-bold text-[#0e4843] mb-4">Saúde Neurológica</h3>
           <p className="text-gray-500 text-sm mb-8 leading-relaxed">
             Atendimento em clínica geral e avaliação neurológica para queixas como cefaleia, tontura, alterações de memória e distúrbios do sono. Condução cuidadosa da história clínica, com acompanhamento contínuo em Nova Andradina e região.
+          </p>
+        </div>
+
+        <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group relative overflow-hidden">
+          <div className="bg-[#f0fdfa] p-5 rounded-2xl mb-8 group-hover:bg-[#14b8a6] group-hover:text-white transition-all duration-300">
+            <Baby className="w-8 h-8" />
+          </div>
+          <h3 className="text-xl font-bold text-[#0e4843] mb-4">Pediatria</h3>
+          <p className="text-gray-500 text-sm mb-8 leading-relaxed">
+            Atendimento médico de recém-nascidos, lactentes, crianças e adolescentes, com pós-graduação em Pediatria Clínica: puericultura, acompanhamento do crescimento e desenvolvimento, vacinação e avaliação das principais condições da infância.
           </p>
         </div>
 
