@@ -102,7 +102,8 @@ const EXAM_IDS = [
 const DOCTOR_IDS = [
   'rodrigo-franco',
   'lucas-franco',
-  'guilherme-zandona'
+  'guilherme-zandona',
+  'tiago-wizenfad'
 ];
 
 async function main() {
