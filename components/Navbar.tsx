@@ -87,7 +87,7 @@ const Navbar: React.FC<NavbarProps> = ({
               </p>
               <div className="mt-0.5 flex flex-col">
                 <span className="text-[8px] md:text-[10px] font-bold text-[#0e4843] uppercase tracking-wider md:whitespace-nowrap">
-                  Dr. Rodrigo (CRM 10087) | Dr. Lucas (CRM 7462) | Dr. Guilherme (CRM 6347)
+                  Dr. Rodrigo (CRM 10087) | Dr. Lucas (CRM 7462) | Dr. Guilherme (CRM 6347) | Dr. Tiago (CRM 16149)
                 </span>
                 <span className="text-[7px] md:text-[8px] lg:text-[9px] text-[#0e4843] font-bold uppercase tracking-widest mt-0.5 leading-tight md:max-w-none max-w-[180px]">
                   ULTRASSOM MORFOLÓGICO, DOPPLER E 3D, SAÚDE DO IDOSO, SAÚDE MENTAL, SAÚDE NEUROLÓGICA
