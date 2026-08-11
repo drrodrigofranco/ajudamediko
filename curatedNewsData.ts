@@ -13,9 +13,32 @@ export interface CuratedNewsItem {
   sourceName: string; // nome do veiculo/instituicao
   sourceUrl: string;
   publishedOn: string; // YYYY-MM-DD (data da materia original ou da curadoria)
+  references?: { label: string; url: string }[]; // bibliografia opcional (reportagens que citam varios estudos) - cada item vira um link clicavel no rodape do card. So incluir estudos reais e verificados, nunca inventados.
 }
 
 export const curatedNews: CuratedNewsItem[] = [
+  {
+    id: 'ultrassom-morfologico-estudos-cientificos-2026',
+    title: 'O que a ciência diz sobre o ultrassom morfológico: precisão, limites e por que fazer em dois trimestres',
+    summary: 'O ultrassom morfológico é um dos exames mais importantes do acompanhamento pré-natal, e a ciência internacional continua avaliando e atualizando o quanto ele realmente consegue identificar. Em 2022, a Sociedade Internacional de Ultrassom em Obstetrícia e Ginecologia (ISUOG) publicou a atualização de suas diretrizes oficiais para o exame morfológico de segundo trimestre, reunindo o consenso de especialistas de vários países sobre como e quando o exame deve ser realizado.\n\nSegundo a ISUOG, o exame morfológico de rotina deve ser oferecido a todas as gestantes, idealmente entre a 18ª e a 24ª semana de gestação, e deve avaliar estruturas como o crânio e o cérebro fetal, a face, o coração (incluindo as vias de saída dos grandes vasos), o abdome, os rins e a bexiga, a coluna vertebral, os membros e a placenta. A diretriz reforça que, mesmo com os melhores equipamentos e os profissionais mais experientes, algumas alterações só se tornam visíveis mais tarde na gestação - por isso o acompanhamento contínuo é tão importante quanto o exame em si.\n\nQuanto à precisão do exame, um estudo brasileiro conduzido no Instituto de Medicina Integral Professor Fernando Figueira (IMIP), em Pernambuco, acompanhou 457 gestantes de alto risco e comparou os achados do ultrassom morfológico com o diagnóstico confirmado após o nascimento. O resultado: sensibilidade de 96% e especificidade de 79% para a detecção de anomalias congênitas, com desempenho especialmente alto para o sistema nervoso central (99% de sensibilidade) e para alterações da parede abdominal e do sistema cardiovascular (100% de sensibilidade nesses grupos). O próprio estudo destaca que esses números variam bastante entre serviços, dependendo da experiência do examinador e da complexidade de cada caso.\n\nUma revisão sistemática mais recente, publicada em 2024 na revista Ultrasound in Obstetrics & Gynecology, reuniu 52 estudos e mais de 527 mil fetos para avaliar especificamente o ultrassom morfológico de primeiro trimestre (entre 11 e 14 semanas). Os pesquisadores encontraram taxas de detecção muito altas para algumas condições - acrania (98%), gastrosquise (96%) e onfalocele (95%) -, mas taxas bem mais baixas para outras, como fissura labial isolada (14%) e pé torto (11%). A conclusão prática é que nenhum exame isolado detecta tudo: por isso a combinação do morfológico de primeiro trimestre com o de segundo trimestre aumenta significativamente a chance de identificar alterações precocemente, já que cada exame tem pontos fortes diferentes.\n\nNa prática, isso reforça por que recomendamos os dois exames - morfológico de primeiro e de segundo trimestre - como parte do acompanhamento pré-natal completo, e não apenas um deles isoladamente. Nenhum exame de imagem substitui o acompanhamento médico contínuo, mas a literatura mostra que a combinação de exames bem indicados, feitos no momento certo da gestação, é o que realmente aumenta a chance de um diagnóstico precoce.\n\nAs diretrizes completas da ISUOG, o estudo do IMIP e a revisão sistemática de 2024 estão detalhados nas referências ao final desta matéria, com links diretos para as publicações originais.',
+    sourceName: 'ISUOG (Ultrasound in Obstetrics & Gynecology)',
+    sourceUrl: 'https://doi.org/10.1002/uog.24888',
+    publishedOn: '2026-08-11',
+    references: [
+      {
+        label: 'Salomon LJ, Alfirevic Z, Berghella V, et al. ISUOG Practice Guidelines (updated): performance of the routine mid-trimester fetal ultrasound scan. Ultrasound Obstet Gynecol. 2022;59(6):840-856.',
+        url: 'https://doi.org/10.1002/uog.24888',
+      },
+      {
+        label: 'Karim JN, Bradburn E, Roberts N, Papageorghiou AT. Detection of non-cardiac fetal abnormalities on ultrasound at 11-14 weeks: systematic review and meta-analysis. Ultrasound Obstet Gynecol. 2024;64(1):15-27.',
+        url: 'https://doi.org/10.1002/uog.27649',
+      },
+      {
+        label: 'Noronha Neto C, Souza ASR, Moraes Filho OB, Noronha AMB. Validação do diagnóstico ultrassonográfico de anomalias fetais em centro de referência. Rev Assoc Med Bras. 2009;55(5):541-546.',
+        url: 'https://www.scielo.br/j/ramb/a/TZbLG7Hq6nhXWNt9j9MxXsd/?lang=pt',
+      },
+    ],
+  },
   {
     id: 'fiocruz-infogripe-srag-agosto-2026',
     title: 'Boletim InfoGripe da Fiocruz mostra queda de casos de síndrome respiratória grave no Brasil, mas 14 estados seguem em alerta',

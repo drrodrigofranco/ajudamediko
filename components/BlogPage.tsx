@@ -111,6 +111,27 @@ const BlogPage: React.FC<BlogPageProps> = ({ navigateTo }) => {
                   Ler a matéria completa em {news.sourceName}
                   <Icons.ExternalLink className="w-3.5 h-3.5" />
                 </a>
+
+                {news.references && news.references.length > 0 && (
+                  <div className="mt-6 pt-6 border-t border-gray-100">
+                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-3">Referências Bibliográficas</p>
+                    <ol className="space-y-2">
+                      {news.references.map((ref, i) => (
+                        <li key={i} className="text-xs text-gray-500 leading-relaxed">
+                          {i + 1}.{' '}
+                          <a
+                            href={ref.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[#0d9488] hover:text-[#14b8a6] underline underline-offset-2"
+                          >
+                            {ref.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                )}
               </article>
             ))}
           </div>
