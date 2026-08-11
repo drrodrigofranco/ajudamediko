@@ -140,10 +140,10 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
           <div className="w-full lg:w-2/3 space-y-12">
             <div className="bg-white p-8 sm:p-10 rounded-3xl border border-gray-100 shadow-sm space-y-8">
               <div className="space-y-3">
-                <h3 className="text-lg font-serif font-bold text-[#0e4843] flex items-center gap-2">
+                <h2 className="text-lg font-serif font-bold text-[#0e4843] flex items-center gap-2">
                   <Icons.Info className="text-[#14b8a6] w-5 h-5" />
                   Quem é {doctor.name}?
-                </h3>
+                </h2>
                 {doctor.longBio.map((paragraph, i) => (
                   <p key={i} className="text-gray-600 text-sm leading-relaxed">{paragraph}</p>
                 ))}
@@ -152,10 +152,10 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
               <hr className="border-gray-100" />
 
               <div className="space-y-6">
-                <h3 className="text-lg font-serif font-bold text-[#0e4843] flex items-center gap-2">
+                <h2 className="text-lg font-serif font-bold text-[#0e4843] flex items-center gap-2">
                   <Icons.GraduationCap className="text-[#14b8a6] w-5 h-5" />
                   Formação Acadêmica
-                </h3>
+                </h2>
                 <div className="border-l-2 border-[#ccfbf1] ml-2 pl-8 space-y-6">
                   {doctor.education.map((edu, i) => (
                     <div key={i} className="relative">
@@ -178,10 +178,10 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
               <hr className="border-gray-100" />
 
               <div className="space-y-6">
-                <h3 className="text-lg font-serif font-bold text-[#0e4843] flex items-center gap-2">
+                <h2 className="text-lg font-serif font-bold text-[#0e4843] flex items-center gap-2">
                   <Icons.Briefcase className="text-[#14b8a6] w-5 h-5" />
                   Trajetória Profissional
-                </h3>
+                </h2>
                 {doctor.experience.map((group, i) => (
                   <div key={i}>
                     <h4 className="font-bold text-gray-900 text-sm mb-4">{group.label}</h4>
@@ -201,10 +201,10 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
                 <>
                   <hr className="border-gray-100" />
                   <div className="space-y-4">
-                    <h3 className="text-lg font-serif font-bold text-[#0e4843] flex items-center gap-2">
+                    <h2 className="text-lg font-serif font-bold text-[#0e4843] flex items-center gap-2">
                       <Icons.Stethoscope className="text-[#14b8a6] w-5 h-5" />
                       Pequenos Procedimentos Ambulatoriais
-                    </h3>
+                    </h2>
                     <ul className="space-y-3 text-sm text-gray-600">
                       {doctor.procedures.map((proc, i) => (
                         <li key={i} className="flex items-start gap-3">
@@ -254,10 +254,10 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
             </div>
 
             <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
-              <h3 className="text-base font-bold text-[#0e4843] mb-6 flex items-center gap-2">
+              <h2 className="text-base font-bold text-[#0e4843] mb-6 flex items-center gap-2">
                 <Icons.Target className="text-[#14b8a6] w-5 h-5" />
                 Foco de Atendimento
-              </h3>
+              </h2>
               <ul className="space-y-4">
                 {doctor.focusAreas.map((area, i) => (
                   <li key={i} className="flex items-start text-sm text-gray-600 leading-relaxed">
@@ -269,7 +269,7 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
             </div>
 
             <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
-              <h3 className="text-base font-bold text-[#0e4843] mb-4">Conheça a Equipe</h3>
+              <h2 className="text-base font-bold text-[#0e4843] mb-4">Conheça a Equipe</h2>
               <div className="space-y-2 text-xs text-[#14b8a6] font-bold">
                 {doctorsData.filter(d => d.id !== doctor.id).map((d, i) => (
                   <a

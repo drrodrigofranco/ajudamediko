@@ -49,8 +49,11 @@ export const doctorsData: DoctorData[] = [
     iconName: 'HeartPulse',
     specialtyLabel: 'Ultrassonografia Diagnóstica e Perícia Médica',
     shortBio: 'Atendimento em ultrassonografia diagnóstica, consultas de clínica geral e perícias médicas judiciais, com dedicação a um cuidado humanizado e preciso para toda a família.',
+    seoTitle: 'Dr. Rodrigo Franco (CRM-MS 10087) - Ultrassom e Perícias em Nova Andradina | Clínica Franco',
+    seoDescription: 'Ultrassom em Nova Andradina - MS: morfológico, 3D/4D e Doppler de carótidas, além de perícias médicas judiciais com o Dr. Rodrigo Franco (CRM-MS 10087).',
     longBio: [
       'Médico com ampla experiência em diagnóstico por imagem, atuando em Nova Andradina - MS e região desde 2018. Realiza exames de ultrassonografia obstétrica, morfológica, vascular e musculoesquelética, além de atuar como perito judicial nomeado pelo fórum de Batayporã. Formado em Medicina pela UNEMAT, com cursos de especialização em ultrassom pela FATESA e outras graduações em Fisioterapia e Educação Física.',
+      'Entre os exames de ultrassom realizados em Nova Andradina - MS estão o ultrassom morfológico (1º e 2º trimestre), ultrassom obstétrico com Doppler e 3D/4D, Doppler de carótidas e vascular, tireoide, abdome e musculoesquelético, sempre com atenção individualizada a cada paciente.',
     ],
     education: [
       {
@@ -89,7 +92,7 @@ export const doctorsData: DoctorData[] = [
         ],
       },
     ],
-    focusAreas: ['Ultrassonografia Diagnóstica', 'Clínica Geral', 'Perícia Médica Judicial'],
+    focusAreas: ['Ultrassom Morfológico e 3D/4D', 'Doppler Vascular e de Carótidas', 'Clínica Geral', 'Perícia Médica Judicial'],
     lattesUrl: 'http://lattes.cnpq.br/2901086695714310',
   },
   {
