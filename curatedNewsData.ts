@@ -40,6 +40,22 @@ export const curatedNews: CuratedNewsItem[] = [
     ],
   },
   {
+    id: 'ms-julho-verde-cancer-cabeca-pescoco-2026',
+    title: 'Julho Verde: Ministério da Saúde alerta para sinais do câncer de cabeça e pescoço',
+    summary: 'Na campanha Julho Verde, o Ministério da Saúde reforçou a importância de reconhecer sinais de alerta dos cânceres de cabeça e pescoço, como feridas na boca que não cicatrizam em até 15 dias, rouquidão persistente por mais de três semanas, dificuldade para engolir e caroços no pescoço. Segundo a pasta, o SUS realizou mais de 500 mil procedimentos relacionados a esses tumores nos últimos cinco anos. Entre as medidas de prevenção recomendadas estão evitar tabaco e álcool, manter boa saúde bucal com acompanhamento odontológico regular, proteger-se do sol e vacinar adolescentes de 9 a 14 anos contra o HPV, disponível gratuitamente no SUS.',
+    sourceName: 'Ministério da Saúde (gov.br)',
+    sourceUrl: 'https://www.gov.br/saude/pt-br/assuntos/noticias-ms/2026/julho/julho-verde-reforca-prevencao-e-diagnostico-precoce-do-cancer-de-cabeca-e-pescoco',
+    publishedOn: '2026-08-07',
+  },
+  {
+    id: 'fiocruz-aids-2026-conferencia',
+    title: 'Conferência Internacional de Aids 2026 debate prevenção, financiamento e acesso a tratamentos no Brasil',
+    summary: 'Reunindo cerca de 7 mil participantes no Rio de Janeiro, a 26ª Conferência Internacional de Aids (AIDS 2026) discutiu avanços científicos no combate ao HIV, o financiamento global da resposta à epidemia e o acesso equitativo a novas tecnologias de prevenção. O Brasil apresentou avanços como a avaliação, pela Conitec, da incorporação ao SUS de uma PrEP injetável de aplicação bimestral, além de uma parceria entre a Fiocruz e a farmacêutica MSD para viabilizar a produção nacional de um novo medicamento de profilaxia de longa duração. A Fiocruz também destacou seu papel na fabricação de testes rápidos e autotestes de HIV e no fornecimento de antirretrovirais ao SUS.',
+    sourceName: 'Fiocruz',
+    sourceUrl: 'https://fiocruz.br/noticia/2026/08/aids-2026-debate-prevencao-financiamento-e-acesso-equitativo',
+    publishedOn: '2026-08-07',
+  },
+  {
     id: 'fiocruz-infogripe-srag-agosto-2026',
     title: 'Boletim InfoGripe da Fiocruz mostra queda de casos de síndrome respiratória grave no Brasil, mas 14 estados seguem em alerta',
     summary: 'A Fiocruz divulgou, no dia 6 de agosto, uma nova edição do boletim InfoGripe, elaborado em parceria com a rede de vigilância de vírus respiratórios do país. O levantamento, referente à semana epidemiológica de 26 de julho a 1º de agosto de 2026, mostra que o número de casos de Síndrome Respiratória Aguda Grave (SRAG) segue em queda no cenário nacional, ainda que a situação varie bastante entre os estados.\n\nSegundo o boletim, 14 unidades da federação apresentaram incidência em nível de alerta, risco ou alto risco nas duas últimas semanas: Acre, Amazonas, Bahia, Goiás, Maranhão, Mato Grosso, Mato Grosso do Sul, Minas Gerais, Paraná, Rio Grande do Sul, Rio de Janeiro, Roraima, Santa Catarina e Sergipe. Entre as capitais, Belém e Porto Velho aparecem com alto risco e tendência de crescimento, enquanto outras 15 capitais têm incidência elevada, mas ainda sem sinal de aumento contínuo.\n\nSobre os vírus circulantes, o vírus sincicial respiratório (VSR) segue predominante, respondendo por 54,1% dos casos positivos nas últimas quatro semanas, seguido do rinovírus (26,1%), influenza B (9,3%), influenza A (7,3%) e Covid-19 (1,8%). No acumulado de 2026, já foram notificados mais de 130 mil casos de SRAG no país, com cerca de 54% de resultados positivos para algum vírus respiratório.\n\nEsse tipo de monitoramento ajuda pacientes e famílias a entenderem o momento epidemiológico da região onde vivem - inclusive aqui em Nova Andradina, já que Mato Grosso do Sul está entre os estados citados em nível de alerta pelo boletim. Manter a vacinação em dia, redobrar a higiene das mãos, evitar aglomerações em períodos de sintomas e buscar avaliação médica diante de febre persistente ou falta de ar continuam sendo as medidas mais eficazes de prevenção.\n\nAs informações completas, com dados por faixa etária e por vírus, estão disponíveis no Boletim InfoGripe divulgado pela Fiocruz.',
