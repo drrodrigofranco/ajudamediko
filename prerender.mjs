@@ -142,6 +142,7 @@ async function main() {
     { url: '/exames-cardiorespiratorios', file: 'exames-cardiorespiratorios/index.html' },
     { url: '/dicas-gestantes', file: 'dicas-gestantes/index.html' },
     { url: '/blog', file: 'blog/index.html' },
+    { url: '/equipe', file: 'equipe/index.html' },
     ...EXAM_IDS.map(id => ({ url: `/exame/${id}`, file: `exame/${id}/index.html` })),
     ...DOCTOR_IDS.map(id => ({ url: `/medico/${id}`, file: `medico/${id}/index.html` }))
   ];
