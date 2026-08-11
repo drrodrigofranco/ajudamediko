@@ -13,6 +13,7 @@ const ICONS = {
   HeartPulse: Icons.HeartPulse,
   Stethoscope: Icons.Stethoscope,
   Brain: Icons.Brain,
+  Baby: Icons.Baby,
 };
 
 const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateTo }) => {

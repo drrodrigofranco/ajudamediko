@@ -27,6 +27,7 @@ const Footer: React.FC = () => {
                         <span>Dr. Rodrigo Franco - CRM-MS 10087</span>
                         <span>Dr. Lucas Duarte Franco - CRM-MS 7462</span>
                         <span>Dr. Guilherme Zandoná - CRM-MS 6347</span>
+                        <span>Dr. Tiago Dantas Wizenfad - CRM-MS 16149</span>
                     </div>
                 </div>
                  <p className="text-sm leading-relaxed mb-6">

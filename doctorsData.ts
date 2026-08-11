@@ -23,7 +23,7 @@ export interface DoctorData {
   // Ancoragem do object-cover para fotos com pouca folga acima da cabeça no
   // enquadramento original. Sem o campo, o crop fica centralizado (padrão).
   photoObjectPosition?: 'center' | 'top';
-  iconName: 'HeartPulse' | 'Stethoscope' | 'Brain';
+  iconName: 'HeartPulse' | 'Stethoscope' | 'Brain' | 'Baby';
   shortBio: string;
   longBio: string[];
   specialtyLabel: string;
@@ -177,5 +177,43 @@ export const doctorsData: DoctorData[] = [
       },
     ],
     focusAreas: ['Avaliação Neurológica', 'Clínica Médica', 'Urgência e Emergência'],
+  },
+  {
+    id: 'tiago-wizenfad',
+    name: 'Dr. Tiago Dantas Wizenfad',
+    crm: 'CRM-MS 16149',
+    photo: '/images/dr-tiago-wizenfad.jpg',
+    photoWidth: 450,
+    photoHeight: 600,
+    iconName: 'Baby',
+    specialtyLabel: 'Pediatria Clínica',
+    shortBio: 'Atendimento médico infantil com cuidado, acompanhamento e atenção em cada fase do desenvolvimento - de recém-nascidos a adolescentes, com pós-graduação em Pediatria Clínica.',
+    seoTitle: 'Dr. Tiago Dantas Wizenfad (CRM-MS 16149) - Pediatria em Nova Andradina - MS | Clínica Franco',
+    seoDescription: 'Atendimento pediátrico em Nova Andradina - MS: puericultura, acompanhamento do crescimento e desenvolvimento, vacinação e avaliação de crianças e adolescentes com o Dr. Tiago Dantas Wizenfad.',
+    longBio: [
+      'Dr. Tiago Dantas Wizenfad realiza atendimento médico de recém-nascidos, lactentes, crianças e adolescentes, com uma abordagem acolhedora, individualizada e voltada às necessidades específicas de cada etapa da infância.',
+      'Com pós-graduação em Pediatria Clínica, seu trabalho é direcionado à promoção da saúde infantil, prevenção de doenças, acompanhamento do crescimento e desenvolvimento e avaliação das principais condições clínicas que acometem crianças e adolescentes.',
+      'Na Clínica Franco, o acompanhamento valoriza não apenas a avaliação clínica da criança, mas também a orientação clara e próxima aos pais e responsáveis, contribuindo para decisões seguras e para a continuidade do cuidado.',
+      'Entre os principais atendimentos estão a puericultura, o acompanhamento do crescimento e desenvolvimento, a avaliação de recém-nascidos, lactentes, crianças e adolescentes, orientações sobre alimentação e introdução alimentar, acompanhamento vacinal, avaliação de febre e infecções comuns da infância, queixas respiratórias (tosse, resfriados, rinite, sinusite), otalgia e otites, queixas gastrointestinais, alergias e alterações dermatológicas frequentes na infância, além da solicitação, interpretação e acompanhamento de exames quando clinicamente indicados.',
+    ],
+    education: [
+      { title: 'Pós-graduação em Pediatria Clínica' },
+    ],
+    experience: [
+      {
+        label: 'Atuação Atual:',
+        items: [
+          'Atendimento pediátrico na Clínica Franco - Nova Andradina - MS.',
+        ],
+      },
+    ],
+    focusAreas: [
+      'Puericultura e Acompanhamento do Desenvolvimento',
+      'Avaliação de Recém-Nascidos, Lactentes, Crianças e Adolescentes',
+      'Orientação e Acompanhamento da Vacinação',
+      'Doenças Respiratórias e Infecções Comuns da Infância',
+      'Alergias e Dermatologia Infantil',
+      'Orientação aos Pais e Responsáveis',
+    ],
   },
 ];
