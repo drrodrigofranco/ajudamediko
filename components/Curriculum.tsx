@@ -33,6 +33,14 @@ const Curriculum: React.FC<CurriculumProps> = ({ navigateTo }) => {
       <div className="text-center mb-16">
         <h2 className="text-4xl font-serif font-bold text-[#0e4843] mb-4">Nossos Profissionais</h2>
         <div className="h-1 w-16 bg-[#14b8a6] mx-auto mb-8 rounded-full"></div>
+        <a
+          href="/equipe"
+          onClick={(e) => navigateTo('/equipe', e)}
+          className="inline-flex items-center gap-1.5 text-[#0f766e] hover:text-[#0d9488] font-bold text-sm transition-colors"
+        >
+          Ver página completa da equipe
+          <ChevronRight className="w-4 h-4" />
+        </a>
       </div>
 
       <div className="space-y-24">

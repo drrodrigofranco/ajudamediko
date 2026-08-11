@@ -46,7 +46,7 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ajudamediko.com.br/' },
-      { '@type': 'ListItem', position: 2, name: 'Equipe', item: 'https://ajudamediko.com.br/#curriculo' },
+      { '@type': 'ListItem', position: 2, name: 'Equipe', item: 'https://ajudamediko.com.br/equipe' },
       { '@type': 'ListItem', position: 3, name: doctor.name, item: `https://ajudamediko.com.br/medico/${doctor.id}` },
     ],
   } : null);
@@ -80,7 +80,7 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
           </a>
           <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-[#0e4843]/80">
             <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-[#14b8a6] transition-colors">HOME</a>
-            <a href="/#curriculo" onClick={(e) => navigateTo('/', e)} className="hover:text-[#14b8a6] transition-colors">EQUIPE</a>
+            <a href="/equipe" onClick={(e) => navigateTo('/equipe', e)} className="hover:text-[#14b8a6] transition-colors">EQUIPE</a>
             <a href="/#servicos" onClick={(e) => navigateTo('/', e)} className="hover:text-[#14b8a6] transition-colors">SERVIÇOS</a>
           </nav>
           <a

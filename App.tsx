@@ -20,6 +20,7 @@ const GuidelineFirstTrimesterPage = lazy(() => import('./components/GuidelineFir
 const CardioRespiratoryExamsPage = lazy(() => import('./components/CardioRespiratoryExamsPage'));
 const PregnancyGuidePage = lazy(() => import('./components/PregnancyGuidePage'));
 const BlogPage = lazy(() => import('./components/BlogPage'));
+const TeamPage = lazy(() => import('./components/TeamPage'));
 
 // Secoes da propria Home abaixo da dobra: antes eram import estatico (iam todas
 // no mesmo chunk da Home, mesmo as que o usuario so ve depois de rolar a pagina).
@@ -262,6 +263,22 @@ const App: React.FC = () => {
                 />
                 <Suspense fallback={<RouteFallback />}>
                     <BlogPage navigateTo={navigateTo} />
+                </Suspense>
+            </div>
+        );
+    }
+
+    if (currentPath === '/equipe' || currentPath === '/equipe/') {
+        return (
+            <div className="flex flex-col min-h-screen bg-white font-sans text-gray-800">
+                <MapModal
+                    isOpen={isMapModalOpen}
+                    onClose={() => setIsMapModalOpen(false)}
+                    mapImgSrc={mapImgSrc}
+                    googleMapsLink={googleMapsLink}
+                />
+                <Suspense fallback={<RouteFallback />}>
+                    <TeamPage navigateTo={navigateTo} />
                 </Suspense>
             </div>
         );

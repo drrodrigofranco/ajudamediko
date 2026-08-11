@@ -28,7 +28,7 @@ const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = 
             <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-[#14b8a6] transition-colors">HOME</a>
             <a href="/#servicos" onClick={(e) => navigateTo('/', e)} className="hover:text-[#14b8a6] transition-colors">EXAMES</a>
             <a href="/entenda-exames" onClick={(e) => navigateTo('/entenda-exames', e)} className="hover:text-[#14b8a6] transition-colors">COMPARATIVO</a>
-            <a href="/#curriculo" onClick={(e) => navigateTo('/', e)} className="hover:text-[#14b8a6] transition-colors">SOBRE NÓS</a>
+            <a href="/equipe" onClick={(e) => navigateTo('/equipe', e)} className="hover:text-[#14b8a6] transition-colors">SOBRE NÓS</a>
           </nav>
           <a 
             href={whatsappUrl} 
