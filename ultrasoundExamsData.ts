@@ -34,6 +34,7 @@ export const ultrasoundExams: UltrasoundExam[] = [
   { id: 'espirometria', name: "Espirometria", Icon: Wind, desc: "Prova de função pulmonar" },
   { id: 'holter', name: "Holter 24h", Icon: HeartPulse, desc: "Eletrocardiograma contínuo" },
   { id: 'mapa', name: "MAPA", Icon: Clock, desc: "Monitoramento de pressão 24h" },
+  { id: 'eletrocardiograma', name: "Eletrocardiograma (ECG)", Icon: Activity, desc: "Registro elétrico do coração em repouso" },
   { id: 'ecofetal', name: "Ecocardiograma Fetal", Icon: HeartPulse, desc: "Avaliação cardíaca fetal" },
   { id: 'transvaginal', name: "Transvaginal", Icon: ScanLine, desc: "Avaliação detalhada interna" },
 ];

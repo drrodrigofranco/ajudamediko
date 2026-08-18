@@ -132,13 +132,13 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
           <div className="bg-[#f0fdfa] p-5 rounded-2xl mb-8 group-hover:bg-[#14b8a6] group-hover:text-white transition-all duration-300">
             <HeartPulse className="w-8 h-8" />
           </div>
-          <h3 className="text-xl font-bold text-[#0e4843] mb-4">Holter, MAPA e Espirometria</h3>
+          <h3 className="text-xl font-bold text-[#0e4843] mb-4">Holter, MAPA, Espirometria e ECG</h3>
           <p className="text-gray-500 text-sm mb-8 leading-relaxed">
-            Realização de exames cardiorrespiratórios avançados: Holter 24h, MAPA 24h e Espirometria. Oferecemos monitoramento completo, equipamentos calibrados e manuais de preparação detalhados para máxima segurança do seu diagnóstico.
+            Realização de exames cardiorrespiratórios avançados: Holter 24h, MAPA 24h, Espirometria e Eletrocardiograma (ECG). Oferecemos monitoramento completo, equipamentos calibrados e manuais de preparação detalhados para máxima segurança do seu diagnóstico.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a 
-              href="/exames-cardiorespiratorios" 
+            <a
+              href="/exames-cardiorespiratorios"
               onClick={(e) => {
                 e.preventDefault();
                 window.history.pushState({}, '', '/exames-cardiorespiratorios');
@@ -147,7 +147,19 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
               }}
               className="flex items-center text-white bg-[#0f766e] text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-[#0d9488] transition-all"
             >
-              Ver Guia e Preparação
+              Holter, MAPA e Espirometria
+            </a>
+            <a
+              href="/exame/eletrocardiograma"
+              onClick={(e) => {
+                e.preventDefault();
+                window.history.pushState({}, '', '/exame/eletrocardiograma');
+                window.dispatchEvent(new PopStateEvent('popstate'));
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="flex items-center text-[#0f766e] border border-[#ccfbf1] text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-[#14b8a6] hover:text-white transition-all"
+            >
+              Ver Eletrocardiograma (ECG)
             </a>
           </div>
         </div>

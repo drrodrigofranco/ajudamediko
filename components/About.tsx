@@ -3,7 +3,7 @@ import React from 'react';
 import { CheckCircle2, Baby } from 'lucide-react';
 
 const About: React.FC = () => {
-  const generalServices = ['Consultas Médicas', 'Perícias Médicas', 'Espirometria', 'Holter', 'MAPA'];
+  const generalServices = ['Consultas Médicas', 'Perícias Médicas', 'Espirometria', 'Holter', 'MAPA', 'Eletrocardiograma (ECG)'];
 
   const imagingExams = [
     'Ultrassom Geral',

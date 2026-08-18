@@ -149,6 +149,7 @@ const Footer: React.FC = () => {
                     <li><a href="/exame/espirometria" onClick={(e) => goTo(e, '/exame/espirometria')} className="hover:text-teal-400 transition-colors">Espirometria</a></li>
                     <li><a href="/exame/holter" onClick={(e) => goTo(e, '/exame/holter')} className="hover:text-teal-400 transition-colors">Holter 24h</a></li>
                     <li><a href="/exame/mapa" onClick={(e) => goTo(e, '/exame/mapa')} className="hover:text-teal-400 transition-colors">MAPA 24h</a></li>
+                    <li><a href="/exame/eletrocardiograma" onClick={(e) => goTo(e, '/exame/eletrocardiograma')} className="hover:text-teal-400 transition-colors">Eletrocardiograma (ECG)</a></li>
                     <li className="text-gray-400">Perícia Médica</li>
                 </ul>
             </div>

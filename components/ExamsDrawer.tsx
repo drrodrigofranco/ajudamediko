@@ -221,6 +221,16 @@ const examsData: ExamDetail[] = [
     whenItIsDone: 'Diagnóstico de hipertensão ou avaliação da eficácia do tratamento.',
     purpose: 'Verificar o comportamento da pressão arterial durante o dia e o sono.',
     image: 'https://picsum.photos/seed/bp/600/400'
+  },
+  {
+    id: 'eletrocardiograma',
+    name: 'Eletrocardiograma (ECG)',
+    icon: Activity,
+    description: 'Registro rápido e indolor da atividade elétrica do coração em repouso.',
+    howItIsDone: 'Eletrodos adesivos são posicionados no tórax, pulsos e tornozelos por poucos minutos.',
+    whenItIsDone: 'Check-up de rotina, exames pré-operatórios ou investigação de palpitações.',
+    purpose: 'Identificar arritmias, sobrecargas cardíacas e alterações de condução elétrica.',
+    image: 'https://picsum.photos/seed/ecg/600/400'
   }
 ];
 

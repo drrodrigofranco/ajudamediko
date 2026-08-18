@@ -1,4 +1,4 @@
-// Centralized data file for all 21 exams
+// Centralized data file for all 22 exams
 
 export interface FAQItem {
   question: string;
@@ -702,6 +702,38 @@ export const examsData: ExamData[] = [
       {
         question: 'O aparelho aperta muito o braço?',
         answer: 'Ele infla até detectar a pressão sistólica, o que gera uma compressão temporária no braço. Pode ser um pouco desconfortável ou acordar o paciente à noite, mas é tolerável.'
+      }
+    ]
+  },
+  {
+    id: 'eletrocardiograma',
+    name: 'Eletrocardiograma (ECG)',
+    shortDesc: 'Registro rápido e indolor da atividade elétrica do coração em repouso.',
+    longDesc: 'O eletrocardiograma (ECG) convencional registra, em poucos minutos, a atividade elétrica do coração em repouso por meio de eletrodos colados na pele. É um exame diferente do Holter 24h: enquanto o Holter monitora continuamente por um dia inteiro, o ECG captura um retrato pontual do ritmo cardíaco no momento do exame.',
+    iconName: 'Activity',
+    preparation: [
+      'Não exige jejum nem preparo especial.',
+      'Evitar cremes ou óleos no tórax no dia do exame, para melhor aderência dos eletrodos.',
+      'Vestir roupas que facilitem o acesso ao tórax, pulsos e tornozelos.'
+    ],
+    duration: '5 a 10 minutos',
+    price: 'Consultar equipe',
+    howItIsDone: 'O paciente permanece deitado e relaxado enquanto eletrodos adesivos são posicionados no tórax, pulsos e tornozelos. O aparelho registra a atividade elétrica do coração em poucos segundos, sem qualquer desconforto ou contato com corrente elétrica.',
+    whenItIsDone: 'Avaliação de rotina, check-up e exames pré-operatórios, investigação de palpitações ou dor no peito, acompanhamento de hipertensão e doenças cardíacas já diagnosticadas.',
+    purpose: 'Identificar arritmias, sinais de sobrecarga das câmaras cardíacas, alterações sugestivas de isquemia (falta de oxigênio ao músculo cardíaco) e alterações de condução elétrica do coração.',
+    imageUrl: 'https://picsum.photos/seed/ecg/600/400',
+    faqs: [
+      {
+        question: 'O ECG dói ou dá choque?',
+        answer: 'Não. O eletrocardiograma apenas registra a atividade elétrica que o próprio coração já produz — não aplica nenhuma corrente elétrica no paciente. É totalmente indolor.'
+      },
+      {
+        question: 'Qual a diferença entre o ECG e o Holter 24h?',
+        answer: 'O ECG convencional é um registro pontual, feito em poucos minutos no consultório. Já o Holter monitora o coração continuamente por 24 horas, sendo mais indicado para identificar arritmias que não ocorrem durante um exame rápido.'
+      },
+      {
+        question: 'Posso fazer o ECG em qualquer horário?',
+        answer: 'Sim, não há restrição de horário nem necessidade de jejum. O exame pode ser realizado a qualquer momento do dia, conforme a disponibilidade da agenda.'
       }
     ]
   }

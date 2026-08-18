@@ -176,7 +176,8 @@
         { "@type": "MedicalTest", "name": "Articulação: Tornozelo", "description": "Entorses e Aquiles" },
         { "@type": "MedicalTest", "name": "Espirometria", "description": "Prova de função pulmonar" },
         { "@type": "MedicalTest", "name": "Holter 24h", "description": "Eletrocardiograma contínuo" },
-        { "@type": "MedicalTest", "name": "MAPA", "description": "Monitoramento de pressão 24h" }
+        { "@type": "MedicalTest", "name": "MAPA", "description": "Monitoramento de pressão 24h" },
+        { "@type": "MedicalTest", "name": "Eletrocardiograma (ECG)", "description": "Registro da atividade elétrica do coração em repouso" }
       ]
     }
   }
@@ -235,6 +236,15 @@
     gtag('config', 'G-KKPFVK7H1R');
 
     var loadGtagRuntime = function () {
+      // Guarda de idempotencia (auditoria de 2026-08-18): o prerender.mjs ja remove
+      // este script do HTML estatico antes de tirar o snapshot, mas esta flag fica
+      // como segunda camada de defesa - sem ela, se o snippet abaixo rodar mais de
+      // uma vez (cache antigo, race condition, nova rota pre-renderizada sem a
+      // limpeza), o gtag.js e baixado/executado duas vezes e a conversao do Google
+      // Ads e configurada em dobro (double counting).
+      if (window.__gtagRuntimeLoaded) return;
+      window.__gtagRuntimeLoaded = true;
+
       var s = document.createElement('script');
       s.async = true;
       s.src = 'https://www.googletagmanager.com/gtag/js?id=G-KKPFVK7H1R';
@@ -247,10 +257,12 @@
       // auditoria de performance de 2026-07-25, TBT de 1,1s).
       gtag('config', 'AW-17670106209');
     };
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(loadGtagRuntime, { timeout: 4000 });
-    } else {
-      setTimeout(loadGtagRuntime, 2000);
+    if (!document.querySelector('script[src*="gtag/js?id=G-KKPFVK7H1R"]')) {
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadGtagRuntime, { timeout: 4000 });
+      } else {
+        setTimeout(loadGtagRuntime, 2000);
+      }
     }
   </script>
 

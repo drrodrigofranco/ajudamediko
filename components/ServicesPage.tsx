@@ -55,10 +55,13 @@ const consultationServices: ConsultationService[] = [
     description: 'Perícia Médica para fins judiciais e trabalhistas, com ética e atualização científica. Assistência técnica qualificada para advogados e empresas que buscam laudos imparciais e fundamentados.',
   },
   {
-    title: 'Holter, MAPA e Espirometria',
+    title: 'Holter, MAPA, Espirometria e ECG',
     icon: 'Activity',
-    description: 'Realização de exames cardiorrespiratórios avançados: Holter 24h, MAPA 24h e Espirometria. Oferecemos monitoramento completo, equipamentos calibrados e manuais de preparação detalhados para máxima segurança do seu diagnóstico.',
-    links: [{ label: 'Ver Guia e Preparação', href: '/exames-cardiorespiratorios' }],
+    description: 'Realização de exames cardiorrespiratórios avançados: Holter 24h, MAPA 24h, Espirometria e Eletrocardiograma (ECG). Oferecemos monitoramento completo, equipamentos calibrados e manuais de preparação detalhados para máxima segurança do seu diagnóstico.',
+    links: [
+      { label: 'Holter, MAPA e Espirometria', href: '/exames-cardiorespiratorios' },
+      { label: 'Ver Eletrocardiograma (ECG)', href: '/exame/eletrocardiograma' },
+    ],
   },
 ];
 

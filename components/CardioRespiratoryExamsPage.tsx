@@ -100,7 +100,13 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
     }
   };
 
-  const activeData = examsInfo[activeTab];
+  // As 3 seções abaixo (Main Tab Content e FAQs) renderizam SEMPRE as 3 abas no DOM,
+  // alternando visibilidade por CSS (classe `hidden` na aba inativa) em vez de montar
+  // só `examsInfo[activeTab]`. Isso é necessário para que o conteúdo de MAPA e
+  // Espirometria exista no HTML pré-renderizado (prerender.mjs visita a rota uma única
+  // vez, sempre com o valor padrão 'holter') e seja visível a rastreadores que não
+  // simulam cliques em abas (Googlebot, GPTBot, ClaudeBot, PerplexityBot etc.).
+  const examTabKeys = Object.keys(examsInfo) as Array<keyof typeof examsInfo>;
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 font-sans text-gray-800 antialiased">
@@ -179,77 +185,95 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
         </div>
       </section>
 
-      {/* Main Tab Content */}
+      {/* Main Tab Content — as 3 abas ficam sempre no DOM; só a inativa recebe `hidden` */}
       <section className="py-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl border border-gray-100 shadow-md p-8 lg:p-12 grid lg:grid-cols-5 gap-12 text-left">
-          {/* Left info column */}
-          <div className="lg:col-span-3 space-y-6">
-            <div>
-              <span className="text-[#14b8a6] font-bold text-xs uppercase tracking-widest">{activeData.subtitle}</span>
-              <h2 className="text-3xl font-serif font-bold text-[#0e4843] mt-2">{activeData.title}</h2>
-              <div className="h-1 w-12 bg-[#14b8a6] mt-4 rounded-full"></div>
-            </div>
-            
-            <p className="text-gray-600 text-sm leading-relaxed">{activeData.desc}</p>
-            
-            <div className="bg-teal-50/50 p-6 rounded-2xl border border-teal-500/10">
-              <h4 className="font-bold text-xs uppercase tracking-widest text-[#0e4843] mb-2">Finalidade do Exame</h4>
-              <p className="text-xs text-gray-500 leading-relaxed">{activeData.purpose}</p>
-            </div>
-
-            {/* Time / Duration info row */}
-            <div className="flex items-center gap-3 pt-2 text-[#0e4843]">
-              <div className="bg-teal-50 p-3 rounded-xl text-[#14b8a6]">
-                <Icons.Hourglass className="w-5 h-5" />
-              </div>
-              <div>
-                <h5 className="text-[10px] uppercase font-bold tracking-widest text-teal-800">Tempo de Monitoramento</h5>
-                <p className="font-bold text-sm">{activeData.duration}</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Right preparation checklist column */}
-          <div className="lg:col-span-2 space-y-6 lg:border-l lg:border-gray-100 lg:pl-10">
-            <h4 className="text-sm font-bold uppercase tracking-widest text-[#0e4843] flex items-center gap-2">
-              <Icons.ClipboardList className="w-4 h-4 text-[#14b8a6]" />
-              Manual de Preparação
-            </h4>
-            <div className="space-y-4">
-              {activeData.preparations.map((step, idx) => (
-                <div key={idx} className="flex gap-3 items-start">
-                  <span className="w-5 h-5 rounded-full bg-teal-50 text-[#14b8a6] flex items-center justify-center text-[10px] font-black flex-shrink-0 mt-0.5">
-                    {idx + 1}
-                  </span>
-                  <p className="text-xs text-gray-500 leading-relaxed">{step}</p>
+        {examTabKeys.map((key) => {
+          const data = examsInfo[key];
+          return (
+            <div
+              key={key}
+              className={`bg-white rounded-3xl border border-gray-100 shadow-md p-8 lg:p-12 grid lg:grid-cols-5 gap-12 text-left ${activeTab === key ? '' : 'hidden'}`}
+              aria-hidden={activeTab === key ? undefined : true}
+            >
+              {/* Left info column */}
+              <div className="lg:col-span-3 space-y-6">
+                <div>
+                  <span className="text-[#14b8a6] font-bold text-xs uppercase tracking-widest">{data.subtitle}</span>
+                  <h2 className="text-3xl font-serif font-bold text-[#0e4843] mt-2">{data.title}</h2>
+                  <div className="h-1 w-12 bg-[#14b8a6] mt-4 rounded-full"></div>
                 </div>
-              ))}
+
+                <p className="text-gray-600 text-sm leading-relaxed">{data.desc}</p>
+
+                <div className="bg-teal-50/50 p-6 rounded-2xl border border-teal-500/10">
+                  <h4 className="font-bold text-xs uppercase tracking-widest text-[#0e4843] mb-2">Finalidade do Exame</h4>
+                  <p className="text-xs text-gray-500 leading-relaxed">{data.purpose}</p>
+                </div>
+
+                {/* Time / Duration info row */}
+                <div className="flex items-center gap-3 pt-2 text-[#0e4843]">
+                  <div className="bg-teal-50 p-3 rounded-xl text-[#14b8a6]">
+                    <Icons.Hourglass className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h5 className="text-[10px] uppercase font-bold tracking-widest text-teal-800">Tempo de Monitoramento</h5>
+                    <p className="font-bold text-sm">{data.duration}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right preparation checklist column */}
+              <div className="lg:col-span-2 space-y-6 lg:border-l lg:border-gray-100 lg:pl-10">
+                <h4 className="text-sm font-bold uppercase tracking-widest text-[#0e4843] flex items-center gap-2">
+                  <Icons.ClipboardList className="w-4 h-4 text-[#14b8a6]" />
+                  Manual de Preparação
+                </h4>
+                <div className="space-y-4">
+                  {data.preparations.map((step, idx) => (
+                    <div key={idx} className="flex gap-3 items-start">
+                      <span className="w-5 h-5 rounded-full bg-teal-50 text-[#14b8a6] flex items-center justify-center text-[10px] font-black flex-shrink-0 mt-0.5">
+                        {idx + 1}
+                      </span>
+                      <p className="text-xs text-gray-500 leading-relaxed">{step}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          );
+        })}
       </section>
 
-      {/* FAQs section */}
+      {/* FAQs section — mesma lógica: as 3 listas de FAQ ficam sempre no DOM */}
       <section className="py-16 bg-white border-y border-gray-100">
         <div className="max-w-3xl mx-auto px-4 text-left">
           <h2 className="text-2xl font-serif font-bold text-center text-[#0e4843] mb-4">Dúvidas Frequentes sobre o Exame</h2>
           <div className="h-1 w-12 bg-[#14b8a6] mx-auto mb-10 rounded-full"></div>
-          
-          <div className="space-y-4">
-            {activeData.faqs.map((faq, idx) => (
-              <details key={idx} className="group bg-gray-50 rounded-2xl border border-gray-100 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm hover:border-[#14b8a6]/20 transition-all">
-                <summary className="flex justify-between items-center text-sm font-bold text-[#0e4843]">
-                  <span>{faq.q}</span>
-                  <span className="transition group-open:rotate-180 text-[#14b8a6]">
-                    <Icons.ChevronDown className="w-5 h-5" />
-                  </span>
-                </summary>
-                <p className="mt-4 text-xs leading-relaxed text-gray-500">
-                  {faq.a}
-                </p>
-              </details>
-            ))}
-          </div>
+
+          {examTabKeys.map((key) => {
+            const data = examsInfo[key];
+            return (
+              <div
+                key={key}
+                className={`space-y-4 ${activeTab === key ? '' : 'hidden'}`}
+                aria-hidden={activeTab === key ? undefined : true}
+              >
+                {data.faqs.map((faq, idx) => (
+                  <details key={idx} className="group bg-gray-50 rounded-2xl border border-gray-100 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm hover:border-[#14b8a6]/20 transition-all">
+                    <summary className="flex justify-between items-center text-sm font-bold text-[#0e4843]">
+                      <span>{faq.q}</span>
+                      <span className="transition group-open:rotate-180 text-[#14b8a6]">
+                        <Icons.ChevronDown className="w-5 h-5" />
+                      </span>
+                    </summary>
+                    <p className="mt-4 text-xs leading-relaxed text-gray-500">
+                      {faq.a}
+                    </p>
+                  </details>
+                ))}
+              </div>
+            );
+          })}
         </div>
       </section>
 

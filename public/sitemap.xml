@@ -175,6 +175,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://ajudamediko.com.br/exame/eletrocardiograma</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- Médicos -->
   <url>
     <loc>https://ajudamediko.com.br/medico/rodrigo-franco</loc>
@@ -203,13 +209,13 @@
   <!-- Políticas e Termos -->
   <url>
     <loc>https://ajudamediko.com.br/politica-de-privacidade.html</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/termos-de-uso.html</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

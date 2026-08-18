@@ -96,7 +96,8 @@ const EXAM_IDS = [
   'vascular',
   'espirometria',
   'holter',
-  'mapa'
+  'mapa',
+  'eletrocardiograma'
 ];
 
 const DOCTOR_IDS = [
@@ -164,6 +165,20 @@ async function main() {
     ).catch(() => console.log(`  aviso: seletor-chave nao confirmado para ${target.url}, seguindo...`));
 
     await wait(1000); // tempo curto para animacoes assentarem
+
+    // Auditoria de 2026-08-18: o requestIdleCallback do gtag em index.html tende a
+    // disparar durante essa propria automacao (pagina ociosa, sem input real do
+    // usuario), injetando <script src=".../gtag/js?id=...">  no <head> ANTES deste
+    // snapshot. O bloqueio de rede acima (BLOCKED_HOSTS) impede a requisicao, mas nao
+    // impede o document.head.appendChild sincrono - a tag fica congelada no HTML
+    // estatico mesmo assim. Isso fazia o script rodar 2x para o usuario real (uma vez
+    // via essa tag estatica, outra via o snippet inline rodando de novo no navegador),
+    // dobrando o TBT medido (auditoria: 1,1s -> 1,63s). Removemos aqui, de forma
+    // deterministica, antes de capturar o outerHTML - independe de o
+    // requestIdleCallback ter disparado ou nao durante o wait(1000) acima.
+    await page.evaluate(() => {
+      document.querySelectorAll('script[src*="googletagmanager.com"]').forEach((el) => el.remove());
+    });
 
     const html = await page.evaluate(() => '<!DOCTYPE html>\n' + document.documentElement.outerHTML);
 
