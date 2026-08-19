@@ -1,86 +1,163 @@
-# 🤝 HANDOFF — ajudamediko
+# 🤝 HANDOFF — ajudamediko (site da Clínica Franco)
 
 > **PARA A IA / AGENTE QUE ESTÁ LENDO ISTO:**
-> Este é o arquivo de **continuidade entre sessões**. LEIA-O INTEIRO antes de começar.
+> ⚠️ **Isto NÃO é um "app"** — é o **site institucional da Clínica Franco** (ajudamediko.com.br).
+> Nome da marca é só **"Clínica Franco"** — o "+ Associados" foi removido do site de propósito
+> (commit `468bb27`, rebranding), não usar mais em textos novos. É tecnicamente implementado como uma SPA React, mas na prática é uma página web
+> pública, não uma aplicação com usuários/contas/área logada. Trate como site.
+> Este é o arquivo de **continuidade entre sessões** sobre o **site** (código, deploy, estrutura). LEIA-O
+> INTEIRO antes de começar.
+> **Existe um handoff SEPARADO só sobre a ferramentaria de SEO** (credenciais GSC/Bing, scripts, relatórios):
+> `seo-reports/HANDOFF-SEOTOOLS.md`. Não confundir os dois — este arquivo é sobre o site em si.
 > **AO TERMINAR (ou quando os tokens estiverem acabando), ATUALIZE este arquivo:**
 > 1. Atualize a data e o "Status atual" no topo.
-> 2. Mova o que concluuiu de "🔜 Próximos passos" para "✅ Histórico".
-> 3. Anote decisões novas, senhas, caminhos e armadilhas em "⚠️ Armadilhas conhecidas".
+> 2. Mova o que concluiu de "🔜 Próximos passos" para "✅ Histórico".
+> 3. Anote decisões novas, caminhos e armadilhas em "⚠️ Armadilhas conhecidas".
 > 4. Seja específico: caminhos absolutos, comandos exatos, nomes de arquivo.
-> Este arquivo é a **única fonte de verdade** sobre o estado operacional do projeto.
+> Este arquivo é a **única fonte de verdade** sobre o estado operacional do site.
 
 ---
 
 ## 📅 Última atualização
-- **Data:** 2026-07-12
-- **Atualizado por:** Antigravity (Gemini 3.5 Flash)
-- **Status atual:** 🟢 Projeto migrado com sucesso para os Projetos Ativos (`01 - Projetos Ativos/ajudamediko`). As dependências (`node_modules`) foram omitidas na cópia para fins de otimização de espaço e velocidade, e devem ser instaladas no novo local.
+- **Data:** 2026-08-19
+- **Status atual:** 🟢 Em produção, estável. Auditoria SEO completa feita em 18/08, 3 achados críticos
+  corrigidos e deployados no mesmo dia. Página de Eletrocardiograma (ECG) adicionada. Ver
+  `seo-reports/RELATORIO-SEO-2026-08.md` para o relatório completo de SEO (achados, correções, dados de
+  Search Console).
 
 ---
 
-## 🎯 O que é o projeto
-Website institucional dinâmico da **Clínica Franco** (Nova Andradina - MS), focado em serviços médicos de Ultrassonografia (Dr. Rodrigo Franco) e Saúde Mental/Neurologia (Dr. Lucas Franco).
-Possui uma calculadora gestacional integrada, widget de notícias e páginas de destino específicas para exames críticos.
+## 🎯 O que é e pra que serve
+Site institucional da **Clínica Franco + Associados** (Nova Andradina - MS): ultrassonografia (Dr. Rodrigo
+Franco), saúde do idoso/clínica geral (Dr. Lucas Franco), avaliação neurológica (Dr. Guilherme Zandoná),
+pediatria (Dr. Tiago Wizenfad).
 
-**Stack:** React 18, Vite 6, Tailwind CSS 4, Lucide React, TypeScript.
+**Objetivo de negócio (não é só "ter um site"):** divulgar a clínica na internet e trazer mais pacientes de
+verdade pros atendimentos — o site é ferramenta de captação, não vitrine institucional passiva. Visibilidade
+nas buscas locais ("ultrassom em Nova Andradina" e afins) é o meio; agendamento real via WhatsApp é o fim. Toda
+decisão de SEO/conteúdo/UX deste projeto deve ser avaliada por essa lente: isso ajuda a trazer mais pacientes?
+Ver `seo-reports/` para todo o trabalho de SEO nessa direção.
+
+Tem calculadora gestacional integrada, blog/curadoria de notícias, e uma página dedicada por exame
+(`/exame/{id}`) e por médico (`/medico/{id}`).
+
+**Stack:** React 18 + Vite 6 (SPA, sem router de terceiros — roteamento manual em `App.tsx` via
+`window.history.pushState`/`popstate`), Tailwind CSS, TypeScript. Hospedado na **Vercel**, deploy automático a
+cada push na `main`.
 
 ---
 
 ## 🗂️ Caminhos e arquivos críticos
-- **Raiz do projeto:** `c:\Users\fisio.000\Desktop\Claude VS Code\01 - Projetos Ativos\ajudamediko`
-- **Configuração:** `package.json`, `vite.config.ts`, `postcss.config.mjs`, `tailwind.config.js`
-- **Pontos de entrada:** 
-  - `index.html` (página HTML principal com mapeamentos importmap)
-  - `index.tsx` (ponto de entrada do React)
-  - `App.tsx` (layout do aplicativo e rotas internas baseadas em seções)
-- **Componentes:** Localizados em `c:\Users\fisio.000\Desktop\Claude VS Code\01 - Projetos Ativos\ajudamediko\components/`
-- **Páginas Adicionais (Landing Pages de Exames):**
-  - `ecocardiograma-fetal.html`
-  - `morfologico-trimestre.html`
-  - `ultrassom-obstetrico.html`
+- **Raiz do site (código-fonte, caminho atual/canônico):**
+  `D:\Workspaces\Claude VS Code\01 - Projetos Ativos\ajudamediko`
+  (⚠️ HANDOFFs antigos ou memórias externas podem citar `C:\Users\...\Desktop\Claude VS Code\...` — esse
+  caminho está **desatualizado**, o projeto foi migrado pro HD D: em 2026-07-21/2026-07-12.)
+- **Configuração:** `package.json`, `vite.config.ts`, `postcss.config.mjs`, `tailwind.config.js`, `vercel.json`
+- **Pontos de entrada:**
+  - `index.html` — HTML estático servido, contém meta tags/JSON-LD base + snippet do Google Tag (ver
+    armadilhas abaixo)
+  - `index.tsx` — entrada do React
+  - `App.tsx` — layout + roteamento manual por `window.location.pathname` (não usa React Router)
+- **Componentes:** `components/`
+- **Dados centralizados (fonte única, não duplicar):**
+  - `examsData.ts` — conteúdo completo de cada exame (usado por `/exame/{id}` via `ExamDetailPage.tsx`)
+  - `ultrasoundExamsData.ts` — catálogo mestre resumido dos exames (usado por `Services.tsx`, `ServicesPage.tsx`,
+    formulário de contato) — **⚠️ `components/ExamsDrawer.tsx` tem uma lista local duplicada, não importada
+    daqui** — ao adicionar/editar exame, atualizar os dois lugares.
+  - `doctorsData.ts` — dados da equipe médica
+  - `articlesData.ts` — artigos originais assinados pelos médicos (blog)
+  - `curatedNewsData.ts` — curadoria de notícias externas (blog, seção secundária)
+- **Páginas legais (arquivos HTML estáticos isolados, fora do React/prerender):**
+  `public/politica-de-privacidade.html`, `public/termos-de-uso.html` — reescritas em 2026-08-18 (ver
+  Armadilhas).
+- **Rascunhos de conteúdo médico aguardando revisão:** `content-drafts/` (ver Armadilhas — nunca publicar
+  conteúdo clínico sem aprovação do médico correspondente).
+- **Pré-render:** `prerender.mjs`, roda como `postbuild` (Puppeteer/`puppeteer-core`+`@sparticuz/chromium` no
+  ambiente Vercel). Gera HTML estático por rota em `dist/` pra SEO/crawlers. `EXAM_IDS`/`DOCTOR_IDS` no topo do
+  arquivo listam as rotas geradas dinamicamente.
 
 ---
 
 ## 🔑 Acesso (ambiente LOCAL/PROD)
-- **URLs:** 
-  - Local: `http://localhost:3000` (ou `http://localhost:3001` dependendo de portas ocupadas)
+- **URLs:**
+  - Local: `http://localhost:3000` (ou `3001` se a porta padrão estiver ocupada)
   - Produção: `https://ajudamediko.com.br`
-- **Login:** Sem autenticação de área administrativa.
-- **Chaves/segredos:** Opcional chave `GEMINI_API_KEY` em `.env.local` caso queira alimentar recursos interativos da IA Studio.
+- **Repo:** `github.com/drrodrigofranco/ajudamediko`, branch `main` = produção (push dispara deploy Vercel
+  automático; push de outra branch gera preview)
+- **Login:** sem área administrativa autenticada.
+- **Credenciais de ferramentas de SEO (GSC/Bing):** ver `seo-reports/HANDOFF-SEOTOOLS.md` — não ficam neste
+  repositório, ficam em `C:\Users\fisio.000\.config\claude-seo\` (fora do controle de versão).
 
 ---
 
 ## ▶️ Como subir o sistema
 ```bash
-# Navegue até a pasta do projeto ativo
-cd "c:\Users\fisio.000\Desktop\Claude VS Code\01 - Projetos Ativos\ajudamediko"
-
-# Instale as dependências (já mapeadas no package.json)
-npm install
-
-# Suba o servidor de desenvolvimento do Vite
+cd "D:\Workspaces\Claude VS Code\01 - Projetos Ativos\ajudamediko"
+npm install   # node_modules já existe hoje; rodar só se faltar ou após npm ci limpo
 npm run dev
+npm run build # dispara TypeScript check + Vite build + prerender.mjs (gera dist/ completo, ~35 páginas)
 ```
 
 ---
 
-## ✅ Histórico (concluído)
-- **2026-07-12 (Antigravity):** Migração estrutural dos arquivos do projeto do caminho antigo (`Desktop\Claude VS Code\ajudamediko`) para o diretório de projetos ativos (`Desktop\Claude VS Code\01 - Projetos Ativos\ajudamediko`). Exclusão do diretório pesado `node_modules` durante a cópia para agilidade na transferência. Criação do arquivo de handover inicial.
+## ✅ Histórico (resumo — detalhes completos em `seo-reports/RELATORIO-SEO-2026-08.md` e na memória do projeto)
+- **2026-07-12:** Migração pro caminho atual em `01 - Projetos Ativos`.
+- **2026-07-11 a 2026-07-25:** Fase 1 (404 de robots/sitemap corrigido, pré-render implantado), Fase 2 (páginas
+  por exame), correções de schema/performance/visual/conteúdo, 3 primeiros artigos do blog publicados.
+- **2026-08-18:** Auditoria SEO completa (score 69/100) + 3 correções críticas deployadas no mesmo dia
+  (canonical das páginas legais, conteúdo de MAPA/Espirometria invisível a crawlers, script Google Tag
+  duplicado) + página de Eletrocardiograma (ECG) adicionada.
+- **2026-08-19:** Google Search Console conectado via API (service account + OAuth). Relatório de palavras-chave
+  reais gerado. Bing Webmaster Tools — ver status em `seo-reports/HANDOFF-SEOTOOLS.md`.
 
 ---
 
-## 🔜 Próximos passos (em ordem)
-1. Rodar `npm install` na pasta `c:\Users\fisio.000\Desktop\Claude VS Code\01 - Projetos Ativos\ajudamediko` para recriar a pasta `node_modules`.
-2. Rodar `npm run dev` para validar o comportamento e verificar se todas as seções e landing pages funcionam perfeitamente.
-3. Prosseguir com as solicitações pendentes de conteúdo/estilo do usuário.
+## 🔜 Próximos passos
+Ver seção "Pendências em aberto" em `seo-reports/RELATORIO-SEO-2026-08.md` — é a lista viva e mais atual, não
+duplicar aqui.
+
+**Achado ao organizar o repositório em 2026-08-19 — 5 branches de blog nunca mergeadas na `main`:**
+Existe uma rotina automatizada que gera posts de blog em branches próprias (`blog-update-YYYY-MM-DD`). Checado
+via `git log HEAD..origin/main` que **nenhuma delas está na produção** — ficaram paradas, provavelmente
+aguardando revisão/aprovação do Rodrigo que nunca aconteceu:
+- `origin/blog-update-2026-08-04` — matéria sobre aprovação do ultrassom morfológico obrigatório no SUS
+- `origin/blog-update-2026-08-07` — só merge de `main`, sem conteúdo próprio novo (provavelmente pode ser
+  descartada)
+- `origin/blog-update-2026-08-10` — 2 matérias curadas (PNS 2026, InfoGripe SRAG)
+- `origin/blog-update-2026-08-16` — só merge de `main`, sem conteúdo próprio novo (idem acima)
+- `origin/blog-update-2026-08-19` — matéria sobre iniciativa HEARTS 2.0 (OPAS/OMS)
+- `origin/claude/site-access-up3heu` — parece ser uma versão anterior/duplicada do post de ecocardiograma fetal
+  que já foi mergeado por outro caminho (commit `3f8c39b`) — candidata a descarte, mas confirmar antes.
+
+Não mergeei nenhuma sem aprovação do Rodrigo (conteúdo de saúde/curadoria médica). Próxima sessão: revisar com
+ele quais aprovar e mergear, e apagar as branches obsoletas/vazias pra limpar o repositório.
 
 ---
 
 ## ⚠️ Armadilhas conhecidas (NÃO repetir erros)
-- **Porta em uso:** O Vite pode iniciar na porta `3001` caso a porta padrão `3000` esteja ocupada por outro processo. Verifique o terminal para o link local exato.
-- **Evitar alterações diretas no desktop:** Sempre edite o código na pasta dentro de `01 - Projetos Ativos`.
+- **Porta em uso:** Vite pode subir na `3001` se a `3000` estiver ocupada.
+- **Título/description da home tem DOIS lugares:** `index.html` (estático) e o hook `useSEO({...path:'/'...})`
+  dentro de `App.tsx` (sobrescreve via JS **depois** que o React monta — e é esse valor que fica gravado no
+  HTML pré-renderizado, já que o `prerender.mjs` tira o snapshot depois da hidratação). Editar title/description
+  da home sem editar os dois lugares causa divergência entre o que o robô vê e o `index.html` cru.
+- **`prerender.mjs` roda em ambiente sem input real de usuário** — qualquer coisa que dependa de
+  `requestIdleCallback`/timers/eventos do usuário pode disparar *durante a própria automação* e ficar congelada
+  no HTML estático (foi a causa do bug do script duplicado do Google Tag, corrigido em 2026-08-18 — ver o
+  comentário no próprio `prerender.mjs` antes da linha que tira o snapshot).
+- **`components/ExamsDrawer.tsx` tem uma lista de exames duplicada**, não importada de `ultrasoundExamsData.ts`.
+  Ao adicionar um exame novo, atualizar os dois lugares (mais `examsData.ts`, `prerender.mjs` `EXAM_IDS`,
+  `public/sitemap.xml`, `OfferCatalog` em `index.html`).
+- **Páginas legais (`public/politica-de-privacidade.html`, `termos-de-uso.html`) são HTML estático isolado**,
+  fora do pipeline React/prerender — editar diretamente esses arquivos, não `App.tsx`.
+- **Não fabricar conteúdo clínico definitivo sem revisão médica** — vale pra artigos do blog e pra qualquer
+  texto de preparo/indicação de exame novo (ex.: o ECG adicionado em 18/08 ainda aguarda essa revisão).
+- **Nunca commitar credenciais de API** (GSC, Bing, etc.) — ficam em `C:\Users\fisio.000\.config\claude-seo\`,
+  fora deste repositório.
 
 ---
 
-## 🧠 Memória / docs relacionados
+## 🧠 Docs relacionados
 - `README.md`
+- `seo-reports/HANDOFF-SEOTOOLS.md` — continuidade específica da ferramentaria de SEO (credenciais, scripts)
+- `seo-reports/RELATORIO-SEO-2026-08.md` — relatório vivo de SEO (achados, correções, dados, pendências)
+- Memória do projeto (fora do repo): `project_ajudamediko_seo.md` no sistema de memória do Claude Code
