@@ -74,7 +74,7 @@ const App: React.FC = () => {
     const mapImgSrc = "/images/mapa-localizacao.jpg";
     const googleMapsLink = "https://maps.app.goo.gl/aMkRNzPYtTe6jwQJ8";
 
-    const navItems = ['SOBRE', 'SERVIÇOS', 'ENTENDA OS EXAMES', 'ATENDIMENTOS', 'CALCULADORAS', 'CURRÍCULO', 'LOCALIZAÇÃO', 'DÚVIDAS', 'NOTÍCIAS', 'BLOG', 'CONTATO'];
+    const navItems = ['SOBRE', 'SERVIÇOS', 'ENTENDA OS EXAMES', 'ATENDIMENTOS', 'CALCULADORAS', 'CURRÍCULO', 'LOCALIZAÇÃO', 'DÚVIDAS', 'NOTÍCIAS', 'BLOG', 'EQUIPE', 'CONTATO'];
 
     const normalizeId = (text: string) => {
         return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "").toLowerCase();
@@ -107,6 +107,9 @@ const App: React.FC = () => {
             setIsMobileMenuOpen(false);
         } else if (item === 'BLOG') {
             navigateTo('/blog');
+            setIsMobileMenuOpen(false);
+        } else if (item === 'EQUIPE') {
+            navigateTo('/equipe');
             setIsMobileMenuOpen(false);
         } else {
             scrollToSection(normalizeId(item));
