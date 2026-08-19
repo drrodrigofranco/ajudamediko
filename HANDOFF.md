@@ -28,7 +28,7 @@
 ---
 
 ## 🎯 O que é e pra que serve
-Site institucional da **Clínica Franco + Associados** (Nova Andradina - MS): ultrassonografia (Dr. Rodrigo
+Site institucional da **Clínica Franco** (Nova Andradina - MS): ultrassonografia (Dr. Rodrigo
 Franco), saúde do idoso/clínica geral (Dr. Lucas Franco), avaliação neurológica (Dr. Guilherme Zandoná),
 pediatria (Dr. Tiago Wizenfad).
 
@@ -65,8 +65,13 @@ cada push na `main`.
     formulário de contato) — **⚠️ `components/ExamsDrawer.tsx` tem uma lista local duplicada, não importada
     daqui** — ao adicionar/editar exame, atualizar os dois lugares.
   - `doctorsData.ts` — dados da equipe médica
-  - `articlesData.ts` — artigos originais assinados pelos médicos (blog)
-  - `curatedNewsData.ts` — curadoria de notícias externas (blog, seção secundária)
+  - `articlesData.ts` — artigos originais assinados pelos médicos, cada um com página própria em
+    `/blog/{id}` (`components/ArticleDetailPage.tsx`) desde 2026-08-19. **Ao publicar um artigo novo, editar
+    3 lugares:** (1) adicionar o objeto em `articlesData.ts`, (2) adicionar o `id` no array `ARTICLE_IDS` em
+    `prerender.mjs` (não dá pra importar o `.ts` direto — mesma razão de `EXAM_IDS`/`DOCTOR_IDS`), (3) adicionar
+    a entrada em `public/sitemap.xml`. A página, a rota (`App.tsx`) e o link em `/blog` (`BlogPage.tsx`) e na
+    home (`HealthNewsWidget.tsx`) já leem `articlesData.ts` direto, não precisam de edição.
+  - `curatedNewsData.ts` — curadoria de notícias externas (blog, seção secundária, sem página própria)
 - **Páginas legais (arquivos HTML estáticos isolados, fora do React/prerender):**
   `public/politica-de-privacidade.html`, `public/termos-de-uso.html` — reescritas em 2026-08-18 (ver
   Armadilhas).
@@ -108,7 +113,10 @@ npm run build # dispara TypeScript check + Vite build + prerender.mjs (gera dist
   (canonical das páginas legais, conteúdo de MAPA/Espirometria invisível a crawlers, script Google Tag
   duplicado) + página de Eletrocardiograma (ECG) adicionada.
 - **2026-08-19:** Google Search Console conectado via API (service account + OAuth). Relatório de palavras-chave
-  reais gerado. Bing Webmaster Tools — ver status em `seo-reports/HANDOFF-SEOTOOLS.md`.
+  reais gerado. Bing Webmaster Tools — ver status em `seo-reports/HANDOFF-SEOTOOLS.md`. Segunda rodada de
+  análise (cobertura 36/36 URLs, GEO reauditado, decisão sobre o blog). Execução do plano de ação: markdown
+  quebrado corrigido, artigos originais com página própria (`/blog/{id}`), IndexNow configurado — ver
+  `seo-reports/RELATORIO-SEO-2026-08.md` seção 11.
 
 ---
 

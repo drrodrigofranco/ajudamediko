@@ -107,6 +107,16 @@ const DOCTOR_IDS = [
   'tiago-wizenfad'
 ];
 
+// IDs dos artigos originais (articlesData.ts). Node roda este arquivo direto via
+// `node prerender.mjs` (sem loader de TS), entao nao da pra importar o .ts aqui -
+// mesma razao pela qual EXAM_IDS/DOCTOR_IDS acima tambem sao copias fixas. Ao
+// adicionar um artigo novo em articlesData.ts, adicionar o id aqui tambem.
+const ARTICLE_IDS = [
+  'ecocardiograma-fetal-quando-fazer',
+  'translucencia-nucal-o-que-e',
+  'espirometria-para-que-serve'
+];
+
 async function main() {
   await new Promise(r => server.listen(PORT, r));
   const browser = await launchBrowser();
@@ -146,7 +156,8 @@ async function main() {
     { url: '/equipe', file: 'equipe/index.html' },
     { url: '/servicos', file: 'servicos/index.html' },
     ...EXAM_IDS.map(id => ({ url: `/exame/${id}`, file: `exame/${id}/index.html` })),
-    ...DOCTOR_IDS.map(id => ({ url: `/medico/${id}`, file: `medico/${id}/index.html` }))
+    ...DOCTOR_IDS.map(id => ({ url: `/medico/${id}`, file: `medico/${id}/index.html` })),
+    ...ARTICLE_IDS.map(id => ({ url: `/blog/${id}`, file: `blog/${id}/index.html` }))
   ];
 
   console.log(`🚀 Iniciando pré-renderização de ${targets.length} páginas...`);

@@ -80,7 +80,7 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
               O ultrassom é um método de diagnóstico por imagem totalmente seguro, baseado no princípio físico do eco (ondas sonoras de alta frequência). O transdutor emite ondas mecânicas inaudíveis que ricocheteiam nas estruturas internas do corpo e retornam como eco, sendo decodificados em tempo real na tela do médico.
             </p>
             <p className="text-gray-600 text-sm leading-relaxed">
-              Diferente do Raio-X e da Tomografia, **o ultrassom não utiliza radiação ionizante**. Por isso, é o exame padrão de escolha para monitorar gestações e realizar avaliações repetidas sem qualquer risco biológico.
+              Diferente do Raio-X e da Tomografia, <strong>o ultrassom não utiliza radiação ionizante</strong>. Por isso, é o exame padrão de escolha para monitorar gestações e realizar avaliações repetidas sem qualquer risco biológico.
             </p>
             
             <div className="space-y-4 pt-4">

@@ -3,7 +3,11 @@ import { HealthNews } from '../types';
 import { Activity, ChevronRight, FileText, Stethoscope } from 'lucide-react';
 import { articlesData } from '../articlesData';
 
-const HealthNewsWidget: React.FC = () => {
+interface HealthNewsWidgetProps {
+    navigateTo: (path: string, e: React.MouseEvent) => void;
+}
+
+const HealthNewsWidget: React.FC<HealthNewsWidgetProps> = ({ navigateTo }) => {
     // Lista estática de notícias para não depender da IA
     const fixedNews: HealthNews[] = [
         {
@@ -43,15 +47,18 @@ const HealthNewsWidget: React.FC = () => {
                             {article.authorName} · {article.authorCrm}
                         </p>
                         <div className="space-y-3">
-                            {article.body.map((paragraph, i) => (
-                                <p key={i} className="text-gray-600 text-sm leading-relaxed">
-                                    {paragraph}
-                                </p>
-                            ))}
+                            <p className="text-gray-600 text-sm leading-relaxed">
+                                {article.body[0]}
+                            </p>
                         </div>
-                        <p className="text-xs text-gray-500 italic mt-4 leading-relaxed">
-                            {article.disclaimer}
-                        </p>
+                        <a
+                            href={`/blog/${article.id}`}
+                            onClick={(e) => navigateTo(`/blog/${article.id}`, e)}
+                            className="inline-flex items-center text-sm font-semibold text-[#0f766e] hover:text-teal-800 transition-colors mt-3"
+                        >
+                            Ler artigo completo
+                            <ChevronRight size={16} className="ml-1" />
+                        </a>
                     </article>
                 ))}
             </div>

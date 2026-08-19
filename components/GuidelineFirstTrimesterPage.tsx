@@ -130,7 +130,7 @@ const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = 
             </div>
             <h3 className="text-lg font-bold text-[#0e4843]">3. Determinação de Corionicidade em Gêmeos</h3>
             <p className="text-gray-500 text-xs leading-relaxed">
-              Em gestações múltiplas, a ultrassonografia do primeiro trimestre é a **melhor e mais precisa janela temporal** para identificar a corionicidade (número de placentas) e a amnionicidade (número de bolsas). Gestações monocoriônicas (uma placenta para dois bebês) requerem um controle de pré-natal muito mais frequente, e a datação precoce salva vidas.
+              Em gestações múltiplas, a ultrassonografia do primeiro trimestre é a <strong>melhor e mais precisa janela temporal</strong> para identificar a corionicidade (número de placentas) e a amnionicidade (número de bolsas). Gestações monocoriônicas (uma placenta para dois bebês) requerem um controle de pré-natal muito mais frequente, e a datação precoce salva vidas.
             </p>
           </div>
 
@@ -141,7 +141,7 @@ const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = 
             </div>
             <h3 className="text-lg font-bold text-[#0e4843]">4. Triagem de Anomalias Cromossômicas</h3>
             <p className="text-gray-500 text-xs leading-relaxed">
-              Entre a 11ª e a 13ª semana e 6 dias, a diretriz recomenda a medição da **Translucência Nucal (TN)** associada à avaliação do osso nasal e do ducto venoso. Essa triagem é altamente precisa para estimar riscos estatísticos de síndromes genéticas (como Síndrome de Down, Edwards e Patau), além de identificar malformações físicas cardíacas graves precocemente.
+              Entre a 11ª e a 13ª semana e 6 dias, a diretriz recomenda a medição da <strong>Translucência Nucal (TN)</strong> associada à avaliação do osso nasal e do ducto venoso. Essa triagem é altamente precisa para estimar riscos estatísticos de síndromes genéticas (como Síndrome de Down, Edwards e Patau), além de identificar malformações físicas cardíacas graves precocemente.
             </p>
           </div>
         </div>
@@ -156,7 +156,7 @@ const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = 
           <div className="space-y-2 text-left">
             <h4 className="font-serif font-bold text-lg text-teal-300">Segurança de Exposição: O Princípio ALARA</h4>
             <p className="text-xs text-teal-50/70 leading-relaxed">
-              Embora o ultrassom não utilize radiação, a diretriz da AMB adota o protocolo internacional **ALARA (As Low As Reasonably Achievable)**. Recomenda-se realizar o exame apenas por médicos habilitados, regulando o equipamento para emitir a menor energia de ultrassom e no menor tempo necessários para obter o laudo de diagnóstico preciso.
+              Embora o ultrassom não utilize radiação, a diretriz da AMB adota o protocolo internacional <strong>ALARA (As Low As Reasonably Achievable)</strong>. Recomenda-se realizar o exame apenas por médicos habilitados, regulando o equipamento para emitir a menor energia de ultrassom e no menor tempo necessários para obter o laudo de diagnóstico preciso.
             </p>
           </div>
         </div>

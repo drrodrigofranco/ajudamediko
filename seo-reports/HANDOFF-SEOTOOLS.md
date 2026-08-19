@@ -95,6 +95,24 @@ Doctoralia). **Reconferir em 1-2 semanas** pra ver se o número muda.
 
 ---
 
+## 2.1 IndexNow (Bing/Yandex) — ✅ Configurado (19/08/2026)
+
+Protocolo gratuito que avisa Bing/Yandex imediatamente sobre URLs novas/alteradas, sem esperar o crawl natural.
+
+- **Chave:** publicada em `public/f2be5e2de7124bde9447a9e12edea79b.txt` no repositório do site (fica acessível
+  em `https://ajudamediko.com.br/f2be5e2de7124bde9447a9e12edea79b.txt` depois do deploy).
+- **Script de envio:** `scripts/indexnow-submit.mjs` (no repositório do site, não aqui) — lê todas as URLs de
+  `public/sitemap.xml` e faz POST pra `https://api.indexnow.org/indexnow`.
+- **Uso:** manual por enquanto, depois de qualquer deploy que adicione/altere página relevante:
+  ```bash
+  cd "D:\Workspaces\Claude VS Code\01 - Projetos Ativos\ajudamediko"
+  node scripts/indexnow-submit.mjs
+  ```
+- **Não integrado à pipeline automática de deploy** — decisão deliberada (19/08) pra não arriscar o fluxo de
+  deploy existente sem validar o script isolado primeiro.
+
+---
+
 ## 3. Outras credenciais de SEO (não configuradas, fora de escopo por ora)
 - **Moz API** (Tier 1 de backlinks) — não configurada. Free tier disponível se precisar de Domain
   Authority/Page Authority no futuro.

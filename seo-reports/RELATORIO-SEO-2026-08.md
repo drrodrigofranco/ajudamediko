@@ -1,7 +1,7 @@
 # Relatório de SEO — ajudamediko.com.br
 
-> Documento vivo, atualizado à medida que o trabalho avança. Última atualização: **19/08/2026** (GSC+Bing
-> conectados, otimizações de keyword aplicadas em `/entenda-exames` e `/exame/espirometria`).
+> Documento vivo, atualizado à medida que o trabalho avança. Última atualização: **19/08/2026** (execução do
+> plano de ação da 2ª rodada: markdown corrigido, artigos com URL própria, IndexNow configurado).
 > Relatórios visuais completos (mais fáceis de ler) publicados como Artifacts — links na seção 6.
 
 ## Índice
@@ -15,6 +15,7 @@
 8. [Pendências em aberto](#8-pendências-em-aberto)
 9. [Otimizações de keyword aplicadas (19/08/2026)](#9-otimizações-de-keyword-aplicadas-19082026)
 10. [Segunda rodada — cobertura, GEO e decisão sobre o blog (19/08/2026)](#10-segunda-rodada--cobertura-geo-e-decisão-sobre-o-blog-19082026)
+11. [Execução do plano de ação (19/08/2026)](#11-execução-do-plano-de-ação-19082026)
 
 ---
 
@@ -180,13 +181,14 @@ Detalhes técnicos completos (scripts, formato do config) em `HANDOFF-SEOTOOLS.m
 
 Consolidado de tudo que ainda não foi resolvido, entre esta rodada e a auditoria de 25/07/2026:
 
-- [ ] **Pedir indexação manual de `/equipe`, `/servicos` e `/medico/tiago-wizenfad`** — links diretos na seção 10.
-- [ ] **Corrigir markdown não renderizado** em `ExamsComparisonPage.tsx` e `GuidelineFirstTrimesterPage.tsx`
-  (4 ocorrências de `**texto**` aparecendo com asteriscos literais em vez de negrito) — seção 10.
-- [ ] **Dar URL própria aos 3 artigos originais** do `HealthNewsWidget.tsx` (não ao `/blog` de curadoria externa
-  — decisão detalhada na seção 10, é a maior oportunidade de GEO identificada).
-- [ ] Configurar IndexNow (chave não publicada, confirmado 19/08 — seção 10).
-- [ ] Adicionar schema FAQPage/MedicalWebPage a `/entenda-exames` (seção 10).
+- [ ] **Pedir indexação manual de `/equipe`, `/servicos` e `/medico/tiago-wizenfad`** — links diretos na seção 10
+  (único item da lista que só o Rodrigo pode fazer, exige login).
+- [x] ~~Corrigir markdown não renderizado~~ — feito 19/08, ver seção 11.
+- [x] ~~Dar URL própria aos 3 artigos originais~~ — feito 19/08, ver seção 11.
+- [x] ~~Configurar IndexNow~~ — feito 19/08, ver seção 11.
+- [ ] ~~Adicionar schema FAQPage/MedicalWebPage a `/entenda-exames`~~ — **decidido não fazer**: o Google
+  aposentou o rich result de FAQ pra todos os sites em 07/05/2026 (sem benefício de SERP confirmado). Ver
+  seção 11.
 - [ ] Reconferir contagem de backlinks no Bing em 1-2 semanas (0 em duas consultas seguidas, seção 7).
 - [ ] Revisar clinicamente o conteúdo do novo exame de Eletrocardiograma (seção 3).
 - [ ] Confirmar RQE de cada médico antes de reforçar qualquer especialidade no site (regra permanente do
@@ -302,3 +304,55 @@ de autoridade médica, que ajuda indiretamente as páginas de exame relacionadas
 Esforço técnico (verificado no código): baixo/médio — `articlesData.ts` já tem `id` único e
 `relatedExamId` por artigo, a estrutura já está pronta pra virar rota `/blog/{id}`, seguindo o mesmo padrão já
 usado 20+ vezes pras páginas de exame (`App.tsx`, `prerender.mjs`, `useSEO`, `sitemap.xml`).
+
+## 11. Execução do plano de ação (19/08/2026)
+
+A pedido do Rodrigo, todos os itens acionáveis da seção 10 foram implementados no mesmo dia (exceto os que só
+ele pode clicar, e 1 item descartado por regra do skill de SEO). Build local + `prerender.mjs` rodados com
+sucesso antes do commit; deploy segue o padrão já aprovado (push direto na `main`).
+
+### 11.1 Markdown não renderizado — corrigido
+As 4 ocorrências de `**texto**` em `components/ExamsComparisonPage.tsx` (linha 83) e
+`components/GuidelineFirstTrimesterPage.tsx` (linhas 133, 144, 159) viraram `<strong>texto</strong>` real.
+Confirmado por grep: zero ocorrências de `**` restantes nos dois arquivos.
+
+### 11.2 Artigos originais com URL própria — implementado (o item principal)
+Os 3 artigos de `articlesData.ts` (Ecocardiograma Fetal, Translucência Nucal, Espirometria) agora têm página
+própria em `/blog/{id}`, seguindo exatamente o padrão já usado em `/exame/{id}`:
+
+- **`components/ArticleDetailPage.tsx`** (novo): página com título, autor+CRM, data de publicação, corpo
+  completo, disclaimer, e — quando o artigo tem `relatedExamId` — um CTA linkando pro exame relacionado.
+  `useSEO` + JSON-LD `MedicalWebPage`/`BreadcrumbList` próprios por artigo.
+- **`App.tsx`**: nova rota `/blog/{id}` (bloco `startsWith('/blog/')`, antes do bloco exato `/blog`).
+- **`components/BlogPage.tsx`**: nova seção "Artigos da Clínica Franco" no topo da página, listando todos os
+  itens de `articlesData` com link pra `/blog/{id}` — **qualquer artigo novo que entrar em `articlesData.ts`
+  aparece aqui automaticamente**, cumprindo o pedido de "link pra cada reportagem nova".
+- **`components/HealthNewsWidget.tsx`** (vitrine na home): cada artigo agora mostra só o primeiro parágrafo +
+  link "Ler artigo completo" pra `/blog/{id}`, em vez do corpo inteiro sem link (evita conteúdo duplicado
+  entre a home e a página própria, e dá à home um link indexável pro artigo).
+- **`prerender.mjs`**: novo array `ARTICLE_IDS` (cópia fixa dos ids de `articlesData.ts`, mesmo padrão de
+  `EXAM_IDS`/`DOCTOR_IDS` — o script roda com `node` puro, sem loader de TS, então não dá pra importar o `.ts`
+  diretamente) gerando os 3 `dist/blog/{id}/index.html`, confirmados no build local com conteúdo completo.
+- **`public/sitemap.xml`**: 3 novas entradas `/blog/{id}`, `lastmod` = data de publicação de cada artigo.
+
+**Processo para os próximos artigos** (documentado também no `HANDOFF.md`): adicionar a entrada em
+`articlesData.ts` **e** o `id` em `ARTICLE_IDS` (`prerender.mjs`) **e** uma linha em `public/sitemap.xml` — a
+página, a rota e o link em `/blog` saem de graça por lerem `articlesData.ts` direto, só esses 2 arquivos extra
+precisam de edição manual por causa da limitação de import do prerender.
+
+### 11.3 IndexNow (Bing/Yandex) — configurado
+- Chave gerada e publicada em `public/f2be5e2de7124bde9447a9e12edea79b.txt` (conteúdo = a própria chave, vira
+  `https://ajudamediko.com.br/f2be5e2de7124bde9447a9e12edea79b.txt` após o deploy).
+- `scripts/indexnow-submit.mjs` (novo): lê todas as URLs de `public/sitemap.xml` e faz POST pra
+  `https://api.indexnow.org/indexnow`. Uso manual, depois de cada deploy que adiciona/muda página relevante:
+  `node scripts/indexnow-submit.mjs`.
+- **Não integrado à pipeline automática de deploy nesta rodada** — decisão deliberada, pra não arriscar o
+  fluxo de deploy existente sem testar o script isolado primeiro. Rodar manualmente após este deploy pra
+  validar a resposta HTTP da API antes de considerar automatizar.
+
+### 11.4 Schema FAQPage/MedicalWebPage em `/entenda-exames` — descartado
+O skill de SEO usado nesta sessão (`references atualizadas`) sinaliza que o **Google aposentou o rich result
+de FAQ pra todos os sites em 07/05/2026** — não há mais benefício de SERP confirmado, e a orientação é não
+recomendar novo FAQPage visando esse benefício (só QAPage pra Q&A genuína de usuário). Como esse item do
+relatório foi registrado antes dessa mudança, foi descartado em vez de implementado. Se o Rodrigo quiser
+mesmo assim por razões de semântica/GEO (não de rich result no Google), é possível reabrir.

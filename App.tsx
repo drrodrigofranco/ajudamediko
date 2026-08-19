@@ -21,6 +21,7 @@ const GuidelineFirstTrimesterPage = lazy(() => import('./components/GuidelineFir
 const CardioRespiratoryExamsPage = lazy(() => import('./components/CardioRespiratoryExamsPage'));
 const PregnancyGuidePage = lazy(() => import('./components/PregnancyGuidePage'));
 const BlogPage = lazy(() => import('./components/BlogPage'));
+const ArticleDetailPage = lazy(() => import('./components/ArticleDetailPage'));
 const TeamPage = lazy(() => import('./components/TeamPage'));
 const ServicesPage = lazy(() => import('./components/ServicesPage'));
 
@@ -216,6 +217,23 @@ const App: React.FC = () => {
         );
     }
 
+    if (currentPath.startsWith('/blog/') && currentPath !== '/blog/') {
+        const articleId = currentPath.replace('/blog/', '').split('/')[0];
+        return (
+            <div className="flex flex-col min-h-screen bg-white font-sans text-gray-800">
+                <MapModal
+                    isOpen={isMapModalOpen}
+                    onClose={() => setIsMapModalOpen(false)}
+                    mapImgSrc={mapImgSrc}
+                    googleMapsLink={googleMapsLink}
+                />
+                <Suspense fallback={<RouteFallback />}>
+                    <ArticleDetailPage articleId={articleId} navigateTo={navigateTo} />
+                </Suspense>
+            </div>
+        );
+    }
+
     if (currentPath === '/blog' || currentPath === '/blog/') {
         return (
             <div className="flex flex-col min-h-screen bg-white font-sans text-gray-800">
@@ -315,7 +333,7 @@ const App: React.FC = () => {
                 <section id="noticias" className="py-24 max-w-5xl mx-auto px-4 scroll-mt-24">
                     <div className="bg-[#0e4843] rounded-3xl overflow-hidden shadow-2xl">
                         <Suspense fallback={null}>
-                            <HealthNewsWidget />
+                            <HealthNewsWidget navigateTo={navigateTo} />
                         </Suspense>
                     </div>
                 </section>
