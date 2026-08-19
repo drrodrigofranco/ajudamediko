@@ -1,6 +1,7 @@
 # Relatório de SEO — ajudamediko.com.br
 
-> Documento vivo, atualizado à medida que o trabalho avança. Última atualização: **19/08/2026**.
+> Documento vivo, atualizado à medida que o trabalho avança. Última atualização: **19/08/2026** (GSC+Bing
+> conectados, otimizações de keyword aplicadas em `/entenda-exames` e `/exame/espirometria`).
 > Relatórios visuais completos (mais fáceis de ler) publicados como Artifacts — links na seção 6.
 
 ## Índice
@@ -10,8 +11,9 @@
 4. [Conexão com Google Search Console (19/08/2026)](#4-conexão-com-google-search-console-19082026)
 5. [Palavras-chave reais — dados do Search Console (19/08/2026)](#5-palavras-chave-reais--dados-do-search-console-19082026)
 6. [Links dos relatórios visuais (Artifacts)](#6-links-dos-relatórios-visuais-artifacts)
-7. [Bing Webmaster Tools](#7-bing-webmaster-tools)
+7. [Bing Webmaster Tools](#7-bing-webmaster-tools-19082026)
 8. [Pendências em aberto](#8-pendências-em-aberto)
+9. [Otimizações de keyword aplicadas (19/08/2026)](#9-otimizações-de-keyword-aplicadas-19082026)
 
 ---
 
@@ -182,8 +184,10 @@ Consolidado de tudo que ainda não foi resolvido, entre esta rodada e a auditori
   projeto, ver `HANDOFF.md` — pendência específica: Geriatria do Dr. Lucas, Neurologia do Dr. Guilherme).
 - [ ] Reconfirmar Lighthouse mobile depois de alguns dias pra validar a queda real de TBT (seção 2.3).
 - [ ] Dar URL própria (`/blog/:slug`) a cada artigo do blog — resolve a raiz do problema de indexação (seção 4).
-- [ ] Revisar title/meta description de `/entenda-exames` (maior oportunidade de CTR parada, seção 5).
-- [ ] Investigar por que `/exame/espirometria` rankeia tão pior que as outras páginas de exame (posição 54).
+- [x] ~~Revisar title/meta description de `/entenda-exames`~~ — feito 19/08, ver seção 9.
+- [x] ~~Investigar por que `/exame/espirometria` rankeia tão pior~~ — investigado e corrigido 19/08, ver seção 9.
+- [ ] **Reconferir em 2-3 semanas** (a partir de 19/08) as métricas de `/entenda-exames` e `/exame/espirometria`
+  pra ver se as otimizações de keyword da seção 9 melhoraram posição/CTR (via `gsc_query.py`/`gsc_inspect.py`).
 - [ ] Criar/reivindicar perfil no Doctoralia (gap confirmado desde 25/07, ainda sem listagem).
 - [ ] Exibir prova social real no site (schema `aggregateRating`/`review` + selo de avaliações — GBP real tem
   nota 5,0/21 avaliações, mas o site não mostra isso).
@@ -191,3 +195,40 @@ Consolidado de tudo que ainda não foi resolvido, entre esta rodada e a auditori
   aguardando revisão médica de cada autor.
 - [ ] Ajustar `<title>` da home no SERP se o Google continuar exibindo texto diferente do `<title>` real
   (pendência antiga, pausada em 25/07).
+
+## 9. Otimizações de keyword aplicadas (19/08/2026)
+
+Investigação aprofundada usando o GSC já conectado (query+página, não só por página) sobre as duas
+oportunidades sinalizadas na seção 5. Commit `e09f95c`, deploy confirmado ao vivo via `curl`.
+
+### `/entenda-exames`
+Causa raiz identificada: **~46 impressões vêm de um cluster específico** ("diferença entre ultrassom e raio-x"
+e variações, incluindo tomografia), posições 10-16, **0 cliques**. O conteúdo já respondia a pergunta — o
+title/H1/meta description eram genéricos ("Entenda a Diferença entre Exames de Imagem") e não repetiam a frase
+literal buscada.
+
+| | Antes | Depois |
+|---|---|---|
+| Title | "Entenda a Diferença entre Exames de Imagem \| Clínica Franco - Nova Andradina - MS" | "Diferença entre Ultrassom, Raio-X e Tomografia \| Clínica Franco - Nova Andradina - MS" |
+| H1 | "Entenda a Diferença entre Exames de Imagem" | "Qual a Diferença entre Ultrassom, Raio-X e Tomografia?" |
+| Meta description | (citava os 4 exames, sem repetir "diferença") | Abre com "Qual a diferença entre ultrassom e raio-x, e entre ultrassom e tomografia?" |
+
+Arquivo: `components/ExamsComparisonPage.tsx`. Conteúdo do corpo da página não foi alterado — só o rótulo.
+
+### `/exame/espirometria`
+Causa raiz identificada: **~55 impressões vêm do cluster "para que serve [o exame de] espirometria"**,
+posições 59-68. Confirmado via URL Inspection API (`gsc_inspect.py`) que **não é problema técnico** — página
+indexada normalmente, canonical correto. É competição genuína numa busca nacional genérica (contra grandes
+portais de saúde) — o campo que responde essa pergunta (`purpose`) era curto demais pra competir.
+
+| | Antes | Depois |
+|---|---|---|
+| `purpose` (texto sob "Para que serve e quando é indicado?") | "Quantificar obstruções brônquicas e avaliar a capacidade pulmonar total." | "A espirometria serve para diagnosticar e acompanhar o tratamento de doenças respiratórias crônicas como asma, bronquite crônica e DPOC (enfisema pulmonar), além de quantificar obstruções brônquicas, medir a capacidade pulmonar total e avaliar o risco respiratório antes de cirurgias de médio e grande porte." |
+
+Arquivo: `examsData.ts`, entrada `id: 'espirometria'`.
+
+**Expectativa realista comunicada ao Rodrigo:** a mudança deve ajudar a posição a subir, mas não é razoável
+esperar 1ª página do Google pra um termo nacional genérico competindo com grandes portais de saúde — o objetivo
+é sair da posição ~54-90 (essencialmente invisível), não necessariamente virar #1.
+
+**Reconferir em 2-3 semanas** (ver item correspondente na seção 8) — mudança de ranking/CTR não é imediata.
