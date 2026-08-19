@@ -135,6 +135,15 @@ ele quais aprovar e mergear, e apagar as branches obsoletas/vazias pra limpar o 
 ---
 
 ## ⚠️ Armadilhas conhecidas (NÃO repetir erros)
+- **🚨 REGRA DO PROJETO — publicidade médica, nunca declarar especialidade sem RQE:** o CFM proíbe um médico
+  anunciar/se apresentar como especialista numa área sem ter o **RQE (Registro de Qualificação de Especialista)**
+  registrado — mesmo em texto oculto ou em campos "invisíveis" como `medicalSpecialty` do schema.org (o Google
+  pode exibir isso, e conta como declaração pública de especialidade). Vale pra qualquer lugar do site: texto
+  visível, meta tags, JSON-LD, `focusAreas`, título de página, etc. **Antes de anunciar/reforçar qualquer
+  especialidade pra qualquer médico da equipe, confirmar explicitamente com o Rodrigo se aquele médico tem o
+  RQE correspondente registrado no CFM.** Sem essa confirmação, não implementar — mesmo que pedido diretamente.
+  Precedente já registrado (2026-07-25): pedido de reforçar "Geriatria" (Dr. Lucas) e "Neurologia" (Dr.
+  Guilherme) via schema foi recusado por falta dessa confirmação; ainda pendente.
 - **Porta em uso:** Vite pode subir na `3001` se a `3000` estiver ocupada.
 - **Título/description da home tem DOIS lugares:** `index.html` (estático) e o hook `useSEO({...path:'/'...})`
   dentro de `App.tsx` (sobrescreve via JS **depois** que o React monta — e é esse valor que fica gravado no
