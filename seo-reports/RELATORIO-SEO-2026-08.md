@@ -14,6 +14,7 @@
 7. [Bing Webmaster Tools](#7-bing-webmaster-tools-19082026)
 8. [Pendências em aberto](#8-pendências-em-aberto)
 9. [Otimizações de keyword aplicadas (19/08/2026)](#9-otimizações-de-keyword-aplicadas-19082026)
+10. [Segunda rodada — cobertura, GEO e decisão sobre o blog (19/08/2026)](#10-segunda-rodada--cobertura-geo-e-decisão-sobre-o-blog-19082026)
 
 ---
 
@@ -160,6 +161,7 @@ completas. Achados principais:
 
 - **Auditoria completa + correções (18/08):** https://claude.ai/code/artifact/01e91642-682a-4c06-98b7-14c929a150c6
 - **Palavras-chave reais (19/08):** https://claude.ai/code/artifact/160e8c5c-0b94-466c-a580-d5f591f76871
+- **Cobertura + GEO + decisão sobre o blog (19/08):** https://claude.ai/code/artifact/b6fc366a-0350-422a-af04-0067a31fb2c7
 
 ## 7. Bing Webmaster Tools (19/08/2026)
 
@@ -178,12 +180,18 @@ Detalhes técnicos completos (scripts, formato do config) em `HANDOFF-SEOTOOLS.m
 
 Consolidado de tudo que ainda não foi resolvido, entre esta rodada e a auditoria de 25/07/2026:
 
-- [ ] Reconferir contagem de backlinks no Bing em 1-2 semanas (0 na primeira consulta, seção 7).
+- [ ] **Pedir indexação manual de `/equipe`, `/servicos` e `/medico/tiago-wizenfad`** — links diretos na seção 10.
+- [ ] **Corrigir markdown não renderizado** em `ExamsComparisonPage.tsx` e `GuidelineFirstTrimesterPage.tsx`
+  (4 ocorrências de `**texto**` aparecendo com asteriscos literais em vez de negrito) — seção 10.
+- [ ] **Dar URL própria aos 3 artigos originais** do `HealthNewsWidget.tsx` (não ao `/blog` de curadoria externa
+  — decisão detalhada na seção 10, é a maior oportunidade de GEO identificada).
+- [ ] Configurar IndexNow (chave não publicada, confirmado 19/08 — seção 10).
+- [ ] Adicionar schema FAQPage/MedicalWebPage a `/entenda-exames` (seção 10).
+- [ ] Reconferir contagem de backlinks no Bing em 1-2 semanas (0 em duas consultas seguidas, seção 7).
 - [ ] Revisar clinicamente o conteúdo do novo exame de Eletrocardiograma (seção 3).
 - [ ] Confirmar RQE de cada médico antes de reforçar qualquer especialidade no site (regra permanente do
   projeto, ver `HANDOFF.md` — pendência específica: Geriatria do Dr. Lucas, Neurologia do Dr. Guilherme).
 - [ ] Reconfirmar Lighthouse mobile depois de alguns dias pra validar a queda real de TBT (seção 2.3).
-- [ ] Dar URL própria (`/blog/:slug`) a cada artigo do blog — resolve a raiz do problema de indexação (seção 4).
 - [x] ~~Revisar title/meta description de `/entenda-exames`~~ — feito 19/08, ver seção 9.
 - [x] ~~Investigar por que `/exame/espirometria` rankeia tão pior~~ — investigado e corrigido 19/08, ver seção 9.
 - [ ] **Reconferir em 2-3 semanas** (a partir de 19/08) as métricas de `/entenda-exames` e `/exame/espirometria`
@@ -232,3 +240,65 @@ esperar 1ª página do Google pra um termo nacional genérico competindo com gra
 é sair da posição ~54-90 (essencialmente invisível), não necessariamente virar #1.
 
 **Reconferir em 2-3 semanas** (ver item correspondente na seção 8) — mudança de ranking/CTR não é imediata.
+
+## 10. Segunda rodada — cobertura, GEO e decisão sobre o blog (19/08/2026)
+
+Relatório visual completo: https://claude.ai/code/artifact/b6fc366a-0350-422a-af04-0067a31fb2c7
+
+### Cobertura real (36/36 páginas do sitemap, inspecionadas individualmente via URL Inspection API)
+**28/36 (77,8%) indexadas normalmente.** As 8 restantes, todas tecnicamente saudáveis (canonical/links internos
+confirmados ok em amostra) — não é bug, é tempo/prioridade de rastreamento do Google:
+
+| Página | Status | Nota |
+|---|---|---|
+| `/blog` | Descoberta, não indexada | ver decisão abaixo |
+| `/equipe` | Descoberta, não indexada | **achado novo**, página importante |
+| `/servicos` | Descoberta, não indexada | **achado novo**, página importante |
+| `/exame/articulacao_cotovelo` | Descoberta, não indexada | destoa dos outros exames de articulação (todos ok) |
+| `/politica-de-privacidade.html` | Descoberta, não indexada | provável reflexo do canonical errado, corrigido ontem |
+| `/exame/eletrocardiograma` | Desconhecida ao Google | esperado, página nova de anteontem |
+| `/medico/tiago-wizenfad` | Desconhecida ao Google | chama atenção — no ar há +1 semana, outros médicos já indexados |
+| `/termos-de-uso.html` | Desconhecida ao Google | mesmo caso da política de privacidade |
+
+**Ação recomendada:** pedir indexação manual via Search Console (não dá pra automatizar por API — a Indexing
+API só vale pra JobPosting) pelo menos nas 3 mais importantes. Links diretos:
+- `/equipe`: https://search.google.com/search-console/inspect?resource_id=sc-domain%3Aajudamediko.com.br&id=https%3A%2F%2Fajudamediko.com.br%2Fequipe
+- `/servicos`: https://search.google.com/search-console/inspect?resource_id=sc-domain%3Aajudamediko.com.br&id=https%3A%2F%2Fajudamediko.com.br%2Fservicos
+- Dr. Tiago: https://search.google.com/search-console/inspect?resource_id=sc-domain%3Aajudamediko.com.br&id=https%3A%2F%2Fajudamediko.com.br%2Fmedico%2Ftiago-wizenfad
+
+### Bing
+Reconfirmado 0 backlinks (mesmo número de ontem). **Achado novo:** IndexNow (protocolo gratuito Bing/Yandex)
+não está configurado — nenhuma chave publicada. Oportunidade de baixo esforço pra acelerar indexação no Bing.
+
+### GEO/IA — reauditado, score ~70/100 (antes: 61/100)
+- ✅ **Confirmado resolvido**: bug crítico de 18/08 (MAPA/Espirometria invisíveis a robôs em
+  `/exames-cardiorespiratorios`) — testado hoje com fetch sem JS e com JS sem simular clique, as 3 abas chegam
+  completas.
+- 🔴 **Achado novo:** markdown não renderizado — `**texto**` aparecendo com asteriscos literais em vez de
+  negrito, em `components/ExamsComparisonPage.tsx` e `components/GuidelineFirstTrimesterPage.tsx` (4 ocorrências),
+  exatamente nas frases mais centrais de cada página (ex.: "o ultrassom não utiliza radiação ionizante").
+- 🟡 Oportunidade: `/entenda-exames` sem schema FAQPage/MedicalWebPage.
+- 🟢 Confirmado: `llms.txt` continua um diferencial real, bem formado.
+
+### O `/blog` está sendo captado? — decisão fechada
+Confirmado: `/blog` segue "Descoberta, não indexada". Mas a investigação do componente mudou a recomendação:
+**`/blog` só tem curadoria de notícias de terceiros** (cada item linka pra fora, "leia a matéria completa em
+[outro site]") — conteúdo derivado, baixo valor de indexação mesmo com URL própria por item.
+
+**Os 3 artigos originais assinados pelos médicos** (Ecocardiograma Fetal, Translucência Nucal, Espirometria —
+`articlesData.ts`, renderizados em `components/HealthNewsWidget.tsx`) **não ficam no `/blog` nenhum** — vivem
+só como bloco de texto na home, sem URL própria em lugar nenhum do site.
+
+**Recomendação: não vale a pena mexer no `/blog` de curadoria. Vale a pena dar URL própria aos 3 artigos
+originais** — é conteúdo único, assinado, com CRM, exatamente o que mais reforça E-E-A-T e citabilidade por IA.
+Hoje competem por atenção dentro da home genérica e não acumulam nenhum sinal de página própria. Apontado pela
+reauditoria de GEO como a maior oportunidade de autoridade perdida no site.
+
+Volume de busca real (Search Console, 90 dias): "ecocardiograma fetal" já traz 7-10 impressões/mês em posição
+2-3 (via a home). "Translucência nucal" não aparece nas 200 buscas mais frequentes — demanda de busca clássica
+baixa por enquanto. Ou seja: o ganho principal não é volume de busca no Google, é citabilidade por IA e reforço
+de autoridade médica, que ajuda indiretamente as páginas de exame relacionadas.
+
+Esforço técnico (verificado no código): baixo/médio — `articlesData.ts` já tem `id` único e
+`relatedExamId` por artigo, a estrutura já está pronta pra virar rota `/blog/{id}`, seguindo o mesmo padrão já
+usado 20+ vezes pras páginas de exame (`App.tsx`, `prerender.mjs`, `useSEO`, `sitemap.xml`).
