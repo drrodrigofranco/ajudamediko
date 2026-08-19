@@ -8,8 +8,8 @@ interface ExamsComparisonPageProps {
 
 const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo }) => {
   useSEO({
-    title: 'Entenda a Diferença entre Exames de Imagem | Clínica Franco - Nova Andradina - MS',
-    description: 'Ultrassom, Raio-X, Tomografia e Ressonância: descubra como cada exame funciona e quando é indicado. Clínica Franco atende Nova Andradina e região: Batayporã, Ivinhema, Anaurilândia, Deodápolis, Angélica e Rosana (SP).',
+    title: 'Diferença entre Ultrassom, Raio-X e Tomografia | Clínica Franco - Nova Andradina - MS',
+    description: 'Qual a diferença entre ultrassom e raio-x, e entre ultrassom e tomografia? Entenda como cada exame de imagem funciona e quando é indicado. Clínica Franco atende Nova Andradina e região: Batayporã, Ivinhema, Anaurilândia, Deodápolis, Angélica e Rosana (SP).',
     path: '/entenda-exames',
   });
   const whatsappUrl = "https://wa.me/5567998446674?text=Ol%C3%A1%21+Gostaria+de+tirar+d%C3%BAvidas+sobre+exames+de+ultrassom+pelo+site.";
@@ -55,7 +55,7 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
             Voltar para a Home
           </a>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold leading-tight mb-8">
-            Entenda a Diferença entre Exames de Imagem
+            Qual a Diferença entre Ultrassom, Raio-X e Tomografia?
           </h1>
           <p className="text-lg text-teal-50/80 mb-4 leading-relaxed max-w-2xl mx-auto">
             Ultrassom, Raio-X, Tomografia Computadorizada e Ressonância Magnética. Descubra como cada tecnologia funciona e quando cada uma é indicada.

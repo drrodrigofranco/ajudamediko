@@ -625,7 +625,7 @@ export const examsData: ExamData[] = [
     price: 'Consultar equipe',
     howItIsDone: 'O paciente senta-se e coloca um clipe nasal para evitar a saída de ar pelo nariz. Ele inspira o máximo de ar possível e depois sopra com força máxima e rapidez em um bocal conectado ao espirômetro.',
     whenItIsDone: 'Falta de ar crônica, chiado no peito, tosse persistente, acompanhamento de asma ou DPOC e avaliação pré-operatória de grandes cirurgias.',
-    purpose: 'Quantificar obstruções brônquicas e avaliar a capacidade pulmonar total.',
+    purpose: 'A espirometria serve para diagnosticar e acompanhar o tratamento de doenças respiratórias crônicas como asma, bronquite crônica e DPOC (enfisema pulmonar), além de quantificar obstruções brônquicas, medir a capacidade pulmonar total e avaliar o risco respiratório antes de cirurgias de médio e grande porte.',
     imageUrl: 'https://picsum.photos/seed/lungs/600/400',
     faqs: [
       {
