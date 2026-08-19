@@ -159,21 +159,27 @@ completas. Achados principais:
 - **Auditoria completa + correções (18/08):** https://claude.ai/code/artifact/01e91642-682a-4c06-98b7-14c929a150c6
 - **Palavras-chave reais (19/08):** https://claude.ai/code/artifact/160e8c5c-0b94-466c-a580-d5f591f76871
 
-## 7. Bing Webmaster Tools
+## 7. Bing Webmaster Tools (19/08/2026)
 
-🔜 **Em andamento.** Próximo passo depois da seção 4 (Google já conectado). Plano: verificar o site via
-"Importar do Google Search Console" (mais rápido, já que o Google está pronto) em
-https://www.bing.com/webmasters, depois gerar API key em Configurações > Acesso à API, salvar em
-`C:\Users\fisio.000\.config\claude-seo\backlinks-api.json`.
+✅ **Conectado.** Site `ajudamediko.com.br` verificado, API key gerada e salva em
+`C:\Users\fisio.000\.config\claude-seo\backlinks-api.json`, testado com consulta real
+(`bing_webmaster.py counts`) — sem erro.
 
-_(Esta seção será atualizada assim que o Bing estiver conectado.)_
+**Achado:** a primeira consulta retornou **0 links de entrada** pro domínio no índice do Bing. Pode ser porque
+o site acabou de ser verificado (Bing ainda não terminou de rastrear) ou pode ser real — bate com o gap já
+conhecido de baixa presença em diretórios externos (ex. Doctoralia, sem listagem confirmada desde 25/07).
+Reconferir em 1-2 semanas.
+
+Detalhes técnicos completos (scripts, formato do config) em `HANDOFF-SEOTOOLS.md`.
 
 ## 8. Pendências em aberto
 
 Consolidado de tudo que ainda não foi resolvido, entre esta rodada e a auditoria de 25/07/2026:
 
-- [ ] Conectar Bing Webmaster Tools (seção 7, em andamento).
+- [ ] Reconferir contagem de backlinks no Bing em 1-2 semanas (0 na primeira consulta, seção 7).
 - [ ] Revisar clinicamente o conteúdo do novo exame de Eletrocardiograma (seção 3).
+- [ ] Confirmar RQE de cada médico antes de reforçar qualquer especialidade no site (regra permanente do
+  projeto, ver `HANDOFF.md` — pendência específica: Geriatria do Dr. Lucas, Neurologia do Dr. Guilherme).
 - [ ] Reconfirmar Lighthouse mobile depois de alguns dias pra validar a queda real de TBT (seção 2.3).
 - [ ] Dar URL própria (`/blog/:slug`) a cada artigo do blog — resolve a raiz do problema de indexação (seção 4).
 - [ ] Revisar title/meta description de `/entenda-exames` (maior oportunidade de CTR parada, seção 5).

@@ -11,8 +11,7 @@
 ---
 
 ## 📅 Última atualização
-**Data:** 2026-08-19 · **Status:** Google Search Console conectado e funcionando. Bing Webmaster Tools —
-em andamento (ver seção 2).
+**Data:** 2026-08-19 · **Status:** Google Search Console e Bing Webmaster Tools **conectados e funcionando.**
 
 ---
 
@@ -58,28 +57,41 @@ em poucos dias).
 
 ---
 
-## 2. Bing Webmaster Tools — 🔜 Em andamento
+## 2. Bing Webmaster Tools — ✅ Conectado
 
-**Plano (não executado ainda nesta sessão):**
-1. Verificar o site em https://www.bing.com/webmasters — caminho recomendado: **"Importar do Google Search
-   Console"** (já verificado, deve ser o mais rápido, evita nova verificação DNS/meta-tag).
-2. Gerar API key em Configurações > Acesso à API.
-3. Salvar em `C:\Users\fisio.000\.config\claude-seo\backlinks-api.json`:
-   ```json
-   {
-     "bing_api_key": "...",
-     "bing_verified_sites": ["ajudamediko.com.br"]
-   }
-   ```
-4. Verificar com:
-   ```bash
-   "$HOME/.claude/skills/seo/bin/claude-seo" run backlinks_auth.py --check
-   "$HOME/.claude/skills/seo/bin/claude-seo" run backlinks_auth.py --tier
-   # esperado: Tier 2 (Common Crawl + Bing Webmaster)
-   ```
+**O que foi feito:**
+- Site `ajudamediko.com.br` verificado no Bing Webmaster Tools (conta Microsoft do Rodrigo).
+- API key gerada em Configurações > Acesso à API.
+- Salva em `C:\Users\fisio.000\.config\claude-seo\backlinks-api.json`:
+  ```json
+  {
+    "bing_api_key": "aea12efd...cd1736",
+    "bing_verified_sites": ["ajudamediko.com.br"]
+  }
+  ```
 
-**Status antes desta sessão:** Common Crawl (Tier 0) já funcionava sem credencial nenhuma — é sempre
-disponível, não precisa de setup.
+**Como verificar que está funcionando:**
+```bash
+"$HOME/.claude/skills/seo/bin/claude-seo" run backlinks_auth.py --check
+# esperado: [OK] Bing Webmaster Tools API — Verified sites: ajudamediko.com.br
+
+"$HOME/.claude/skills/seo/bin/claude-seo" run bing_webmaster.py counts "https://ajudamediko.com.br"
+# consulta real (não só checagem de credencial) — confirma que a chave tem acesso de verdade
+```
+**⚠️ Nota sobre `backlinks_auth.py --tier`:** continua reportando "Tier 0 -- Basic" mesmo com o Bing
+configurado e funcionando — esse script trata o Bing como um upgrade que exige o Moz (Tier 1) configurado
+primeiro, então o rótulo de tier não sobe sozinho. Não é sinal de erro; usar `--check` (não `--tier`) pra
+confirmar o Bing.
+
+**Scripts disponíveis:** `bing_webmaster.py [links|counts|compare] <url>` — links de entrada, totais, e
+comparação com concorrente (`compare <url> <url-concorrente>`).
+
+**Achado da primeira consulta real (19/08/2026):** `counts` retornou **0 links de entrada** pro domínio no
+índice do Bing. Site foi verificado agora — pode ser que o Bing ainda não tenha terminado de rastrear os
+backlinks, ou pode ser real (bate com o gap já conhecido de baixa presença em diretórios externos, ex.
+Doctoralia). **Reconferir em 1-2 semanas** pra ver se o número muda.
+
+**Common Crawl (Tier 0):** já funcionava sem credencial nenhuma antes desta sessão — sempre disponível.
 
 ---
 
@@ -102,6 +114,7 @@ Ver `RELATORIO-SEO-2026-08.md` (mesma pasta) — seções 4 e 5 têm os dados re
 ---
 
 ## 🔜 Pendências desta ferramentaria
-- [ ] Concluir Bing Webmaster Tools (seção 2).
+- [ ] Reconferir `bing_webmaster.py counts` em 1-2 semanas (0 backlinks na primeira consulta — confirmar se é
+  real ou só falta de rastreamento do Bing ainda).
 - [ ] Adicionar `ga4_property_id` ao `google-api.json` se quiser dados de tráfego/comportamento via GA4.
 - [ ] Considerar Moz API se precisar de métricas de autoridade de domínio no futuro.
