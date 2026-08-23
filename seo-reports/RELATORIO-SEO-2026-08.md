@@ -356,3 +356,10 @@ de FAQ pra todos os sites em 07/05/2026** — não há mais benefício de SERP c
 recomendar novo FAQPage visando esse benefício (só QAPage pra Q&A genuína de usuário). Como esse item do
 relatório foi registrado antes dessa mudança, foi descartado em vez de implementado. Se o Rodrigo quiser
 mesmo assim por razões de semântica/GEO (não de rich result no Google), é possível reabrir.
+
+### 11.5 Menu da home sem link pra `/equipe` — corrigido (fora do plano original, achado ao revisar a home)
+`App.tsx` tinha `BLOG` no menu de navegação da home, mas **nenhum item pra `/equipe`** — só existia um link
+textual secundário ("Ver página completa da equipe") dentro da seção Currículo, bem mais fraco em termos de
+link interno. Isso ajuda a explicar o achado da seção 10 (`/equipe` "Descoberta, não indexada"): poucos links
+internos apontando pra ela. Adicionado `EQUIPE` ao array `navItems`/`handleNavClick`, ao lado de `BLOG`.
+Confirmado ao vivo em produção. Commit `6ced8f8`.

@@ -114,7 +114,8 @@ const DOCTOR_IDS = [
 const ARTICLE_IDS = [
   'ecocardiograma-fetal-quando-fazer',
   'translucencia-nucal-o-que-e',
-  'espirometria-para-que-serve'
+  'espirometria-para-que-serve',
+  'ultrassons-na-gestacao-quais-e-quando-fazer'
 ];
 
 async function main() {
