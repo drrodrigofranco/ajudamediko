@@ -71,7 +71,16 @@ cada push na `main`.
     `prerender.mjs` (não dá pra importar o `.ts` direto — mesma razão de `EXAM_IDS`/`DOCTOR_IDS`), (3) adicionar
     a entrada em `public/sitemap.xml`. A página, a rota (`App.tsx`) e o link em `/blog` (`BlogPage.tsx`) e na
     home (`HealthNewsWidget.tsx`) já leem `articlesData.ts` direto, não precisam de edição.
-  - `curatedNewsData.ts` — curadoria de notícias externas (blog, seção secundária, sem página própria)
+  - `curatedNewsData.ts` — curadoria de notícias externas (fonte, resumo em vários parágrafos, referências
+    bibliográficas opcionais), cada matéria com página própria em `/blog/{id}` (`components/NewsDetailPage.tsx`)
+    desde 2026-09-02, a pedido do Rodrigo ("quero sempre agora uma página para cada reportagem" — antes o
+    conteúdo completo ficava só num bloco dentro de `/blog`). Toda página de matéria também mostra uma caixa de
+    "Curadoria e revisão médica" com foto + nome + CRM do Dr. Rodrigo (`public/images/dr-rodrigo-franco-byline.jpg`).
+    **Ao publicar uma matéria nova, editar 3 lugares:** (1) adicionar o objeto em `curatedNewsData.ts`, (2)
+    adicionar o `id` no array `NEWS_IDS` em `prerender.mjs`, (3) adicionar a entrada em `public/sitemap.xml` —
+    mesmo processo já usado para `articlesData.ts`/`ARTICLE_IDS`. A rota `/blog/{id}` (`App.tsx`) decide entre
+    `ArticleDetailPage` e `NewsDetailPage` checando em qual dos dois arrays o `id` existe; o link em `/blog`
+    (`BlogPage.tsx`) já lê `curatedNewsData.ts` direto, não precisa de edição.
 - **Páginas legais (arquivos HTML estáticos isolados, fora do React/prerender):**
   `public/politica-de-privacidade.html`, `public/termos-de-uso.html` — reescritas em 2026-08-18 (ver
   Armadilhas).

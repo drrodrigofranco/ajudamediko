@@ -10,6 +10,7 @@ import MapModal from './components/MapModal';
 import ExamsDrawer from './components/ExamsDrawer';
 import { useSEO } from './hooks/useSEO';
 import { ultrasoundExams } from './ultrasoundExamsData';
+import { articlesData } from './articlesData';
 
 // Paginas de rota carregadas sob demanda (code-splitting): sem isso, um visitante
 // da home baixava o JS de todas as ~30 rotas de uma vez (bundle unico de 1.26MB).
@@ -22,6 +23,7 @@ const CardioRespiratoryExamsPage = lazy(() => import('./components/CardioRespira
 const PregnancyGuidePage = lazy(() => import('./components/PregnancyGuidePage'));
 const BlogPage = lazy(() => import('./components/BlogPage'));
 const ArticleDetailPage = lazy(() => import('./components/ArticleDetailPage'));
+const NewsDetailPage = lazy(() => import('./components/NewsDetailPage'));
 const TeamPage = lazy(() => import('./components/TeamPage'));
 const ServicesPage = lazy(() => import('./components/ServicesPage'));
 
@@ -221,7 +223,12 @@ const App: React.FC = () => {
     }
 
     if (currentPath.startsWith('/blog/') && currentPath !== '/blog/') {
-        const articleId = currentPath.replace('/blog/', '').split('/')[0];
+        const slug = currentPath.replace('/blog/', '').split('/')[0];
+        // /blog/{id} atende dois tipos de conteudo com o mesmo padrao de URL:
+        // artigos originais assinados pelos medicos (articlesData.ts) e materias
+        // da curadoria de noticias (curatedNewsData.ts) - cada uma agora com
+        // pagina propria em vez de aparecer so como bloco dentro de /blog.
+        const isOriginalArticle = articlesData.some(a => a.id === slug);
         return (
             <div className="flex flex-col min-h-screen bg-white font-sans text-gray-800">
                 <MapModal
@@ -231,7 +238,9 @@ const App: React.FC = () => {
                     googleMapsLink={googleMapsLink}
                 />
                 <Suspense fallback={<RouteFallback />}>
-                    <ArticleDetailPage articleId={articleId} navigateTo={navigateTo} />
+                    {isOriginalArticle
+                        ? <ArticleDetailPage articleId={slug} navigateTo={navigateTo} />
+                        : <NewsDetailPage newsId={slug} navigateTo={navigateTo} />}
                 </Suspense>
             </div>
         );
