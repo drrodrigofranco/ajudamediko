@@ -118,6 +118,22 @@ const ARTICLE_IDS = [
   'ultrassons-na-gestacao-quais-e-quando-fazer'
 ];
 
+// IDs das materias da curadoria de noticias (curatedNewsData.ts). Mesma limitacao
+// de import do Node acima - copia fixa. Cada materia agora tem pagina propria em
+// /blog/{id} (NewsDetailPage.tsx), assim como os artigos originais. Ao publicar
+// uma materia nova em curatedNewsData.ts, adicionar o id aqui tambem.
+const NEWS_IDS = [
+  'doppler-biomarcadores-restricao-crescimento-fetal-2026',
+  'ecocardiograma-fetal-lei-14598-estudos-2026',
+  'ultrassom-morfologico-estudos-cientificos-2026',
+  'fiocruz-infogripe-srag-agosto-2026',
+  'camara-ultrassom-morfologico-sus-2026',
+  'ms-sarampo-vacinacao-sp-2026',
+  'fiocruz-agosto-dourado-aleitamento-2026',
+  'fiocruz-julho-amarelo-hepatites-2026',
+  'oms-sus-referencia-mundial-2026'
+];
+
 async function main() {
   await new Promise(r => server.listen(PORT, r));
   const browser = await launchBrowser();
@@ -158,7 +174,8 @@ async function main() {
     { url: '/servicos', file: 'servicos/index.html' },
     ...EXAM_IDS.map(id => ({ url: `/exame/${id}`, file: `exame/${id}/index.html` })),
     ...DOCTOR_IDS.map(id => ({ url: `/medico/${id}`, file: `medico/${id}/index.html` })),
-    ...ARTICLE_IDS.map(id => ({ url: `/blog/${id}`, file: `blog/${id}/index.html` }))
+    ...ARTICLE_IDS.map(id => ({ url: `/blog/${id}`, file: `blog/${id}/index.html` })),
+    ...NEWS_IDS.map(id => ({ url: `/blog/${id}`, file: `blog/${id}/index.html` }))
   ];
 
   console.log(`🚀 Iniciando pré-renderização de ${targets.length} páginas...`);

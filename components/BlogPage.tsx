@@ -126,9 +126,14 @@ const BlogPage: React.FC<BlogPageProps> = ({ navigateTo }) => {
         {sortedNews.length === 0 ? (
           <p className="text-center text-gray-500">Nenhuma matéria publicada ainda. Volte em breve.</p>
         ) : (
-          <div className="space-y-6">
+          <div className="space-y-4">
             {sortedNews.map((news) => (
-              <article key={news.id} className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+              <a
+                key={news.id}
+                href={`/blog/${news.id}`}
+                onClick={(e) => navigateTo(`/blog/${news.id}`, e)}
+                className="block bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md hover:border-[#14b8a6]/20 transition-all group"
+              >
                 <div className="flex items-center gap-3 text-xs text-gray-400 mb-3">
                   <Icons.Calendar className="w-3.5 h-3.5" />
                   <time dateTime={news.publishedOn}>
@@ -137,43 +142,13 @@ const BlogPage: React.FC<BlogPageProps> = ({ navigateTo }) => {
                   <span>·</span>
                   <span className="font-semibold text-[#14b8a6]">{news.sourceName}</span>
                 </div>
-                <h2 className="text-xl font-serif font-bold text-[#0e4843] mb-3">{news.title}</h2>
-                <div className="text-gray-600 text-sm leading-relaxed mb-4 space-y-3">
-                  {news.summary.split('\n\n').map((paragraph, i) => (
-                    <p key={i}>{paragraph}</p>
-                  ))}
-                </div>
-                <a
-                  href={news.sourceUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm font-bold text-[#14b8a6] hover:text-[#0d9488] transition-colors"
-                >
-                  Ler a matéria completa em {news.sourceName}
-                  <Icons.ExternalLink className="w-3.5 h-3.5" />
-                </a>
-
-                {news.references && news.references.length > 0 && (
-                  <div className="mt-6 pt-6 border-t border-gray-100">
-                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-3">Referências Bibliográficas</p>
-                    <ol className="space-y-2">
-                      {news.references.map((ref, i) => (
-                        <li key={i} className="text-xs text-gray-500 leading-relaxed">
-                          {i + 1}.{' '}
-                          <a
-                            href={ref.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-[#0d9488] hover:text-[#14b8a6] underline underline-offset-2"
-                          >
-                            {ref.label}
-                          </a>
-                        </li>
-                      ))}
-                    </ol>
-                  </div>
-                )}
-              </article>
+                <h3 className="text-xl font-serif font-bold text-[#0e4843] mb-2 group-hover:text-[#14b8a6] transition-colors">{news.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed line-clamp-2 mb-4">{news.summary.split('\n\n')[0]}</p>
+                <span className="inline-flex items-center gap-1.5 text-sm font-bold text-[#14b8a6]">
+                  Ler matéria completa
+                  <Icons.ChevronRight className="w-3.5 h-3.5" />
+                </span>
+              </a>
             ))}
           </div>
         )}
