@@ -27,8 +27,29 @@ const BlogPage: React.FC<BlogPageProps> = ({ navigateTo }) => {
 
   const whatsappUrl = "https://wa.me/5567998446674?text=Ol%C3%A1%21+Vim+do+blog+de+sa%C3%BAde+e+gostaria+de+agendar+uma+consulta.";
 
-  const sortedNews = [...curatedNews].sort((a, b) => b.publishedOn.localeCompare(a.publishedOn));
-  const sortedArticles = [...articlesData].sort((a, b) => b.publishedOn.localeCompare(a.publishedOn));
+  // Artigos originais (articlesData.ts) e curadoria de noticias (curatedNewsData.ts)
+  // sao dois arrays separados, mas viram um unico feed aqui - do contrario, ordenar
+  // cada array por dentro nao adianta: as duas secoes ficavam sempre na mesma ordem
+  // fixa (artigos primeiro, curadoria depois), entao uma materia de curadoria mais
+  // recente aparecia visualmente abaixo de um artigo mais antigo.
+  const feed = [
+    ...articlesData.map((article) => ({
+      id: article.id,
+      title: article.title,
+      publishedOn: article.publishedOn,
+      byline: article.authorName,
+      excerpt: article.body[0],
+      linkLabel: 'Ler artigo completo',
+    })),
+    ...curatedNews.map((news) => ({
+      id: news.id,
+      title: news.title,
+      publishedOn: news.publishedOn,
+      byline: news.sourceName,
+      excerpt: news.summary.split('\n\n')[0],
+      linkLabel: 'Ler matéria completa',
+    })),
+  ].sort((a, b) => b.publishedOn.localeCompare(a.publishedOn));
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 font-sans text-gray-800 antialiased">
@@ -82,70 +103,35 @@ const BlogPage: React.FC<BlogPageProps> = ({ navigateTo }) => {
         </div>
       </section>
 
-      {/* Artigos originais da Clinica Franco */}
-      {sortedArticles.length > 0 && (
-        <section className="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="flex items-center gap-3 mb-8">
-            <Icons.Stethoscope className="w-5 h-5 text-[#14b8a6]" />
-            <h2 className="text-2xl font-serif font-bold text-[#0e4843]">Artigos da Clínica Franco</h2>
-          </div>
-          <div className="space-y-4">
-            {sortedArticles.map((article) => (
-              <a
-                key={article.id}
-                href={`/blog/${article.id}`}
-                onClick={(e) => navigateTo(`/blog/${article.id}`, e)}
-                className="block bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md hover:border-[#14b8a6]/20 transition-all group"
-              >
-                <div className="flex items-center gap-3 text-xs text-gray-400 mb-3">
-                  <Icons.Calendar className="w-3.5 h-3.5" />
-                  <time dateTime={article.publishedOn}>
-                    {new Date(article.publishedOn + 'T00:00:00').toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })}
-                  </time>
-                  <span>·</span>
-                  <span className="font-semibold text-[#14b8a6]">{article.authorName}</span>
-                </div>
-                <h3 className="text-xl font-serif font-bold text-[#0e4843] mb-2 group-hover:text-[#14b8a6] transition-colors">{article.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed line-clamp-2 mb-4">{article.body[0]}</p>
-                <span className="inline-flex items-center gap-1.5 text-sm font-bold text-[#14b8a6]">
-                  Ler artigo completo
-                  <Icons.ChevronRight className="w-3.5 h-3.5" />
-                </span>
-              </a>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* Lista de noticias */}
-      <section className="py-4 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow w-full">
+      {/* Feed unico: artigos originais + curadoria de noticias, do mais recente pro mais antigo */}
+      <section className="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow w-full">
         <div className="flex items-center gap-3 mb-8">
           <Icons.BookOpen className="w-5 h-5 text-[#14b8a6]" />
-          <h2 className="text-2xl font-serif font-bold text-[#0e4843]">Curadoria de Notícias de Saúde</h2>
+          <h2 className="text-2xl font-serif font-bold text-[#0e4843]">Últimas Publicações</h2>
         </div>
-        {sortedNews.length === 0 ? (
+        {feed.length === 0 ? (
           <p className="text-center text-gray-500">Nenhuma matéria publicada ainda. Volte em breve.</p>
         ) : (
           <div className="space-y-4">
-            {sortedNews.map((news) => (
+            {feed.map((entry) => (
               <a
-                key={news.id}
-                href={`/blog/${news.id}`}
-                onClick={(e) => navigateTo(`/blog/${news.id}`, e)}
+                key={entry.id}
+                href={`/blog/${entry.id}`}
+                onClick={(e) => navigateTo(`/blog/${entry.id}`, e)}
                 className="block bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md hover:border-[#14b8a6]/20 transition-all group"
               >
                 <div className="flex items-center gap-3 text-xs text-gray-400 mb-3">
                   <Icons.Calendar className="w-3.5 h-3.5" />
-                  <time dateTime={news.publishedOn}>
-                    {new Date(news.publishedOn + 'T00:00:00').toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })}
+                  <time dateTime={entry.publishedOn}>
+                    {new Date(entry.publishedOn + 'T00:00:00').toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })}
                   </time>
                   <span>·</span>
-                  <span className="font-semibold text-[#14b8a6]">{news.sourceName}</span>
+                  <span className="font-semibold text-[#14b8a6]">{entry.byline}</span>
                 </div>
-                <h3 className="text-xl font-serif font-bold text-[#0e4843] mb-2 group-hover:text-[#14b8a6] transition-colors">{news.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed line-clamp-2 mb-4">{news.summary.split('\n\n')[0]}</p>
+                <h3 className="text-xl font-serif font-bold text-[#0e4843] mb-2 group-hover:text-[#14b8a6] transition-colors">{entry.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed line-clamp-2 mb-4">{entry.excerpt}</p>
                 <span className="inline-flex items-center gap-1.5 text-sm font-bold text-[#14b8a6]">
-                  Ler matéria completa
+                  {entry.linkLabel}
                   <Icons.ChevronRight className="w-3.5 h-3.5" />
                 </span>
               </a>
