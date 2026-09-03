@@ -139,7 +139,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ navigateTo }) => {
       {/* Consultas e Atendimentos */}
       <section className="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-serif font-bold text-[#0e4843] mb-4">Consultas e Atendimentos</h2>
+          <h2 className="text-3xl font-serif font-bold text-[#0e4843] mb-4">Consultas e Atendimentos em Nova Andradina - MS</h2>
           <div className="h-1 w-16 bg-[#14b8a6] mx-auto rounded-full"></div>
         </div>
         <div className="grid md:grid-cols-2 gap-8">
@@ -177,7 +177,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ navigateTo }) => {
       {/* Catalogo de Exames */}
       <section className="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-serif font-bold text-[#0e4843] mb-4">Catálogo de Exames de Ultrassom</h2>
+          <h2 className="text-3xl font-serif font-bold text-[#0e4843] mb-4">Catálogo de Exames de Ultrassom em Nova Andradina - MS</h2>
           <p className="text-gray-500 text-sm max-w-2xl mx-auto">
             Lista completa de exames de ultrassonografia realizados na Clínica Franco. Clique em qualquer exame para ver o guia completo de preparação.
           </p>

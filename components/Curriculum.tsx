@@ -31,7 +31,7 @@ const Curriculum: React.FC<CurriculumProps> = ({ navigateTo }) => {
   return (
     <section id="curriculo" className="py-24 max-w-7xl mx-auto px-4 scroll-mt-24">
       <div className="text-center mb-16">
-        <h2 className="text-4xl font-serif font-bold text-[#0e4843] mb-4">Nossos Profissionais</h2>
+        <h2 className="text-4xl font-serif font-bold text-[#0e4843] mb-4">Nossos Profissionais em Nova Andradina - MS</h2>
         <div className="h-1 w-16 bg-[#14b8a6] mx-auto mb-8 rounded-full"></div>
         <a
           href="/equipe"
