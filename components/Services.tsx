@@ -30,7 +30,7 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
   return (
     <section id="servicos" className="py-24 max-w-6xl mx-auto px-4 scroll-mt-24">
       <div className="text-center mb-16">
-        <h2 className="text-3xl font-serif font-bold text-[#0e4843] mb-4">Atendimento e Exames com atenção e humanidade</h2>
+        <h2 className="text-3xl font-serif font-bold text-[#0e4843] mb-4">Ultrassom e Atendimento Médico em Nova Andradina - MS</h2>
         <div className="h-1 w-16 bg-[#14b8a6] mx-auto mb-8 rounded-full"></div>
         <p className="text-gray-500 max-w-3xl mx-auto text-sm leading-relaxed mb-6">
           A ultrassonografia é uma ferramenta essencial na medicina moderna, permitindo a visualização não invasiva de estruturas internas do corpo em tempo real. Utilizamos equipamentos de alta resolução para garantir a precisão necessária em cada laudo.
@@ -166,7 +166,7 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
       </div>
 
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-serif font-bold text-[#0e4843] mb-4">Catálogo de Exames</h2>
+        <h2 className="text-3xl font-serif font-bold text-[#0e4843] mb-4">Catálogo de Exames de Ultrassom em Nova Andradina</h2>
         <p className="text-gray-500 text-sm max-w-2xl mx-auto mb-8">
           Confira abaixo a lista completa de procedimentos realizados em nossa clínica. Para exames específicos não listados, entre em contato para verificar disponibilidade.
         </p>
