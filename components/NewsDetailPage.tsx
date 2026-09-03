@@ -1,6 +1,6 @@
 import React from 'react';
 import * as Icons from 'lucide-react';
-import { curatedNews } from '../curatedNewsData';
+import { curatedNews, CuratedNewsItem } from '../curatedNewsData';
 import { useSEO } from '../hooks/useSEO';
 import { useJsonLd } from '../hooks/useJsonLd';
 
@@ -9,9 +9,33 @@ interface NewsDetailPageProps {
   navigateTo: (path: string, e: React.MouseEvent) => void;
 }
 
+// Uma unica imagem ilustrativa (foto + legenda com credito, quando a licenca exige).
+const NewsImage: React.FC<{ image: NonNullable<CuratedNewsItem['images']>[number] }> = ({ image }) => (
+  <figure className="mb-8">
+    <img
+      src={image.src}
+      alt={image.alt}
+      className="w-full h-auto rounded-3xl border border-gray-100 shadow-sm"
+      loading="lazy"
+    />
+    {image.credit && (
+      <figcaption className="text-[10px] text-gray-400 mt-2 text-center">
+        Imagem:{' '}
+        {image.creditUrl ? (
+          <a href={image.creditUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-500">
+            {image.credit}
+          </a>
+        ) : image.credit}
+      </figcaption>
+    )}
+  </figure>
+);
+
 const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) => {
   const news = curatedNews.find(n => n.id === newsId);
   const paragraphs = news ? news.summary.split('\n\n') : [];
+  const heroImages = news?.images?.filter(img => img.afterParagraph === undefined) ?? [];
+  const inlineImages = new Map((news?.images ?? []).filter(img => img.afterParagraph !== undefined).map(img => [img.afterParagraph!, img]));
 
   useSEO({
     title: news
@@ -21,6 +45,7 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
       ? paragraphs[0].slice(0, 160)
       : 'Matéria não encontrada. Veja outras notícias e artigos de saúde da Clínica Franco.',
     path: `/blog/${newsId}`,
+    image: news?.images?.[0] ? `https://ajudamediko.com.br${news.images[0].src}` : undefined,
   });
 
   useJsonLd('news-jsonld', news ? {
@@ -38,6 +63,7 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
       name: 'Clínica Franco',
     },
     url: `https://ajudamediko.com.br/blog/${newsId}`,
+    ...(news.images?.[0] ? { image: `https://ajudamediko.com.br${news.images[0].src}` } : {}),
   } : null);
 
   useJsonLd('news-breadcrumb-jsonld', news ? {
@@ -121,11 +147,21 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
 
       {/* Corpo da materia */}
       <section className="py-16 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow w-full">
+        {heroImages.map((image, i) => <NewsImage key={i} image={image} />)}
+
         <article className="bg-white p-8 sm:p-10 rounded-3xl border border-gray-100 shadow-sm space-y-5">
           {paragraphs.map((paragraph, i) => (
-            <p key={i} className="text-gray-600 text-sm leading-relaxed">
-              {paragraph}
-            </p>
+            <React.Fragment key={i}>
+              {news.sectionHeadings?.[i] && (
+                <h2 className="text-lg font-serif font-bold text-[#0e4843] pt-1">
+                  {news.sectionHeadings[i]}
+                </h2>
+              )}
+              <p className="text-gray-600 text-sm leading-relaxed">
+                {paragraph}
+              </p>
+              {inlineImages.has(i) && <NewsImage image={inlineImages.get(i)!} />}
+            </React.Fragment>
           ))}
         </article>
 
@@ -140,7 +176,7 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
             loading="lazy"
           />
           <div>
-            <p className="text-xs text-gray-400 uppercase tracking-wider font-bold mb-0.5">Curadoria e revisão médica</p>
+            <h2 className="text-xs text-gray-400 uppercase tracking-wider font-bold mb-0.5">Curadoria e revisão médica</h2>
             <p className="text-sm font-bold text-[#0e4843]">Dr. Rodrigo Franco · CRM-MS 10087</p>
           </div>
         </div>
@@ -157,7 +193,7 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
 
         {news.references && news.references.length > 0 && (
           <div className="mt-6 pt-6 border-t border-gray-100">
-            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-3">Referências Bibliográficas</p>
+            <h2 className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-3">Referências Bibliográficas</h2>
             <ol className="space-y-2">
               {news.references.map((ref, i) => (
                 <li key={i} className="text-xs text-gray-500 leading-relaxed">

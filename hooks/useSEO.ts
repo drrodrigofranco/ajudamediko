@@ -9,6 +9,10 @@ export interface SEOData {
   // rota atual e mesmo a home - caso contrario ele rodaria depois do efeito da
   // subpagina (ExamDetailPage etc.) e sobrescreveria o title/description dela.
   enabled?: boolean;
+  // URL absoluta de uma imagem especifica da pagina (og:image/twitter:image). Se
+  // omitido, o hook nao mexe nessas tags - elas ficam com o valor padrao ja
+  // declarado em index.html (foto da equipe), compartilhado por todas as rotas.
+  image?: string;
 }
 
 const SITE_URL = 'https://ajudamediko.com.br';
@@ -36,7 +40,7 @@ function setMetaByProperty(property: string, content: string) {
 // Atualiza title/description/canonical/OG/Twitter em runtime, por rota.
 // O prerender.mjs so tira o snapshot do HTML depois que o React monta,
 // entao essa mudanca fica gravada no HTML estatico de cada pagina gerada.
-export function useSEO({ title, description, path, enabled = true }: SEOData) {
+export function useSEO({ title, description, path, enabled = true, image }: SEOData) {
   useEffect(() => {
     if (!enabled) return;
     const url = `${SITE_URL}${path === '/' ? '' : path}`;
@@ -61,5 +65,10 @@ export function useSEO({ title, description, path, enabled = true }: SEOData) {
     setMetaByProperty('twitter:title', title);
     setMetaByProperty('twitter:description', description);
     setMetaByProperty('twitter:url', url);
-  }, [title, description, path, enabled]);
+
+    if (image) {
+      setMetaByProperty('og:image', image);
+      setMetaByProperty('twitter:image', image);
+    }
+  }, [title, description, path, enabled, image]);
 }

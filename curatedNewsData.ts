@@ -14,6 +14,19 @@ export interface CuratedNewsItem {
   sourceUrl: string;
   publishedOn: string; // YYYY-MM-DD (data da materia original ou da curadoria)
   references?: { label: string; url: string }[]; // bibliografia opcional (reportagens que citam varios estudos) - cada item vira um link clicavel no rodape do card. So incluir estudos reais e verificados, nunca inventados.
+  // Subtitulos opcionais, alinhados por indice com summary.split('\n\n') - o item i
+  // vira um <h2> logo antes do paragrafo i (null/undefined = paragrafo continua sem
+  // subtitulo novo, sob o heading anterior). Da estrutura H2 real (nao generica) pra
+  // materias longas; itens curtos de 1 paragrafo podem simplesmente omitir o campo.
+  sectionHeadings?: (string | null)[];
+  // Imagens ilustrativas opcionais (1 ou 2) exibidas no corpo da materia
+  // (NewsDetailPage). A primeira sem afterParagraph vira a imagem de destaque no
+  // topo do corpo e tambem e usada como og:image/twitter:image da pagina; imagens
+  // com afterParagraph sao inseridas logo depois daquele paragrafo (indice de
+  // summary.split('\n\n')). credit/creditUrl = atribuicao obrigatoria quando a
+  // licenca da imagem exige (ex: Wikimedia Commons CC-BY/CC-BY-SA) - so usar
+  // imagens reais com licenca de reuso verificada, nunca copiar sem checar a licenca.
+  images?: { src: string; alt: string; credit?: string; creditUrl?: string; afterParagraph?: number }[];
 }
 
 export const curatedNews: CuratedNewsItem[] = [
@@ -38,6 +51,31 @@ export const curatedNews: CuratedNewsItem[] = [
         url: 'https://doi.org/10.1590/0102-311XPT231022',
       },
     ],
+    sectionHeadings: [
+      'O que é a Restrição de Crescimento Fetal tardia',
+      'O estudo: Doppler mais um biomarcador do sangue materno',
+      'Isolado, o biomarcador teve desempenho fraco',
+      'Juntando tudo: a maior taxa de identificação de risco',
+      'O que dizem os autores - e a nossa leitura',
+      'O panorama no Brasil',
+      'Na Clínica Franco',
+      null,
+    ],
+    images: [
+      {
+        src: '/images/blog-ultrassom-obstetrico-monitor.jpg',
+        alt: 'Monitor de aparelho de ultrassom exibindo uma imagem de ultrassonografia obstétrica',
+        credit: 'Goleisureintl, Wikimedia Commons (CC BY 4.0)',
+        creditUrl: 'https://commons.wikimedia.org/wiki/File:Obstetric_ultrasound_scan_monitor_showing_20-week_human_fetus_profile_in_Navi_Mumbai_2015.jpg',
+      },
+      {
+        src: '/images/blog-placenta-power-doppler.jpg',
+        alt: 'Reconstrução em 3D por power Doppler da vascularização da placenta e do cordão umbilical',
+        credit: 'Nevit Dilmen, Wikimedia Commons (CC BY-SA 3.0)',
+        creditUrl: 'https://commons.wikimedia.org/wiki/File:Placenta_vasculature_3D_power_doppler_00001.gif',
+        afterParagraph: 2,
+      },
+    ],
   },
   {
     id: 'ecocardiograma-fetal-lei-14598-estudos-2026',
@@ -60,6 +98,16 @@ export const curatedNews: CuratedNewsItem[] = [
         url: 'https://doi.org/10.1097/MD.0000000000001759',
       },
     ],
+    sectionHeadings: [
+      'O que diz a Lei 14.598/2023',
+      'Nem todos concordam: a crítica da Febrasgo',
+      'O que é o exame e quando é indicado',
+      'O que mostra a maior revisão científica sobre o tema',
+      'Os números da cardiopatia congênita no Brasil',
+      'Nossa avaliação',
+      'Na Clínica Franco',
+      null,
+    ],
   },
   {
     id: 'ultrassom-morfologico-estudos-cientificos-2026',
@@ -81,6 +129,14 @@ export const curatedNews: CuratedNewsItem[] = [
         label: 'Noronha Neto C, Souza ASR, Moraes Filho OB, Noronha AMB. Validação do diagnóstico ultrassonográfico de anomalias fetais em centro de referência. Rev Assoc Med Bras. 2009;55(5):541-546.',
         url: 'https://www.scielo.br/j/ramb/a/TZbLG7Hq6nhXWNt9j9MxXsd/?lang=pt',
       },
+    ],
+    sectionHeadings: [
+      'A atualização da ISUOG em 2022',
+      'O que a diretriz recomenda avaliar',
+      'Um estudo brasileiro: sensibilidade de 96%',
+      'O morfológico de 1º trimestre também importa',
+      'Por que recomendamos os dois exames',
+      null,
     ],
   },
   {
