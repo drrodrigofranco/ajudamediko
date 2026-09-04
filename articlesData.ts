@@ -74,4 +74,17 @@ export const articlesData: OriginalArticle[] = [
     ],
     disclaimer: 'Este conteúdo é educativo e não substitui uma consulta médica. O calendário exato de exames de cada gestante deve ser definido pelo obstetra, de acordo com o caso individual.',
   },
+  {
+    id: 'sinais-de-alerta-na-infancia-quando-procurar-o-pediatra',
+    title: 'Sinais de Alerta na Infância: Quando Levar Seu Filho ao Pediatra',
+    authorName: 'Dr. Tiago Dantas Wizenfad',
+    authorCrm: 'CRM-MS 16149',
+    publishedOn: '2026-09-04',
+    body: [
+      'Algumas situações merecem uma consulta pediátrica sem demora: febre em recém-nascidos e bebês pequenos, dificuldade para respirar ou respiração muito rápida, recusa persistente em se alimentar, vômitos ou diarreia que não melhoram, manchas na pele que se espalham rapidamente, ou qualquer mudança brusca no comportamento habitual da criança (sonolência excessiva, irritabilidade fora do comum).',
+      'Fora dessas situações mais agudas, o acompanhamento pediátrico regular — a puericultura — tem um papel igualmente importante: consultas periódicas para acompanhar o crescimento e o desenvolvimento, atualizar o calendário vacinal, orientar sobre alimentação e introdução alimentar, e esclarecer dúvidas dos pais em cada fase, do recém-nascido à adolescência.',
+      'Queixas respiratórias (tosse, resfriados, rinite), otalgias, questões gastrointestinais e alergias ou alterações de pele são motivos frequentes de consulta na infância — na maioria das vezes de resolução simples quando avaliadas cedo, mas que merecem olhar médico para descartar algo mais sério.',
+    ],
+    disclaimer: 'Este conteúdo é educativo e não substitui uma consulta médica. Febre em bebês com menos de 3 meses, dificuldade respiratória, ou qualquer sinal de piora rápida são urgência pediátrica — procure atendimento imediato nesses casos.',
+  },
 ];

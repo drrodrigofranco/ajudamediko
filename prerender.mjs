@@ -115,7 +115,8 @@ const ARTICLE_IDS = [
   'ecocardiograma-fetal-quando-fazer',
   'translucencia-nucal-o-que-e',
   'espirometria-para-que-serve',
-  'ultrassons-na-gestacao-quais-e-quando-fazer'
+  'ultrassons-na-gestacao-quais-e-quando-fazer',
+  'sinais-de-alerta-na-infancia-quando-procurar-o-pediatra'
 ];
 
 // IDs das materias da curadoria de noticias (curatedNewsData.ts). Mesma limitacao

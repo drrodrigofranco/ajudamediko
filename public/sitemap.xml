@@ -61,6 +61,12 @@
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://ajudamediko.com.br/blog/sinais-de-alerta-na-infancia-quando-procurar-o-pediatra</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <!-- Curadoria de notícias de saúde -->
   <url>
     <loc>https://ajudamediko.com.br/blog/doppler-biomarcadores-restricao-crescimento-fetal-2026</loc>
