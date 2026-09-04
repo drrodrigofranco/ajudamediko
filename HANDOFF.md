@@ -19,11 +19,15 @@
 ---
 
 ## 📅 Última atualização
-- **Data:** 2026-08-19
-- **Status atual:** 🟢 Em produção, estável. Auditoria SEO completa feita em 18/08, 3 achados críticos
-  corrigidos e deployados no mesmo dia. Página de Eletrocardiograma (ECG) adicionada. Ver
-  `seo-reports/RELATORIO-SEO-2026-08.md` para o relatório completo de SEO (achados, correções, dados de
-  Search Console).
+- **Data:** 2026-09-04
+- **Status atual:** 🟢 Em produção, estável. Publicado o 5º artigo original com página própria:
+  **`/blog/sinais-de-alerta-na-infancia-quando-procurar-o-pediatra`** (Dr. Tiago Wizenfad, CRM-MS 16149) —
+  fecha a lacuna de conteúdo original em pediatria (ultrassom e obstetrícia já tinham artigo próprio;
+  geriatria e neurologia têm rascunho pronto em `content-drafts/` mas ainda **não publicado**, aguardando
+  revisão de Lucas e Guilherme). Confirmado ao vivo: `200`, título/H1/autoria corretos, sem menção a
+  "especialista"/"especialidade" (regra de RQE do projeto). Commit `4080c41`, merge `6167bd7`, branch `main`.
+  Ver `seo-reports/RELATORIO-SEO-2026-08.md` seção 12 para o relatório completo desta rodada (achados de SEO
+  local em geriatria/neurologia/pediatria, reconfirmação da regra de RQE).
 
 ---
 
@@ -126,14 +130,20 @@ npm run build # dispara TypeScript check + Vite build + prerender.mjs (gera dist
   análise (cobertura 36/36 URLs, GEO reauditado, decisão sobre o blog). Execução do plano de ação: markdown
   quebrado corrigido, artigos originais com página própria (`/blog/{id}`), IndexNow configurado — ver
   `seo-reports/RELATORIO-SEO-2026-08.md` seção 11.
+- **2026-09-04:** Auditoria externa de SEO local (geriatria/neurologia/pediatria) e publicação do 5º artigo
+  original (`/blog/sinais-de-alerta-na-infancia-quando-procurar-o-pediatra`, Dr. Tiago) — ver
+  `seo-reports/RELATORIO-SEO-2026-08.md` seção 12.
 
 ---
 
 ## 🔜 Próximos passos
-Ver seção "Pendências em aberto" em `seo-reports/RELATORIO-SEO-2026-08.md` — é a lista viva e mais atual, não
-duplicar aqui.
+Ver seção "Pendências em aberto" (8) e a seção 12.5 em `seo-reports/RELATORIO-SEO-2026-08.md` — é a lista viva
+e mais atual, não duplicar aqui. Destaque: rascunhos de geriatria e neurologia (`content-drafts/`) ainda
+aguardando revisão de Lucas e Guilherme — mesmo processo que já publicou o de pediatria hoje, só falta a
+aprovação médica pra seguir o mesmo caminho (adicionar em `articlesData.ts` + `ARTICLE_IDS` +
+`sitemap.xml`).
 
-**Achado ao organizar o repositório em 2026-08-19 — 5 branches de blog nunca mergeadas na `main`:**
+**Achado ao organizar o repositório em 2026-08-19 — branches de blog nunca mergeadas na `main`:**
 Existe uma rotina automatizada que gera posts de blog em branches próprias (`blog-update-YYYY-MM-DD`). Checado
 via `git log HEAD..origin/main` que **nenhuma delas está na produção** — ficaram paradas, provavelmente
 aguardando revisão/aprovação do Rodrigo que nunca aconteceu:
@@ -143,11 +153,19 @@ aguardando revisão/aprovação do Rodrigo que nunca aconteceu:
 - `origin/blog-update-2026-08-10` — 2 matérias curadas (PNS 2026, InfoGripe SRAG)
 - `origin/blog-update-2026-08-16` — só merge de `main`, sem conteúdo próprio novo (idem acima)
 - `origin/blog-update-2026-08-19` — matéria sobre iniciativa HEARTS 2.0 (OPAS/OMS)
+- `origin/blog-update-2026-08-25` — **achado novo em 2026-09-04**, não listada nas rodadas anteriores; à
+  primeira vista parece uma reestruturação grande do blog (mexe em 14 arquivos, remove `NewsDetailPage.tsx` e
+  imagens que hoje existem em produção) — **não investigada a fundo, provavelmente obsoleta/superada por
+  trabalho posterior já em `main`**. Confirmar antes de mergear ou descartar.
 - `origin/claude/site-access-up3heu` — parece ser uma versão anterior/duplicada do post de ecocardiograma fetal
   que já foi mergeado por outro caminho (commit `3f8c39b`) — candidata a descarte, mas confirmar antes.
 
 Não mergeei nenhuma sem aprovação do Rodrigo (conteúdo de saúde/curadoria médica). Próxima sessão: revisar com
 ele quais aprovar e mergear, e apagar as branches obsoletas/vazias pra limpar o repositório.
+
+**Também pendente desde 04/09:** a branch `content-draft-pediatria-2026-09-04` (só o rascunho de texto +
+atualizações de documentação, anterior à publicação real) ficou no GitHub e não foi mergeada nem apagada —
+pode ser descartada, já que o conteúdo dela foi superado pela publicação real em `main` (commit `4080c41`).
 
 ---
 

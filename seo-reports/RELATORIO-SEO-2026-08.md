@@ -1,7 +1,8 @@
 # Relatório de SEO — ajudamediko.com.br
 
-> Documento vivo, atualizado à medida que o trabalho avança. Última atualização: **19/08/2026** (execução do
-> plano de ação da 2ª rodada: markdown corrigido, artigos com URL própria, IndexNow configurado).
+> Documento vivo, atualizado à medida que o trabalho avança. Última atualização: **04/09/2026** (5º artigo
+> original publicado — pediatria, Dr. Tiago — fechando lacuna de conteúdo em geriatria/neurologia/pediatria;
+> ver seção 12).
 > Relatórios visuais completos (mais fáceis de ler) publicados como Artifacts — links na seção 6.
 
 ## Índice
@@ -16,6 +17,7 @@
 9. [Otimizações de keyword aplicadas (19/08/2026)](#9-otimizações-de-keyword-aplicadas-19082026)
 10. [Segunda rodada — cobertura, GEO e decisão sobre o blog (19/08/2026)](#10-segunda-rodada--cobertura-geo-e-decisão-sobre-o-blog-19082026)
 11. [Execução do plano de ação (19/08/2026)](#11-execução-do-plano-de-ação-19082026)
+12. [Reforço geriatria/neurologia/pediatria — artigo de pediatria publicado (04/09/2026)](#12-reforço-geriatrianeurologiapediatria--artigo-de-pediatria-publicado-04092026)
 
 ---
 
@@ -363,3 +365,87 @@ textual secundário ("Ver página completa da equipe") dentro da seção Curríc
 link interno. Isso ajuda a explicar o achado da seção 10 (`/equipe` "Descoberta, não indexada"): poucos links
 internos apontando pra ela. Adicionado `EQUIPE` ao array `navItems`/`handleNavClick`, ao lado de `BLOG`.
 Confirmado ao vivo em produção. Commit `6ced8f8`.
+
+## 12. Reforço geriatria/neurologia/pediatria — artigo de pediatria publicado (04/09/2026)
+
+Pedido do Rodrigo: reforçar posicionamento em Nova Andradina para ultrassom (geral/obstétrico/morfológico/3D,
+já forte) e para as 3 consultas clínicas — geriatria (Dr. Lucas), neurologia (Dr. Guilherme), pediatria (Dr.
+Tiago) —, sem violar a norma do CFM sobre RQE.
+
+### 12.1 Auditoria externa (crawl ao vivo + Search Console + WebSearch)
+Feita **fora do repositório**, antes de localizar este repo local — resultado publicado como Artifact:
+https://claude.ai/code/artifact/14407daa-fc38-4b25-9aba-22aaa6bdaf28
+
+Achados que **confirmam** o que já estava registrado neste relatório (seções 8 e 10), não são novidade:
+`/medico/tiago-wizenfad` e `/servicos` seguem sem indexação real (reconfirmado via URL Inspection API nesta
+rodada — `/medico/tiago-wizenfad` mudou de "unknown to Google" pra "Discovered - currently not indexed" desde
+a última checagem, leve progresso, ainda não indexada); demanda de busca real pra geriatria/neurologia/pediatria
+é próxima de zero no Search Console (poucas impressões em 180 dias) — consistente com o site sendo percebido
+quase só como "ultrassom" (seção 5).
+
+Achado **novo**: ranking termo-a-termo específico (via WebSearch, não GSC) pra 9 variações de busca
+("geriatra/geriatria Nova Andradina", "neurologista/neurologia Nova Andradina", "pediatra/pediatria Nova
+Andradina" etc.) — em nenhuma delas o site aparece; quem domina são agregadores nacionais (Doctoralia,
+BoaConsulta, CatalogoMed, Medprev), não outra clínica local (exceção: Clínica Consulta, com páginas próprias de
+neurologia). É um espaço aberto pra ranquear, não um mercado fechado — mas só dá pra competir tendo página
+própria por consulta, que hoje ainda não existe (só a página do médico, ver seção 12.4).
+
+### 12.2 Regra de RQE — reconfirmada, pergunta do usuário respondida com o precedente já registrado
+O Rodrigo perguntou nesta sessão se dava pra "citar as especialidades de forma escondida" (ex. só no schema,
+invisível na página). Resposta dada, com base no que **já estava decidido neste projeto em 25/07/2026** (ver
+`HANDOFF.md`, Armadilhas): não — nem em `medicalSpecialty` do schema.org, que conta como declaração pública de
+especialidade mesmo sem aparecer visualmente. Pedido anterior idêntico (reforçar Geriatria/Neurologia via
+schema) já tinha sido recusado por falta de confirmação de RQE. **Nada foi alterado em nenhum JSON-LD/schema
+nesta rodada** — segue bloqueado até confirmação explícita do Rodrigo.
+
+### 12.3 Artigo de pediatria — publicado (item que estava faltando)
+`content-drafts/content-rascunhos-blog-2026-07-25.md` já tinha rascunhos prontos (aguardando revisão médica)
+pra geriatria (item 5, "Check-up do idoso") e neurologia (item 6, "Avaliação neurológica"), mas nenhum pra
+pediatria. Escrito o rascunho (item 7, mesmo formato/regra de RQE dos anteriores — sintomas/quando procurar,
+nunca "especialista"), **aprovado pelo Dr. Tiago sem RQE formal em pediatria confirmado** (confirmação dada
+pelo Rodrigo nesta sessão) e **publicado como artigo com página própria**, seguindo exatamente o padrão já
+usado pros outros 4 artigos originais (`articlesData.ts` → `ArticleDetailPage.tsx`, sem componente novo):
+
+- **URL:** https://ajudamediko.com.br/blog/sinais-de-alerta-na-infancia-quando-procurar-o-pediatra
+- **Autor:** Dr. Tiago Dantas Wizenfad, CRM-MS 16149
+- **Arquivos:** `articlesData.ts` (novo objeto), `prerender.mjs` (`ARTICLE_IDS`), `public/sitemap.xml` (nova
+  entrada) — mesmos 3 pontos de edição documentados na seção 11.2 pros artigos anteriores; página/rota/link em
+  `/blog` saíram de graça por lerem `articlesData.ts` direto.
+- **Verificação antes do deploy:** `npm run build` completo (TypeScript check + Vite build + `prerender.mjs`)
+  rodado localmente, sem erros; HTML estático gerado com o texto completo (~1600 caracteres); checado por grep
+  que nenhuma ocorrência de "especialista"/"especialidade em" existe no HTML final.
+- **Confirmado ao vivo pós-deploy:** `200`, title "Sinais de Alerta na Infância: Quando Levar Seu Filho ao
+  Pediatra \| Clínica Franco", H1/autoria/CRM corretos.
+- **Commits:** `4080c41` (conteúdo), `6167bd7` (merge na `main`), push direto — deploy automático via Vercel.
+
+Corrigido também o título do arquivo de rascunhos, que ainda dizia "Clínica Franco + Associados" (nome antigo,
+removido no rebranding — commit `468bb27`).
+
+**Ainda pendentes, mesmo padrão de aprovação:** os rascunhos de geriatria (item 5) e neurologia (item 6) no
+mesmo arquivo — só precisam da revisão de Lucas e Guilherme pra seguir o mesmo caminho de publicação.
+
+### 12.4 Recomendação de arquitetura (não implementada nesta sessão — decisão do Rodrigo)
+O gap estrutural real, que explica por que ultrassom ranqueia e as 3 consultas não: ultrassom tem 20 páginas
+de exame dedicadas (`/exame/{id}`), geriatria/neurologia/pediatria têm só a página do médico
+(`/medico/{id}`) — o artigo publicado hoje ajuda (conteúdo original, indexável, ligado ao médico), mas não
+substitui uma página de serviço com a mesma estrutura de title/description/geo já provada em `/exame/*`.
+Recomendação: uma vez que os 3 artigos (geriatria, neurologia, pediatria) estejam publicados, considerar
+`/servico/{id}` no mesmo padrão técnico do `ExamDetailPage.tsx`/`examsData.ts`, reaproveitando o conteúdo já
+aprovado dos artigos em vez de escrever do zero. Não implementado nesta sessão: é mudança de arquitetura
+(rota nova, `prerender.mjs`, `sitemap.xml`, menu), fica para aprovação explícita do Rodrigo.
+
+### 12.5 Pendências desta rodada
+- [x] ~~Dr. Tiago revisar/aprovar o rascunho de pediatria~~ — feito, artigo publicado (seção 12.3).
+- [ ] Lucas e Guilherme revisarem/aprovarem os rascunhos de geriatria e neurologia (itens 5 e 6 do mesmo
+  arquivo) — mesmo caminho de publicação já usado hoje pra pediatria.
+- [ ] Confirmar RQE de Lucas (geriatria), Guilherme (neurologia) e Tiago (pediatria) — pré-requisito pra
+  qualquer reforço de especialidade em texto ou schema, além do já publicado hoje (regra permanente, ver
+  `HANDOFF.md`).
+- [ ] Decidir se cria `/servico/{id}` pras 3 consultas (seção 12.4) — depende dos 3 artigos publicados.
+- [ ] Repetir a solicitação de indexação manual de `/servicos` e `/medico/tiago-wizenfad` (pendente desde a
+  seção 8/10, reconfirmado via URL Inspection nesta rodada que ainda não estão indexadas) — links diretos já
+  documentados na seção 10.
+- [ ] Investigar e decidir sobre a branch `origin/blog-update-2026-08-25` (achada nesta rodada, não listada
+  nas anteriores) — ver `HANDOFF.md`, Próximos passos.
+- [ ] Apagar a branch `content-draft-pediatria-2026-09-04` (rascunho intermediário, superado pela publicação
+  real em `main`).
