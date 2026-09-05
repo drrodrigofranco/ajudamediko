@@ -39,6 +39,7 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
     url: `https://ajudamediko.com.br/medico/${doctor.id}`,
     description: doctor.specialtyLabel,
     worksFor: { '@id': 'https://ajudamediko.com.br/#medicalbusiness' },
+    ...(doctor.medicalSpecialty ? { medicalSpecialty: doctor.medicalSpecialty } : {}),
   } : null);
 
   useJsonLd('doctor-breadcrumb-jsonld', doctor ? {
