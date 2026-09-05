@@ -31,29 +31,37 @@ const consultationServices: ConsultationService[] = [
     title: 'Saúde do Idoso',
     icon: 'HeartPulse',
     description: 'Foco na saúde e bem-estar da terceira idade. Nosso atendimento em saúde do idoso visa a manutenção da autonomia, prevenção de quedas, manejo de polifarmácia e o cuidado dedicado a condições típicas do envelhecimento, sempre com foco na qualidade de vida.',
+    links: [{ label: 'Conhecer o Dr. Lucas Franco', href: '/medico/lucas-franco' }],
   },
   {
     title: 'Saúde Neurológica',
     icon: 'Brain',
     description: 'Atendimento em clínica geral e avaliação neurológica para queixas como cefaleia, tontura, alterações de memória e distúrbios do sono. Condução cuidadosa da história clínica, com acompanhamento contínuo em Nova Andradina e região.',
+    links: [{ label: 'Conhecer o Dr. Guilherme Zandoná', href: '/medico/guilherme-zandona' }],
   },
   {
     title: 'Pediatria',
     icon: 'Baby',
     description: 'Atendimento médico de recém-nascidos, lactentes, crianças e adolescentes, com pós-graduação em Pediatria Clínica: puericultura, acompanhamento do crescimento e desenvolvimento, vacinação e avaliação das principais condições da infância.',
-    links: [{ label: 'Conhecer o Dr. Tiago', href: '/medico/tiago-wizenfad' }],
+    links: [{ label: 'Conhecer o Dr. Tiago Wizenfad', href: '/medico/tiago-wizenfad' }],
   },
   {
     title: 'Ecocardiograma Fetal',
     icon: 'Baby',
     description: 'Exame detalhado do coração do bebê ainda no útero. Fundamental para detectar precocemente cardiopatias congênitas e planejar o melhor acompanhamento. A detecção precoce pode salvar vidas e preparar a equipe médica para o nascimento.',
-    links: [{ label: 'Ver Guia e Preparação', href: '/exame/ecofetal' }],
+    links: [
+      { label: 'Ver Guia e Preparação', href: '/exame/ecofetal' },
+      { label: 'Conhecer o Dr. Rodrigo Franco', href: '/medico/rodrigo-franco' },
+    ],
   },
   {
     title: 'Perícia Médica',
     icon: 'FileText',
     description: 'Perícia Médica para fins judiciais e trabalhistas, com ética e atualização científica. Assistência técnica qualificada para advogados e empresas que buscam laudos imparciais e fundamentados.',
-    links: [{ label: 'Saiba Mais', href: '/pericia-medica' }],
+    links: [
+      { label: 'Saiba Mais', href: '/pericia-medica' },
+      { label: 'Conhecer o Dr. Rodrigo Franco', href: '/medico/rodrigo-franco' },
+    ],
   },
   {
     title: 'Holter, MAPA, Espirometria e ECG',

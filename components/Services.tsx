@@ -14,12 +14,14 @@ const lowVisibilityExamLinks: { id: string; label: string }[] = [
   { id: 'eletrocardiograma', label: 'Eletrocardiograma (ECG)' },
 ];
 
-const navigateToExam = (id: string, e: React.MouseEvent) => {
+const goTo = (path: string, e: React.MouseEvent) => {
   e.preventDefault();
-  window.history.pushState({}, '', `/exame/${id}`);
+  window.history.pushState({}, '', path);
   window.dispatchEvent(new PopStateEvent('popstate'));
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };
+
+const navigateToExam = (id: string, e: React.MouseEvent) => goTo(`/exame/${id}`, e);
 
 interface Exam {
   id?: string;
@@ -88,6 +90,13 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
           <p className="text-gray-500 text-sm mb-8 leading-relaxed">
             Foco na saúde e bem-estar da terceira idade. Nosso atendimento em saúde do idoso visa a manutenção da autonomia, prevenção de quedas, manejo de polifarmácia e o cuidado dedicado a condições típicas do envelhecimento, sempre com foco na qualidade de vida.
           </p>
+          <a
+            href="/medico/lucas-franco"
+            onClick={(e) => goTo('/medico/lucas-franco', e)}
+            className="flex items-center text-[#0f766e] border border-[#ccfbf1] text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-[#14b8a6] hover:text-white transition-all"
+          >
+            Conhecer o Dr. Lucas Franco
+          </a>
         </div>
 
         <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group relative overflow-hidden">
@@ -98,6 +107,13 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
           <p className="text-gray-500 text-sm mb-8 leading-relaxed">
             Atendimento em clínica geral e avaliação neurológica para queixas como cefaleia, tontura, alterações de memória e distúrbios do sono. Condução cuidadosa da história clínica, com acompanhamento contínuo em Nova Andradina e região.
           </p>
+          <a
+            href="/medico/guilherme-zandona"
+            onClick={(e) => goTo('/medico/guilherme-zandona', e)}
+            className="flex items-center text-[#0f766e] border border-[#ccfbf1] text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-[#14b8a6] hover:text-white transition-all"
+          >
+            Conhecer o Dr. Guilherme Zandoná
+          </a>
         </div>
 
         <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group relative overflow-hidden">
@@ -108,6 +124,13 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
           <p className="text-gray-500 text-sm mb-8 leading-relaxed">
             Atendimento médico de recém-nascidos, lactentes, crianças e adolescentes, com pós-graduação em Pediatria Clínica: puericultura, acompanhamento do crescimento e desenvolvimento, vacinação e avaliação das principais condições da infância.
           </p>
+          <a
+            href="/medico/tiago-wizenfad"
+            onClick={(e) => goTo('/medico/tiago-wizenfad', e)}
+            className="flex items-center text-[#0f766e] border border-[#ccfbf1] text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-[#14b8a6] hover:text-white transition-all"
+          >
+            Conhecer o Dr. Tiago Wizenfad
+          </a>
         </div>
 
         <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group relative overflow-hidden">
@@ -124,15 +147,17 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
             </a>
             <a
               href="/exame/ecofetal"
-              onClick={(e) => {
-                e.preventDefault();
-                window.history.pushState({}, '', '/exame/ecofetal');
-                window.dispatchEvent(new PopStateEvent('popstate'));
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
+              onClick={(e) => goTo('/exame/ecofetal', e)}
               className="flex items-center text-white bg-[#0f766e] text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-[#0d9488] transition-all"
             >
               Ver Guia e Preparação
+            </a>
+            <a
+              href="/medico/rodrigo-franco"
+              onClick={(e) => goTo('/medico/rodrigo-franco', e)}
+              className="flex items-center text-[#0f766e] border border-[#ccfbf1] text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-[#14b8a6] hover:text-white transition-all"
+            >
+              Conhecer o Dr. Rodrigo Franco
             </a>
           </div>
         </div>
@@ -145,18 +170,22 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
           <p className="text-gray-500 text-sm mb-8 leading-relaxed">
             Perícia Médica para fins judiciais e trabalhistas, com ética e atualização científica. Assistência técnica qualificada para advogados e empresas que buscam laudos imparciais e fundamentados.
           </p>
-          <a
-            href="/pericia-medica"
-            onClick={(e) => {
-              e.preventDefault();
-              window.history.pushState({}, '', '/pericia-medica');
-              window.dispatchEvent(new PopStateEvent('popstate'));
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className="flex items-center text-white bg-[#0f766e] text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-[#0d9488] transition-all"
-          >
-            Saiba Mais
-          </a>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="/pericia-medica"
+              onClick={(e) => goTo('/pericia-medica', e)}
+              className="flex items-center text-white bg-[#0f766e] text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-[#0d9488] transition-all"
+            >
+              Saiba Mais
+            </a>
+            <a
+              href="/medico/rodrigo-franco"
+              onClick={(e) => goTo('/medico/rodrigo-franco', e)}
+              className="flex items-center text-[#0f766e] border border-[#ccfbf1] text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-[#14b8a6] hover:text-white transition-all"
+            >
+              Conhecer o Dr. Rodrigo Franco
+            </a>
+          </div>
         </div>
 
         <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group">
