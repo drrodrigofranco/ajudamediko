@@ -37,7 +37,7 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
     identifier: doctor.crm,
     image: `https://ajudamediko.com.br${doctor.photo}`,
     url: `https://ajudamediko.com.br/medico/${doctor.id}`,
-    description: doctor.specialtyLabel,
+    description: doctor.jsonLdDescription || doctor.specialtyLabel,
     worksFor: { '@id': 'https://ajudamediko.com.br/#medicalbusiness' },
     ...(doctor.medicalSpecialty ? { medicalSpecialty: doctor.medicalSpecialty } : {}),
   } : null);
