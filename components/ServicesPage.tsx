@@ -53,6 +53,7 @@ const consultationServices: ConsultationService[] = [
     title: 'Perícia Médica',
     icon: 'FileText',
     description: 'Perícia Médica para fins judiciais e trabalhistas, com ética e atualização científica. Assistência técnica qualificada para advogados e empresas que buscam laudos imparciais e fundamentados.',
+    links: [{ label: 'Saiba Mais', href: '/pericia-medica' }],
   },
   {
     title: 'Holter, MAPA, Espirometria e ECG',
