@@ -1,6 +1,7 @@
 import React from 'react';
 import * as Icons from 'lucide-react';
 import { useSEO } from '../hooks/useSEO';
+import { useJsonLd } from '../hooks/useJsonLd';
 
 interface ExamsComparisonPageProps {
   navigateTo: (path: string, e: React.MouseEvent) => void;
@@ -9,8 +10,17 @@ interface ExamsComparisonPageProps {
 const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo }) => {
   useSEO({
     title: 'Diferença entre Ultrassom, Raio-X e Tomografia | Clínica Franco - Nova Andradina - MS',
-    description: 'Qual a diferença entre ultrassom e raio-x, e entre ultrassom e tomografia? Entenda como cada exame de imagem funciona e quando é indicado. Clínica Franco atende Nova Andradina e região: Batayporã, Ivinhema, Anaurilândia, Deodápolis, Angélica e Rosana (SP).',
+    description: 'Qual a diferença entre ultrassom, raio-x e tomografia? Entenda como cada exame funciona e quando é indicado, na Clínica Franco em Nova Andradina - MS.',
     path: '/entenda-exames',
+  });
+
+  useJsonLd('entenda-exames-breadcrumb-jsonld', {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ajudamediko.com.br/' },
+      { '@type': 'ListItem', position: 2, name: 'Entenda os Exames', item: 'https://ajudamediko.com.br/entenda-exames' },
+    ],
   });
   const whatsappUrl = "https://wa.me/5567998446674?text=Ol%C3%A1%21+Gostaria+de+tirar+d%C3%BAvidas+sobre+exames+de+ultrassom+pelo+site.";
 

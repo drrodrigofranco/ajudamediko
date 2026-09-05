@@ -1,6 +1,7 @@
 import React from 'react';
 import * as Icons from 'lucide-react';
 import { useSEO } from '../hooks/useSEO';
+import { useJsonLd } from '../hooks/useJsonLd';
 
 interface GuidelineFirstTrimesterPageProps {
   navigateTo: (path: string, e: React.MouseEvent) => void;
@@ -9,8 +10,17 @@ interface GuidelineFirstTrimesterPageProps {
 const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = ({ navigateTo }) => {
   useSEO({
     title: 'Diretriz AMB: Ultrassom no 1º Trimestre | Clínica Franco - Nova Andradina - MS',
-    description: 'Recomendações oficiais da AMB para exames de ultrassonografia até a 13ª semana de gestação. Clínica Franco atende Nova Andradina e região: Batayporã, Ivinhema, Anaurilândia, Deodápolis, Angélica e Rosana (SP).',
+    description: 'Recomendações oficiais da AMB para ultrassonografia até a 13ª semana de gestação, com a Clínica Franco em Nova Andradina - MS.',
     path: '/diretriz-primeiro-trimestre',
+  });
+
+  useJsonLd('diretriz-1tri-breadcrumb-jsonld', {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ajudamediko.com.br/' },
+      { '@type': 'ListItem', position: 2, name: 'Diretriz do Primeiro Trimestre', item: 'https://ajudamediko.com.br/diretriz-primeiro-trimestre' },
+    ],
   });
   const whatsappUrl = "https://wa.me/5567998446674?text=Ol%C3%A1%21+Gostaria+de+agendar+um+ultrassom+obst%C3%A9trico+de+primeiro+trimestre.";
   const pdfUrl = "https://amb.org.br/wp-content/uploads/2021/04/ULTRASSONOGRAFIA-NO-PRIMEIRO-TRIMESTRE-DA-GRAVIDEZ-FINAL-12.09.2020.pdf";

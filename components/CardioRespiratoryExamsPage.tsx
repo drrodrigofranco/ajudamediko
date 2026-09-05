@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import * as Icons from 'lucide-react';
 import { useSEO } from '../hooks/useSEO';
+import { useJsonLd } from '../hooks/useJsonLd';
 
 interface CardioRespiratoryExamsPageProps {
   navigateTo: (path: string, e: React.MouseEvent) => void;
@@ -9,8 +10,17 @@ interface CardioRespiratoryExamsPageProps {
 const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({ navigateTo }) => {
   useSEO({
     title: 'Exames Cardiorrespiratórios: Holter, MAPA e Espirometria | Clínica Franco - Nova Andradina - MS',
-    description: 'Avaliação da função pulmonar, pressão arterial de 24h e ritmo cardíaco. Holter, MAPA e Espirometria na Clínica Franco, atendendo Nova Andradina e região: Batayporã, Ivinhema, Anaurilândia, Deodápolis, Angélica e Rosana (SP).',
+    description: 'Holter 24h, MAPA e Espirometria na Clínica Franco em Nova Andradina - MS: avaliação da função pulmonar, pressão arterial e ritmo cardíaco.',
     path: '/exames-cardiorespiratorios',
+  });
+
+  useJsonLd('cardio-breadcrumb-jsonld', {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ajudamediko.com.br/' },
+      { '@type': 'ListItem', position: 2, name: 'Exames Cardiorrespiratórios', item: 'https://ajudamediko.com.br/exames-cardiorespiratorios' },
+    ],
   });
   const [activeTab, setActiveTab] = useState<'holter' | 'mapa' | 'espirometria'>('holter');
   const whatsappUrl = "https://wa.me/5567998446674?text=Ol%C3%A1%21+Gostaria+de+agendar+um+exame+cardiorrespirat%C3%B3rio+pelo+site.";

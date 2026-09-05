@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import * as Icons from 'lucide-react';
 import { useSEO } from '../hooks/useSEO';
+import { useJsonLd } from '../hooks/useJsonLd';
 
 interface PregnancyGuidePageProps {
   navigateTo: (path: string, e: React.MouseEvent) => void;
@@ -9,8 +10,17 @@ interface PregnancyGuidePageProps {
 const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) => {
   useSEO({
     title: 'Guia Completo da Gestante | Clínica Franco - Nova Andradina - MS',
-    description: 'Cuidados por trimestre e cronograma ideal de exames obstétricos para uma gestação tranquila. Clínica Franco atende Nova Andradina e região: Batayporã, Ivinhema, Anaurilândia, Deodápolis, Angélica e Rosana (SP).',
+    description: 'Cuidados por trimestre e cronograma ideal de exames obstétricos para uma gestação tranquila, com a Clínica Franco em Nova Andradina - MS.',
     path: '/dicas-gestantes',
+  });
+
+  useJsonLd('dicas-gestantes-breadcrumb-jsonld', {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ajudamediko.com.br/' },
+      { '@type': 'ListItem', position: 2, name: 'Dicas para Gestantes', item: 'https://ajudamediko.com.br/dicas-gestantes' },
+    ],
   });
   const [activeTrim, setActiveTrim] = useState<1 | 2 | 3>(1);
   const [dum, setDum] = useState<string>('');
