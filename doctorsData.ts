@@ -40,8 +40,9 @@ export interface DoctorData {
   // Physician) - dado estruturado, nao aparece em nenhum texto visivel da
   // pagina. Preencher so quando o proprio medico/clinica confirmar a area;
   // nao usar a palavra "especialista" em nenhum texto visivel sem RQE
-  // registrado (regra de compliance CRM seguida no site inteiro).
-  medicalSpecialty?: string;
+  // registrado (regra de compliance CRM seguida no site inteiro). Aceita
+  // string unica ou array (ex: Rodrigo tem duas areas de atuacao).
+  medicalSpecialty?: string | string[];
 }
 
 export const doctorsData: DoctorData[] = [
@@ -54,6 +55,7 @@ export const doctorsData: DoctorData[] = [
     photoHeight: 599,
     iconName: 'HeartPulse',
     specialtyLabel: 'Ultrassonografia Diagnóstica e Perícia Médica',
+    medicalSpecialty: ['Ultrassonografia', 'Perícia Médica'],
     shortBio: 'Atendimento em ultrassonografia diagnóstica, consultas de clínica geral e perícias médicas judiciais, com dedicação a um cuidado humanizado e preciso para toda a família.',
     seoTitle: 'Dr. Rodrigo Franco (CRM-MS 10087) - Ultrassom e Perícias em Nova Andradina | Clínica Franco',
     seoDescription: 'Ultrassom em Nova Andradina - MS: morfológico, 3D/4D e Doppler de carótidas, além de perícias médicas judiciais com o Dr. Rodrigo Franco (CRM-MS 10087).',
