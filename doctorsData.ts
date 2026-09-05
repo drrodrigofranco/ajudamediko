@@ -43,6 +43,12 @@ export interface DoctorData {
   // registrado (regra de compliance CRM seguida no site inteiro). Aceita
   // string unica ou array (ex: Rodrigo tem duas areas de atuacao).
   medicalSpecialty?: string | string[];
+  // Override opcional so do `description` do JSON-LD Physician - por padrao
+  // esse campo usa `specialtyLabel`, mas `specialtyLabel` TAMBEM e renderizado
+  // visivelmente na pagina (badge sob a foto + atributo alt da imagem). Usar
+  // este campo quando se quer uma palavra especifica so no dado estruturado,
+  // sem mexer no texto/alt visivel.
+  jsonLdDescription?: string;
 }
 
 export const doctorsData: DoctorData[] = [
@@ -114,6 +120,7 @@ export const doctorsData: DoctorData[] = [
     iconName: 'Stethoscope',
     specialtyLabel: 'Atendimento Clínico ao Adulto e Saúde do Idoso',
     medicalSpecialty: 'Geriatria',
+    jsonLdDescription: 'Atendimento Clínico ao Adulto e Geriatria',
     shortBio: 'Médico formado pela Faculdade de Medicina de Presidente Prudente (FAMEPP) em 2013, com mais de uma década de atuação em Clínica Médica, Urgência e Emergência, UTI e Atenção Primária à Saúde, com atenção especial à saúde do idoso em Nova Andradina - MS.',
     seoTitle: 'Dr. Lucas Duarte Franco (CRM-MS 7462) - Saúde do Idoso em Nova Andradina - MS | Clínica Franco',
     seoDescription: 'Atendimento clínico ao adulto e à pessoa idosa em Nova Andradina - MS: acompanhamento geriátrico, check-up clínico, controle de doenças crônicas e pequenos procedimentos com o Dr. Lucas Duarte Franco.',
@@ -164,6 +171,7 @@ export const doctorsData: DoctorData[] = [
     iconName: 'Brain',
     specialtyLabel: 'Clínica Médica e Avaliação Neurológica',
     medicalSpecialty: 'Neurologia',
+    jsonLdDescription: 'Clínica Médica e Neurologia',
     shortBio: 'Médico com atuação em clínica geral e avaliação neurológica, experiência consolidada em urgência e emergência em Nova Andradina e região.',
     longBio: [
       'Médico formado pela Universidade do Oeste Paulista (UNOESTE), com pós-graduação em Neurologia. Atuou no Departamento de Clínica Médica do Hospital Regional de Nova Andradina entre 2018 e 2024, e atende atualmente no Pronto Socorro e na Avaliação Neurológica do Hospital Cassems, além da Policlínica Amena.',
