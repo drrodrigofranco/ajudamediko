@@ -27,6 +27,11 @@ export interface CuratedNewsItem {
   // licenca da imagem exige (ex: Wikimedia Commons CC-BY/CC-BY-SA) - so usar
   // imagens reais com licenca de reuso verificada, nunca copiar sem checar a licenca.
   images?: { src: string; alt: string; credit?: string; creditUrl?: string; afterParagraph?: number }[];
+  // Id opcional de examsData.ts, quando a materia trata de um exame especifico
+  // oferecido na clinica. Quando presente, NewsDetailPage mostra um box "Exame
+  // relacionado" linkando para /exame/{id} - mesmo padrao ja usado em
+  // ArticleDetailPage.tsx, agora tambem para a curadoria de noticias.
+  relatedExamId?: string;
 }
 
 export const curatedNews: CuratedNewsItem[] = [
@@ -37,6 +42,7 @@ export const curatedNews: CuratedNewsItem[] = [
     sourceName: 'Ultrasound in Obstetrics & Gynecology (UOG)',
     sourceUrl: 'https://doi.org/10.1002/uog.29181',
     publishedOn: '2026-09-02',
+    relatedExamId: 'obstetrico_doppler',
     references: [
       {
         label: 'Youssef L, Crispi F, Paolucci S, Miranda J, Lobmaier S, Crovetto F, Figueras F, Gratacos E. Angiogenic factors alone or in combination with ultrasound Doppler criteria for risk classification among late-onset small fetuses with or without pre-eclampsia. Ultrasound Obstet Gynecol. 2025;65(3):317-324.',
@@ -84,6 +90,7 @@ export const curatedNews: CuratedNewsItem[] = [
     sourceName: 'Lei 14.598/2023 (Diário Oficial da União)',
     sourceUrl: 'https://www2.camara.leg.br/legin/fed/lei/2023/lei-14598-14-junho-2023-794300-publicacaooriginal-168074-pl.html',
     publishedOn: '2026-08-18',
+    relatedExamId: 'ecofetal',
     references: [
       {
         label: 'BRASIL. Lei nº 14.598, de 14 de junho de 2023. Dispõe sobre a realização de exames em gestantes. Diário Oficial da União.',
@@ -116,6 +123,7 @@ export const curatedNews: CuratedNewsItem[] = [
     sourceName: 'ISUOG (Ultrasound in Obstetrics & Gynecology)',
     sourceUrl: 'https://doi.org/10.1002/uog.24888',
     publishedOn: '2026-08-11',
+    relatedExamId: 'morfologico1',
     references: [
       {
         label: 'Salomon LJ, Alfirevic Z, Berghella V, et al. ISUOG Practice Guidelines (updated): performance of the routine mid-trimester fetal ultrasound scan. Ultrasound Obstet Gynecol. 2022;59(6):840-856.',
@@ -154,6 +162,7 @@ export const curatedNews: CuratedNewsItem[] = [
     sourceName: 'Febrasgo',
     sourceUrl: 'https://febrasgo.org.br/pt/noticias/item/2231-camara-aprova-inclusao-da-ultrassonografia-morfologica-no-pre-natal-do-sus',
     publishedOn: '2026-08-05',
+    relatedExamId: 'morfologico1',
   },
   {
     id: 'ms-sarampo-vacinacao-sp-2026',

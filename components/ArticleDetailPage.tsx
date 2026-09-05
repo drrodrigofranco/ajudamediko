@@ -10,6 +10,34 @@ interface ArticleDetailPageProps {
   navigateTo: (path: string, e: React.MouseEvent) => void;
 }
 
+// Suporte leve a link interno dentro do corpo do artigo: um paragrafo pode
+// conter "[texto](/caminho)" e isso vira um <a> de verdade (navegacao real +
+// texto-ancora rastreavel pelo Google), em vez de citar o exame so em texto puro.
+const renderBodyWithLinks = (text: string, navigateTo: (path: string, e: React.MouseEvent) => void): React.ReactNode[] => {
+  const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  const nodes: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  let key = 0;
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) nodes.push(text.slice(lastIndex, match.index));
+    const [, label, href] = match;
+    nodes.push(
+      <a
+        key={key++}
+        href={href}
+        onClick={(e) => navigateTo(href, e)}
+        className="text-[#0f766e] font-bold underline underline-offset-2 hover:text-[#0d9488]"
+      >
+        {label}
+      </a>
+    );
+    lastIndex = regex.lastIndex;
+  }
+  if (lastIndex < text.length) nodes.push(text.slice(lastIndex));
+  return nodes;
+};
+
 const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ articleId, navigateTo }) => {
   const article = articlesData.find(a => a.id === articleId);
   const relatedExam = article?.relatedExamId ? examsData.find(e => e.id === article.relatedExamId) : undefined;
@@ -125,7 +153,7 @@ const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ articleId, naviga
         <article className="bg-white p-8 sm:p-10 rounded-3xl border border-gray-100 shadow-sm space-y-5">
           {article.body.map((paragraph, i) => (
             <p key={i} className="text-gray-600 text-sm leading-relaxed">
-              {paragraph}
+              {renderBodyWithLinks(paragraph, navigateTo)}
             </p>
           ))}
         </article>

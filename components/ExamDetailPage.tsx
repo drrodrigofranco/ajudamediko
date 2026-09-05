@@ -66,7 +66,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ajudamediko.com.br/' },
-      { '@type': 'ListItem', position: 2, name: 'Exames', item: 'https://ajudamediko.com.br/#servicos' },
+      { '@type': 'ListItem', position: 2, name: 'Exames', item: 'https://ajudamediko.com.br/servicos' },
       { '@type': 'ListItem', position: 3, name: exam.name, item: `https://ajudamediko.com.br/exame/${examId}` },
     ],
   } : null);

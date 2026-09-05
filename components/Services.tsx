@@ -2,6 +2,25 @@
 import React, { useState } from 'react';
 import { Baby, FileText, Scale, Search, LucideIcon, Stethoscope, HeartPulse, Brain, ChevronRight } from 'lucide-react';
 
+// Navegacao real (nao so o modal de busca do catalogo abaixo) para os exames com
+// menos presenca nas buscas locais "<exame> Nova Andradina" - texto-ancora
+// descritivo, com o nome completo do exame, em vez de so o nome curto do card.
+const lowVisibilityExamLinks: { id: string; label: string }[] = [
+  { id: 'prostata', label: 'Ultrassom de Próstata' },
+  { id: 'carotidas', label: 'Doppler de Carótidas' },
+  { id: 'articulacao_joelho', label: 'Ultrassom de Joelho' },
+  { id: 'articulacao_tornozelo', label: 'Ultrassom de Tornozelo' },
+  { id: 'mapa', label: 'MAPA 24h' },
+  { id: 'eletrocardiograma', label: 'Eletrocardiograma (ECG)' },
+];
+
+const navigateToExam = (id: string, e: React.MouseEvent) => {
+  e.preventDefault();
+  window.history.pushState({}, '', `/exame/${id}`);
+  window.dispatchEvent(new PopStateEvent('popstate'));
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
 interface Exam {
   id?: string;
   name: string;
@@ -220,6 +239,23 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
           </div>
         )}
       </div>
+
+      <p className="text-gray-500 text-sm text-center max-w-3xl mx-auto leading-relaxed mb-20">
+        Também realizamos, em Nova Andradina - MS:{' '}
+        {lowVisibilityExamLinks.map((exam, i) => (
+          <React.Fragment key={exam.id}>
+            <a
+              href={`/exame/${exam.id}`}
+              onClick={(e) => navigateToExam(exam.id, e)}
+              className="text-[#0f766e] font-bold underline underline-offset-2 hover:text-[#0d9488]"
+            >
+              {exam.label}
+            </a>
+            {i < lowVisibilityExamLinks.length - 1 ? ', ' : '.'}
+          </React.Fragment>
+        ))}{' '}
+        Confira o preparo e as indicações de cada exame na página específica.
+      </p>
     </section>
   );
 };
