@@ -1,6 +1,7 @@
 import React from 'react';
 import * as Icons from 'lucide-react';
 import { curatedNews, CuratedNewsItem } from '../curatedNewsData';
+import { examsData } from '../examsData';
 import { useSEO } from '../hooks/useSEO';
 import { useJsonLd } from '../hooks/useJsonLd';
 
@@ -33,6 +34,7 @@ const NewsImage: React.FC<{ image: NonNullable<CuratedNewsItem['images']>[number
 
 const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) => {
   const news = curatedNews.find(n => n.id === newsId);
+  const relatedExam = news?.relatedExamId ? examsData.find(e => e.id === news.relatedExamId) : undefined;
   const paragraphs = news ? news.summary.split('\n\n') : [];
   const heroImages = news?.images?.filter(img => img.afterParagraph === undefined) ?? [];
   const inlineImages = new Map((news?.images ?? []).filter(img => img.afterParagraph !== undefined).map(img => [img.afterParagraph!, img]));
@@ -164,6 +166,25 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
             </React.Fragment>
           ))}
         </article>
+
+        {relatedExam && (
+          <div className="mt-8 bg-[#0e4843] text-white rounded-3xl p-8 flex flex-col sm:flex-row items-center gap-6 shadow-lg">
+            <div className="bg-[#14b8a6] p-4 rounded-2xl text-white flex-shrink-0">
+              <Icons.Stethoscope className="w-8 h-8" />
+            </div>
+            <div className="flex-1 text-center sm:text-left">
+              <h2 className="font-serif font-bold text-lg">Exame relacionado: {relatedExam.name}</h2>
+              <p className="text-xs text-teal-50/70 mt-1">{relatedExam.shortDesc}</p>
+            </div>
+            <a
+              href={`/exame/${relatedExam.id}`}
+              onClick={(e) => navigateTo(`/exame/${relatedExam.id}`, e)}
+              className="flex-shrink-0 bg-[#14b8a6] hover:bg-[#0d9488] text-white text-xs font-bold px-6 py-3 rounded-full shadow-md transition-all whitespace-nowrap"
+            >
+              Ver detalhes do exame
+            </a>
+          </div>
+        )}
 
         {/* Curadoria e revisao medica */}
         <div className="mt-8 bg-white p-6 rounded-3xl border border-gray-100 shadow-sm flex items-center gap-4">
