@@ -134,6 +134,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://ajudamediko.com.br/pericia-medica</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- Exames Dedicados -->
   <url>
     <loc>https://ajudamediko.com.br/exame/ecofetal</loc>
