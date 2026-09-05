@@ -36,6 +36,12 @@ export interface DoctorData {
   // DoctorDetailPage usa um template generico com nome + CRM + shortBio.
   seoTitle?: string;
   seoDescription?: string;
+  // Area de atuacao para o campo `medicalSpecialty` do JSON-LD (schema.org
+  // Physician) - dado estruturado, nao aparece em nenhum texto visivel da
+  // pagina. Preencher so quando o proprio medico/clinica confirmar a area;
+  // nao usar a palavra "especialista" em nenhum texto visivel sem RQE
+  // registrado (regra de compliance CRM seguida no site inteiro).
+  medicalSpecialty?: string;
 }
 
 export const doctorsData: DoctorData[] = [
@@ -105,6 +111,7 @@ export const doctorsData: DoctorData[] = [
     photoObjectPosition: 'top',
     iconName: 'Stethoscope',
     specialtyLabel: 'Atendimento Clínico ao Adulto e Saúde do Idoso',
+    medicalSpecialty: 'Geriatria',
     shortBio: 'Médico formado pela Faculdade de Medicina de Presidente Prudente (FAMEPP) em 2013, com mais de uma década de atuação em Clínica Médica, Urgência e Emergência, UTI e Atenção Primária à Saúde, com atenção especial à saúde do idoso em Nova Andradina - MS.',
     seoTitle: 'Dr. Lucas Duarte Franco (CRM-MS 7462) - Saúde do Idoso em Nova Andradina - MS | Clínica Franco',
     seoDescription: 'Atendimento clínico ao adulto e à pessoa idosa em Nova Andradina - MS: acompanhamento geriátrico, check-up clínico, controle de doenças crônicas e pequenos procedimentos com o Dr. Lucas Duarte Franco.',
@@ -154,6 +161,7 @@ export const doctorsData: DoctorData[] = [
     photoHeight: 600,
     iconName: 'Brain',
     specialtyLabel: 'Clínica Médica e Avaliação Neurológica',
+    medicalSpecialty: 'Neurologia',
     shortBio: 'Médico com atuação em clínica geral e avaliação neurológica, experiência consolidada em urgência e emergência em Nova Andradina e região.',
     longBio: [
       'Médico formado pela Universidade do Oeste Paulista (UNOESTE), com pós-graduação em Neurologia. Atuou no Departamento de Clínica Médica do Hospital Regional de Nova Andradina entre 2018 e 2024, e atende atualmente no Pronto Socorro e na Avaliação Neurológica do Hospital Cassems, além da Policlínica Amena.',
@@ -191,6 +199,7 @@ export const doctorsData: DoctorData[] = [
     photoObjectPosition: 'top',
     iconName: 'Baby',
     specialtyLabel: 'Pediatria Clínica',
+    medicalSpecialty: 'Pediatria',
     shortBio: 'Atendimento médico infantil com cuidado, acompanhamento e atenção em cada fase do desenvolvimento - de recém-nascidos a adolescentes, com pós-graduação em Pediatria Clínica.',
     seoTitle: 'Dr. Tiago Dantas Wizenfad (CRM-MS 16149) - Pediatria em Nova Andradina - MS | Clínica Franco',
     seoDescription: 'Atendimento pediátrico em Nova Andradina - MS: puericultura, acompanhamento do crescimento e desenvolvimento, vacinação e avaliação de crianças e adolescentes com o Dr. Tiago Dantas Wizenfad.',
