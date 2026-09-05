@@ -19,15 +19,13 @@
 ---
 
 ## 📅 Última atualização
-- **Data:** 2026-09-04
-- **Status atual:** 🟢 Em produção, estável. Publicado o 5º artigo original com página própria:
-  **`/blog/sinais-de-alerta-na-infancia-quando-procurar-o-pediatra`** (Dr. Tiago Wizenfad, CRM-MS 16149) —
-  fecha a lacuna de conteúdo original em pediatria (ultrassom e obstetrícia já tinham artigo próprio;
-  geriatria e neurologia têm rascunho pronto em `content-drafts/` mas ainda **não publicado**, aguardando
-  revisão de Lucas e Guilherme). Confirmado ao vivo: `200`, título/H1/autoria corretos, sem menção a
-  "especialista"/"especialidade" (regra de RQE do projeto). Commit `4080c41`, merge `6167bd7`, branch `main`.
-  Ver `seo-reports/RELATORIO-SEO-2026-08.md` seção 12 para o relatório completo desta rodada (achados de SEO
-  local em geriatria/neurologia/pediatria, reconfirmação da regra de RQE).
+- **Data:** 2026-09-05
+- **Status atual:** 🟢 Em produção, estável. Auditoria SEO completa (todas as páginas, foco em médicos e
+  exames) entregue e parcialmente implementada: breadcrumb de exame corrigido, links internos exame↔artigo e
+  médico↔card de consulta adicionados (PRs #39, #40), e — a pedido explícito do Rodrigo — `medicalSpecialty`/
+  `jsonLdDescription` no JSON-LD dos 4 médicos (PRs #41, #42, #43). Ver a entrada correspondente em "⚠️
+  Armadilhas conhecidas" abaixo — **é a norma oficial pra reforçar área médica de um médico novo daqui pra
+  frente**, ler antes de repetir esse tipo de pedido.
 
 ---
 
@@ -133,6 +131,11 @@ npm run build # dispara TypeScript check + Vite build + prerender.mjs (gera dist
 - **2026-09-04:** Auditoria externa de SEO local (geriatria/neurologia/pediatria) e publicação do 5º artigo
   original (`/blog/sinais-de-alerta-na-infancia-quando-procurar-o-pediatra`, Dr. Tiago) — ver
   `seo-reports/RELATORIO-SEO-2026-08.md` seção 12.
+- **2026-09-05:** Auditoria SEO completa (todas as páginas, foco em `/medico/:id` e `/exame/:id`) +
+  correção do bug de breadcrumb `#servicos` (PR #39) + links internos exame↔artigo/notícia (PR #39) e
+  médico↔card de consulta (PR #40) + `medicalSpecialty`/`jsonLdDescription` no JSON-LD dos 4 médicos, a pedido
+  explícito do Rodrigo e com o aviso de risco registrado (PRs #41, #42, #43) — ver a norma completa em
+  "Armadilhas conhecidas".
 
 ---
 
@@ -170,15 +173,46 @@ pode ser descartada, já que o conteúdo dela foi superado pela publicação rea
 ---
 
 ## ⚠️ Armadilhas conhecidas (NÃO repetir erros)
-- **🚨 REGRA DO PROJETO — publicidade médica, nunca declarar especialidade sem RQE:** o CFM proíbe um médico
-  anunciar/se apresentar como especialista numa área sem ter o **RQE (Registro de Qualificação de Especialista)**
-  registrado — mesmo em texto oculto ou em campos "invisíveis" como `medicalSpecialty` do schema.org (o Google
-  pode exibir isso, e conta como declaração pública de especialidade). Vale pra qualquer lugar do site: texto
-  visível, meta tags, JSON-LD, `focusAreas`, título de página, etc. **Antes de anunciar/reforçar qualquer
-  especialidade pra qualquer médico da equipe, confirmar explicitamente com o Rodrigo se aquele médico tem o
-  RQE correspondente registrado no CFM.** Sem essa confirmação, não implementar — mesmo que pedido diretamente.
-  Precedente já registrado (2026-07-25): pedido de reforçar "Geriatria" (Dr. Lucas) e "Neurologia" (Dr.
-  Guilherme) via schema foi recusado por falta dessa confirmação; ainda pendente.
+- **🚨 REGRA DO PROJETO — publicidade médica, nunca declarar especialidade sem RQE (texto visível):** o CFM
+  proíbe um médico anunciar/se apresentar como especialista numa área sem ter o **RQE (Registro de Qualificação
+  de Especialista)** registrado. Isso vale de forma absoluta pra qualquer **texto visível** do site: badge da
+  página do médico (`specialtyLabel`), `longBio`/`shortBio`, `focusAreas`, título de página (`seoTitle`), meta
+  description visível ao usuário, atributo `alt` de imagem, etc. **Nunca** escrever "especialista em X" nesses
+  campos sem confirmação explícita do Rodrigo de que o médico tem o RQE correspondente registrado no CFM.
+  - **Atualização 2026-09-05 — dado estruturado (JSON-LD) é uma zona cinzenta, não uma proibição igual:** o
+    Rodrigo (dono da clínica) pediu explicitamente para reforçar área de atuação de 3 médicos **só no JSON-LD**
+    (`medicalSpecialty` do schema.org `Physician` + o campo `description` do mesmo bloco), sem tocar em nenhum
+    texto visível. Fui transparente com ele: expliquei que `medicalSpecialty` não é garantidamente invisível (o
+    Google pode exibir esse dado estruturado em rich results/painéis), diferente de uma meta tag `keywords`
+    (essa sim nunca aparece em lugar nenhum, mas o Google a ignora pra ranking desde ~2009). Também levantei que
+    a Resolução CFM nº 2.336/2023 define "publicidade médica" de forma ampla ("qualquer meio de divulgação"),
+    então uma leitura mais rígida pode alcançar até metadado invisível — não achei norma do CFM que trate
+    especificamente de dado estruturado/JSON-LD/metadados, então essa ambiguidade não está resolvida por norma
+    nenhuma. Rodrigo decidiu prosseguir ciente do risco (decisão dele sobre o próprio negócio, registrada aqui
+    pra transparência, não uma isenção geral de responsabilidade minha em pedidos futuros parecidos).
+  - **Implementado (PRs #41, #42, #43, branch `claude/site-access-up3heu` → `main`)**: `doctorsData.ts` tem 2
+    campos pensados exatamente pra isso, mantendo o texto visível intocado:
+    - `medicalSpecialty?: string | string[]` — vai direto pro campo `medicalSpecialty` do JSON-LD Physician em
+      `DoctorDetailPage.tsx`. Hoje: Lucas="Geriatria", Guilherme="Neurologia", Tiago="Pediatria",
+      Rodrigo=["Ultrassonografia","Perícia Médica"].
+    - `jsonLdDescription?: string` — sobrescreve *só* o `description` do JSON-LD (por padrão esse campo usa
+      `specialtyLabel`, que **também** é renderizado visivelmente — badge sob a foto + `alt` da imagem; por
+      isso não dá pra editar `specialtyLabel` direto quando a intenção é só metadado). Hoje: Lucas="Atendimento
+      Clínico ao Adulto e Geriatria", Guilherme="Clínica Médica e Neurologia". Rodrigo e Tiago não precisaram
+      desse campo porque o próprio `specialtyLabel` deles já continha a palavra exata ("Pediatria Clínica",
+      "Ultrassonografia Diagnóstica e Perícia Médica").
+  - **Norma pra médico novo (deixar como checklist pronto):**
+    1. Nunca preencher `specialtyLabel`/`longBio`/`focusAreas`/`seoTitle` com "especialista em X" sem RQE
+       confirmado pelo Rodrigo — como sempre.
+    2. Se o Rodrigo pedir reforço de área médica só nos metadados: perguntar primeiro se ele quer o mecanismo
+       mais seguro (`<meta name="keywords">`, nunca exibido, mas com efeito de SEO ~nulo) ou `medicalSpecialty`
+       no JSON-LD (não garantidamente invisível, avisar sobre rich results e a Res. CFM 2.336/2023 antes de
+       implementar). Não decidir por conta própria — ele escolhe ciente do trade-off.
+    3. Usar `medicalSpecialty` (área) e `jsonLdDescription` (só se `specialtyLabel` não tiver a palavra exata)
+       em `doctorsData.ts`, nunca editar `specialtyLabel` pra isso.
+    4. Rodar `npx tsc --noEmit` + `npm run build`, e conferir via `grep`/script Python que a palavra nova
+       aparece no JSON-LD (`dist/medico/{id}/index.html`) e **não** aparece em nenhum texto visível/`alt` novo
+       (comparar antes/depois).
 - **Porta em uso:** Vite pode subir na `3001` se a `3000` estiver ocupada.
 - **Título/description da home tem DOIS lugares:** `index.html` (estático) e o hook `useSEO({...path:'/'...})`
   dentro de `App.tsx` (sobrescreve via JS **depois** que o React monta — e é esse valor que fica gravado no
