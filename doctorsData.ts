@@ -118,7 +118,7 @@ export const doctorsData: DoctorData[] = [
     photoHeight: 675,
     photoObjectPosition: 'top',
     iconName: 'Stethoscope',
-    specialtyLabel: 'Atendimento Clínico ao Adulto e Saúde do Idoso',
+    specialtyLabel: 'Atendimento Clínico ao Adulto, Saúde do Idoso e Pequenos Procedimentos',
     medicalSpecialty: 'Geriatria',
     jsonLdDescription: 'Atendimento Clínico ao Adulto e Geriatria',
     shortBio: 'Médico formado pela Faculdade de Medicina de Presidente Prudente (FAMEPP) em 2013, com mais de uma década de atuação em Clínica Médica, Urgência e Emergência, UTI e Atenção Primária à Saúde, com atenção especial à saúde do idoso em Nova Andradina - MS.',
