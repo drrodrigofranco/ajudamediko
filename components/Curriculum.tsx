@@ -72,7 +72,8 @@ const Curriculum: React.FC<CurriculumProps> = ({ navigateTo }) => {
                   </div>
                   <div className={`text-center ${reversed ? 'md:text-right flex-grow' : 'md:text-left'}`}>
                     <h3 className="text-3xl md:text-4xl font-serif font-bold text-[#0e4843] mb-2">{doctor.name}</h3>
-                    <p className="text-[#0f766e] font-bold uppercase tracking-widest text-sm mb-4">{doctor.crm}</p>
+                    <p className="text-[#0f766e] font-bold uppercase tracking-widest text-sm mb-2">{doctor.crm}</p>
+                    <p className="text-gray-600 font-semibold text-sm mb-4">{doctor.specialtyLabel}</p>
                     <p className={`text-gray-500 max-w-xl leading-relaxed ${reversed ? 'ml-auto' : ''}`}>
                       {doctor.shortBio}
                     </p>
