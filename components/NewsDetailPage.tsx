@@ -4,6 +4,7 @@ import { curatedNews, CuratedNewsItem } from '../curatedNewsData';
 import { examsData } from '../examsData';
 import { useSEO } from '../hooks/useSEO';
 import { useJsonLd } from '../hooks/useJsonLd';
+import { truncateAtWord } from '../textUtils';
 
 interface NewsDetailPageProps {
   newsId: string;
@@ -44,7 +45,7 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
       ? `${news.title} | Clínica Franco`
       : 'Matéria não encontrada | Clínica Franco',
     description: news
-      ? paragraphs[0].slice(0, 160)
+      ? truncateAtWord(paragraphs[0])
       : 'Matéria não encontrada. Veja outras notícias e artigos de saúde da Clínica Franco.',
     path: `/blog/${newsId}`,
     image: news?.images?.[0] ? `https://ajudamediko.com.br${news.images[0].src}` : undefined,

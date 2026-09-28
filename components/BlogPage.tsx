@@ -12,7 +12,7 @@ interface BlogPageProps {
 const BlogPage: React.FC<BlogPageProps> = ({ navigateTo }) => {
   useSEO({
     title: 'Blog de Saúde | Clínica Franco - Nova Andradina - MS',
-    description: 'Resumos curados de notícias e materiais de saúde de fontes confiáveis (Fiocruz, Ministério da Saúde, OMS e veículos científicos), selecionados pela Clínica Franco em Nova Andradina - MS.',
+    description: 'Artigos dos médicos e notícias de saúde de fontes confiáveis (Fiocruz, Ministério da Saúde, OMS), com curadoria da Clínica Franco em Nova Andradina - MS.',
     path: '/blog',
   });
 

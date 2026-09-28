@@ -11,6 +11,12 @@ export interface OriginalArticle {
   publishedOn: string; // YYYY-MM-DD
   relatedExamId?: string; // referencia a examsData.ts, se aplicavel
   body: string[]; // paragrafos
+  // Subtitulos opcionais, alinhados por indice com `body` - o item i vira um
+  // <h2> logo antes do paragrafo i (null/undefined = paragrafo continua sem
+  // subtitulo novo, sob o heading anterior). Mesmo padrao ja usado em
+  // curatedNewsData.ts/NewsDetailPage.tsx - aplicado aqui pra corrigir a
+  // ausencia total de H2 nos 5 artigos originais (achado da auditoria).
+  sectionHeadings?: (string | null)[];
   disclaimer: string;
 }
 
@@ -27,6 +33,11 @@ export const articlesData: OriginalArticle[] = [
       'Costuma ser indicado entre a 24ª e a 28ª semana de gestação, período em que o coração fetal já está suficientemente desenvolvido para uma análise detalhada. Algumas situações aumentam a recomendação do exame: histórico familiar de cardiopatia congênita, diabetes materno, alterações identificadas em exames anteriores, ou uso de determinados medicamentos durante a gravidez — mas também pode ser solicitado por tranquilidade, mesmo sem fator de risco específico.',
       'O exame é indolor e semelhante a um ultrassom obstétrico comum, feito por via abdominal. Na Clínica Franco, ele é realizado com foco exclusivo na anatomia e função cardíaca do bebê.',
     ],
+    sectionHeadings: [
+      'O que é o ecocardiograma fetal',
+      'Quando fazer e quem deve priorizar o exame',
+      'Como é feito na Clínica Franco',
+    ],
     disclaimer: 'Este conteúdo é educativo e não substitui uma consulta médica. Converse com seu obstetra sobre a necessidade e o momento ideal do exame no seu caso.',
   },
   {
@@ -41,6 +52,11 @@ export const articlesData: OriginalArticle[] = [
       'Medidas dentro da faixa esperada para a idade gestacional são um bom sinal. Medidas aumentadas não significam um diagnóstico fechado, mas indicam a necessidade de investigação complementar — por isso a translucência nucal é sempre interpretada em conjunto com outros marcadores (idade materna, exames de sangue, outras medidas ultrassonográficas), nunca isoladamente.',
       'Esse é um dos motivos pelos quais o momento do exame importa tanto: fora da janela da 11ª à 14ª semana, a medida perde parte do seu valor de rastreamento.',
     ],
+    sectionHeadings: [
+      'O que é a translucência nucal',
+      'Como interpretar o resultado',
+      'Por que o momento do exame importa',
+    ],
     disclaimer: 'Este conteúdo é educativo e não substitui uma consulta médica. O resultado da translucência nucal deve sempre ser interpretado pelo seu médico, junto com o restante do pré-natal.',
   },
   {
@@ -54,6 +70,11 @@ export const articlesData: OriginalArticle[] = [
       'A espirometria é o exame de referência para avaliar a função pulmonar. Durante o teste, o paciente respira em um bocal conectado a um aparelho que mede volumes e velocidades de ar inspirado e expirado, permitindo identificar padrões obstrutivos (como na asma e na DPOC) ou restritivos de funcionamento dos pulmões.',
       'É um exame simples, não invasivo, e costuma ser indicado em situações como: falta de ar persistente, tosse crônica, chiado no peito, histórico de tabagismo, acompanhamento de doenças respiratórias já diagnosticadas, ou avaliação pré-operatória.',
       'Alguns cuidados simples antes do exame ajudam no resultado: evitar refeições pesadas e uso de broncodilatador nas horas anteriores (conforme orientação recebida no agendamento), e usar roupas confortáveis que não restrinjam a respiração.',
+    ],
+    sectionHeadings: [
+      'O que é e como funciona a espirometria',
+      'Quando o exame é indicado',
+      'Cuidados antes do exame',
     ],
     disclaimer: 'Este conteúdo é educativo e não substitui uma consulta médica. A indicação e a interpretação da espirometria devem ser feitas por um médico.',
   },
@@ -72,6 +93,14 @@ export const articlesData: OriginalArticle[] = [
       'A partir da 24ª semana pode ser indicado o [Ecocardiograma Fetal](/exame/ecofetal), uma avaliação especializada da estrutura e do funcionamento do coração do bebê, mais aprofundada do que a observação cardíaca já feita nos ultrassons de rotina.',
       'Já a partir da 28ª semana, o acompanhamento do terceiro trimestre costuma incluir o [Ultrassom Obstétrico com Doppler](/exame/obstetrico_doppler), que avalia crescimento e peso estimado do bebê, quantidade de líquido amniótico e o fluxo sanguíneo entre a placenta e o bebê — indicando se a oxigenação e a nutrição estão adequadas.',
     ],
+    sectionHeadings: [
+      'O calendário de ultrassons na gestação',
+      'Ultrassom Inicial (Datador) — 6ª a 9ª semana',
+      'Morfológico de 1º Trimestre — 11ª a 14ª semana',
+      'Morfológico de 2º Trimestre — 20ª a 24ª semana',
+      'Ecocardiograma Fetal — a partir da 24ª semana',
+      'Ultrassom Obstétrico com Doppler — a partir da 28ª semana',
+    ],
     disclaimer: 'Este conteúdo é educativo e não substitui uma consulta médica. O calendário exato de exames de cada gestante deve ser definido pelo obstetra, de acordo com o caso individual.',
   },
   {
@@ -84,6 +113,11 @@ export const articlesData: OriginalArticle[] = [
       'Algumas situações merecem uma consulta pediátrica sem demora: febre em recém-nascidos e bebês pequenos, dificuldade para respirar ou respiração muito rápida, recusa persistente em se alimentar, vômitos ou diarreia que não melhoram, manchas na pele que se espalham rapidamente, ou qualquer mudança brusca no comportamento habitual da criança (sonolência excessiva, irritabilidade fora do comum).',
       'Fora dessas situações mais agudas, o acompanhamento pediátrico regular — a puericultura — tem um papel igualmente importante: consultas periódicas para acompanhar o crescimento e o desenvolvimento, atualizar o calendário vacinal, orientar sobre alimentação e introdução alimentar, e esclarecer dúvidas dos pais em cada fase, do recém-nascido à adolescência.',
       'Queixas respiratórias (tosse, resfriados, rinite), otalgias, questões gastrointestinais e alergias ou alterações de pele são motivos frequentes de consulta na infância — na maioria das vezes de resolução simples quando avaliadas cedo, mas que merecem olhar médico para descartar algo mais sério.',
+    ],
+    sectionHeadings: [
+      'Sinais que pedem consulta pediátrica sem demora',
+      'A importância do acompanhamento pediátrico regular',
+      'Queixas comuns que merecem avaliação médica',
     ],
     disclaimer: 'Este conteúdo é educativo e não substitui uma consulta médica. Febre em bebês com menos de 3 meses, dificuldade respiratória, ou qualquer sinal de piora rápida são urgência pediátrica — procure atendimento imediato nesses casos.',
   },

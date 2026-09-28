@@ -258,7 +258,7 @@ export const doctorsData: DoctorData[] = [
     specialtyLabel: 'Atendimento Clínico à Saúde da Pele, Cabelos e Unhas',
     shortBio: 'Atendimento individualizado voltado à saúde da pele, cabelos e unhas, com foco em prevenção, diagnóstico e tratamento, unindo avaliação clínica cuidadosa a um plano terapêutico personalizado para cada paciente.',
     seoTitle: 'Dra. Giovanna Silva e Silva (CRM-MS 14686) - Saúde da Pele em Nova Andradina - MS | Clínica Franco',
-    seoDescription: 'Atendimento à saúde da pele, cabelos e unhas em Nova Andradina - MS: acne, melasma, queda de cabelo e avaliação de lesões com a Dra. Giovanna Silva e Silva (CRM-MS 14686).',
+    seoDescription: 'Atendimento à saúde da pele, cabelos e unhas em Nova Andradina - MS: acne, melasma e queda de cabelo, com a Dra. Giovanna Silva e Silva (CRM-MS 14686).',
     longBio: [
       'Atendimento individualizado voltado à saúde da pele, cabelos e unhas, com foco na prevenção, no diagnóstico e no tratamento das principais queixas relacionadas à pele. A abordagem é cuidadosa e personalizada, buscando compreender as necessidades de cada paciente e estabelecer uma estratégia de tratamento adequada para cada caso.',
       'Atuação com experiência no atendimento clínico e cirúrgico, sempre com acompanhamento individualizado dos pacientes. Também possui atuação na Estratégia Saúde da Família, experiência que contribui para uma visão integral do paciente e para uma abordagem médica baseada em prevenção, diagnóstico e acompanhamento.',
