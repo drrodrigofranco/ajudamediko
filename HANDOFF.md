@@ -19,20 +19,30 @@
 ---
 
 ## 📅 Última atualização
-- **Data:** 2026-09-05
-- **Status atual:** 🟢 Em produção, estável. Auditoria SEO completa (todas as páginas, foco em médicos e
-  exames) entregue e parcialmente implementada: breadcrumb de exame corrigido, links internos exame↔artigo e
-  médico↔card de consulta adicionados (PRs #39, #40), e — a pedido explícito do Rodrigo — `medicalSpecialty`/
-  `jsonLdDescription` no JSON-LD dos 4 médicos (PRs #41, #42, #43). Ver a entrada correspondente em "⚠️
-  Armadilhas conhecidas" abaixo — **é a norma oficial pra reforçar área médica de um médico novo daqui pra
-  frente**, ler antes de repetir esse tipo de pedido.
+- **Data:** 2026-09-28
+- **Status atual:** 🟢 Em produção, estável. 5ª médica adicionada à equipe: **Dra. Giovanna Cristina Silva e
+  Silva** (CRM-MS 14686, `id: giovanna-silva`), atendimento voltado à saúde da pele/cabelos/unhas. **RQE não
+  confirmado** (tem pós-graduação lato sensu em Dermatologia Clínica pelo IPEMED-AFYA, mas sem confirmação de
+  Registro de Qualificação de Especialista no CFM) — por isso, ao contrário dos outros 4 médicos, ela **não**
+  tem `medicalSpecialty`/`jsonLdDescription` preenchidos em `doctorsData.ts`, e nenhum texto visível usa
+  "Dermatologista"/"Dermatologia" como especialidade declarada (só aparece como nome factual do curso de
+  pós-graduação em "Formação Acadêmica"). Se o Rodrigo confirmar o RQE dela no futuro, seguir o checklist da
+  entrada "🚨 REGRA DO PROJETO" abaixo antes de reforçar a especialidade em qualquer lugar. Novo `iconName:
+  'Sparkles'` adicionado ao union type e aos 3 mapas de ícones (`Curriculum.tsx`, `TeamPage.tsx`,
+  `DoctorDetailPage.tsx`) — primeira vez que um 5º ícone foi necessário.
+  - Anterior: Auditoria SEO completa (todas as páginas, foco em médicos e exames) entregue e parcialmente
+  implementada: breadcrumb de exame corrigido, links internos exame↔artigo e médico↔card de consulta
+  adicionados (PRs #39, #40), e — a pedido explícito do Rodrigo — `medicalSpecialty`/`jsonLdDescription` no
+  JSON-LD dos 4 médicos anteriores (PRs #41, #42, #43). Ver a entrada correspondente em "⚠️ Armadilhas
+  conhecidas" abaixo — **é a norma oficial pra reforçar área médica de um médico novo daqui pra frente**, ler
+  antes de repetir esse tipo de pedido.
 
 ---
 
 ## 🎯 O que é e pra que serve
 Site institucional da **Clínica Franco** (Nova Andradina - MS): ultrassonografia (Dr. Rodrigo
 Franco), saúde do idoso/clínica geral (Dr. Lucas Franco), avaliação neurológica (Dr. Guilherme Zandoná),
-pediatria (Dr. Tiago Wizenfad).
+pediatria (Dr. Tiago Wizenfad), saúde da pele/cabelos/unhas (Dra. Giovanna Silva e Silva).
 
 **Objetivo de negócio (não é só "ter um site"):** divulgar a clínica na internet e trazer mais pacientes de
 verdade pros atendimentos — o site é ferramenta de captação, não vitrine institucional passiva. Visibilidade
@@ -51,9 +61,11 @@ cada push na `main`.
 
 ## 🗂️ Caminhos e arquivos críticos
 - **Raiz do site (código-fonte, caminho atual/canônico):**
-  `D:\Workspaces\Claude VS Code\01 - Projetos Ativos\ajudamediko`
-  (⚠️ HANDOFFs antigos ou memórias externas podem citar `C:\Users\...\Desktop\Claude VS Code\...` — esse
-  caminho está **desatualizado**, o projeto foi migrado pro HD D: em 2026-07-21/2026-07-12.)
+  `G:\Meu Drive\VS CODE\01 - Projetos Ativos\ajudamediko`
+  (⚠️ HANDOFFs antigos ou memórias externas podem citar `D:\Workspaces\Claude VS Code\...` ou
+  `C:\Users\...\Desktop\Claude VS Code\...` — ambos **desatualizados**. O projeto está hoje no Google Drive
+  local (`G:\`), confirmado e corrigido em 2026-09-28 — ver regra geral de workspace na memória do Claude
+  Code, `workspace_g_drive_vs_code.md`.)
 - **Configuração:** `package.json`, `vite.config.ts`, `postcss.config.mjs`, `tailwind.config.js`, `vercel.json`
 - **Pontos de entrada:**
   - `index.html` — HTML estático servido, contém meta tags/JSON-LD base + snippet do Google Tag (ver
@@ -66,7 +78,20 @@ cada push na `main`.
   - `ultrasoundExamsData.ts` — catálogo mestre resumido dos exames (usado por `Services.tsx`, `ServicesPage.tsx`,
     formulário de contato) — **⚠️ `components/ExamsDrawer.tsx` tem uma lista local duplicada, não importada
     daqui** — ao adicionar/editar exame, atualizar os dois lugares.
-  - `doctorsData.ts` — dados da equipe médica
+  - `doctorsData.ts` — dados da equipe médica. **Ao adicionar um médico novo, editar 5 lugares:** (1)
+    adicionar o objeto em `doctorsData.ts` (seguir a interface `DoctorData` — ver campos `medicalSpecialty`/
+    `jsonLdDescription` e a regra de RQE em "⚠️ Armadilhas conhecidas" antes de preencher `specialtyLabel`/
+    `focusAreas`/`longBio`); (2) salvar a foto em `public/images/dr-{nome}.jpg` (mesmo padrão pra médicas
+    também — ex.: `dr-giovanna-silva.jpg`) e registrar `photoWidth`/`photoHeight` reais; (3) adicionar o `id`
+    no array `DOCTOR_IDS` em `prerender.mjs` (mesma razão de `EXAM_IDS`/`ARTICLE_IDS`/`NEWS_IDS` — Node roda
+    o script direto, sem importar o `.ts`); (4) adicionar a entrada em `public/sitemap.xml`; (5) adicionar o
+    médico ao bloco `employee[]` do JSON-LD `MedicalBusiness` em `index.html` (**não** é gerado a partir de
+    `doctorsData.ts`). Se o `iconName` do médico novo não estiver entre os já existentes (`HeartPulse`,
+    `Stethoscope`, `Brain`, `Baby`, `Sparkles`), adicionar o ícone novo ao union type em `doctorsData.ts` **e**
+    aos 3 mapas `BADGE_ICONS`/`ICONS` locais em `Curriculum.tsx`, `TeamPage.tsx` e `DoctorDetailPage.tsx` (não
+    há um único lugar centralizado pra isso). A Home (`Curriculum.tsx`), `/equipe` (`TeamPage.tsx`), a página
+    `/medico/{id}` (`DoctorDetailPage.tsx`) e o bloco "Conheça a Equipe"/footer dentro dela já leem
+    `doctorsData.ts` direto, não precisam de edição.
   - `articlesData.ts` — artigos originais assinados pelos médicos, cada um com página própria em
     `/blog/{id}` (`components/ArticleDetailPage.tsx`) desde 2026-08-19. **Ao publicar um artigo novo, editar
     3 lugares:** (1) adicionar o objeto em `articlesData.ts`, (2) adicionar o `id` no array `ARTICLE_IDS` em
@@ -108,7 +133,7 @@ cada push na `main`.
 
 ## ▶️ Como subir o sistema
 ```bash
-cd "D:\Workspaces\Claude VS Code\01 - Projetos Ativos\ajudamediko"
+cd "G:\Meu Drive\VS CODE\01 - Projetos Ativos\ajudamediko"
 npm install   # node_modules já existe hoje; rodar só se faltar ou após npm ci limpo
 npm run dev
 npm run build # dispara TypeScript check + Vite build + prerender.mjs (gera dist/ completo, ~35 páginas)
@@ -136,6 +161,14 @@ npm run build # dispara TypeScript check + Vite build + prerender.mjs (gera dist
   médico↔card de consulta (PR #40) + `medicalSpecialty`/`jsonLdDescription` no JSON-LD dos 4 médicos, a pedido
   explícito do Rodrigo e com o aviso de risco registrado (PRs #41, #42, #43) — ver a norma completa em
   "Armadilhas conhecidas".
+- **2026-09-28:** 5ª médica adicionada — Dra. Giovanna Cristina Silva e Silva (CRM-MS 14686, `id:
+  giovanna-silva`), atendimento à saúde da pele/cabelos/unhas. Local reconciliado com produção antes de editar
+  (`git pull origin main --ff-only`, estava 17 commits atrasado). RQE de especialidade **não confirmado** —
+  `medicalSpecialty`/`jsonLdDescription` deixados de fora por padrão (diferente dos outros 4 médicos), nenhum
+  texto visível usa "Dermatologista"/"Dermatologia" como especialidade declarada. Ícone novo `Sparkles`
+  adicionado (union type + 3 mapas de ícones). `npx tsc --noEmit` e `npm run build` (com prerender) rodados
+  sem erros antes do commit; conferido via grep que "Dermatolog*" só aparece como nome do curso de
+  pós-graduação em "Formação Acadêmica", não como especialidade declarada em title/description/JSON-LD.
 
 ---
 
@@ -201,6 +234,14 @@ pode ser descartada, já que o conteúdo dela foi superado pela publicação rea
       Clínico ao Adulto e Geriatria", Guilherme="Clínica Médica e Neurologia". Rodrigo e Tiago não precisaram
       desse campo porque o próprio `specialtyLabel` deles já continha a palavra exata ("Pediatria Clínica",
       "Ultrassonografia Diagnóstica e Perícia Médica").
+  - **Precedente 2026-09-28 — RQE não confirmado (5ª médica, Dra. Giovanna Silva e Silva):** ao contrário do
+    precedente acima (Lucas/Guilherme/Tiago, que tinham confirmação explícita do Rodrigo), a Dra. Giovanna
+    entrou com pós-graduação em Dermatologia Clínica mas **sem** confirmação de RQE registrado no CFM. Segui a
+    regra à risca: `medicalSpecialty`/`jsonLdDescription` ficaram **de fora** de `doctorsData.ts` pra ela, e
+    `specialtyLabel`/`focusAreas`/`seoTitle`/`longBio` usam só linguagem descritiva de atendimento ("saúde da
+    pele, cabelos e unhas"), nunca "Dermatologista"/"Dermatologia" como especialidade. A pós-graduação
+    aparece normalmente em "Formação Acadêmica" (fato objetivo, não é declaração de especialidade). Se o
+    Rodrigo confirmar o RQE dela no futuro, aplicar o mesmo checklist abaixo pra reforçar a especialidade.
   - **Norma pra médico novo (deixar como checklist pronto):**
     1. Nunca preencher `specialtyLabel`/`longBio`/`focusAreas`/`seoTitle` com "especialista em X" sem RQE
        confirmado pelo Rodrigo — como sempre.

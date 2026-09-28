@@ -6,6 +6,7 @@ import {
   Stethoscope,
   Brain,
   Baby,
+  Sparkles,
   CheckCircle,
   ChevronRight,
 } from 'lucide-react';
@@ -20,6 +21,7 @@ const BADGE_ICONS = {
   Stethoscope,
   Brain,
   Baby,
+  Sparkles,
 };
 
 // Componente unico por medico, data-driven a partir de doctorsData.ts. Antes cada

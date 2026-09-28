@@ -23,7 +23,7 @@ export interface DoctorData {
   // Ancoragem do object-cover para fotos com pouca folga acima da cabeça no
   // enquadramento original. Sem o campo, o crop fica centralizado (padrão).
   photoObjectPosition?: 'center' | 'top';
-  iconName: 'HeartPulse' | 'Stethoscope' | 'Brain' | 'Baby';
+  iconName: 'HeartPulse' | 'Stethoscope' | 'Brain' | 'Baby' | 'Sparkles';
   shortBio: string;
   longBio: string[];
   specialtyLabel: string;
@@ -237,6 +237,65 @@ export const doctorsData: DoctorData[] = [
       'Doenças Respiratórias e Infecções Comuns da Infância',
       'Alergias e Dermatologia Infantil',
       'Orientação aos Pais e Responsáveis',
+    ],
+  },
+  {
+    id: 'giovanna-silva',
+    name: 'Dra. Giovanna Cristina Silva e Silva',
+    crm: 'CRM-MS 14686',
+    photo: '/images/dr-giovanna-silva.jpg',
+    photoWidth: 669,
+    photoHeight: 1115,
+    photoObjectPosition: 'top',
+    iconName: 'Sparkles',
+    // RQE de especialidade não confirmado (pós-graduação lato sensu em Dermatologia
+    // Clínica pelo IPEMED-AFYA, mas sem confirmação de Registro de Qualificação de
+    // Especialista no CFM até 2026-09-28) - por isso specialtyLabel/focusAreas/
+    // seoTitle/longBio usam linguagem descritiva de atendimento ("saúde da pele,
+    // cabelos e unhas"), nunca "Dermatologista"/"Dermatologia" como especialidade
+    // declarada. NÃO preencher medicalSpecialty/jsonLdDescription para esta médica
+    // sem confirmação explícita do Rodrigo sobre o RQE - ver checklist em HANDOFF.md.
+    specialtyLabel: 'Atendimento Clínico à Saúde da Pele, Cabelos e Unhas',
+    shortBio: 'Atendimento individualizado voltado à saúde da pele, cabelos e unhas, com foco em prevenção, diagnóstico e tratamento, unindo avaliação clínica cuidadosa a um plano terapêutico personalizado para cada paciente.',
+    seoTitle: 'Dra. Giovanna Silva e Silva (CRM-MS 14686) - Saúde da Pele em Nova Andradina - MS | Clínica Franco',
+    seoDescription: 'Atendimento à saúde da pele, cabelos e unhas em Nova Andradina - MS: acne, melasma, queda de cabelo e avaliação de lesões com a Dra. Giovanna Silva e Silva (CRM-MS 14686).',
+    longBio: [
+      'Atendimento individualizado voltado à saúde da pele, cabelos e unhas, com foco na prevenção, no diagnóstico e no tratamento das principais queixas relacionadas à pele. A abordagem é cuidadosa e personalizada, buscando compreender as necessidades de cada paciente e estabelecer uma estratégia de tratamento adequada para cada caso.',
+      'Atuação com experiência no atendimento clínico e cirúrgico, sempre com acompanhamento individualizado dos pacientes. Também possui atuação na Estratégia Saúde da Família, experiência que contribui para uma visão integral do paciente e para uma abordagem médica baseada em prevenção, diagnóstico e acompanhamento.',
+      'O atendimento é realizado de forma individualizada, com avaliação clínica detalhada, definição diagnóstica e planejamento terapêutico personalizado, incluindo consultas particulares e por convênios em Nova Andradina - MS.',
+    ],
+    education: [
+      {
+        title: 'Graduação em Medicina',
+        year: '2021',
+        institution: 'Universidade Brasil',
+      },
+      {
+        title: 'Pós-graduação em Dermatologia Clínica',
+        institution: 'IPEMED - AFYA',
+      },
+    ],
+    experience: [
+      {
+        label: 'Experiência Profissional:',
+        items: [
+          'Atendimento clínico e cirúrgico voltado à saúde da pele, com acompanhamento individualizado de pacientes;',
+          'Estratégia Saúde da Família (ESF), com atuação voltada à prevenção, diagnóstico e acompanhamento clínico.',
+        ],
+      },
+    ],
+    procedures: [
+      'Biópsias de lesões suspeitas da pele;',
+      'Exérese de verrugas.',
+    ],
+    focusAreas: [
+      'Acne e Cicatrizes de Acne',
+      'Melasma e Alterações de Pigmentação',
+      'Queda de Cabelo e Doenças do Couro Cabeludo',
+      'Doenças das Unhas',
+      'Dermatites e Alergias Cutâneas',
+      'Avaliação de Lesões e Sinais da Pele',
+      'Envelhecimento Cutâneo e Cuidados Preventivos',
     ],
   },
 ];

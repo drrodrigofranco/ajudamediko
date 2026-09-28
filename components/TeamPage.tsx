@@ -13,6 +13,7 @@ const BADGE_ICONS = {
   Stethoscope: Icons.Stethoscope,
   Brain: Icons.Brain,
   Baby: Icons.Baby,
+  Sparkles: Icons.Sparkles,
 };
 
 const TeamPage: React.FC<TeamPageProps> = ({ navigateTo }) => {

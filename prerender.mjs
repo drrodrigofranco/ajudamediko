@@ -104,7 +104,8 @@ const DOCTOR_IDS = [
   'rodrigo-franco',
   'lucas-franco',
   'guilherme-zandona',
-  'tiago-wizenfad'
+  'tiago-wizenfad',
+  'giovanna-silva'
 ];
 
 // IDs dos artigos originais (articlesData.ts). Node roda este arquivo direto via
