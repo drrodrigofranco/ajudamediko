@@ -4,6 +4,7 @@ import { articlesData } from '../articlesData';
 import { examsData } from '../examsData';
 import { useSEO } from '../hooks/useSEO';
 import { useJsonLd } from '../hooks/useJsonLd';
+import { truncateAtWord } from '../textUtils';
 
 interface ArticleDetailPageProps {
   articleId: string;
@@ -47,7 +48,7 @@ const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ articleId, naviga
       ? `${article.title} | Clínica Franco`
       : 'Artigo não encontrado | Clínica Franco',
     description: article
-      ? `${article.body[0]}`.slice(0, 160)
+      ? truncateAtWord(article.body[0])
       : 'Artigo não encontrado. Veja outros artigos e notícias de saúde da Clínica Franco.',
     path: `/blog/${articleId}`,
   });
@@ -152,9 +153,16 @@ const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ articleId, naviga
       <section className="py-16 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow w-full">
         <article className="bg-white p-8 sm:p-10 rounded-3xl border border-gray-100 shadow-sm space-y-5">
           {article.body.map((paragraph, i) => (
-            <p key={i} className="text-gray-600 text-sm leading-relaxed">
-              {renderBodyWithLinks(paragraph, navigateTo)}
-            </p>
+            <React.Fragment key={i}>
+              {article.sectionHeadings?.[i] && (
+                <h2 className="text-lg font-serif font-bold text-[#0e4843] pt-1">
+                  {article.sectionHeadings[i]}
+                </h2>
+              )}
+              <p className="text-gray-600 text-sm leading-relaxed">
+                {renderBodyWithLinks(paragraph, navigateTo)}
+              </p>
+            </React.Fragment>
           ))}
         </article>
 

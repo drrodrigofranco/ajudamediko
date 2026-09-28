@@ -3,6 +3,7 @@ import * as Icons from 'lucide-react';
 import { doctorsData } from '../doctorsData';
 import { useSEO } from '../hooks/useSEO';
 import { useJsonLd } from '../hooks/useJsonLd';
+import { truncateAtWord } from '../textUtils';
 
 interface DoctorDetailPageProps {
   doctorId: string;
@@ -25,7 +26,7 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
       ? doctor.seoTitle || `${doctor.name} (${doctor.crm}) em Nova Andradina - MS | Clínica Franco`
       : 'Médico não encontrado | Clínica Franco',
     description: doctor
-      ? (doctor.seoDescription || doctor.shortBio).slice(0, 160)
+      ? truncateAtWord(doctor.seoDescription || doctor.shortBio)
       : 'Médico não encontrado. Conheça toda a equipe da Clínica Franco em Nova Andradina - MS.',
     path: `/medico/${doctorId}`,
   });
