@@ -93,6 +93,16 @@ const examsData: ExamDetail[] = [
     image: 'https://picsum.photos/seed/morphology2/600/400'
   },
   {
+    id: 'pelvico',
+    name: 'Ultrassom Pélvico (Via Abdominal)',
+    icon: ScanLine,
+    description: 'Avaliação ginecológica externa do útero e ovários.',
+    howItIsDone: 'Realizado via abdominal, com a bexiga cheia servindo de janela acústica.',
+    whenItIsDone: 'Rotina ginecológica, investigação de dores pélvicas ou suspeita de miomas.',
+    purpose: 'Avaliar útero, endométrio e ovários, e identificar cistos ou miomas.',
+    image: 'https://picsum.photos/seed/pelvic/600/400'
+  },
+  {
     id: 'transvaginal',
     name: 'Ultrassom Transvaginal',
     icon: ScanLine,
@@ -101,6 +111,16 @@ const examsData: ExamDetail[] = [
     whenItIsDone: 'Rotina ginecológica, início da gravidez ou investigação de dores e sangramentos.',
     purpose: 'Avaliar útero, endométrio e ovários com alta precisão.',
     image: 'https://picsum.photos/seed/transvaginal/600/400'
+  },
+  {
+    id: 'prostata',
+    name: 'Ultrassom de Próstata (Via Abdominal)',
+    icon: User,
+    description: 'Avaliação da saúde da próstata e do resíduo urinário.',
+    howItIsDone: 'Realizado com a bexiga cheia; após a primeira medida, o paciente urina e retorna para medir o resíduo pós-miccional.',
+    whenItIsDone: 'Rastreamento de hiperplasia prostática benigna ou alterações no exame de PSA.',
+    purpose: 'Medir o volume da próstata, identificar nódulos e avaliar o esvaziamento da bexiga.',
+    image: 'https://picsum.photos/seed/prostate/600/400'
   },
   {
     id: 'tireoide',
