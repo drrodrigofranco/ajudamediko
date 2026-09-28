@@ -46,6 +46,12 @@ const consultationServices: ConsultationService[] = [
     links: [{ label: 'Conhecer o Dr. Tiago Wizenfad', href: '/medico/tiago-wizenfad' }],
   },
   {
+    title: 'Saúde da Pele, Cabelos e Unhas',
+    icon: 'Sparkles',
+    description: 'Atendimento individualizado voltado à saúde da pele, cabelos e unhas, com foco em prevenção, diagnóstico e tratamento: acne, melasma, queda de cabelo, doenças das unhas e avaliação de lesões, com plano terapêutico personalizado para cada paciente.',
+    links: [{ label: 'Conhecer a Dra. Giovanna Silva e Silva', href: '/medico/giovanna-silva' }],
+  },
+  {
     title: 'Ecocardiograma Fetal',
     icon: 'Baby',
     description: 'Exame detalhado do coração do bebê ainda no útero. Fundamental para detectar precocemente cardiopatias congênitas e planejar o melhor acompanhamento. A detecção precoce pode salvar vidas e preparar a equipe médica para o nascimento.',

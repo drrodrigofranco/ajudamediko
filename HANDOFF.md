@@ -30,6 +30,21 @@
   entrada "🚨 REGRA DO PROJETO" abaixo antes de reforçar a especialidade em qualquer lugar. Novo `iconName:
   'Sparkles'` adicionado ao union type e aos 3 mapas de ícones (`Curriculum.tsx`, `TeamPage.tsx`,
   `DoctorDetailPage.tsx`) — primeira vez que um 5º ícone foi necessário.
+  - **2ª rodada (mesmo dia):** o Rodrigo notou que a primeira rodada só cobriu os lugares *data-driven*
+    (`doctorsData.ts`) — faltavam os lugares **hardcoded** da home/site que citam os médicos manualmente,
+    fora de `doctorsData.ts`. Corrigido: `Navbar.tsx` (linha de créditos no cabeçalho), `Footer.tsx` (lista de
+    CRMs no rodapé real do site), `Services.tsx`/`ServicesPage.tsx` (novo card "Saúde da Pele, Cabelos e
+    Unhas" no catálogo de tipos de consulta da home e de `/servicos` — **essa era a lacuna de SEO mais
+    relevante**, a clínica tinha uma área de atuação nova sem nenhum card/CTA pra ela), e `public/llms.txt`
+    (seção "Equipe médica" — também aproveitado pra corrigir uma lacuna **pré-existente**, o Dr. Tiago já
+    estava faltando lá desde a publicação dele). Ver checklist ampliado logo abaixo, em "Caminhos e arquivos
+    críticos", com a lista completa de **9 lugares** a editar ao adicionar médico novo (5 data-driven + 4
+    hardcoded). **Decisão consciente de NÃO editar:** `Hero.tsx` (texto/alt da foto de capa) continua citando
+    só os 4 médicos originais, porque a foto (`equipe-clinica-franco.jpg`) é uma foto real de grupo sem a
+    Giovanna — citá-la no alt/texto sem ela estar na imagem seria enganoso. Precisa de uma foto de grupo nova
+    (ou decisão de usar texto genérico sem listar nomes) antes de mexer nesse componente — pendência em
+    "Próximos passos". `medicalSpecialty`/`knowsAbout`/`hasOfferCatalog` do JSON-LD em `index.html` também não
+    foram alterados (mesma regra de RQE, e `hasOfferCatalog` é só pra `MedicalTest`, não pra consultas).
   - Anterior: Auditoria SEO completa (todas as páginas, foco em médicos e exames) entregue e parcialmente
   implementada: breadcrumb de exame corrigido, links internos exame↔artigo e médico↔card de consulta
   adicionados (PRs #39, #40), e — a pedido explícito do Rodrigo — `medicalSpecialty`/`jsonLdDescription` no
@@ -78,20 +93,45 @@ cada push na `main`.
   - `ultrasoundExamsData.ts` — catálogo mestre resumido dos exames (usado por `Services.tsx`, `ServicesPage.tsx`,
     formulário de contato) — **⚠️ `components/ExamsDrawer.tsx` tem uma lista local duplicada, não importada
     daqui** — ao adicionar/editar exame, atualizar os dois lugares.
-  - `doctorsData.ts` — dados da equipe médica. **Ao adicionar um médico novo, editar 5 lugares:** (1)
-    adicionar o objeto em `doctorsData.ts` (seguir a interface `DoctorData` — ver campos `medicalSpecialty`/
-    `jsonLdDescription` e a regra de RQE em "⚠️ Armadilhas conhecidas" antes de preencher `specialtyLabel`/
-    `focusAreas`/`longBio`); (2) salvar a foto em `public/images/dr-{nome}.jpg` (mesmo padrão pra médicas
-    também — ex.: `dr-giovanna-silva.jpg`) e registrar `photoWidth`/`photoHeight` reais; (3) adicionar o `id`
-    no array `DOCTOR_IDS` em `prerender.mjs` (mesma razão de `EXAM_IDS`/`ARTICLE_IDS`/`NEWS_IDS` — Node roda
-    o script direto, sem importar o `.ts`); (4) adicionar a entrada em `public/sitemap.xml`; (5) adicionar o
-    médico ao bloco `employee[]` do JSON-LD `MedicalBusiness` em `index.html` (**não** é gerado a partir de
-    `doctorsData.ts`). Se o `iconName` do médico novo não estiver entre os já existentes (`HeartPulse`,
-    `Stethoscope`, `Brain`, `Baby`, `Sparkles`), adicionar o ícone novo ao union type em `doctorsData.ts` **e**
-    aos 3 mapas `BADGE_ICONS`/`ICONS` locais em `Curriculum.tsx`, `TeamPage.tsx` e `DoctorDetailPage.tsx` (não
-    há um único lugar centralizado pra isso). A Home (`Curriculum.tsx`), `/equipe` (`TeamPage.tsx`), a página
-    `/medico/{id}` (`DoctorDetailPage.tsx`) e o bloco "Conheça a Equipe"/footer dentro dela já leem
-    `doctorsData.ts` direto, não precisam de edição.
+  - `doctorsData.ts` — dados da equipe médica. **Ao adicionar um médico novo, editar 9 lugares** (5
+    data-driven/estruturais + 4 hardcoded de conteúdo — checklist consolidado em 2026-09-28 depois de uma
+    2ª rodada ter sido necessária pra cobrir os hardcoded que a 1ª rodada não pegou):
+    - **Data-driven/estruturais (sem isso a página/rota não existe ou não é indexada):**
+      1. Adicionar o objeto em `doctorsData.ts` (seguir a interface `DoctorData` — ver campos
+         `medicalSpecialty`/`jsonLdDescription` e a regra de RQE em "⚠️ Armadilhas conhecidas" antes de
+         preencher `specialtyLabel`/`focusAreas`/`longBio`);
+      2. Salvar a foto em `public/images/dr-{nome}.jpg` (mesmo padrão pra médicas também — ex.:
+         `dr-giovanna-silva.jpg`) e registrar `photoWidth`/`photoHeight` reais;
+      3. Adicionar o `id` no array `DOCTOR_IDS` em `prerender.mjs` (mesma razão de
+         `EXAM_IDS`/`ARTICLE_IDS`/`NEWS_IDS` — Node roda o script direto, sem importar o `.ts`);
+      4. Adicionar a entrada em `public/sitemap.xml`;
+      5. Adicionar o médico ao bloco `employee[]` do JSON-LD `MedicalBusiness` em `index.html` (**não** é
+         gerado a partir de `doctorsData.ts`).
+    - **Conteúdo hardcoded da home/site (não é gerado a partir de `doctorsData.ts` — fácil de esquecer,
+      já esqueceu uma vez):**
+      6. `components/Navbar.tsx` — linha de créditos no cabeçalho (`Dr. X (CRM ...) | Dr. Y (CRM ...)`),
+         aparece em toda página;
+      7. `components/Footer.tsx` — lista de `<span>` com nome+CRM no rodapé real do site (diferente do
+         footer *dentro* de `DoctorDetailPage.tsx`, que já é data-driven), aparece em toda página;
+      8. `components/Services.tsx` **e** `components/ServicesPage.tsx` — se o médico novo tiver uma área de
+         atuação/tipo de consulta que ainda não tem card no catálogo de serviços (era o caso da Giovanna:
+         "Saúde da Pele, Cabelos e Unhas" não existia até 28/09), adicionar um card novo em **ambos** os
+         arquivos (comentário em `ServicesPage.tsx:19-23` já avisa sobre a duplicação); se a área já é
+         coberta por um card existente (ex.: um 2º médico geriatra somando ao card "Saúde do Idoso"), talvez
+         baste adicionar um link a mais, avaliar caso a caso;
+      9. `public/llms.txt` — seção "Equipe médica" (arquivo de descoberta pra LLMs/buscadores generativos).
+    - Se o `iconName` do médico novo não estiver entre os já existentes (`HeartPulse`, `Stethoscope`, `Brain`,
+      `Baby`, `Sparkles`), adicionar o ícone novo ao union type em `doctorsData.ts` **e** aos 3 mapas
+      `BADGE_ICONS`/`ICONS` locais em `Curriculum.tsx`, `TeamPage.tsx` e `DoctorDetailPage.tsx` (não há um
+      único lugar centralizado pra isso) — e ao import de `lucide-react` em `Services.tsx` se for usado lá
+      também.
+    - **NÃO precisam de edição** (já leem `doctorsData.ts` direto): a Home (`Curriculum.tsx`), `/equipe`
+      (`TeamPage.tsx`), a página `/medico/{id}` (`DoctorDetailPage.tsx`) e o bloco "Conheça a Equipe"/footer
+      *dentro* dela.
+    - **Avaliar caso a caso, não editar por padrão:** `components/Hero.tsx` (texto + `alt` da foto de capa,
+      `doctorImgSrc` em `App.tsx`) — só citar o médico novo aqui se ele estiver fisicamente na foto de grupo
+      usada; `medicalSpecialty`/`knowsAbout` do JSON-LD em `index.html` — só com confirmação explícita de RQE
+      pelo Rodrigo, mesma regra de sempre.
   - `articlesData.ts` — artigos originais assinados pelos médicos, cada um com página própria em
     `/blog/{id}` (`components/ArticleDetailPage.tsx`) desde 2026-08-19. **Ao publicar um artigo novo, editar
     3 lugares:** (1) adicionar o objeto em `articlesData.ts`, (2) adicionar o `id` no array `ARTICLE_IDS` em
@@ -169,6 +209,11 @@ npm run build # dispara TypeScript check + Vite build + prerender.mjs (gera dist
   adicionado (union type + 3 mapas de ícones). `npx tsc --noEmit` e `npm run build` (com prerender) rodados
   sem erros antes do commit; conferido via grep que "Dermatolog*" só aparece como nome do curso de
   pós-graduação em "Formação Acadêmica", não como especialidade declarada em title/description/JSON-LD.
+- **2026-09-28 (2ª rodada, mesmo dia):** cobertos os lugares **hardcoded** que a 1ª rodada deixou de fora —
+  `Navbar.tsx`, `Footer.tsx`, novo card "Saúde da Pele, Cabelos e Unhas" em `Services.tsx`/`ServicesPage.tsx`,
+  `public/llms.txt` (+ Tiago, que já estava faltando lá antes). Ver checklist completo de 9 itens em "Caminhos
+  e arquivos críticos" e o resumo em "Status atual" no topo. `Hero.tsx` deixado de propósito sem citar a
+  Giovanna (foto de grupo real, sem ela) — pendência registrada abaixo.
 
 ---
 
@@ -178,6 +223,19 @@ e mais atual, não duplicar aqui. Destaque: rascunhos de geriatria e neurologia 
 aguardando revisão de Lucas e Guilherme — mesmo processo que já publicou o de pediatria hoje, só falta a
 aprovação médica pra seguir o mesmo caminho (adicionar em `articlesData.ts` + `ARTICLE_IDS` +
 `sitemap.xml`).
+
+**Pendente desde 2026-09-28 — foto de grupo da equipe desatualizada:** `Hero.tsx` (texto + `alt`) e a imagem
+`public/images/equipe-clinica-franco.jpg` (usada como `doctorImgSrc` em `App.tsx:76`) ainda mostram só os 4
+médicos originais — a Dra. Giovanna não está na foto física, então não dá pra citá-la no alt/texto sem que
+isso descreva algo que a imagem não mostra. Precisa de uma foto de grupo nova com os 5 (ou decisão do Rodrigo
+de trocar o texto/alt por algo genérico tipo "nossa equipe médica", sem listar nomes) antes de editar esse
+componente.
+
+**Pendente desde 2026-09-28 — RQE da Dra. Giovanna:** se/quando o Rodrigo confirmar o RQE de Dermatologia
+dela no CFM, aplicar o mesmo tratamento já dado a Lucas/Guilherme/Tiago: preencher `medicalSpecialty`/
+`jsonLdDescription` em `doctorsData.ts` (avisando sobre o trade-off de `medicalSpecialty` não ser
+garantidamente invisível, mesma conversa já documentada em "Armadilhas conhecidas"), e só então liberar usar
+"Dermatologista"/"Dermatologia" como especialidade declarada em texto visível.
 
 **Achado ao organizar o repositório em 2026-08-19 — branches de blog nunca mergeadas na `main`:**
 Existe uma rotina automatizada que gera posts de blog em branches próprias (`blog-update-YYYY-MM-DD`). Checado

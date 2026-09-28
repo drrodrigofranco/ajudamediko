@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Baby, FileText, Scale, Search, LucideIcon, Stethoscope, HeartPulse, Brain, ChevronRight } from 'lucide-react';
+import { Baby, FileText, Scale, Search, LucideIcon, Stethoscope, HeartPulse, Brain, Sparkles, ChevronRight } from 'lucide-react';
 
 // Navegacao real (nao so o modal de busca do catalogo abaixo) para os exames com
 // menos presenca nas buscas locais "<exame> Nova Andradina" - texto-ancora
@@ -130,6 +130,23 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
             className="flex items-center text-[#0f766e] border border-[#ccfbf1] text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-[#14b8a6] hover:text-white transition-all"
           >
             Conhecer o Dr. Tiago Wizenfad
+          </a>
+        </div>
+
+        <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group relative overflow-hidden">
+          <div className="bg-[#f0fdfa] p-5 rounded-2xl mb-8 group-hover:bg-[#14b8a6] group-hover:text-white transition-all duration-300">
+            <Sparkles className="w-8 h-8" />
+          </div>
+          <h3 className="text-xl font-bold text-[#0e4843] mb-4">Saúde da Pele, Cabelos e Unhas</h3>
+          <p className="text-gray-500 text-sm mb-8 leading-relaxed">
+            Atendimento individualizado voltado à saúde da pele, cabelos e unhas, com foco em prevenção, diagnóstico e tratamento: acne, melasma, queda de cabelo, doenças das unhas e avaliação de lesões, com plano terapêutico personalizado para cada paciente.
+          </p>
+          <a
+            href="/medico/giovanna-silva"
+            onClick={(e) => goTo('/medico/giovanna-silva', e)}
+            className="flex items-center text-[#0f766e] border border-[#ccfbf1] text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-[#14b8a6] hover:text-white transition-all"
+          >
+            Conhecer a Dra. Giovanna Silva e Silva
           </a>
         </div>
 
