@@ -39,12 +39,11 @@
     (seção "Equipe médica" — também aproveitado pra corrigir uma lacuna **pré-existente**, o Dr. Tiago já
     estava faltando lá desde a publicação dele). Ver checklist ampliado logo abaixo, em "Caminhos e arquivos
     críticos", com a lista completa de **9 lugares** a editar ao adicionar médico novo (5 data-driven + 4
-    hardcoded). **Decisão consciente de NÃO editar:** `Hero.tsx` (texto/alt da foto de capa) continua citando
-    só os 4 médicos originais, porque a foto (`equipe-clinica-franco.jpg`) é uma foto real de grupo sem a
-    Giovanna — citá-la no alt/texto sem ela estar na imagem seria enganoso. Precisa de uma foto de grupo nova
-    (ou decisão de usar texto genérico sem listar nomes) antes de mexer nesse componente — pendência em
-    "Próximos passos". `medicalSpecialty`/`knowsAbout`/`hasOfferCatalog` do JSON-LD em `index.html` também não
+    hardcoded). `medicalSpecialty`/`knowsAbout`/`hasOfferCatalog` do JSON-LD em `index.html` também não
     foram alterados (mesma regra de RQE, e `hasOfferCatalog` é só pra `MedicalTest`, não pra consultas).
+  - **3ª rodada (mesmo dia, sessão seguinte):** o Rodrigo mandou uma foto de grupo nova com os 5 médicos (a
+    Giovanna já fisicamente incluída), resolvendo a pendência do `Hero.tsx`/`equipe-clinica-franco.jpg`
+    acima. Ver detalhes em "Resolvido em 2026-09-28" na seção "Próximos passos" abaixo.
   - Anterior: Auditoria SEO completa (todas as páginas, foco em médicos e exames) entregue e parcialmente
   implementada: breadcrumb de exame corrigido, links internos exame↔artigo e médico↔card de consulta
   adicionados (PRs #39, #40), e — a pedido explícito do Rodrigo — `medicalSpecialty`/`jsonLdDescription` no
@@ -224,12 +223,11 @@ aguardando revisão de Lucas e Guilherme — mesmo processo que já publicou o d
 aprovação médica pra seguir o mesmo caminho (adicionar em `articlesData.ts` + `ARTICLE_IDS` +
 `sitemap.xml`).
 
-**Pendente desde 2026-09-28 — foto de grupo da equipe desatualizada:** `Hero.tsx` (texto + `alt`) e a imagem
-`public/images/equipe-clinica-franco.jpg` (usada como `doctorImgSrc` em `App.tsx:76`) ainda mostram só os 4
-médicos originais — a Dra. Giovanna não está na foto física, então não dá pra citá-la no alt/texto sem que
-isso descreva algo que a imagem não mostra. Precisa de uma foto de grupo nova com os 5 (ou decisão do Rodrigo
-de trocar o texto/alt por algo genérico tipo "nossa equipe médica", sem listar nomes) antes de editar esse
-componente.
+**Resolvido em 2026-09-28 (mesmo dia) — foto de grupo da equipe atualizada:** o Rodrigo mandou uma foto de
+grupo nova com os 5 (a Dra. Giovanna já fisicamente incluída). `public/images/equipe-clinica-franco.jpg`
+substituída (recorte/resize pra manter o aspect ratio 900x502 exigido por `Hero.tsx`, praticamente sem corte
+já que a foto original já vinha em proporção quase idêntica). `Hero.tsx` atualizado: `alt` da imagem, o
+parágrafo com os 5 nomes, e a linha de áreas de atendimento (acrescentado "Saúde da Pele, Cabelos e Unhas").
 
 **Pendente desde 2026-09-28 — RQE da Dra. Giovanna:** se/quando o Rodrigo confirmar o RQE de Dermatologia
 dela no CFM, aplicar o mesmo tratamento já dado a Lucas/Guilherme/Tiago: preencher `medicalSpecialty`/
