@@ -20,6 +20,10 @@ export interface OriginalArticle {
   // Bibliografia opcional - cada item vira um link clicavel no rodape. So incluir
   // estudos reais e verificados (ex: conferidos no PubMed), nunca inventados.
   references?: { label: string; url: string }[];
+  // Opcionais: sobrescrevem title/meta description gerados automaticamente (que
+  // truncam o titulo/1o paragrafo). Titulo final <= ~60 chars, descricao <= 155.
+  seoTitle?: string;
+  seoDescription?: string;
   disclaimer: string;
 }
 
@@ -31,8 +35,10 @@ export const articlesData: OriginalArticle[] = [
     authorCrm: 'CRM-MS 10087',
     publishedOn: '2026-10-02',
     relatedExamId: 'ecofetal',
+    seoTitle: 'Ecocardiograma fetal: o que dizem 5 estudos | Clínica Franco',
+    seoDescription: 'Cinco estudos reais, com link, mostram o que muda quando uma cardiopatia congênita é descoberta antes do nascimento. Clínica Franco, Nova Andradina.',
     body: [
-      'Ecocardiograma fetal: cinco estudos reais, com link, mostram o que muda quando uma cardiopatia congênita é descoberta antes do nascimento. Uma pergunta orienta a pesquisa em cardiologia fetal há mais de duas décadas: saber, ainda durante a gestação, que o bebê tem uma cardiopatia congênita muda o desfecho dele depois do nascimento? Para responder, reunimos aqui cinco publicações científicas reais, todas indexadas no PubMed, com o link para você ler cada uma na íntegra. Resumimos o que elas encontraram, e também o que elas não conseguem provar.',
+      'Uma pergunta orienta a pesquisa em cardiologia fetal há mais de duas décadas: saber, ainda durante a gestação, que o bebê tem uma cardiopatia congênita muda o desfecho dele depois do nascimento? Para responder, reunimos aqui cinco publicações científicas reais, todas indexadas no PubMed, com o link para você ler cada uma na íntegra. Resumimos o que elas encontraram, e também o que elas não conseguem provar.',
       'O ecocardiograma fetal é um ultrassom dedicado ao coração do bebê. A declaração científica da American Heart Association (AHA), publicada em 2014 na revista Circulation, descreve em detalhe os componentes do exame — avaliação da anatomia cardíaca, da função do coração e do ritmo —, as indicações e o momento de encaminhamento, a experiência recomendada de quem realiza e interpreta o exame e as estratégias de planejamento do parto quando há cardiopatia. O documento também revisa os estudos que avaliam o benefício do diagnóstico pré-natal para os bebês com cardiopatia congênita, e é a base para vários dos trabalhos citados a seguir.',
       'Um dos estudos mais citados sobre o tema foi publicado em 1999, também na Circulation, por uma equipe do Hospital Necker, em Paris. Os pesquisadores compararam 68 recém-nascidos com transposição das grandes artérias diagnosticada antes do nascimento com 250 que tiveram o diagnóstico só depois, ao longo de dez anos. O grupo diagnosticado na gestação chegou à unidade de cardiologia pediátrica em média 2 horas após o nascimento, contra 73 horas no outro grupo, e chegou em melhores condições clínicas, com menos acidose metabólica e falência de múltiplos órgãos. Nenhum dos 68 bebês morreu antes da cirurgia, contra 15 dos 250 (6%) no grupo diagnosticado depois do parto, e não houve mortes após a cirurgia no primeiro grupo (0 de 68), contra 20 de 235 no segundo. Os autores concluíram que o diagnóstico pré-natal reduz mortalidade e morbidade nesse tipo de cardiopatia.',
       'Resultado parecido apareceu em um estudo de 2001, publicado na Circulation por uma equipe da Universidade da Califórnia em São Francisco, com a síndrome do coração esquerdo hipoplásico, uma das cardiopatias mais graves. Entre os 52 bebês que chegaram a ser operados, todos os que tinham diagnóstico pré-natal sobreviveram, contra 25 de 38 entre os diagnosticados depois do nascimento. Os bebês diagnosticados antes do parto também chegaram à cirurgia com menos acidose, menos insuficiência da valva tricúspide e menos disfunção do ventrículo. Vale a ressalva dos próprios dados: foi uma revisão retrospectiva de um único centro, e no grupo diagnosticado na gestação houve interrupções de gravidez e famílias que optaram por não tratar, o que dificulta comparações diretas.',

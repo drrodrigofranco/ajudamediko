@@ -45,10 +45,10 @@ const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ articleId, naviga
 
   useSEO({
     title: article
-      ? `${article.title} | Clínica Franco`
+      ? article.seoTitle || `${article.title} | Clínica Franco`
       : 'Artigo não encontrado | Clínica Franco',
     description: article
-      ? truncateAtWord(article.body[0])
+      ? article.seoDescription || truncateAtWord(article.body[0])
       : 'Artigo não encontrado. Veja outros artigos e notícias de saúde da Clínica Franco.',
     path: `/blog/${articleId}`,
   });
@@ -63,11 +63,17 @@ const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ articleId, naviga
       identifier: article.authorCrm,
     },
     datePublished: article.publishedOn,
+    dateModified: article.publishedOn,
+    inLanguage: 'pt-BR',
     publisher: {
       '@type': 'MedicalClinic',
       name: 'Clínica Franco',
     },
     url: `https://ajudamediko.com.br/blog/${articleId}`,
+    mainEntityOfPage: `https://ajudamediko.com.br/blog/${articleId}`,
+    ...(article.references && article.references.length > 0
+      ? { citation: article.references.map(ref => ({ '@type': 'CreativeWork', name: ref.label, url: ref.url })) }
+      : {}),
   } : null);
 
   useJsonLd('article-breadcrumb-jsonld', article ? {
