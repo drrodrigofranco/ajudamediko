@@ -19,6 +19,11 @@
 ---
 
 ## 📅 Última atualização
+- **2026-10-02 (aprovada e publicada pelo Dr. Rodrigo):** novo artigo assinado
+  `ecocardiograma-fetal-diagnostico-antes-do-nascimento-estudos` (articlesData.ts) com 5 estudos reais conferidos no
+  PubMed e links DOI. `OriginalArticle` ganhou os campos opcionais `references` (renderizado em ArticleDetailPage e
+  usado em `citation` no JSON-LD), `seoTitle` e `seoDescription`. Id também em `prerender.mjs` (ARTICLE_IDS) e
+  `public/sitemap.xml`. Ao criar novos artigos assinados, usar esses campos para título ≤ 60 e descrição ≤ 155.
 - **Data:** 2026-09-28
 - **Status atual:** 🟢 Em produção, estável. 5ª médica adicionada à equipe: **Dra. Giovanna Cristina Silva e
   Silva** (CRM-MS 14686, `id: giovanna-silva`), atendimento voltado à saúde da pele/cabelos/unhas. **RQE não
