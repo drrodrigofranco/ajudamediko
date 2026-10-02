@@ -91,7 +91,7 @@ export const articlesData: OriginalArticle[] = [
     body: [
       'O ecocardiograma fetal é um exame de ultrassom dedicado a avaliar em detalhe a estrutura e o funcionamento do coração do bebê ainda durante a gestação. Diferente do ultrassom obstétrico de rotina, que já observa o coração de forma geral, o ecocardiograma fetal aprofunda essa avaliação, analisando câmaras, válvulas e o fluxo sanguíneo com o auxílio do Doppler.',
       'Costuma ser indicado entre a 24ª e a 28ª semana de gestação, período em que o coração fetal já está suficientemente desenvolvido para uma análise detalhada. Algumas situações aumentam a recomendação do exame: histórico familiar de cardiopatia congênita, diabetes materno, alterações identificadas em exames anteriores, ou uso de determinados medicamentos durante a gravidez — mas também pode ser solicitado por tranquilidade, mesmo sem fator de risco específico.',
-      'O exame é indolor e semelhante a um ultrassom obstétrico comum, feito por via abdominal. Na Clínica Franco, ele é realizado com foco exclusivo na anatomia e função cardíaca do bebê.',
+      'O exame é indolor e semelhante a um ultrassom obstétrico comum, feito por via abdominal. Na Clínica Franco, ele é realizado com foco exclusivo na anatomia e função cardíaca do bebê. Para ver o que a pesquisa científica mostra sobre descobrir uma cardiopatia antes do nascimento, leia [nossa reportagem com cinco estudos](/blog/ecocardiograma-fetal-diagnostico-antes-do-nascimento-estudos).',
     ],
     sectionHeadings: [
       'O que é o ecocardiograma fetal',
