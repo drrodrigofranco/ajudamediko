@@ -28,15 +28,11 @@ const Hero: React.FC<HeroProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="lg:w-1/2 text-left">
-            <div className="inline-block px-3 py-1 rounded-full bg-[#1c5d57] text-[#5eead4] text-[10px] font-bold uppercase tracking-wider mb-8">
-              <span className="w-2 h-2 bg-[#4ade80] rounded-full inline-block mr-2"></span>
-              Diagnóstico e Atendimentos
-            </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-bold leading-tight mb-4">
               Ultrassom em Nova Andradina — Clínica Franco
             </h1>
             <p className="text-base sm:text-lg text-teal-200/70 font-semibold mb-6 max-w-xl">
-              Morfológico, Doppler e 3D · Saúde do Idoso · Saúde Mental · Saúde Neurológica · Pediatria · Saúde da Pele, Cabelos e Unhas
+              Ultrassom morfológico, Doppler e 3D, saúde do idoso, saúde mental, saúde neurológica, pediatria e saúde da pele, cabelos e unhas.
             </p>
             <p className="text-lg text-teal-50/70 mb-10 leading-relaxed max-w-xl">
               Referência em ultrassom em Nova Andradina e região. Dr. Rodrigo Franco, Dr. Lucas Duarte Franco, Dr. Guilherme Zandoná, Dr. Tiago Dantas Wizenfad e Dra. Giovanna Silva e Silva — cuidado multigeracional com precisão diagnóstica para toda a família.

@@ -125,13 +125,9 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold leading-tight mb-4">
             {doctor.name}
           </h1>
-          <p className="text-lg text-teal-50/80 mb-6 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-lg text-teal-50/80 leading-relaxed max-w-2xl mx-auto">
             {doctor.shortBio}
           </p>
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#1c5d57] text-[#5eead4] text-xs font-bold uppercase tracking-wider">
-            <span className="w-2 h-2 bg-[#4ade80] rounded-full inline-block animate-pulse"></span>
-            {doctor.crm} — Nova Andradina - MS
-          </div>
         </div>
       </section>
 
