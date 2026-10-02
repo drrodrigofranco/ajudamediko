@@ -14,6 +14,8 @@ import {
   HelpCircle,
 } from 'lucide-react';
 import { examsData, ExamData } from '../examsData';
+import { articlesData } from '../articlesData';
+import { curatedNews } from '../curatedNewsData';
 import { useSEO } from '../hooks/useSEO';
 import { useJsonLd } from '../hooks/useJsonLd';
 
@@ -40,6 +42,13 @@ const EXAM_ICONS: Record<string, React.ComponentType<{ className?: string }>> = 
 
 const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) => {
   const exam = examsData.find(e => e.id === examId);
+
+  const relatedReading = [
+    ...articlesData.filter(a => a.relatedExamId === examId),
+    ...curatedNews.filter(n => n.relatedExamId === examId),
+  ]
+    .sort((a, b) => b.publishedOn.localeCompare(a.publishedOn))
+    .map(({ id, title }) => ({ id, title }));
 
   useSEO({
     title: exam
@@ -215,6 +224,27 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
                 ))}
               </div>
             </div>
+
+            {/* Leia também: artigos e matérias que citam este exame */}
+            {relatedReading.length > 0 && (
+              <div className="space-y-4">
+                <h2 className="text-2xl font-serif font-bold text-[#0e4843] text-left">Leia também</h2>
+                <ul className="space-y-3">
+                  {relatedReading.map((item) => (
+                    <li key={item.id}>
+                      <a
+                        href={`/blog/${item.id}`}
+                        onClick={(e) => navigateTo(`/blog/${item.id}`, e)}
+                        className="flex items-center justify-between gap-4 bg-white rounded-2xl border border-gray-100 p-5 shadow-sm hover:border-[#14b8a6]/30 transition-all text-sm font-bold text-[#0e4843]"
+                      >
+                        <span>{item.title}</span>
+                        <Icons.ChevronRight className="w-4 h-4 text-[#14b8a6] flex-shrink-0" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
           </div>
 
