@@ -17,10 +17,64 @@ export interface OriginalArticle {
   // curatedNewsData.ts/NewsDetailPage.tsx - aplicado aqui pra corrigir a
   // ausencia total de H2 nos 5 artigos originais (achado da auditoria).
   sectionHeadings?: (string | null)[];
+  // Bibliografia opcional - cada item vira um link clicavel no rodape. So incluir
+  // estudos reais e verificados (ex: conferidos no PubMed), nunca inventados.
+  references?: { label: string; url: string }[];
   disclaimer: string;
 }
 
 export const articlesData: OriginalArticle[] = [
+  {
+    id: 'ecocardiograma-fetal-diagnostico-antes-do-nascimento-estudos',
+    title: 'Ecocardiograma fetal: o que cinco estudos mostram sobre descobrir uma cardiopatia antes do nascimento',
+    authorName: 'Dr. Rodrigo Franco',
+    authorCrm: 'CRM-MS 10087',
+    publishedOn: '2026-10-02',
+    relatedExamId: 'ecofetal',
+    body: [
+      'Ecocardiograma fetal: cinco estudos reais, com link, mostram o que muda quando uma cardiopatia congênita é descoberta antes do nascimento. Uma pergunta orienta a pesquisa em cardiologia fetal há mais de duas décadas: saber, ainda durante a gestação, que o bebê tem uma cardiopatia congênita muda o desfecho dele depois do nascimento? Para responder, reunimos aqui cinco publicações científicas reais, todas indexadas no PubMed, com o link para você ler cada uma na íntegra. Resumimos o que elas encontraram, e também o que elas não conseguem provar.',
+      'O ecocardiograma fetal é um ultrassom dedicado ao coração do bebê. A declaração científica da American Heart Association (AHA), publicada em 2014 na revista Circulation, descreve em detalhe os componentes do exame — avaliação da anatomia cardíaca, da função do coração e do ritmo —, as indicações e o momento de encaminhamento, a experiência recomendada de quem realiza e interpreta o exame e as estratégias de planejamento do parto quando há cardiopatia. O documento também revisa os estudos que avaliam o benefício do diagnóstico pré-natal para os bebês com cardiopatia congênita, e é a base para vários dos trabalhos citados a seguir.',
+      'Um dos estudos mais citados sobre o tema foi publicado em 1999, também na Circulation, por uma equipe do Hospital Necker, em Paris. Os pesquisadores compararam 68 recém-nascidos com transposição das grandes artérias diagnosticada antes do nascimento com 250 que tiveram o diagnóstico só depois, ao longo de dez anos. O grupo diagnosticado na gestação chegou à unidade de cardiologia pediátrica em média 2 horas após o nascimento, contra 73 horas no outro grupo, e chegou em melhores condições clínicas, com menos acidose metabólica e falência de múltiplos órgãos. Nenhum dos 68 bebês morreu antes da cirurgia, contra 15 dos 250 (6%) no grupo diagnosticado depois do parto, e não houve mortes após a cirurgia no primeiro grupo (0 de 68), contra 20 de 235 no segundo. Os autores concluíram que o diagnóstico pré-natal reduz mortalidade e morbidade nesse tipo de cardiopatia.',
+      'Resultado parecido apareceu em um estudo de 2001, publicado na Circulation por uma equipe da Universidade da Califórnia em São Francisco, com a síndrome do coração esquerdo hipoplásico, uma das cardiopatias mais graves. Entre os 52 bebês que chegaram a ser operados, todos os que tinham diagnóstico pré-natal sobreviveram, contra 25 de 38 entre os diagnosticados depois do nascimento. Os bebês diagnosticados antes do parto também chegaram à cirurgia com menos acidose, menos insuficiência da valva tricúspide e menos disfunção do ventrículo. Vale a ressalva dos próprios dados: foi uma revisão retrospectiva de um único centro, e no grupo diagnosticado na gestação houve interrupções de gravidez e famílias que optaram por não tratar, o que dificulta comparações diretas.',
+      'Para reduzir o peso de estudos isolados, uma meta-análise publicada em 2015 na revista Ultrasound in Obstetrics & Gynecology reuniu oito estudos que comparavam bebês com cardiopatia congênita crítica diagnosticada antes e depois do nascimento. Nos casos de anatomia comparável, risco padrão e famílias que desejavam o tratamento, o diagnóstico pré-natal foi associado a uma chance significativamente menor de morte antes da cirurgia programada (razão de chances de 0,26, com intervalo de confiança de 95% entre 0,08 e 0,84). Note que o intervalo de confiança é amplo e que o resultado vale para esse grupo específico de bebês, não para todas as cardiopatias.',
+      'Há, porém, um ponto que atrapalha tudo isso: muitas cardiopatias ainda passam despercebidas. Um estudo de 2009 na revista The Journal of Pediatrics acompanhou, durante um ano, bebês com cardiopatia congênita maior em três centros de referência do norte da Califórnia. Dos 309 bebês, 98 tiveram diagnóstico pré-natal (36%, contando 27 interrupções de gestação). Entre as 185 famílias que responderam a um questionário, 99% fizeram ultrassom no pré-natal, mas apenas 28% receberam o diagnóstico antes do parto. A detecção foi menor em doenças como a transposição das grandes artérias (19%) e as lesões obstrutivas do coração esquerdo (23%), e maior na heterotaxia (82%), no ventrículo único (64%) e no coração esquerdo hipoplásico (61%). Os bebês diagnosticados antes do nascimento precisaram menos de ventilação mecânica e de prostaglandina.',
+      'Na nossa leitura, esses estudos apontam na mesma direção, com cautela: saber antes permite planejar onde e como o bebê vai nascer, e há evidências de que isso pode reduzir complicações antes da cirurgia em casos bem selecionados. Mas são, em sua maioria, estudos observacionais, e nenhum deles afirma que o ecocardiograma fetal deva ser feito em toda gestante ou que ele detecte todas as cardiopatias. A decisão de realizar o exame cabe ao obstetra, com base nos fatores de risco de cada gestação, e o resultado depende também de quem realiza e interpreta o exame.',
+      'Aqui na Clínica Franco, em Nova Andradina, realizamos o [ecocardiograma fetal](/exame/ecofetal), com avaliação detalhada da anatomia cardíaca do bebê e conversa sobre os achados com o médico responsável. As cinco publicações citadas nesta matéria estão nas referências abaixo, com links diretos para os originais.',
+    ],
+    sectionHeadings: [
+      'A pergunta que a ciência tenta responder',
+      'O que o ecocardiograma fetal avalia, segundo a AHA',
+      'Transposição das grandes artérias: o estudo francês',
+      'Síndrome do coração esquerdo hipoplásico: o estudo norte-americano',
+      'O que diz a meta-análise',
+      'O limite: muitas cardiopatias ainda passam despercebidas',
+      'Nossa leitura',
+      'Na Clínica Franco',
+    ],
+    references: [
+      {
+        label: 'Donofrio MT, Moon-Grady AJ, Hornberger LK, Copel JA, Sklansky MS, Abuhamad A, et al. Diagnosis and treatment of fetal cardiac disease: a scientific statement from the American Heart Association. Circulation. 2014;129(21):2183-2242.',
+        url: 'https://doi.org/10.1161/01.cir.0000437597.44550.5d',
+      },
+      {
+        label: 'Bonnet D, Coltri A, Butera G, Fermont L, Le Bidois J, Kachaner J, Sidi D. Detection of transposition of the great arteries in fetuses reduces neonatal morbidity and mortality. Circulation. 1999;99(7):916-918.',
+        url: 'https://doi.org/10.1161/01.cir.99.7.916',
+      },
+      {
+        label: 'Tworetzky W, McElhinney DB, Reddy VM, Brook MM, Hanley FL, Silverman NH. Improved surgical outcome after fetal diagnosis of hypoplastic left heart syndrome. Circulation. 2001;103(9):1269-1273.',
+        url: 'https://doi.org/10.1161/01.cir.103.9.1269',
+      },
+      {
+        label: 'Holland BJ, Myers JA, Woods CR. Prenatal diagnosis of critical congenital heart disease reduces risk of death from cardiovascular compromise prior to planned neonatal cardiac surgery: a meta-analysis. Ultrasound Obstet Gynecol. 2015;45(6):631-638.',
+        url: 'https://doi.org/10.1002/uog.14882',
+      },
+      {
+        label: 'Friedberg MK, Silverman NH, Moon-Grady AJ, Tong E, Nourse J, Sorenson B, Lee J, Hornberger LK. Prenatal detection of congenital heart disease. J Pediatr. 2009;155(1):26-31.',
+        url: 'https://doi.org/10.1016/j.jpeds.2009.01.050',
+      },
+    ],
+    disclaimer: 'Este conteúdo é educativo e não substitui uma consulta médica. A indicação do ecocardiograma fetal deve ser avaliada pelo seu obstetra, de acordo com os fatores de risco de cada gestação.',
+  },
   {
     id: 'ecocardiograma-fetal-quando-fazer',
     title: 'Ecocardiograma Fetal: quando e por que fazer',

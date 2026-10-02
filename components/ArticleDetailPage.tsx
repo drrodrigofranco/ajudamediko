@@ -166,6 +166,27 @@ const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ articleId, naviga
           ))}
         </article>
 
+        {article.references && article.references.length > 0 && (
+          <div className="mt-6 pt-6 border-t border-gray-100">
+            <h2 className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-3">Referências Bibliográficas</h2>
+            <ol className="space-y-2">
+              {article.references.map((ref, i) => (
+                <li key={i} className="text-xs text-gray-500 leading-relaxed">
+                  {i + 1}.{' '}
+                  <a
+                    href={ref.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#0d9488] hover:text-[#14b8a6] underline underline-offset-2"
+                  >
+                    {ref.label}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
+
         <p className="text-xs text-gray-400 italic mt-6 leading-relaxed">
           {article.disclaimer}
         </p>
