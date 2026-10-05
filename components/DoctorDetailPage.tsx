@@ -58,7 +58,7 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
   if (!doctor) {
     return (
       <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4">
-        <h2 className="text-2xl font-serif font-bold text-ink mb-4">Médico não encontrado</h2>
+        <h2 className="text-2xl font-serif font-semibold text-ink mb-4">Médico não encontrado</h2>
         <a
           href="/"
           onClick={(e) => navigateTo('/', e)}
@@ -80,7 +80,7 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <a href="/" onClick={(e) => navigateTo('/', e)} className="flex items-center gap-2 group">
             <LogoMark className="h-9 w-auto text-ink transition-colors group-hover:text-brand" />
-            <span className="font-serif font-bold text-xl text-ink tracking-tight">Clínica Franco</span>
+            <span className="font-serif font-semibold text-xl text-ink tracking-tight">Clínica Franco</span>
           </a>
           <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-ink/80">
             <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-brand transition-colors">HOME</a>
@@ -123,7 +123,7 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
               loading="eager"
             />
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold leading-tight mb-4">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-semibold leading-tight mb-4">
             {doctor.name}
           </h1>
           <p className="text-lg text-teal-50/80 leading-relaxed max-w-2xl mx-auto">
@@ -140,7 +140,7 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
           <div className="w-full lg:w-2/3 space-y-12">
             <div className="bg-white p-8 sm:p-10 rounded-3xl border border-gray-100 shadow-sm space-y-8">
               <div className="space-y-3">
-                <h2 className="text-lg font-serif font-bold text-ink flex items-center gap-2">
+                <h2 className="text-lg font-serif font-semibold text-ink flex items-center gap-2">
                   <Icons.Info className="text-brand w-5 h-5" />
                   Quem é {doctor.name}?
                 </h2>
@@ -152,7 +152,7 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
               <hr className="border-gray-100" />
 
               <div className="space-y-6">
-                <h2 className="text-lg font-serif font-bold text-ink flex items-center gap-2">
+                <h2 className="text-lg font-serif font-semibold text-ink flex items-center gap-2">
                   <Icons.GraduationCap className="text-brand w-5 h-5" />
                   Formação Acadêmica
                 </h2>
@@ -178,7 +178,7 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
               <hr className="border-gray-100" />
 
               <div className="space-y-6">
-                <h2 className="text-lg font-serif font-bold text-ink flex items-center gap-2">
+                <h2 className="text-lg font-serif font-semibold text-ink flex items-center gap-2">
                   <Icons.Briefcase className="text-brand w-5 h-5" />
                   Trajetória Profissional
                 </h2>
@@ -201,7 +201,7 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
                 <>
                   <hr className="border-gray-100" />
                   <div className="space-y-4">
-                    <h2 className="text-lg font-serif font-bold text-ink flex items-center gap-2">
+                    <h2 className="text-lg font-serif font-semibold text-ink flex items-center gap-2">
                       <Icons.Stethoscope className="text-brand w-5 h-5" />
                       Pequenos Procedimentos Ambulatoriais
                     </h2>
@@ -293,7 +293,7 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
       <footer className="bg-ink text-white pt-16 pb-12 border-t border-teal-500/10 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-12 text-left mb-12">
           <div>
-            <h3 className="font-serif font-bold text-xl mb-6">Clínica Franco</h3>
+            <h3 className="font-serif font-semibold text-xl mb-6">Clínica Franco</h3>
             <p className="text-teal-50/70 text-xs leading-relaxed max-w-xs mb-4">
               Rua Melvin Jones, 1243<br />Nova Andradina - MS
             </p>

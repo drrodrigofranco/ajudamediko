@@ -32,7 +32,7 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <a href="/" onClick={(e) => navigateTo('/', e)} className="flex items-center gap-2 group">
             <LogoMark className="h-9 w-auto text-ink transition-colors group-hover:text-brand" />
-            <span className="font-serif font-bold text-xl text-ink tracking-tight">Clínica Franco</span>
+            <span className="font-serif font-semibold text-xl text-ink tracking-tight">Clínica Franco</span>
           </a>
           <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-ink/80">
             <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-brand transition-colors">HOME</a>
@@ -65,7 +65,7 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
             <Icons.ArrowLeft className="w-4 h-4 mr-2" />
             Voltar para a Home
           </a>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold leading-tight mb-8">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-semibold leading-tight mb-8">
             Qual a Diferença entre Ultrassom, Raio-X e Tomografia?
           </h1>
           <p className="text-lg text-teal-50/80 mb-4 leading-relaxed max-w-2xl mx-auto">
@@ -85,7 +85,7 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
       <section className="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-12 items-center">
           <div className="lg:w-1/2 space-y-6">
-            <h2 className="text-3xl font-serif font-bold text-ink">O que é a Ultrassonografia (Ultrassom)?</h2>
+            <h2 className="text-3xl font-serif font-semibold text-ink">O que é a Ultrassonografia (Ultrassom)?</h2>
             <div className="h-1 w-12 bg-brand rounded-full"></div>
             <p className="text-gray-600 text-sm leading-relaxed">
               O ultrassom é um método de diagnóstico por imagem totalmente seguro, baseado no princípio físico do eco (ondas sonoras de alta frequência). O transdutor emite ondas mecânicas inaudíveis que ricocheteiam nas estruturas internas do corpo e retornam como eco, sendo decodificados em tempo real na tela do médico.
@@ -148,7 +148,7 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
       <section className="py-20 bg-teal-50/20 border-y border-teal-500/5">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-serif font-bold text-ink">Como funcionam os outros exames de imagem?</h2>
+            <h2 className="text-3xl font-serif font-semibold text-ink">Como funcionam os outros exames de imagem?</h2>
             <div className="h-1 w-16 bg-brand mx-auto mt-4 rounded-full"></div>
           </div>
 
@@ -216,7 +216,7 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
       {/* Tabela Comparativa */}
       <section className="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-serif font-bold text-ink">Tabela Comparativa Rápida</h2>
+          <h2 className="text-3xl font-serif font-semibold text-ink">Tabela Comparativa Rápida</h2>
           <div className="h-1 w-16 bg-brand mx-auto mt-4 rounded-full"></div>
           <p className="text-gray-400 text-sm max-w-2xl mx-auto mt-4">Compare as principais características e requisitos de cada tipo de exame.</p>
         </div>
@@ -275,7 +275,7 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
 
       {/* Dúvidas Frequentes */}
       <section className="py-20 max-w-3xl mx-auto px-4">
-        <h2 className="text-3xl font-serif font-bold text-center text-ink mb-4">Dúvidas Frequentes</h2>
+        <h2 className="text-3xl font-serif font-semibold text-center text-ink mb-4">Dúvidas Frequentes</h2>
         <div className="h-1 w-12 bg-brand mx-auto mb-12 rounded-full"></div>
         
         <div className="space-y-4">
@@ -321,7 +321,7 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
       <footer className="bg-ink text-white pt-16 pb-12 border-t border-teal-500/10 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-12 text-left mb-12">
           <div>
-            <h3 className="font-serif font-bold text-xl mb-6">Clínica Franco</h3>
+            <h3 className="font-serif font-semibold text-xl mb-6">Clínica Franco</h3>
             <p className="text-teal-50/70 text-xs leading-relaxed max-w-xs mb-4">
               Rua Melvin Jones, 1243 (Antigo Hospital Santa Helena, Sala 3)<br />Nova Andradina - MS
               <br /><br />Atendemos também pacientes de Batayporã, Ivinhema, Anaurilândia, Angélica, Deodápolis e Rosana (SP).

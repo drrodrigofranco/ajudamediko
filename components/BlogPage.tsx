@@ -59,7 +59,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ navigateTo }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <a href="/" onClick={(e) => navigateTo('/', e)} className="flex items-center gap-2 group">
             <LogoMark className="h-9 w-auto text-ink transition-colors group-hover:text-brand" />
-            <span className="font-serif font-bold text-xl text-ink tracking-tight">Clínica Franco</span>
+            <span className="font-serif font-semibold text-xl text-ink tracking-tight">Clínica Franco</span>
           </a>
           <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-ink/80">
             <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-brand transition-colors">HOME</a>
@@ -91,7 +91,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ navigateTo }) => {
             <Icons.ArrowLeft className="w-4 h-4 mr-2" />
             Voltar para a Home
           </a>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold leading-tight mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-semibold leading-tight mb-6">
             Blog de Saúde
           </h1>
           <p className="text-lg text-teal-50/80 mb-4 leading-relaxed max-w-2xl mx-auto">
@@ -108,7 +108,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ navigateTo }) => {
       <section className="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow w-full">
         <div className="flex items-center gap-3 mb-8">
           <Icons.BookOpen className="w-5 h-5 text-brand" />
-          <h2 className="text-2xl font-serif font-bold text-ink">Últimas Publicações</h2>
+          <h2 className="text-2xl font-serif font-semibold text-ink">Últimas Publicações</h2>
         </div>
         {feed.length === 0 ? (
           <p className="text-center text-gray-500">Nenhuma matéria publicada ainda. Volte em breve.</p>
@@ -129,7 +129,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ navigateTo }) => {
                   <span>·</span>
                   <span className="font-semibold text-brand">{entry.byline}</span>
                 </div>
-                <h3 className="text-xl font-serif font-bold text-ink mb-2 group-hover:text-brand transition-colors">{entry.title}</h3>
+                <h3 className="text-xl font-serif font-semibold text-ink mb-2 group-hover:text-brand transition-colors">{entry.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed line-clamp-2 mb-4">{entry.excerpt}</p>
                 <span className="inline-flex items-center gap-1.5 text-sm font-bold text-brand">
                   {entry.linkLabel}

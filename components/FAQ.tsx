@@ -11,16 +11,16 @@ interface FAQItemProps {
 const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="border border-gray-100 rounded-lg bg-white overflow-hidden mb-3 shadow-sm hover:shadow-md transition-shadow">
+    <div className="border-b border-gray-300">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex justify-between items-center p-5 text-left hover:bg-gray-50 transition-colors"
+        className="w-full flex justify-between items-center py-5 text-left hover:text-brand transition-colors"
       >
         <span className="font-semibold text-ink text-sm md:text-base">{question}</span>
-        {isOpen ? <ChevronUp className="text-brand w-5 h-5" /> : <ChevronDown className="text-gray-300 w-5 h-5" />}
+        {isOpen ? <ChevronUp className="text-brand w-5 h-5" /> : <ChevronDown className="text-gray-400 w-5 h-5" />}
       </button>
       {isOpen && (
-        <div className="p-5 pt-0 text-gray-500 text-sm leading-relaxed border-t border-gray-50 mt-2 animate-fade-in">
+        <div className="pb-6 text-gray-600 text-sm leading-relaxed animate-fade-in">
           {answer}
         </div>
       )}
@@ -78,11 +78,15 @@ const FAQ: React.FC = () => {
   });
 
   return (
-    <section id="duvidas" className="py-24 bg-white max-w-4xl mx-auto px-4 scroll-mt-24">
-      <h2 className="text-4xl font-serif font-bold text-ink text-center mb-16 underline decoration-brand underline-offset-8 decoration-2">Dúvidas Frequentes</h2>
+    <section id="duvidas" className="bg-white scroll-mt-24">
+      <div className="max-w-4xl mx-auto px-4 py-20 lg:py-24">
+      <h2 className="text-3xl md:text-4xl font-serif font-semibold text-ink mb-10">Dúvidas Frequentes</h2>
+      <div className="border-t border-gray-300">
       {homeFaqs.map((faq, i) => (
         <FAQItem key={i} question={faq.question} answer={faq.answer} />
       ))}
+      </div>
+      </div>
     </section>
   );
 };

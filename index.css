@@ -6,6 +6,9 @@
    - Tokens semanticos: brand (botoes/links em fundo claro, contraste >= 5,9:1 sobre gray-50),
      brand-light/brand-pale (texto sobre fundo grafite), ink* (faixas escuras). */
 @theme {
+  --font-sans: 'Figtree Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Newsreader Variable', ui-serif, Georgia, serif;
+
   --color-teal-50: #eef3f8;
   --color-teal-100: #dde7ef;
   --color-teal-200: #bccfdf;

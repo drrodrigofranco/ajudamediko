@@ -327,7 +327,7 @@ const ExamsDrawer: React.FC = () => {
             <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-ink text-white">
               <div className="flex items-center gap-3">
                 <ClipboardList className="text-brand" />
-                <h2 className="text-lg font-serif font-bold">Catálogo Informativo</h2>
+                <h2 className="text-lg font-serif font-semibold">Catálogo Informativo</h2>
               </div>
               <button 
                 onClick={() => {
@@ -393,7 +393,7 @@ const ExamsDrawer: React.FC = () => {
                         <div className="bg-brand p-2 rounded-xl text-white">
                           <selectedExam.icon size={24} />
                         </div>
-                        <h3 className="text-xl font-serif font-bold text-white">{selectedExam.name}</h3>
+                        <h3 className="text-xl font-serif font-semibold text-white">{selectedExam.name}</h3>
                       </div>
                     </div>
                     <button 

@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
                 <div className="flex flex-col mb-4">
                     <div className="flex items-center">
                         <LogoMark className="h-9 w-auto mr-3 text-white" />
-                        <span className="text-xl font-serif font-bold text-white">Clínica Franco</span>
+                        <span className="text-xl font-serif font-semibold text-white">Clínica Franco</span>
                     </div>
                     <div className="flex flex-col text-xs text-teal-400 font-medium mt-1 ml-[3.8rem]">
                         <span>Dr. Rodrigo Franco - CRM-MS 10087</span>

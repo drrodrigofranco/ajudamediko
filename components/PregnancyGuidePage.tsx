@@ -202,7 +202,7 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <a href="/" onClick={(e) => navigateTo('/', e)} className="flex items-center gap-2 group">
             <LogoMark className="h-9 w-auto text-ink transition-colors group-hover:text-brand" />
-            <span className="font-serif font-bold text-xl text-ink tracking-tight">Clínica Franco</span>
+            <span className="font-serif font-semibold text-xl text-ink tracking-tight">Clínica Franco</span>
           </a>
           <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-ink/80">
             <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-brand transition-colors">HOME</a>
@@ -235,7 +235,7 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
             <Icons.ArrowLeft className="w-4 h-4 mr-2" />
             Voltar para a Home
           </a>
-          <h1 className="text-4xl sm:text-5xl font-serif font-bold leading-tight mb-6">
+          <h1 className="text-4xl sm:text-5xl font-serif font-semibold leading-tight mb-6">
             Guia Completo da Gestante
           </h1>
           <p className="text-base text-teal-50/80 mb-4 leading-relaxed max-w-2xl mx-auto">
@@ -277,7 +277,7 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
         <div className="bg-white rounded-3xl border border-gray-100 shadow-md p-8 lg:p-12 text-left">
           <div className="mb-8">
             <span className="text-brand font-bold text-xs uppercase tracking-widest">Acompanhamento Gestacional</span>
-            <h2 className="text-3xl font-serif font-bold text-ink mt-2">{activeData.title}</h2>
+            <h2 className="text-3xl font-serif font-semibold text-ink mt-2">{activeData.title}</h2>
             <p className="text-gray-500 text-sm mt-2">{activeData.focus}</p>
             <div className="h-1 w-12 bg-brand mt-4 rounded-full"></div>
           </div>
@@ -310,7 +310,7 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
                 </div>
                 <div>
                   <span className="text-brand font-bold text-xs uppercase tracking-widest">Ferramentas Úteis</span>
-                  <h3 className="text-2xl font-serif font-bold text-ink">Calculadora Gestacional</h3>
+                  <h3 className="text-2xl font-serif font-semibold text-ink">Calculadora Gestacional</h3>
                 </div>
               </div>
               
@@ -383,7 +383,7 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
                 </div>
                 <div>
                   <span className="text-brand font-bold text-xs uppercase tracking-widest">Conversor Rápido</span>
-                  <h3 className="text-2xl font-serif font-bold text-ink">Meses e Semanas</h3>
+                  <h3 className="text-2xl font-serif font-semibold text-ink">Meses e Semanas</h3>
                 </div>
               </div>
 
@@ -457,7 +457,7 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
       <section className="py-20 bg-white border-y border-gray-100 text-left">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-serif font-bold text-ink mb-4">Dicas de Ouro para a Saúde da Mãe e do Bebê</h2>
+            <h2 className="text-3xl font-serif font-semibold text-ink mb-4">Dicas de Ouro para a Saúde da Mãe e do Bebê</h2>
             <div className="h-1 w-16 bg-brand mx-auto mb-8 rounded-full"></div>
             <p className="text-gray-500 text-sm max-w-2xl mx-auto text-center leading-relaxed">
               Conselhos fundamentais recomendados por médicos obstetras para garantir bem-estar e segurança nos 9 meses de gestação.
@@ -511,7 +511,7 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
       {/* Ultrasound Scans Timeline Table */}
       <section className="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-serif font-bold text-ink mb-4">Cronograma de Exames Recomendados</h2>
+          <h2 className="text-3xl font-serif font-semibold text-ink mb-4">Cronograma de Exames Recomendados</h2>
           <div className="h-1 w-16 bg-brand mx-auto mb-8 rounded-full"></div>
           <p className="text-gray-500 text-sm max-w-2xl mx-auto">
             Acompanhe o cronograma padrão para realizar cada ultrassom gestacional no tempo correto recomendado pelas sociedades médicas.
@@ -573,7 +573,7 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
             <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 40px' }}></div>
           </div>
           <Icons.Baby className="w-12 h-12 text-brand mx-auto" />
-          <h3 className="text-2xl font-serif font-bold">Cuide de você e do seu bebê</h3>
+          <h3 className="text-2xl font-serif font-semibold">Cuide de você e do seu bebê</h3>
           <p className="text-teal-50/70 text-sm max-w-md mx-auto">
             Não deixe passar o período ideal para os seus ultrassons morfológicos. Agende seus exames obstétricos com nossa equipe e garanta um acompanhamento seguro.
           </p>
@@ -595,7 +595,7 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
       <footer className="bg-ink text-white pt-16 pb-12 border-t border-teal-500/10 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-12 text-left mb-12">
           <div>
-            <h3 className="font-serif font-bold text-xl mb-6">Clínica Franco</h3>
+            <h3 className="font-serif font-semibold text-xl mb-6">Clínica Franco</h3>
             <p className="text-teal-50/70 text-xs leading-relaxed max-w-xs mb-4">
               Rua Melvin Jones, 1243 (Antigo Hospital Santa Helena, Sala 3)<br />Nova Andradina - MS
               <br /><br />Atendemos também pacientes de Batayporã, Ivinhema, Anaurilândia, Angélica, Deodápolis e Rosana (SP).

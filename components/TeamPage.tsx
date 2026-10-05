@@ -42,7 +42,7 @@ const TeamPage: React.FC<TeamPageProps> = ({ navigateTo }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <a href="/" onClick={(e) => navigateTo('/', e)} className="flex items-center gap-2 group">
             <LogoMark className="h-9 w-auto text-ink transition-colors group-hover:text-brand" />
-            <span className="font-serif font-bold text-xl text-ink tracking-tight">Clínica Franco</span>
+            <span className="font-serif font-semibold text-xl text-ink tracking-tight">Clínica Franco</span>
           </a>
           <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-ink/80">
             <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-brand transition-colors">HOME</a>
@@ -74,7 +74,7 @@ const TeamPage: React.FC<TeamPageProps> = ({ navigateTo }) => {
             <Icons.ArrowLeft className="w-4 h-4 mr-2" />
             Voltar para a Home
           </a>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold leading-tight mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-semibold leading-tight mb-6">
             Nossa Equipe
           </h1>
           <p className="text-lg text-teal-50/80 mb-4 leading-relaxed max-w-2xl mx-auto">
@@ -106,7 +106,7 @@ const TeamPage: React.FC<TeamPageProps> = ({ navigateTo }) => {
                     <BadgeIcon size={20} />
                   </div>
                 </div>
-                <h2 className="text-xl font-serif font-bold text-ink mb-1">{doctor.name}</h2>
+                <h2 className="text-xl font-serif font-semibold text-ink mb-1">{doctor.name}</h2>
                 <p className="text-brand-hover font-bold uppercase tracking-widest text-xs mb-1">{doctor.crm}</p>
                 <p className="text-gray-400 text-xs font-semibold uppercase tracking-wide mb-4">{doctor.specialtyLabel}</p>
                 <p className="text-gray-500 text-sm leading-relaxed mb-6">
@@ -130,7 +130,7 @@ const TeamPage: React.FC<TeamPageProps> = ({ navigateTo }) => {
       <footer className="bg-ink text-white pt-16 pb-12 border-t border-teal-500/10 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-12 text-left mb-12">
           <div>
-            <h3 className="font-serif font-bold text-xl mb-6">Clínica Franco</h3>
+            <h3 className="font-serif font-semibold text-xl mb-6">Clínica Franco</h3>
             <p className="text-teal-50/70 text-xs leading-relaxed max-w-xs mb-4">
               Rua Melvin Jones, 1243<br />Nova Andradina - MS
             </p>
