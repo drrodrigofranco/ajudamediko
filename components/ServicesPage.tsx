@@ -111,7 +111,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ navigateTo }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <a href="/" onClick={(e) => navigateTo('/', e)} className="flex items-center gap-2 group">
             <LogoMark className="h-9 w-auto text-ink transition-colors group-hover:text-brand" />
-            <span className="font-serif font-bold text-xl text-ink tracking-tight">Clínica Franco</span>
+            <span className="font-serif font-semibold text-xl text-ink tracking-tight">Clínica Franco</span>
           </a>
           <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-ink/80">
             <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-brand transition-colors">HOME</a>
@@ -143,7 +143,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ navigateTo }) => {
             <Icons.ArrowLeft className="w-4 h-4 mr-2" />
             Voltar para a Home
           </a>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold leading-tight mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-semibold leading-tight mb-6">
             Nossos Serviços
           </h1>
           <p className="text-lg text-teal-50/80 mb-4 leading-relaxed max-w-2xl mx-auto">
@@ -155,7 +155,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ navigateTo }) => {
       {/* Consultas e Atendimentos */}
       <section className="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-serif font-bold text-ink mb-4">Consultas e Atendimentos em Nova Andradina - MS</h2>
+          <h2 className="text-3xl font-serif font-semibold text-ink mb-4">Consultas e Atendimentos em Nova Andradina - MS</h2>
           <div className="h-1 w-16 bg-brand mx-auto rounded-full"></div>
         </div>
         <div className="grid md:grid-cols-2 gap-8">
@@ -193,7 +193,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ navigateTo }) => {
       {/* Catalogo de Exames */}
       <section className="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-serif font-bold text-ink mb-4">Catálogo de Exames de Ultrassom em Nova Andradina - MS</h2>
+          <h2 className="text-3xl font-serif font-semibold text-ink mb-4">Catálogo de Exames de Ultrassom em Nova Andradina - MS</h2>
           <p className="text-gray-500 text-sm max-w-2xl mx-auto">
             Lista completa de exames de ultrassonografia realizados na Clínica Franco. Clique em qualquer exame para ver o guia completo de preparação.
           </p>
@@ -219,7 +219,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ navigateTo }) => {
       <footer className="bg-ink text-white pt-16 pb-12 border-t border-teal-500/10 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-12 text-left mb-12">
           <div>
-            <h3 className="font-serif font-bold text-xl mb-6">Clínica Franco</h3>
+            <h3 className="font-serif font-semibold text-xl mb-6">Clínica Franco</h3>
             <p className="text-teal-50/70 text-xs leading-relaxed max-w-xs mb-4">
               Rua Melvin Jones, 1243<br />Nova Andradina - MS
             </p>

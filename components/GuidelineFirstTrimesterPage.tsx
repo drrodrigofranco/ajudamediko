@@ -33,7 +33,7 @@ const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <a href="/" onClick={(e) => navigateTo('/', e)} className="flex items-center gap-2 group">
             <LogoMark className="h-9 w-auto text-ink transition-colors group-hover:text-brand" />
-            <span className="font-serif font-bold text-xl text-ink tracking-tight">Clínica Franco</span>
+            <span className="font-serif font-semibold text-xl text-ink tracking-tight">Clínica Franco</span>
           </a>
           <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-ink/80">
             <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-brand transition-colors">HOME</a>
@@ -66,7 +66,7 @@ const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = 
             <Icons.ArrowLeft className="w-4 h-4 mr-2" />
             Voltar para o Comparativo
           </a>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold leading-tight mb-8">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-semibold leading-tight mb-8">
             Diretriz AMB: Ultrassom no 1º Trimestre
           </h1>
           <p className="text-lg text-teal-50/80 mb-4 leading-relaxed max-w-2xl mx-auto">
@@ -89,7 +89,7 @@ const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = 
             <Icons.Quote className="w-8 h-8 text-teal-500/30" />
             <span className="text-xs uppercase tracking-widest font-semibold text-teal-600">Referência do Estudo</span>
           </div>
-          <h2 className="text-2xl font-serif font-bold text-ink">
+          <h2 className="text-2xl font-serif font-semibold text-ink">
             Associação Médica Brasileira: Diretrizes Clínicas na Saúde Materno-Fetal
           </h2>
           <p className="text-gray-600 text-sm leading-relaxed">
@@ -107,7 +107,7 @@ const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = 
       {/* Os 4 Pilares da Diretriz */}
       <section className="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-serif font-bold text-ink">As 4 Recomendações Críticas do Estudo</h2>
+          <h2 className="text-3xl font-serif font-semibold text-ink">As 4 Recomendações Críticas do Estudo</h2>
           <div className="h-1 w-16 bg-brand mx-auto mt-4 rounded-full"></div>
         </div>
 
@@ -165,7 +165,7 @@ const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = 
             <Icons.ShieldAlert className="w-8 h-8" />
           </div>
           <div className="space-y-2 text-left">
-            <h4 className="font-serif font-bold text-lg text-teal-300">Segurança de Exposição: O Princípio ALARA</h4>
+            <h4 className="font-serif font-semibold text-lg text-teal-300">Segurança de Exposição: O Princípio ALARA</h4>
             <p className="text-xs text-teal-50/70 leading-relaxed">
               Embora o ultrassom não utilize radiação, a diretriz da AMB adota o protocolo internacional <strong>ALARA (As Low As Reasonably Achievable)</strong>. Recomenda-se realizar o exame apenas por médicos habilitados, regulando o equipamento para emitir a menor energia de ultrassom e no menor tempo necessários para obter o laudo de diagnóstico preciso.
             </p>
@@ -208,7 +208,7 @@ const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = 
       <footer className="bg-ink text-white pt-16 pb-12 border-t border-teal-500/10 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-12 text-left mb-12">
           <div>
-            <h3 className="font-serif font-bold text-xl mb-6">Clínica Franco</h3>
+            <h3 className="font-serif font-semibold text-xl mb-6">Clínica Franco</h3>
             <p className="text-teal-50/70 text-xs leading-relaxed max-w-xs mb-4">
               Rua Melvin Jones, 1243 (Antigo Hospital Santa Helena, Sala 3)<br />Nova Andradina - MS
               <br /><br />Atendemos também pacientes de Batayporã, Ivinhema, Anaurilândia, Angélica, Deodápolis e Rosana (SP).

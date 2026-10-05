@@ -39,83 +39,83 @@ const Contact: React.FC<ContactProps> = ({
   };
 
   return (
-    <section id="contato" className="py-24 max-w-6xl mx-auto px-4 mb-24 scroll-mt-24">
-      <div className="bg-white rounded-[40px] shadow-2xl overflow-hidden flex flex-col md:flex-row border border-gray-50">
-        <div className="md:w-5/12 bg-ink text-white p-14 text-left flex flex-col justify-center">
-          <h2 className="text-4xl font-serif font-bold mb-6">Agende seu Exame</h2>
-          <p className="text-teal-100/80 mb-14 text-sm leading-relaxed">Entre em contato para marcar sua consulta ou tirar dúvidas sobre procedimentos médicos e periciais.</p>
+    <section id="contato" className="bg-ink-2 scroll-mt-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24 flex flex-col md:flex-row gap-14 md:gap-16">
+        <div className="md:w-5/12 text-white text-left flex flex-col justify-center">
+          <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-5">Agende seu Exame</h2>
+          <p className="text-white/70 mb-10 text-sm leading-relaxed">Entre em contato para marcar sua consulta ou tirar dúvidas sobre procedimentos médicos e periciais.</p>
           
-          <div className="space-y-12">
-            <div className="flex gap-5">
-              <div className="bg-ink-3 p-3.5 rounded-2xl"><MapPin className="text-brand" /></div>
+          <div className="space-y-8">
+            <div className="flex gap-4">
+              <div className="bg-ink-3 p-3 rounded-lg h-fit"><MapPin className="text-brand-pale" /></div>
               <div>
-                <h3 className="font-bold mb-1 text-base">Endereço</h3>
-                <p className="text-[11px] text-teal-100/70">Rua Melvin Jones, 1243<br/>Nova Andradina - MS, 79750-000</p>
+                <h3 className="font-semibold mb-1 text-base">Endereço</h3>
+                <p className="text-xs text-white/70">Rua Melvin Jones, 1243<br/>Nova Andradina - MS, 79750-000</p>
               </div>
             </div>
-            <div className="flex gap-5">
-              <div className="bg-ink-3 p-3.5 rounded-2xl"><Phone className="text-brand" /></div>
+            <div className="flex gap-4">
+              <div className="bg-ink-3 p-3 rounded-lg h-fit"><Phone className="text-brand-pale" /></div>
               <div>
-                <h3 className="font-bold mb-1 text-base">Contato</h3>
-                <p className="text-[11px] text-teal-100/70">
-                  <a href="https://wa.me/5567998446674" target="_blank" rel="noopener noreferrer" className="hover:text-teal-300 underline transition-colors">
+                <h3 className="font-semibold mb-1 text-base">Contato</h3>
+                <p className="text-xs text-white/70">
+                  <a href="https://wa.me/5567998446674" target="_blank" rel="noopener noreferrer" className="hover:text-white underline transition-colors">
                     (67) 99844-6674
                   </a>
                   <br/>Atendimento com agendamento, Segunda a Sábado, das 6h às 22h
                 </p>
               </div>
             </div>
-            <div className="flex gap-5">
-              <div className="bg-ink-3 p-3.5 rounded-2xl"><CheckCircle className="text-brand" /></div>
+            <div className="flex gap-4">
+              <div className="bg-ink-3 p-3 rounded-lg h-fit"><CheckCircle className="text-brand-pale" /></div>
               <div>
-                <h3 className="font-bold mb-1 text-base">Atendimentos</h3>
-                <p className="text-[11px] text-teal-100/70">PROVER, Oeste Saúde, MaterDei, PAX, AMENA e Particular</p>
+                <h3 className="font-semibold mb-1 text-base">Atendimentos</h3>
+                <p className="text-xs text-white/70">PROVER, Oeste Saúde, MaterDei, PAX, AMENA e Particular</p>
               </div>
             </div>
-            <div className="flex gap-5">
-              <div className="bg-ink-3 p-3.5 rounded-2xl"><Globe className="text-brand" /></div>
+            <div className="flex gap-4">
+              <div className="bg-ink-3 p-3 rounded-lg h-fit"><Globe className="text-brand-pale" /></div>
               <div>
-                <h3 className="font-bold mb-1 text-base">Região de Atendimento</h3>
-                <p className="text-[11px] text-teal-100/70">Pacientes de Nova Andradina, Rosana (SP), Ivinhema, Anaurilândia, Batayporã, Deodápolis, Angélica e região.</p>
+                <h3 className="font-semibold mb-1 text-base">Região de Atendimento</h3>
+                <p className="text-xs text-white/70">Pacientes de Nova Andradina, Rosana (SP), Ivinhema, Anaurilândia, Batayporã, Deodápolis, Angélica e região.</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="md:w-7/12 p-14 text-left bg-white">
-          <div className="space-y-7">
+        <div className="md:w-7/12 text-left">
+          <div className="space-y-6">
             {error && (
-              <div className="bg-red-50 text-red-600 p-4 rounded-xl text-xs font-bold border border-red-100 animate-shake">
+              <div className="bg-red-50 text-red-700 p-4 rounded-md text-xs font-semibold border border-red-200 animate-shake">
                 {error}
               </div>
             )}
             <div>
-              <label htmlFor="contact-name" className="text-[10px] font-bold text-gray-500 uppercase mb-3 block tracking-widest">Nome Completo</label>
+              <label htmlFor="contact-name" className="text-sm font-medium text-white/80 mb-2 block">Nome Completo</label>
               <input
                 id="contact-name"
                 value={formName}
                 onChange={e => setFormName(e.target.value)} 
-                className="w-full bg-gray-50 border border-gray-100 p-5 rounded-2xl outline-none focus:ring-2 focus:ring-brand/20 transition-all text-sm" 
+                className="w-full bg-white text-ink border border-gray-300 p-4 rounded-md outline-none focus:ring-2 focus:ring-brand-pale transition-all text-sm" 
                 placeholder="Seu nome" 
               />
             </div>
             <div>
-              <label htmlFor="contact-phone" className="text-[10px] font-bold text-gray-500 uppercase mb-3 block tracking-widest">Telefone / WhatsApp</label>
+              <label htmlFor="contact-phone" className="text-sm font-medium text-white/80 mb-2 block">Telefone / WhatsApp</label>
               <input
                 id="contact-phone"
                 value={formPhone}
                 onChange={e => setFormPhone(e.target.value)} 
-                className="w-full bg-gray-50 border border-gray-100 p-5 rounded-2xl outline-none focus:ring-2 focus:ring-brand/20 transition-all text-sm" 
+                className="w-full bg-white text-ink border border-gray-300 p-4 rounded-md outline-none focus:ring-2 focus:ring-brand-pale transition-all text-sm" 
                 placeholder="(67) 99844-6674" 
               />
             </div>
             <div>
-              <label htmlFor="contact-exam" className="text-[10px] font-bold text-gray-500 uppercase mb-3 block tracking-widest">Tipo de Exame</label>
+              <label htmlFor="contact-exam" className="text-sm font-medium text-white/80 mb-2 block">Tipo de Exame</label>
               <select
                 id="contact-exam"
                 value={formExam}
                 onChange={e => setFormExam(e.target.value)} 
-                className="w-full bg-gray-50 border border-gray-100 p-5 rounded-2xl outline-none focus:ring-2 focus:ring-brand/20 transition-all text-sm text-gray-500 appearance-none"
+                className="w-full bg-white text-ink border border-gray-300 p-4 rounded-md outline-none focus:ring-2 focus:ring-brand-pale transition-all text-sm appearance-none"
               >
                 <option value="">Selecione uma opção</option>
                 {ultrasoundExams.map((ex, i) => (<option key={i} value={ex.name}>{ex.name}</option>))}
@@ -123,7 +123,7 @@ const Contact: React.FC<ContactProps> = ({
             </div>
             <button 
               onClick={validateAndSchedule} 
-              className="w-full bg-brand-hover text-white py-5 rounded-2xl font-bold shadow-lg hover:bg-brand-hover transition-all transform active:scale-95 text-sm uppercase tracking-wider"
+              className="w-full bg-brand text-white py-4 rounded-md font-semibold hover:bg-brand-hover transition-colors text-sm"
             >
               Solicitar Agendamento
             </button>

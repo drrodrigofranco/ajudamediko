@@ -31,19 +31,18 @@ const Partners: React.FC = () => {
   ];
 
   return (
-    <section id="atendimentos" className="bg-white py-12 border-b border-gray-50 scroll-mt-24">
+    <section id="atendimentos" className="bg-white py-12 border-b border-gray-200 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
-          <h2 className="text-sm font-bold text-brand-hover uppercase tracking-widest">Atendimentos</h2>
-          <div className="h-0.5 w-8 bg-teal-200 mx-auto mt-2"></div>
+          <h2 className="text-sm font-semibold text-gray-600">Atendimentos</h2>
         </div>
         <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-90 hover:opacity-100 transition-opacity duration-500">
           {partners.map((partner) => (
-            <div key={partner.name} className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+            <div key={partner.name} className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
               {partner.isCustom ? (
-                <div className="flex items-center gap-2.5 px-4 py-2 border border-gray-200 rounded-xl bg-gray-50/50 shadow-xs">
+                <div className="flex items-center gap-2.5 px-4 py-2 border border-gray-300 rounded-md">
                   <Tag className="text-brand w-5 h-5" />
-                  <span className="font-sans font-bold text-gray-700 text-xs md:text-sm uppercase tracking-wider whitespace-nowrap">
+                  <span className="font-sans font-semibold text-gray-700 text-xs md:text-sm tracking-wide whitespace-nowrap">
                     {partner.name}
                   </span>
                 </div>

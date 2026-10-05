@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import '@fontsource-variable/newsreader';
+import '@fontsource-variable/figtree';
+import '@fontsource-variable/source-serif-4';
+import '@fontsource-variable/public-sans';
 
 
 const rootElement = document.getElementById('root');

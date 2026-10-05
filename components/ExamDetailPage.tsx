@@ -84,7 +84,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
   if (!exam) {
     return (
       <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4">
-        <h2 className="text-2xl font-serif font-bold text-ink mb-4">Exame não encontrado</h2>
+        <h2 className="text-2xl font-serif font-semibold text-ink mb-4">Exame não encontrado</h2>
         <a 
           href="/" 
           onClick={(e) => navigateTo('/', e)}
@@ -107,7 +107,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <a href="/" onClick={(e) => navigateTo('/', e)} className="flex items-center gap-2 group">
             <LogoMark className="h-9 w-auto text-ink transition-colors group-hover:text-brand" />
-            <span className="font-serif font-bold text-xl text-ink tracking-tight">Clínica Franco</span>
+            <span className="font-serif font-semibold text-xl text-ink tracking-tight">Clínica Franco</span>
           </a>
           <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-ink/80">
             <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-brand transition-colors">HOME</a>
@@ -140,7 +140,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
             <Icons.ArrowLeft className="w-4 h-4 mr-2" />
             Voltar para a Home
           </a>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold leading-tight mb-8">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-semibold leading-tight mb-8">
             {exam.name}
           </h1>
           <p className="text-lg text-teal-50/80 leading-relaxed max-w-2xl mx-auto">
@@ -165,7 +165,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
             {/* Description Card */}
             <div className="bg-white p-8 sm:p-10 rounded-3xl border border-gray-100 shadow-sm space-y-8">
               <div className="space-y-3">
-                <h3 className="text-lg font-serif font-bold text-ink flex items-center gap-2">
+                <h3 className="text-lg font-serif font-semibold text-ink flex items-center gap-2">
                   <Icons.Info className="text-brand w-5 h-5" />
                   O que é este exame?
                 </h3>
@@ -176,7 +176,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
 
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-3">
-                  <h3 className="text-lg font-serif font-bold text-ink flex items-center gap-2">
+                  <h3 className="text-lg font-serif font-semibold text-ink flex items-center gap-2">
                     <Icons.Stethoscope className="text-brand w-5 h-5" />
                     Como é feito o exame?
                   </h3>
@@ -184,7 +184,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
                 </div>
 
                 <div className="space-y-3">
-                  <h3 className="text-lg font-serif font-bold text-ink flex items-center gap-2">
+                  <h3 className="text-lg font-serif font-semibold text-ink flex items-center gap-2">
                     <Icons.Target className="text-brand w-5 h-5" />
                     Para que serve e quando é indicado?
                   </h3>
@@ -196,7 +196,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
                 <>
                   <hr className="border-gray-100" />
                   <div className="space-y-3">
-                    <h3 className="text-lg font-serif font-bold text-ink flex items-center gap-2">
+                    <h3 className="text-lg font-serif font-semibold text-ink flex items-center gap-2">
                       <Icons.Calendar className="text-brand w-5 h-5" />
                       Quando devo realizar este exame?
                     </h3>
@@ -208,7 +208,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
 
             {/* FAQs Accordion */}
             <div className="space-y-6">
-              <h2 className="text-2xl font-serif font-bold text-ink text-left">Dúvidas Frequentes</h2>
+              <h2 className="text-2xl font-serif font-semibold text-ink text-left">Dúvidas Frequentes</h2>
               <div className="space-y-4">
                 {exam.faqs.map((faq, i) => (
                   <details key={i} className="group bg-white rounded-2xl border border-gray-100 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm hover:border-brand/20 transition-all">
@@ -229,7 +229,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
             {/* Leia também: artigos e matérias que citam este exame */}
             {relatedReading.length > 0 && (
               <div className="space-y-4">
-                <h2 className="text-2xl font-serif font-bold text-ink text-left">Leia também</h2>
+                <h2 className="text-2xl font-serif font-semibold text-ink text-left">Leia também</h2>
                 <ul className="space-y-3">
                   {relatedReading.map((item) => (
                     <li key={item.id}>
@@ -371,7 +371,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
       <footer className="bg-ink text-white pt-16 pb-12 border-t border-teal-500/10 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-12 text-left mb-12">
           <div>
-            <h3 className="font-serif font-bold text-xl mb-6">Clínica Franco</h3>
+            <h3 className="font-serif font-semibold text-xl mb-6">Clínica Franco</h3>
             <p className="text-teal-50/70 text-xs leading-relaxed max-w-xs mb-4">
               Rua Melvin Jones, 1243 (Antigo Hospital Santa Helena, Sala 3)<br />Nova Andradina - MS
             </p>

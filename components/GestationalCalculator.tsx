@@ -113,7 +113,7 @@ const GestationalCalculator: React.FC = () => {
             <div className="bg-teal-700 p-6 text-white">
                 <div className="flex items-center gap-3">
                     <Calculator className="w-6 h-6 text-teal-300" />
-                    <h3 className="text-xl font-serif font-bold">Calculadora Gestacional</h3>
+                    <h3 className="text-xl font-serif font-semibold">Calculadora Gestacional</h3>
                 </div>
                 <p className="text-teal-100 text-sm mt-1">Ferramenta de apoio para estimativa de idade gestacional.</p>
             </div>
