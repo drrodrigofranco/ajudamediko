@@ -1,4 +1,5 @@
 import React from 'react';
+import LogoMark from './LogoMark';
 import * as Icons from 'lucide-react';
 import { curatedNews, CuratedNewsItem } from '../curatedNewsData';
 import { examsData } from '../examsData';
@@ -82,11 +83,11 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
   if (!news) {
     return (
       <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4">
-        <h2 className="text-2xl font-serif font-bold text-[#0e4843] mb-4">Matéria não encontrada</h2>
+        <h2 className="text-2xl font-serif font-bold text-ink mb-4">Matéria não encontrada</h2>
         <a
           href="/blog"
           onClick={(e) => navigateTo('/blog', e)}
-          className="text-[#14b8a6] hover:underline font-bold"
+          className="text-brand hover:underline font-bold"
         >
           Voltar para o Blog
         </a>
@@ -102,19 +103,19 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
       <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <a href="/" onClick={(e) => navigateTo('/', e)} className="flex items-center gap-2 group">
-            <span className="bg-[#0e4843] text-white p-2 rounded-xl text-xs font-black tracking-wider transition-all group-hover:bg-[#14b8a6]">US</span>
-            <span className="font-serif font-bold text-xl text-[#0e4843] tracking-tight">Clínica Franco</span>
+            <LogoMark className="h-9 w-auto text-ink transition-colors group-hover:text-brand" />
+            <span className="font-serif font-bold text-xl text-ink tracking-tight">Clínica Franco</span>
           </a>
-          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-[#0e4843]/80">
-            <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-[#14b8a6] transition-colors">HOME</a>
-            <a href="/blog" onClick={(e) => navigateTo('/blog', e)} className="hover:text-[#14b8a6] transition-colors">BLOG</a>
-            <a href="/servicos" onClick={(e) => navigateTo('/servicos', e)} className="hover:text-[#14b8a6] transition-colors">SERVIÇOS</a>
+          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-ink/80">
+            <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-brand transition-colors">HOME</a>
+            <a href="/blog" onClick={(e) => navigateTo('/blog', e)} className="hover:text-brand transition-colors">BLOG</a>
+            <a href="/servicos" onClick={(e) => navigateTo('/servicos', e)} className="hover:text-brand transition-colors">SERVIÇOS</a>
           </nav>
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#14b8a6] hover:bg-[#0d9488] text-white text-xs font-bold px-6 py-3 rounded-full shadow-md transition-all"
+            className="bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3 rounded-full shadow-md transition-all"
           >
             AGENDAR AGORA
           </a>
@@ -122,7 +123,7 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
       </header>
 
       {/* Hero Section */}
-      <section className="bg-[#0e4843] text-white py-20 lg:py-28 relative overflow-hidden">
+      <section className="bg-ink text-white py-20 lg:py-28 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5 pointer-events-none">
           <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
         </div>
@@ -138,7 +139,7 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold leading-tight mb-6">
             {news.title}
           </h1>
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#1c5d57] text-[#5eead4] text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-ink-3 text-brand-pale text-xs font-bold uppercase tracking-wider">
             <Icons.BookOpen className="w-4 h-4 text-teal-300" />
             {news.sourceName}
           </div>
@@ -156,7 +157,7 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
           {paragraphs.map((paragraph, i) => (
             <React.Fragment key={i}>
               {news.sectionHeadings?.[i] && (
-                <h2 className="text-lg font-serif font-bold text-[#0e4843] pt-1">
+                <h2 className="text-lg font-serif font-bold text-ink pt-1">
                   {news.sectionHeadings[i]}
                 </h2>
               )}
@@ -169,8 +170,8 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
         </article>
 
         {relatedExam && (
-          <div className="mt-8 bg-[#0e4843] text-white rounded-3xl p-8 flex flex-col sm:flex-row items-center gap-6 shadow-lg">
-            <div className="bg-[#14b8a6] p-4 rounded-2xl text-white flex-shrink-0">
+          <div className="mt-8 bg-ink text-white rounded-3xl p-8 flex flex-col sm:flex-row items-center gap-6 shadow-lg">
+            <div className="bg-brand p-4 rounded-2xl text-white flex-shrink-0">
               <Icons.Stethoscope className="w-8 h-8" />
             </div>
             <div className="flex-1 text-center sm:text-left">
@@ -180,7 +181,7 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
             <a
               href={`/exame/${relatedExam.id}`}
               onClick={(e) => navigateTo(`/exame/${relatedExam.id}`, e)}
-              className="flex-shrink-0 bg-[#14b8a6] hover:bg-[#0d9488] text-white text-xs font-bold px-6 py-3 rounded-full shadow-md transition-all whitespace-nowrap"
+              className="flex-shrink-0 bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3 rounded-full shadow-md transition-all whitespace-nowrap"
             >
               Ver detalhes do exame
             </a>
@@ -199,7 +200,7 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
           />
           <div>
             <h2 className="text-xs text-gray-400 uppercase tracking-wider font-bold mb-0.5">Curadoria e revisão médica</h2>
-            <p className="text-sm font-bold text-[#0e4843]">Dr. Rodrigo Franco · CRM-MS 10087</p>
+            <p className="text-sm font-bold text-ink">Dr. Rodrigo Franco · CRM-MS 10087</p>
           </div>
         </div>
 
@@ -207,7 +208,7 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
           href={news.sourceUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-sm font-bold text-[#14b8a6] hover:text-[#0d9488] transition-colors mt-8"
+          className="inline-flex items-center gap-1.5 text-sm font-bold text-brand hover:text-brand-hover transition-colors mt-8"
         >
           Ler a matéria completa em {news.sourceName}
           <Icons.ExternalLink className="w-3.5 h-3.5" />
@@ -224,7 +225,7 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
                     href={ref.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#0d9488] hover:text-[#14b8a6] underline underline-offset-2"
+                    className="text-brand-hover hover:text-brand underline underline-offset-2"
                   >
                     {ref.label}
                   </a>
@@ -236,7 +237,7 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#0e4843] text-white pt-16 pb-12 border-t border-teal-500/10 mt-auto">
+      <footer className="bg-ink text-white pt-16 pb-12 border-t border-teal-500/10 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-teal-500/10 pt-8 text-center text-[10px] text-teal-50/40">
           <p>&copy; {new Date().getFullYear()} Clínica Franco. Todos os direitos reservados. Este conteúdo é educativo e não substitui consulta médica.</p>
         </div>

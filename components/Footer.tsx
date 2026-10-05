@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { HeartPulse, Instagram, Facebook, Youtube } from 'lucide-react';
+import LogoMark from './LogoMark';
+import { Instagram, Facebook, Youtube } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const goTo = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
@@ -11,19 +12,17 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-gray-400 border-t border-gray-800">
+    <footer className="bg-gray-900 text-gray-300 border-t border-gray-800">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Brand */}
             <div className="col-span-1 md:col-span-2">
                 <div className="flex flex-col mb-4">
                     <div className="flex items-center">
-                        <div className="bg-teal-600 p-1.5 rounded mr-2">
-                             <HeartPulse className="text-white h-5 w-5" />
-                        </div>
+                        <LogoMark className="h-9 w-auto mr-3 text-white" />
                         <span className="text-xl font-serif font-bold text-white">Clínica Franco</span>
                     </div>
-                    <div className="flex flex-col text-xs text-teal-400 font-medium mt-1 ml-9">
+                    <div className="flex flex-col text-xs text-teal-400 font-medium mt-1 ml-[3.8rem]">
                         <span>Dr. Rodrigo Franco - CRM-MS 10087</span>
                         <span>Dr. Lucas Duarte Franco - CRM-MS 7462</span>
                         <span>Dr. Guilherme Zandoná - CRM-MS 6347</span>
@@ -151,19 +150,19 @@ const Footer: React.FC = () => {
                     <li><a href="/exame/holter" onClick={(e) => goTo(e, '/exame/holter')} className="hover:text-teal-400 transition-colors">Holter 24h</a></li>
                     <li><a href="/exame/mapa" onClick={(e) => goTo(e, '/exame/mapa')} className="hover:text-teal-400 transition-colors">MAPA 24h</a></li>
                     <li><a href="/exame/eletrocardiograma" onClick={(e) => goTo(e, '/exame/eletrocardiograma')} className="hover:text-teal-400 transition-colors">Eletrocardiograma (ECG)</a></li>
-                    <li className="text-gray-400">Perícia Médica</li>
+                    <li className="text-gray-300">Perícia Médica</li>
                 </ul>
             </div>
         </div>
 
         <div className="mt-12 border-t border-gray-800 pt-8 text-center text-sm">
-            <p className="max-w-3xl mx-auto text-xs text-gray-400 leading-relaxed mb-6">
+            <p className="max-w-3xl mx-auto text-xs text-gray-300 leading-relaxed mb-6">
                 As informações deste site têm caráter educativo e não substituem consulta, diagnóstico ou
                 tratamento médico. Sempre procure orientação de um profissional de saúde qualificado para
                 dúvidas sobre sua condição.
             </p>
             <p>&copy; {new Date().getFullYear()} Clínica Franco. Todos os direitos reservados.</p>
-            <p className="mt-2 text-gray-400">Nova Andradina - MS</p>
+            <p className="mt-2 text-gray-300">Nova Andradina - MS</p>
         </div>
       </div>
     </footer>

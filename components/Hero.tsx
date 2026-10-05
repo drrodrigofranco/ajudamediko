@@ -19,7 +19,7 @@ const Hero: React.FC<HeroProps> = ({
   googleMapsLink 
 }) => {
   return (
-    <section className="bg-[#0e4843] text-white pt-40 pb-20 lg:py-24 relative overflow-hidden">
+    <section className="bg-ink text-white pt-40 pb-20 lg:py-24 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
@@ -38,7 +38,7 @@ const Hero: React.FC<HeroProps> = ({
               Referência em ultrassom em Nova Andradina e região. Dr. Rodrigo Franco, Dr. Lucas Duarte Franco, Dr. Guilherme Zandoná, Dr. Tiago Dantas Wizenfad e Dra. Giovanna Silva e Silva — cuidado multigeracional com precisão diagnóstica para toda a família.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button onClick={() => scrollToSection('contato')} className="bg-[#0f766e] text-white px-10 py-4 rounded-full font-bold shadow-lg hover:bg-[#0d9488] transition-all transform hover:-translate-y-1">
+              <button onClick={() => scrollToSection('contato')} className="bg-brand-hover text-white px-10 py-4 rounded-full font-bold shadow-lg hover:bg-brand-hover transition-all transform hover:-translate-y-1">
                 Agendar Consulta
               </button>
               <button onClick={() => scrollToSection('servicos')} className="bg-white/10 backdrop-blur-sm text-white border border-white/20 px-10 py-4 rounded-full font-bold hover:bg-white/20 transition-all">

@@ -33,12 +33,12 @@ const Curriculum: React.FC<CurriculumProps> = ({ navigateTo }) => {
   return (
     <section id="curriculo" className="py-24 max-w-7xl mx-auto px-4 scroll-mt-24">
       <div className="text-center mb-16">
-        <h2 className="text-4xl font-serif font-bold text-[#0e4843] mb-4">Nossos Profissionais em Nova Andradina - MS</h2>
-        <div className="h-1 w-16 bg-[#14b8a6] mx-auto mb-8 rounded-full"></div>
+        <h2 className="text-4xl font-serif font-bold text-ink mb-4">Nossos Profissionais em Nova Andradina - MS</h2>
+        <div className="h-1 w-16 bg-brand mx-auto mb-8 rounded-full"></div>
         <a
           href="/equipe"
           onClick={(e) => navigateTo('/equipe', e)}
-          className="inline-flex items-center gap-1.5 text-[#0f766e] hover:text-[#0d9488] font-bold text-sm transition-colors"
+          className="inline-flex items-center gap-1.5 text-brand-hover hover:text-brand-hover font-bold text-sm transition-colors"
         >
           Ver página completa da equipe
           <ChevronRight className="w-4 h-4" />
@@ -68,13 +68,13 @@ const Curriculum: React.FC<CurriculumProps> = ({ navigateTo }) => {
                         loading="lazy"
                       />
                     </div>
-                    <div className={`absolute -bottom-4 ${reversed ? '-left-4' : '-right-4'} bg-[#14b8a6] text-white p-3 rounded-xl shadow-lg`}>
+                    <div className={`absolute -bottom-4 ${reversed ? '-left-4' : '-right-4'} bg-brand text-white p-3 rounded-xl shadow-lg`}>
                       <BadgeIcon size={24} />
                     </div>
                   </div>
                   <div className={`text-center ${reversed ? 'md:text-right flex-grow' : 'md:text-left'}`}>
-                    <h3 className="text-3xl md:text-4xl font-serif font-bold text-[#0e4843] mb-2">{doctor.name}</h3>
-                    <p className="text-[#0f766e] font-bold uppercase tracking-widest text-sm mb-2">{doctor.crm}</p>
+                    <h3 className="text-3xl md:text-4xl font-serif font-bold text-ink mb-2">{doctor.name}</h3>
+                    <p className="text-brand-hover font-bold uppercase tracking-widest text-sm mb-2">{doctor.crm}</p>
                     <p className="text-gray-600 font-semibold text-sm mb-4">{doctor.specialtyLabel}</p>
                     <p className={`text-gray-500 max-w-xl leading-relaxed ${reversed ? 'ml-auto' : ''}`}>
                       {doctor.shortBio}
@@ -82,7 +82,7 @@ const Curriculum: React.FC<CurriculumProps> = ({ navigateTo }) => {
                     <a
                       href={`/medico/${doctor.id}`}
                       onClick={(e) => navigateTo(`/medico/${doctor.id}`, e)}
-                      className={`inline-flex items-center gap-1 text-[#0f766e] hover:text-[#0d9488] font-bold text-sm mt-4 transition-colors ${reversed ? 'md:ml-auto md:justify-end w-full' : ''}`}
+                      className={`inline-flex items-center gap-1 text-brand-hover hover:text-brand-hover font-bold text-sm mt-4 transition-colors ${reversed ? 'md:ml-auto md:justify-end w-full' : ''}`}
                     >
                       Ver perfil completo
                       <ChevronRight className="w-4 h-4" />
@@ -95,24 +95,24 @@ const Curriculum: React.FC<CurriculumProps> = ({ navigateTo }) => {
               <div className="grid lg:grid-cols-2 gap-20">
                 <div className="text-left">
                   <div className="flex items-center gap-4 mb-12">
-                    <div className="text-[#0e4843] flex items-center">
+                    <div className="text-ink flex items-center">
                       <GraduationCap className="w-10 h-10 mr-4" />
                       <h3 className="text-3xl font-serif font-bold">Formação Acadêmica</h3>
                     </div>
                   </div>
-                  <div className="border-l-2 border-[#ccfbf1] ml-5 pl-12 space-y-12">
+                  <div className="border-l-2 border-brand-soft ml-5 pl-12 space-y-12">
                     {doctor.education.map((edu, i) => (
                       <div key={i} className="relative">
-                        <div className={`absolute -left-[57px] top-1.5 w-6 h-6 rounded-full border-4 border-white ${i === 0 ? 'bg-[#14b8a6] shadow-sm' : 'bg-gray-200'}`}></div>
+                        <div className={`absolute -left-[57px] top-1.5 w-6 h-6 rounded-full border-4 border-white ${i === 0 ? 'bg-brand shadow-sm' : 'bg-gray-200'}`}></div>
                         <h4 className="font-bold text-gray-900 text-xl">{edu.title}</h4>
-                        {edu.year && <span className="text-[#0f766e] font-bold text-sm block mt-1">{edu.year}</span>}
+                        {edu.year && <span className="text-brand-hover font-bold text-sm block mt-1">{edu.year}</span>}
                         {edu.institution && <p className="text-gray-500 text-sm mt-1">{edu.institution}</p>}
                         {edu.description && <p className="text-gray-500 text-sm mt-3 leading-relaxed">{edu.description}</p>}
                       </div>
                     ))}
                   </div>
                   {doctor.lattesUrl && (
-                    <a href={doctor.lattesUrl} target="_blank" rel="noopener noreferrer" className="text-[#0f766e] hover:underline text-xl font-bold mt-8 ml-12 block italic">
+                    <a href={doctor.lattesUrl} target="_blank" rel="noopener noreferrer" className="text-brand-hover hover:underline text-xl font-bold mt-8 ml-12 block italic">
                       Acesse currículo completo clicando aqui
                     </a>
                   )}
@@ -120,7 +120,7 @@ const Curriculum: React.FC<CurriculumProps> = ({ navigateTo }) => {
 
                 <div className="text-left">
                   <div className="flex items-center gap-4 mb-12">
-                    <div className="text-[#0e4843] flex items-center">
+                    <div className="text-ink flex items-center">
                       <Stethoscope className="w-10 h-10 mr-4" />
                       <h3 className="text-3xl font-serif font-bold">Trajetória Profissional</h3>
                     </div>
@@ -133,7 +133,7 @@ const Curriculum: React.FC<CurriculumProps> = ({ navigateTo }) => {
                           <ul className="space-y-4 text-sm text-gray-600">
                             {group.items.map((item, j) => (
                               <li key={j} className="flex items-start gap-4">
-                                <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${i === 0 ? 'bg-[#14b8a6]' : 'bg-gray-200'}`}></div>
+                                <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${i === 0 ? 'bg-brand' : 'bg-gray-200'}`}></div>
                                 <span>{item}</span>
                               </li>
                             ))}
@@ -143,11 +143,11 @@ const Curriculum: React.FC<CurriculumProps> = ({ navigateTo }) => {
                     </div>
 
                     <div className="bg-teal-50 p-6 rounded-2xl border border-teal-100">
-                      <h4 className="text-[#0e4843] font-bold text-lg mb-4">Foco de Atendimento:</h4>
+                      <h4 className="text-ink font-bold text-lg mb-4">Foco de Atendimento:</h4>
                       <div className="grid grid-cols-1 gap-3">
                         {topFocusAreas.map((area) => (
                           <div key={area} className="flex items-center gap-3 text-gray-700">
-                            <CheckCircle size={18} className="text-[#14b8a6]" />
+                            <CheckCircle size={18} className="text-brand" />
                             <span>{area}</span>
                           </div>
                         ))}

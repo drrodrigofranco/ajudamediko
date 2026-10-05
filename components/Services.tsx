@@ -51,8 +51,8 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
   return (
     <section id="servicos" className="py-24 max-w-6xl mx-auto px-4 scroll-mt-24">
       <div className="text-center mb-16">
-        <h2 className="text-3xl font-serif font-bold text-[#0e4843] mb-4">Ultrassom e Atendimento Médico em Nova Andradina - MS</h2>
-        <div className="h-1 w-16 bg-[#14b8a6] mx-auto mb-8 rounded-full"></div>
+        <h2 className="text-3xl font-serif font-bold text-ink mb-4">Ultrassom e Atendimento Médico em Nova Andradina - MS</h2>
+        <div className="h-1 w-16 bg-brand mx-auto mb-8 rounded-full"></div>
         <p className="text-gray-500 max-w-3xl mx-auto text-sm leading-relaxed mb-6">
           A ultrassonografia é uma ferramenta essencial na medicina moderna, permitindo a visualização não invasiva de estruturas internas do corpo em tempo real. Utilizamos equipamentos de alta resolução para garantir a precisão necessária em cada laudo.
         </p>
@@ -64,7 +64,7 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
             window.dispatchEvent(new PopStateEvent('popstate'));
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
-          className="inline-flex items-center gap-1.5 text-[#0f766e] hover:text-[#0d9488] font-bold text-sm transition-colors"
+          className="inline-flex items-center gap-1.5 text-brand-hover hover:text-brand-hover font-bold text-sm transition-colors"
         >
           Ver catálogo completo de serviços
           <ChevronRight className="w-4 h-4" />
@@ -73,106 +73,106 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
 
       <div className="grid md:grid-cols-2 gap-8 mb-20">
         <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group relative overflow-hidden">
-          <div className="bg-[#f0fdfa] p-5 rounded-2xl mb-8 group-hover:bg-[#14b8a6] group-hover:text-white transition-all duration-300">
+          <div className="bg-brand-tint p-5 rounded-2xl mb-8 group-hover:bg-brand group-hover:text-white transition-all duration-300">
             <Stethoscope className="w-8 h-8" />
           </div>
-          <h3 className="text-xl font-bold text-[#0e4843] mb-4">Consulta Médica (Clínica Geral)</h3>
+          <h3 className="text-xl font-bold text-ink mb-4">Consulta Médica (Clínica Geral)</h3>
           <p className="text-gray-500 text-sm mb-8 leading-relaxed">
             Com vasta experiência como médico da família, oferecemos um cuidado integral e humanizado. A consulta serve para o diagnóstico de doenças, acompanhamento de condições crônicas e, principalmente, para a prevenção, garantindo saúde em todas as fases da vida.
           </p>
         </div>
 
         <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group relative overflow-hidden">
-          <div className="bg-[#f0fdfa] p-5 rounded-2xl mb-8 group-hover:bg-[#14b8a6] group-hover:text-white transition-all duration-300">
+          <div className="bg-brand-tint p-5 rounded-2xl mb-8 group-hover:bg-brand group-hover:text-white transition-all duration-300">
             <HeartPulse className="w-8 h-8" />
           </div>
-          <h3 className="text-xl font-bold text-[#0e4843] mb-4">Saúde do Idoso</h3>
+          <h3 className="text-xl font-bold text-ink mb-4">Saúde do Idoso</h3>
           <p className="text-gray-500 text-sm mb-8 leading-relaxed">
             Foco na saúde e bem-estar da terceira idade. Nosso atendimento em saúde do idoso visa a manutenção da autonomia, prevenção de quedas, manejo de polifarmácia e o cuidado dedicado a condições típicas do envelhecimento, sempre com foco na qualidade de vida.
           </p>
           <a
             href="/medico/lucas-franco"
             onClick={(e) => goTo('/medico/lucas-franco', e)}
-            className="flex items-center text-[#0f766e] border border-[#ccfbf1] text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-[#14b8a6] hover:text-white transition-all"
+            className="flex items-center text-brand-hover border border-brand-soft text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-brand hover:text-white transition-all"
           >
             Conhecer o Dr. Lucas Franco
           </a>
         </div>
 
         <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group relative overflow-hidden">
-          <div className="bg-[#f0fdfa] p-5 rounded-2xl mb-8 group-hover:bg-[#14b8a6] group-hover:text-white transition-all duration-300">
+          <div className="bg-brand-tint p-5 rounded-2xl mb-8 group-hover:bg-brand group-hover:text-white transition-all duration-300">
             <Brain className="w-8 h-8" />
           </div>
-          <h3 className="text-xl font-bold text-[#0e4843] mb-4">Saúde Neurológica</h3>
+          <h3 className="text-xl font-bold text-ink mb-4">Saúde Neurológica</h3>
           <p className="text-gray-500 text-sm mb-8 leading-relaxed">
             Atendimento em clínica geral e avaliação neurológica para queixas como cefaleia, tontura, alterações de memória e distúrbios do sono. Condução cuidadosa da história clínica, com acompanhamento contínuo em Nova Andradina e região.
           </p>
           <a
             href="/medico/guilherme-zandona"
             onClick={(e) => goTo('/medico/guilherme-zandona', e)}
-            className="flex items-center text-[#0f766e] border border-[#ccfbf1] text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-[#14b8a6] hover:text-white transition-all"
+            className="flex items-center text-brand-hover border border-brand-soft text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-brand hover:text-white transition-all"
           >
             Conhecer o Dr. Guilherme Zandoná
           </a>
         </div>
 
         <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group relative overflow-hidden">
-          <div className="bg-[#f0fdfa] p-5 rounded-2xl mb-8 group-hover:bg-[#14b8a6] group-hover:text-white transition-all duration-300">
+          <div className="bg-brand-tint p-5 rounded-2xl mb-8 group-hover:bg-brand group-hover:text-white transition-all duration-300">
             <Baby className="w-8 h-8" />
           </div>
-          <h3 className="text-xl font-bold text-[#0e4843] mb-4">Pediatria</h3>
+          <h3 className="text-xl font-bold text-ink mb-4">Pediatria</h3>
           <p className="text-gray-500 text-sm mb-8 leading-relaxed">
             Atendimento médico de recém-nascidos, lactentes, crianças e adolescentes, com pós-graduação em Pediatria Clínica: puericultura, acompanhamento do crescimento e desenvolvimento, vacinação e avaliação das principais condições da infância.
           </p>
           <a
             href="/medico/tiago-wizenfad"
             onClick={(e) => goTo('/medico/tiago-wizenfad', e)}
-            className="flex items-center text-[#0f766e] border border-[#ccfbf1] text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-[#14b8a6] hover:text-white transition-all"
+            className="flex items-center text-brand-hover border border-brand-soft text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-brand hover:text-white transition-all"
           >
             Conhecer o Dr. Tiago Wizenfad
           </a>
         </div>
 
         <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group relative overflow-hidden">
-          <div className="bg-[#f0fdfa] p-5 rounded-2xl mb-8 group-hover:bg-[#14b8a6] group-hover:text-white transition-all duration-300">
+          <div className="bg-brand-tint p-5 rounded-2xl mb-8 group-hover:bg-brand group-hover:text-white transition-all duration-300">
             <Sparkles className="w-8 h-8" />
           </div>
-          <h3 className="text-xl font-bold text-[#0e4843] mb-4">Saúde da Pele, Cabelos e Unhas</h3>
+          <h3 className="text-xl font-bold text-ink mb-4">Saúde da Pele, Cabelos e Unhas</h3>
           <p className="text-gray-500 text-sm mb-8 leading-relaxed">
             Atendimento individualizado voltado à saúde da pele, cabelos e unhas, com foco em prevenção, diagnóstico e tratamento: acne, melasma, queda de cabelo, doenças das unhas e avaliação de lesões, com plano terapêutico personalizado para cada paciente.
           </p>
           <a
             href="/medico/giovanna-silva"
             onClick={(e) => goTo('/medico/giovanna-silva', e)}
-            className="flex items-center text-[#0f766e] border border-[#ccfbf1] text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-[#14b8a6] hover:text-white transition-all"
+            className="flex items-center text-brand-hover border border-brand-soft text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-brand hover:text-white transition-all"
           >
             Conhecer a Dra. Giovanna Silva e Silva
           </a>
         </div>
 
         <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group relative overflow-hidden">
-          <div className="bg-[#f0fdfa] p-5 rounded-2xl mb-8 group-hover:bg-[#14b8a6] group-hover:text-white transition-all duration-300">
+          <div className="bg-brand-tint p-5 rounded-2xl mb-8 group-hover:bg-brand group-hover:text-white transition-all duration-300">
             <Baby className="w-8 h-8" />
           </div>
-          <h3 className="text-xl font-bold text-[#0e4843] mb-4">Ecocardiograma Fetal</h3>
+          <h3 className="text-xl font-bold text-ink mb-4">Ecocardiograma Fetal</h3>
           <p className="text-gray-500 text-sm mb-8 leading-relaxed">
             Exame detalhado do coração do bebê ainda no útero. Fundamental para detectar precocemente cardiopatias congênitas e planejar o melhor acompanhamento. A detecção precoce pode salvar vidas e preparar a equipe médica para o nascimento.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/L14598.htm" target="_blank" rel="noopener noreferrer" className="flex items-center text-[#0f766e] text-[10px] font-bold border border-[#ccfbf1] px-4 py-2 rounded-lg hover:bg-[#14b8a6] hover:text-white transition-all">
+            <a href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/L14598.htm" target="_blank" rel="noopener noreferrer" className="flex items-center text-brand-hover text-[10px] font-bold border border-brand-soft px-4 py-2 rounded-lg hover:bg-brand hover:text-white transition-all">
               <Scale size={14} className="mr-2" /> Lei do Ecocardiograma Fetal
             </a>
             <a
               href="/exame/ecofetal"
               onClick={(e) => goTo('/exame/ecofetal', e)}
-              className="flex items-center text-white bg-[#0f766e] text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-[#0d9488] transition-all"
+              className="flex items-center text-white bg-brand-hover text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-brand-hover transition-all"
             >
               Ver Guia e Preparação
             </a>
             <a
               href="/medico/rodrigo-franco"
               onClick={(e) => goTo('/medico/rodrigo-franco', e)}
-              className="flex items-center text-[#0f766e] border border-[#ccfbf1] text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-[#14b8a6] hover:text-white transition-all"
+              className="flex items-center text-brand-hover border border-brand-soft text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-brand hover:text-white transition-all"
             >
               Conhecer o Dr. Rodrigo Franco
             </a>
@@ -180,10 +180,10 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
         </div>
 
         <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group">
-          <div className="bg-[#f0fdfa] p-5 rounded-2xl mb-8 group-hover:bg-[#14b8a6] group-hover:text-white transition-all duration-300">
+          <div className="bg-brand-tint p-5 rounded-2xl mb-8 group-hover:bg-brand group-hover:text-white transition-all duration-300">
             <FileText className="w-8 h-8" />
           </div>
-          <h3 className="text-xl font-bold text-[#0e4843] mb-4">Perícia Médica</h3>
+          <h3 className="text-xl font-bold text-ink mb-4">Perícia Médica</h3>
           <p className="text-gray-500 text-sm mb-8 leading-relaxed">
             Perícia Médica para fins judiciais e trabalhistas, com ética e atualização científica. Assistência técnica qualificada para advogados e empresas que buscam laudos imparciais e fundamentados.
           </p>
@@ -191,14 +191,14 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
             <a
               href="/pericia-medica"
               onClick={(e) => goTo('/pericia-medica', e)}
-              className="flex items-center text-white bg-[#0f766e] text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-[#0d9488] transition-all"
+              className="flex items-center text-white bg-brand-hover text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-brand-hover transition-all"
             >
               Saiba Mais
             </a>
             <a
               href="/medico/rodrigo-franco"
               onClick={(e) => goTo('/medico/rodrigo-franco', e)}
-              className="flex items-center text-[#0f766e] border border-[#ccfbf1] text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-[#14b8a6] hover:text-white transition-all"
+              className="flex items-center text-brand-hover border border-brand-soft text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-brand hover:text-white transition-all"
             >
               Conhecer o Dr. Rodrigo Franco
             </a>
@@ -206,10 +206,10 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
         </div>
 
         <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group">
-          <div className="bg-[#f0fdfa] p-5 rounded-2xl mb-8 group-hover:bg-[#14b8a6] group-hover:text-white transition-all duration-300">
+          <div className="bg-brand-tint p-5 rounded-2xl mb-8 group-hover:bg-brand group-hover:text-white transition-all duration-300">
             <HeartPulse className="w-8 h-8" />
           </div>
-          <h3 className="text-xl font-bold text-[#0e4843] mb-4">Holter, MAPA, Espirometria e ECG</h3>
+          <h3 className="text-xl font-bold text-ink mb-4">Holter, MAPA, Espirometria e ECG</h3>
           <p className="text-gray-500 text-sm mb-8 leading-relaxed">
             Realização de exames cardiorrespiratórios avançados: Holter 24h, MAPA 24h, Espirometria e Eletrocardiograma (ECG). Oferecemos monitoramento completo, equipamentos calibrados e manuais de preparação detalhados para máxima segurança do seu diagnóstico.
           </p>
@@ -222,7 +222,7 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
                 window.dispatchEvent(new PopStateEvent('popstate'));
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="flex items-center text-white bg-[#0f766e] text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-[#0d9488] transition-all"
+              className="flex items-center text-white bg-brand-hover text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-brand-hover transition-all"
             >
               Holter, MAPA e Espirometria
             </a>
@@ -234,7 +234,7 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
                 window.dispatchEvent(new PopStateEvent('popstate'));
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="flex items-center text-[#0f766e] border border-[#ccfbf1] text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-[#14b8a6] hover:text-white transition-all"
+              className="flex items-center text-brand-hover border border-brand-soft text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-brand hover:text-white transition-all"
             >
               Ver Eletrocardiograma (ECG)
             </a>
@@ -243,7 +243,7 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
       </div>
 
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-serif font-bold text-[#0e4843] mb-4">Catálogo de Exames de Ultrassom em Nova Andradina</h2>
+        <h2 className="text-3xl font-serif font-bold text-ink mb-4">Catálogo de Exames de Ultrassom em Nova Andradina</h2>
         <p className="text-gray-500 text-sm max-w-2xl mx-auto mb-8">
           Confira abaixo a lista completa de procedimentos realizados em nossa clínica. Para exames específicos não listados, entre em contato para verificar disponibilidade.
         </p>
@@ -254,7 +254,7 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
           <input 
             type="text" 
             placeholder="Buscar exame (ex: Abdome, Doppler...)" 
-            className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-100 rounded-2xl outline-none focus:ring-2 focus:ring-[#14b8a6]/20 transition-all text-sm"
+            className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-100 rounded-2xl outline-none focus:ring-2 focus:ring-brand/20 transition-all text-sm"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -271,12 +271,12 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
                 e.preventDefault();
                 handleExamClick(ex.id);
               }}
-              className="bg-white p-4 sm:p-8 rounded-2xl border border-gray-50 shadow-sm flex flex-col items-center text-center hover:border-[#14b8a6]/30 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group cursor-pointer"
+              className="bg-white p-4 sm:p-8 rounded-2xl border border-gray-50 shadow-sm flex flex-col items-center text-center hover:border-brand/30 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group cursor-pointer"
             >
-              <div className="text-[#14b8a6] mb-4 group-hover:scale-110 transition-transform"><ex.Icon size={28} /></div>
+              <div className="text-brand mb-4 group-hover:scale-110 transition-transform"><ex.Icon size={28} /></div>
               <h3 className="font-bold text-gray-800 text-sm mb-1">{ex.name}</h3>
               <p className="text-[10px] text-gray-500 font-medium mb-3">{ex.desc}</p>
-              <span className="text-[9px] font-bold text-[#14b8a6] opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-widest">Saiba Mais</span>
+              <span className="text-[9px] font-bold text-brand opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-widest">Saiba Mais</span>
             </a>
           ))
         ) : (
@@ -293,7 +293,7 @@ const Services: React.FC<ServicesProps> = ({ ultrasoundExams }) => {
             <a
               href={`/exame/${exam.id}`}
               onClick={(e) => navigateToExam(exam.id, e)}
-              className="text-[#0f766e] font-bold underline underline-offset-2 hover:text-[#0d9488]"
+              className="text-brand-hover font-bold underline underline-offset-2 hover:text-brand-hover"
             >
               {exam.label}
             </a>

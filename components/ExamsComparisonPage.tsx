@@ -1,4 +1,5 @@
 import React from 'react';
+import LogoMark from './LogoMark';
 import * as Icons from 'lucide-react';
 import { useSEO } from '../hooks/useSEO';
 import { useJsonLd } from '../hooks/useJsonLd';
@@ -30,20 +31,20 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
       <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <a href="/" onClick={(e) => navigateTo('/', e)} className="flex items-center gap-2 group">
-            <span className="bg-[#0e4843] text-white p-2 rounded-xl text-xs font-black tracking-wider transition-all group-hover:bg-[#14b8a6]">US</span>
-            <span className="font-serif font-bold text-xl text-[#0e4843] tracking-tight">Clínica Franco</span>
+            <LogoMark className="h-9 w-auto text-ink transition-colors group-hover:text-brand" />
+            <span className="font-serif font-bold text-xl text-ink tracking-tight">Clínica Franco</span>
           </a>
-          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-[#0e4843]/80">
-            <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-[#14b8a6] transition-colors">HOME</a>
-            <a href="/servicos" onClick={(e) => navigateTo('/servicos', e)} className="hover:text-[#14b8a6] transition-colors">SERVIÇOS</a>
-            <a href="/equipe" onClick={(e) => navigateTo('/equipe', e)} className="hover:text-[#14b8a6] transition-colors">SOBRE NÓS</a>
-            <a href="/#faq" onClick={(e) => navigateTo('/', e)} className="hover:text-[#14b8a6] transition-colors">DÚVIDAS</a>
+          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-ink/80">
+            <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-brand transition-colors">HOME</a>
+            <a href="/servicos" onClick={(e) => navigateTo('/servicos', e)} className="hover:text-brand transition-colors">SERVIÇOS</a>
+            <a href="/equipe" onClick={(e) => navigateTo('/equipe', e)} className="hover:text-brand transition-colors">SOBRE NÓS</a>
+            <a href="/#faq" onClick={(e) => navigateTo('/', e)} className="hover:text-brand transition-colors">DÚVIDAS</a>
           </nav>
           <a 
             href={whatsappUrl} 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="bg-[#14b8a6] hover:bg-[#0d9488] text-white text-xs font-bold px-6 py-3 rounded-full shadow-md transition-all"
+            className="bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3 rounded-full shadow-md transition-all"
           >
             CONSULTAR EQUIPE
           </a>
@@ -51,7 +52,7 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
       </header>
 
       {/* Hero Section */}
-      <section className="bg-[#0e4843] text-white py-20 lg:py-28 relative overflow-hidden">
+      <section className="bg-ink text-white py-20 lg:py-28 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5 pointer-events-none">
           <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
         </div>
@@ -73,7 +74,7 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
           <p className="text-xs text-teal-200/50 mb-8 max-w-xl mx-auto">
             Atendimento em Nova Andradina - MS, recebendo também pacientes de Batayporã, Ivinhema, Anaurilândia, Deodápolis, Angélica e Rosana (SP).
           </p>
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#1c5d57] text-[#5eead4] text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-ink-3 text-brand-pale text-xs font-bold uppercase tracking-wider">
             <Icons.HelpCircle className="w-4 h-4 text-teal-300" />
             Guia Educativo ao Paciente
           </div>
@@ -84,8 +85,8 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
       <section className="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-12 items-center">
           <div className="lg:w-1/2 space-y-6">
-            <h2 className="text-3xl font-serif font-bold text-[#0e4843]">O que é a Ultrassonografia (Ultrassom)?</h2>
-            <div className="h-1 w-12 bg-[#14b8a6] rounded-full"></div>
+            <h2 className="text-3xl font-serif font-bold text-ink">O que é a Ultrassonografia (Ultrassom)?</h2>
+            <div className="h-1 w-12 bg-brand rounded-full"></div>
             <p className="text-gray-600 text-sm leading-relaxed">
               O ultrassom é um método de diagnóstico por imagem totalmente seguro, baseado no princípio físico do eco (ondas sonoras de alta frequência). O transdutor emite ondas mecânicas inaudíveis que ricocheteiam nas estruturas internas do corpo e retornam como eco, sendo decodificados em tempo real na tela do médico.
             </p>
@@ -95,28 +96,28 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
             
             <div className="space-y-4 pt-4">
               <div className="flex items-start">
-                <div className="bg-teal-50 p-2 rounded-xl text-[#14b8a6] mr-4 flex-shrink-0">
+                <div className="bg-teal-50 p-2 rounded-xl text-brand mr-4 flex-shrink-0">
                   <Icons.Check className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm text-[#0e4843]">Segurança Absoluta</h4>
+                  <h4 className="font-bold text-sm text-ink">Segurança Absoluta</h4>
                   <p className="text-xs text-gray-500 mt-1">Livre de radiação ionizante, ideal para gestantes, crianças e exames repetitivos.</p>
                 </div>
               </div>
               <div className="flex items-start">
-                <div className="bg-teal-50 p-2 rounded-xl text-[#14b8a6] mr-4 flex-shrink-0">
+                <div className="bg-teal-50 p-2 rounded-xl text-brand mr-4 flex-shrink-0">
                   <Icons.Zap className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm text-[#0e4843]">Avaliação Dinâmica</h4>
+                  <h4 className="font-bold text-sm text-ink">Avaliação Dinâmica</h4>
                   <p className="text-xs text-gray-500 mt-1">Permite examinar movimentos articulares e fluxos de sangue em tempo real (Doppler colorido).</p>
                 </div>
               </div>
             </div>
 
             <div className="bg-teal-50/50 p-6 rounded-2xl border border-teal-500/10 mt-6 text-left">
-              <h4 className="font-bold text-sm text-[#0e4843] flex items-center gap-2">
-                <Icons.BookOpen className="w-4 h-4 text-[#14b8a6]" />
+              <h4 className="font-bold text-sm text-ink flex items-center gap-2">
+                <Icons.BookOpen className="w-4 h-4 text-brand" />
                 Estudo Científico da AMB
               </h4>
               <p className="text-xs text-gray-500 mt-2 leading-relaxed">
@@ -128,7 +129,7 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
                   e.preventDefault();
                   navigateTo('/diretriz-primeiro-trimestre', e);
                 }}
-                className="inline-flex items-center text-xs font-bold text-[#14b8a6] hover:text-[#0d9488] mt-3 gap-1 transition-colors"
+                className="inline-flex items-center text-xs font-bold text-brand hover:text-brand-hover mt-3 gap-1 transition-colors"
               >
                 Ler Resumo da Diretriz
                 <Icons.ArrowRight className="w-3.5 h-3.5" />
@@ -137,7 +138,7 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
           </div>
           
           <div className="lg:w-1/2 relative w-full">
-            <div className="absolute inset-0 bg-[#0e4843] rounded-3xl transform rotate-3 scale-95 opacity-10"></div>
+            <div className="absolute inset-0 bg-ink rounded-3xl transform rotate-3 scale-95 opacity-10"></div>
             <img src="https://picsum.photos/seed/ultrasoundexplain/600/400" alt="Explicando o Ultrassom" className="relative z-10 w-full h-auto object-cover rounded-3xl border border-gray-100 shadow-xl" />
           </div>
         </div>
@@ -147,8 +148,8 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
       <section className="py-20 bg-teal-50/20 border-y border-teal-500/5">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-serif font-bold text-[#0e4843]">Como funcionam os outros exames de imagem?</h2>
-            <div className="h-1 w-16 bg-[#14b8a6] mx-auto mt-4 rounded-full"></div>
+            <h2 className="text-3xl font-serif font-bold text-ink">Como funcionam os outros exames de imagem?</h2>
+            <div className="h-1 w-16 bg-brand mx-auto mt-4 rounded-full"></div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -158,15 +159,15 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
                 <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-600 mb-6">
                   <Icons.Bone className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-bold text-[#0e4843] mb-4">Radiografia (Raio-X)</h3>
+                <h3 className="text-lg font-bold text-ink mb-4">Radiografia (Raio-X)</h3>
                 <p className="text-gray-500 text-sm leading-relaxed mb-6">
                   Usa radiação ionizante em baixa dosagem para atravessar o corpo humano. As estruturas densas (como os ossos) bloqueiam os raios e aparecem em branco em uma chapa bidimensional (2D).
                 </p>
-                <p className="text-xs font-bold text-[#0e4843] mb-4 uppercase tracking-widest text-[#14b8a6]">Indicado para:</p>
+                <p className="text-xs font-bold text-ink mb-4 uppercase tracking-widest text-brand">Indicado para:</p>
                 <ul className="text-xs text-gray-500 space-y-2">
-                  <li className="flex items-center"><Icons.Check className="w-3.5 h-3.5 mr-2 text-[#14b8a6]" /> Fraturas ósseas</li>
-                  <li className="flex items-center"><Icons.Check className="w-3.5 h-3.5 mr-2 text-[#14b8a6]" /> Raio-X de tórax (pulmões)</li>
-                  <li className="flex items-center"><Icons.Check className="w-3.5 h-3.5 mr-2 text-[#14b8a6]" /> Emergências iniciais</li>
+                  <li className="flex items-center"><Icons.Check className="w-3.5 h-3.5 mr-2 text-brand" /> Fraturas ósseas</li>
+                  <li className="flex items-center"><Icons.Check className="w-3.5 h-3.5 mr-2 text-brand" /> Raio-X de tórax (pulmões)</li>
+                  <li className="flex items-center"><Icons.Check className="w-3.5 h-3.5 mr-2 text-brand" /> Emergências iniciais</li>
                 </ul>
               </div>
             </div>
@@ -177,15 +178,15 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
                 <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-600 mb-6">
                   <Icons.ScanFace className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-bold text-[#0e4843] mb-4">Tomografia (TC)</h3>
+                <h3 className="text-lg font-bold text-ink mb-4">Tomografia (TC)</h3>
                 <p className="text-gray-500 text-sm leading-relaxed mb-6">
                   É uma evolução computadorizada e tridimensional do Raio-X. O aparelho gira ao redor do paciente emitindo raios, capturando fatias transversais de altíssima definição das estruturas internas.
                 </p>
-                <p className="text-xs font-bold text-[#0e4843] mb-4 uppercase tracking-widest text-[#14b8a6]">Indicado para:</p>
+                <p className="text-xs font-bold text-ink mb-4 uppercase tracking-widest text-brand">Indicado para:</p>
                 <ul className="text-xs text-gray-500 space-y-2">
-                  <li className="flex items-center"><Icons.Check className="w-3.5 h-3.5 mr-2 text-[#14b8a6]" /> Órgãos internos complexos</li>
-                  <li className="flex items-center"><Icons.Check className="w-3.5 h-3.5 mr-2 text-[#14b8a6]" /> Pesquisa de tumores</li>
-                  <li className="flex items-center"><Icons.Check className="w-3.5 h-3.5 mr-2 text-[#14b8a6]" /> AVCs e traumas graves</li>
+                  <li className="flex items-center"><Icons.Check className="w-3.5 h-3.5 mr-2 text-brand" /> Órgãos internos complexos</li>
+                  <li className="flex items-center"><Icons.Check className="w-3.5 h-3.5 mr-2 text-brand" /> Pesquisa de tumores</li>
+                  <li className="flex items-center"><Icons.Check className="w-3.5 h-3.5 mr-2 text-brand" /> AVCs e traumas graves</li>
                 </ul>
               </div>
             </div>
@@ -196,15 +197,15 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
                 <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-600 mb-6">
                   <Icons.Magnet className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-bold text-[#0e4843] mb-4">Ressonância (RM)</h3>
+                <h3 className="text-lg font-bold text-ink mb-4">Ressonância (RM)</h3>
                 <p className="text-gray-500 text-sm leading-relaxed mb-6">
                   Não usa radiação. Funciona por meio de um campo magnético potente e ondas de radiofrequência que estimulam a resposta de átomos de hidrogênio nos tecidos corporais, gerando imagens tridimensionais riquíssimas.
                 </p>
-                <p className="text-xs font-bold text-[#0e4843] mb-4 uppercase tracking-widest text-[#14b8a6]">Indicado para:</p>
+                <p className="text-xs font-bold text-ink mb-4 uppercase tracking-widest text-brand">Indicado para:</p>
                 <ul className="text-xs text-gray-500 space-y-2">
-                  <li className="flex items-center"><Icons.Check className="w-3.5 h-3.5 mr-2 text-[#14b8a6]" /> Cérebro e medula espinhal</li>
-                  <li className="flex items-center"><Icons.Check className="w-3.5 h-3.5 mr-2 text-[#14b8a6]" /> Tendões, ligamentos e meniscos</li>
-                  <li className="flex items-center"><Icons.Check className="w-3.5 h-3.5 mr-2 text-[#14b8a6]" /> Tecidos de alta profundidade</li>
+                  <li className="flex items-center"><Icons.Check className="w-3.5 h-3.5 mr-2 text-brand" /> Cérebro e medula espinhal</li>
+                  <li className="flex items-center"><Icons.Check className="w-3.5 h-3.5 mr-2 text-brand" /> Tendões, ligamentos e meniscos</li>
+                  <li className="flex items-center"><Icons.Check className="w-3.5 h-3.5 mr-2 text-brand" /> Tecidos de alta profundidade</li>
                 </ul>
               </div>
             </div>
@@ -215,15 +216,15 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
       {/* Tabela Comparativa */}
       <section className="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-serif font-bold text-[#0e4843]">Tabela Comparativa Rápida</h2>
-          <div className="h-1 w-16 bg-[#14b8a6] mx-auto mt-4 rounded-full"></div>
+          <h2 className="text-3xl font-serif font-bold text-ink">Tabela Comparativa Rápida</h2>
+          <div className="h-1 w-16 bg-brand mx-auto mt-4 rounded-full"></div>
           <p className="text-gray-400 text-sm max-w-2xl mx-auto mt-4">Compare as principais características e requisitos de cada tipo de exame.</p>
         </div>
 
         <div className="overflow-x-auto rounded-3xl border border-gray-100 shadow-sm bg-white">
           <table className="w-full text-left border-collapse min-w-[700px]">
             <thead>
-              <tr className="bg-[#0e4843] text-white">
+              <tr className="bg-ink text-white">
                 <th className="p-6 font-semibold text-sm">Característica</th>
                 <th className="p-6 font-semibold text-sm">Ultrassom</th>
                 <th className="p-6 font-semibold text-sm">Radiografia (Raio-X)</th>
@@ -233,35 +234,35 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
             </thead>
             <tbody className="divide-y divide-gray-100 text-xs sm:text-sm text-gray-600">
               <tr>
-                <td className="p-6 font-bold text-[#0e4843] bg-gray-50/50">Radiação Ionizante</td>
+                <td className="p-6 font-bold text-ink bg-gray-50/50">Radiação Ionizante</td>
                 <td className="p-6 text-emerald-600 font-bold flex items-center gap-1.5"><Icons.ShieldCheck className="w-4 h-4" /> Não</td>
                 <td className="p-6 text-rose-500 font-medium">Sim</td>
                 <td className="p-6 text-rose-500 font-medium">Sim (Moderada/Alta)</td>
                 <td className="p-6 text-emerald-600 font-bold flex items-center gap-1.5"><Icons.ShieldCheck className="w-4 h-4" /> Não</td>
               </tr>
               <tr>
-                <td className="p-6 font-bold text-[#0e4843] bg-gray-50/50">Princípio Físico</td>
+                <td className="p-6 font-bold text-ink bg-gray-50/50">Princípio Físico</td>
                 <td className="p-6">Ondas sonoras (ecos)</td>
                 <td className="p-6">Raios-X (2D)</td>
                 <td className="p-6">Raios-X giratórios (3D)</td>
                 <td className="p-6">Magnetismo e Rádio</td>
               </tr>
               <tr>
-                <td className="p-6 font-bold text-[#0e4843] bg-gray-50/50">Duração Média</td>
+                <td className="p-6 font-bold text-ink bg-gray-50/50">Duração Média</td>
                 <td className="p-6">15 a 45 minutos</td>
                 <td className="p-6">5 a 10 minutos</td>
                 <td className="p-6">5 a 15 minutos</td>
                 <td className="p-6">25 a 60 minutos</td>
               </tr>
               <tr>
-                <td className="p-6 font-bold text-[#0e4843] bg-gray-50/50">Principais Focos</td>
+                <td className="p-6 font-bold text-ink bg-gray-50/50">Principais Focos</td>
                 <td className="p-6">Tecidos moles, gravidez, fluxos, músculos</td>
                 <td className="p-6">Ossos, tórax, ar nos pulmões</td>
                 <td className="p-6">Órgãos abdominais, tórax, crânio, emergências</td>
                 <td className="p-6">Cérebro, articulações complexas, coluna</td>
               </tr>
               <tr>
-                <td className="p-6 font-bold text-[#0e4843] bg-gray-50/50">Preparação Comum</td>
+                <td className="p-6 font-bold text-ink bg-gray-50/50">Preparação Comum</td>
                 <td className="p-6">Jejum ou bexiga cheia (variável)</td>
                 <td className="p-6">Nenhuma</td>
                 <td className="p-6">Jejum (se houver contraste)</td>
@@ -274,14 +275,14 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
 
       {/* Dúvidas Frequentes */}
       <section className="py-20 max-w-3xl mx-auto px-4">
-        <h2 className="text-3xl font-serif font-bold text-center text-[#0e4843] mb-4">Dúvidas Frequentes</h2>
-        <div className="h-1 w-12 bg-[#14b8a6] mx-auto mb-12 rounded-full"></div>
+        <h2 className="text-3xl font-serif font-bold text-center text-ink mb-4">Dúvidas Frequentes</h2>
+        <div className="h-1 w-12 bg-brand mx-auto mb-12 rounded-full"></div>
         
         <div className="space-y-4">
-          <details className="group bg-white rounded-2xl border border-gray-100 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm hover:border-[#14b8a6]/20 transition-all">
-            <summary className="flex justify-between items-center text-sm font-bold text-[#0e4843]">
+          <details className="group bg-white rounded-2xl border border-gray-100 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm hover:border-brand/20 transition-all">
+            <summary className="flex justify-between items-center text-sm font-bold text-ink">
               <span>Qual é o exame de imagem mais seguro e inofensivo?</span>
-              <span className="transition group-open:rotate-180 text-[#14b8a6]">
+              <span className="transition group-open:rotate-180 text-brand">
                 <Icons.ChevronDown className="w-5 h-5" />
               </span>
             </summary>
@@ -290,10 +291,10 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
             </p>
           </details>
 
-          <details className="group bg-white rounded-2xl border border-gray-100 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm hover:border-[#14b8a6]/20 transition-all">
-            <summary className="flex justify-between items-center text-sm font-bold text-[#0e4843]">
+          <details className="group bg-white rounded-2xl border border-gray-100 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm hover:border-brand/20 transition-all">
+            <summary className="flex justify-between items-center text-sm font-bold text-ink">
               <span>Gestantes podem fazer raio-X ou tomografia?</span>
-              <span className="transition group-open:rotate-180 text-[#14b8a6]">
+              <span className="transition group-open:rotate-180 text-brand">
                 <Icons.ChevronDown className="w-5 h-5" />
               </span>
             </summary>
@@ -302,10 +303,10 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
             </p>
           </details>
 
-          <details className="group bg-white rounded-2xl border border-gray-100 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm hover:border-[#14b8a6]/20 transition-all">
-            <summary className="flex justify-between items-center text-sm font-bold text-[#0e4843]">
+          <details className="group bg-white rounded-2xl border border-gray-100 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm hover:border-brand/20 transition-all">
+            <summary className="flex justify-between items-center text-sm font-bold text-ink">
               <span>Por que meu médico pediu tomografia se eu já tinha feito ultrassom?</span>
-              <span className="transition group-open:rotate-180 text-[#14b8a6]">
+              <span className="transition group-open:rotate-180 text-brand">
                 <Icons.ChevronDown className="w-5 h-5" />
               </span>
             </summary>
@@ -317,7 +318,7 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#0e4843] text-white pt-16 pb-12 border-t border-teal-500/10 mt-auto">
+      <footer className="bg-ink text-white pt-16 pb-12 border-t border-teal-500/10 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-12 text-left mb-12">
           <div>
             <h3 className="font-serif font-bold text-xl mb-6">Clínica Franco</h3>
@@ -333,15 +334,15 @@ const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo })
           <div>
             <h3 className="font-bold text-sm tracking-widest uppercase mb-6">Principais Exames</h3>
             <ul className="space-y-3.5 text-xs text-teal-50/70">
-              <li><a href="/exame/obstetrico_doppler" onClick={(e) => navigateTo('/exame/obstetrico_doppler', e)} className="hover:text-[#14b8a6] transition-colors">Obstétrico com Doppler</a></li>
-              <li><a href="/exame/ecofetal" onClick={(e) => navigateTo('/exame/ecofetal', e)} className="hover:text-[#14b8a6] transition-colors">Ecocardiograma Fetal</a></li>
-              <li><a href="/exame/morfologico1" onClick={(e) => navigateTo('/exame/morfologico1', e)} className="hover:text-[#14b8a6] transition-colors">Morfológico de 1º Trimestre</a></li>
-              <li><a href="/exame/morfologico2" onClick={(e) => navigateTo('/exame/morfologico2', e)} className="hover:text-[#14b8a6] transition-colors">Morfológico de 2º Trimestre</a></li>
+              <li><a href="/exame/obstetrico_doppler" onClick={(e) => navigateTo('/exame/obstetrico_doppler', e)} className="hover:text-brand transition-colors">Obstétrico com Doppler</a></li>
+              <li><a href="/exame/ecofetal" onClick={(e) => navigateTo('/exame/ecofetal', e)} className="hover:text-brand transition-colors">Ecocardiograma Fetal</a></li>
+              <li><a href="/exame/morfologico1" onClick={(e) => navigateTo('/exame/morfologico1', e)} className="hover:text-brand transition-colors">Morfológico de 1º Trimestre</a></li>
+              <li><a href="/exame/morfologico2" onClick={(e) => navigateTo('/exame/morfologico2', e)} className="hover:text-brand transition-colors">Morfológico de 2º Trimestre</a></li>
             </ul>
           </div>
           <div>
             <h3 className="font-bold text-sm tracking-widest uppercase mb-6">Canais de Contato</h3>
-            <p className="text-[#14b8a6] font-extrabold text-lg mb-2">
+            <p className="text-brand-light font-extrabold text-lg mb-2">
               <a href="https://wa.me/5567998446674" target="_blank" rel="noopener noreferrer" className="hover:text-teal-300 transition-colors">
                 +55 67 99844-6674
               </a>

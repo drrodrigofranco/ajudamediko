@@ -16,8 +16,8 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex justify-between items-center p-5 text-left hover:bg-gray-50 transition-colors"
       >
-        <span className="font-semibold text-[#0e4843] text-sm md:text-base">{question}</span>
-        {isOpen ? <ChevronUp className="text-[#14b8a6] w-5 h-5" /> : <ChevronDown className="text-gray-300 w-5 h-5" />}
+        <span className="font-semibold text-ink text-sm md:text-base">{question}</span>
+        {isOpen ? <ChevronUp className="text-brand w-5 h-5" /> : <ChevronDown className="text-gray-300 w-5 h-5" />}
       </button>
       {isOpen && (
         <div className="p-5 pt-0 text-gray-500 text-sm leading-relaxed border-t border-gray-50 mt-2 animate-fade-in">
@@ -79,7 +79,7 @@ const FAQ: React.FC = () => {
 
   return (
     <section id="duvidas" className="py-24 bg-white max-w-4xl mx-auto px-4 scroll-mt-24">
-      <h2 className="text-4xl font-serif font-bold text-[#0e4843] text-center mb-16 underline decoration-[#14b8a6] underline-offset-8 decoration-2">Dúvidas Frequentes</h2>
+      <h2 className="text-4xl font-serif font-bold text-ink text-center mb-16 underline decoration-brand underline-offset-8 decoration-2">Dúvidas Frequentes</h2>
       {homeFaqs.map((faq, i) => (
         <FAQItem key={i} question={faq.question} answer={faq.answer} />
       ))}
