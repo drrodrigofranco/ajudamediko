@@ -107,13 +107,13 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ navigateTo }) => {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 font-sans text-gray-800 antialiased">
       {/* Header Nav */}
-      <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
+      <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <a href="/" onClick={(e) => navigateTo('/', e)} className="flex items-center gap-2 group">
             <LogoMark className="h-9 w-auto text-ink transition-colors group-hover:text-brand" />
             <span className="font-serif font-semibold text-xl text-ink tracking-tight">Clínica Franco</span>
           </a>
-          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-ink/80">
+          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wide text-ink/80">
             <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-brand transition-colors">HOME</a>
             <a href="/equipe" onClick={(e) => navigateTo('/equipe', e)} className="hover:text-brand transition-colors">EQUIPE</a>
             <a href="/servicos" onClick={(e) => navigateTo('/servicos', e)} className="hover:text-brand transition-colors">SERVIÇOS</a>
@@ -122,7 +122,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ navigateTo }) => {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3 rounded-full shadow-md transition-all"
+            className="bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3 rounded-full transition-all"
           >
             AGENDAR AGORA
           </a>
@@ -131,14 +131,11 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ navigateTo }) => {
 
       {/* Hero Section */}
       <section className="bg-ink text-white py-20 lg:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5 pointer-events-none">
-          <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
-        </div>
         <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
           <a
             href="/"
             onClick={(e) => navigateTo('/', e)}
-            className="inline-flex items-center text-teal-300 text-xs font-bold tracking-widest uppercase mb-6 hover:text-teal-400 transition-colors"
+            className="inline-flex items-center text-teal-300 text-xs font-bold tracking-wide mb-6 hover:text-teal-400 transition-colors"
           >
             <Icons.ArrowLeft className="w-4 h-4 mr-2" />
             Voltar para a Home
@@ -156,15 +153,14 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ navigateTo }) => {
       <section className="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-serif font-semibold text-ink mb-4">Consultas e Atendimentos em Nova Andradina - MS</h2>
-          <div className="h-1 w-16 bg-brand mx-auto rounded-full"></div>
         </div>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-x-16 gap-y-12">
           {consultationServices.map((service) => {
             const ServiceIcon = Icons[service.icon] as Icons.LucideIcon;
             return (
-              <div key={service.title} className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col items-start text-left hover:shadow-xl transition-all group">
-                <div className="bg-brand-tint p-5 rounded-2xl mb-8 group-hover:bg-brand group-hover:text-white transition-all duration-300">
-                  <ServiceIcon className="w-8 h-8" />
+              <div key={service.title} className="border-t border-gray-300 pt-7 pb-2 flex flex-col items-start text-left group">
+                <div className="text-brand mb-4">
+                  <ServiceIcon className="w-7 h-7" />
                 </div>
                 <h3 className="text-xl font-bold text-ink mb-4">{service.title}</h3>
                 <p className="text-gray-500 text-sm mb-8 leading-relaxed">
@@ -177,7 +173,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ navigateTo }) => {
                         key={link.href}
                         href={link.href}
                         onClick={(e) => { e.preventDefault(); navigateTo(link.href, e); }}
-                        className="flex items-center text-white bg-brand-hover text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-brand-hover transition-all"
+                        className="flex items-center text-white bg-brand text-xs font-semibold px-4 py-2 rounded-md hover:bg-brand-hover transition-colors"
                       >
                         {link.label}
                       </a>
@@ -204,12 +200,12 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ navigateTo }) => {
               key={exam.id}
               href={`/exame/${exam.id}`}
               onClick={(e) => goToExam(exam.id, e)}
-              className="bg-white p-4 sm:p-8 rounded-2xl border border-gray-50 shadow-sm flex flex-col items-center text-center hover:border-brand/30 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group cursor-pointer"
+              className="bg-white p-4 sm:p-8 rounded-lg border border-gray-50 flex flex-col items-center text-center hover:border-brand/30 transition-all duration-300 group cursor-pointer"
             >
               <div className="text-brand mb-4 group-hover:scale-110 transition-transform"><exam.Icon size={28} /></div>
               <h3 className="font-bold text-gray-800 text-sm mb-1">{exam.name}</h3>
               <p className="text-[10px] text-gray-500 font-medium mb-3">{exam.desc}</p>
-              <span className="text-[9px] font-bold text-brand opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-widest">Saiba Mais</span>
+              <span className="text-[9px] font-bold text-brand opacity-0 group-hover:opacity-100 transition-opacity tracking-wide">Saiba Mais</span>
             </a>
           ))}
         </div>
@@ -229,7 +225,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ navigateTo }) => {
             </a>
           </div>
           <div>
-            <h3 className="font-bold text-sm tracking-widest uppercase mb-6">Nossa Equipe</h3>
+            <h3 className="font-bold text-sm tracking-wide mb-6">Nossa Equipe</h3>
             <ul className="space-y-3.5 text-xs text-teal-50/70">
               {doctorsData.map(d => (
                 <li key={d.id}>
@@ -239,7 +235,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ navigateTo }) => {
             </ul>
           </div>
           <div>
-            <h3 className="font-bold text-sm tracking-widest uppercase mb-6">Canais de Contato</h3>
+            <h3 className="font-bold text-sm tracking-wide mb-6">Canais de Contato</h3>
             <p className="text-brand-light font-extrabold text-lg mb-2">
               <a href="https://wa.me/5567998446674" target="_blank" rel="noopener noreferrer" className="hover:text-teal-300 transition-colors">
                 +55 67 99844-6674

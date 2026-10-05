@@ -30,7 +30,7 @@ const HealthNewsWidget: React.FC<HealthNewsWidgetProps> = ({ navigateTo }) => {
     const [newsList] = useState<HealthNews[]>(fixedNews);
 
     return (
-        <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-teal-100">
+        <div className="bg-white rounded-lg overflow-hidden border border-teal-100">
             <div className="bg-teal-800 p-6 text-white flex items-center justify-between">
                 <div>
                     <h3 className="text-xl font-serif font-semibold">Artigos da Clínica Franco</h3>
@@ -101,7 +101,7 @@ const HealthNewsWidget: React.FC<HealthNewsWidgetProps> = ({ navigateTo }) => {
                     ))}
                 </div>
             </div>
-             <div className="bg-gray-50 p-4 text-center border-t border-gray-100 text-xs text-gray-500">
+             <div className="bg-gray-50 p-4 text-center border-t border-gray-200 text-xs text-gray-500">
                 Fontes obtidas via busca de referências públicas
             </div>
         </div>

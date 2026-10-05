@@ -38,13 +38,13 @@ const TeamPage: React.FC<TeamPageProps> = ({ navigateTo }) => {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 font-sans text-gray-800 antialiased">
       {/* Header Nav */}
-      <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
+      <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <a href="/" onClick={(e) => navigateTo('/', e)} className="flex items-center gap-2 group">
             <LogoMark className="h-9 w-auto text-ink transition-colors group-hover:text-brand" />
             <span className="font-serif font-semibold text-xl text-ink tracking-tight">Clínica Franco</span>
           </a>
-          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-ink/80">
+          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wide text-ink/80">
             <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-brand transition-colors">HOME</a>
             <a href="/equipe" onClick={(e) => navigateTo('/equipe', e)} className="hover:text-brand transition-colors">EQUIPE</a>
             <a href="/servicos" onClick={(e) => navigateTo('/servicos', e)} className="hover:text-brand transition-colors">SERVIÇOS</a>
@@ -53,7 +53,7 @@ const TeamPage: React.FC<TeamPageProps> = ({ navigateTo }) => {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3 rounded-full shadow-md transition-all"
+            className="bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3 rounded-full transition-all"
           >
             AGENDAR AGORA
           </a>
@@ -62,14 +62,11 @@ const TeamPage: React.FC<TeamPageProps> = ({ navigateTo }) => {
 
       {/* Hero Section */}
       <section className="bg-ink text-white py-20 lg:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5 pointer-events-none">
-          <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
-        </div>
         <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
           <a
             href="/"
             onClick={(e) => navigateTo('/', e)}
-            className="inline-flex items-center text-teal-300 text-xs font-bold tracking-widest uppercase mb-6 hover:text-teal-400 transition-colors"
+            className="inline-flex items-center text-teal-300 text-xs font-bold tracking-wide mb-6 hover:text-teal-400 transition-colors"
           >
             <Icons.ArrowLeft className="w-4 h-4 mr-2" />
             Voltar para a Home
@@ -89,9 +86,9 @@ const TeamPage: React.FC<TeamPageProps> = ({ navigateTo }) => {
           {doctorsData.map((doctor) => {
             const BadgeIcon = BADGE_ICONS[doctor.iconName];
             return (
-              <article key={doctor.id} className="bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-6 md:p-8 flex flex-col items-center text-center">
+              <article key={doctor.id} className="bg-white rounded-lg border border-gray-200 transition-shadow p-6 md:p-8 flex flex-col items-center text-center">
                 <div className="relative mb-6">
-                  <div className="w-32 h-32 md:w-36 md:h-36 rounded-3xl overflow-hidden shadow-lg border-4 border-white">
+                  <div className="w-32 h-32 md:w-36 md:h-36 rounded-lg overflow-hidden border-4 border-white">
                     <img
                       src={doctor.photo}
                       alt={`${doctor.name} - ${doctor.specialtyLabel} - ${doctor.crm}`}
@@ -102,13 +99,13 @@ const TeamPage: React.FC<TeamPageProps> = ({ navigateTo }) => {
                       loading="lazy"
                     />
                   </div>
-                  <div className="absolute -bottom-3 -right-3 bg-brand text-white p-2.5 rounded-xl shadow-lg">
+                  <div className="absolute -bottom-3 -right-3 bg-brand text-white p-2.5 rounded-xl">
                     <BadgeIcon size={20} />
                   </div>
                 </div>
                 <h2 className="text-xl font-serif font-semibold text-ink mb-1">{doctor.name}</h2>
-                <p className="text-brand-hover font-bold uppercase tracking-widest text-xs mb-1">{doctor.crm}</p>
-                <p className="text-gray-400 text-xs font-semibold uppercase tracking-wide mb-4">{doctor.specialtyLabel}</p>
+                <p className="text-brand-hover font-bold tracking-wide text-xs mb-1">{doctor.crm}</p>
+                <p className="text-gray-400 text-xs font-semibold tracking-wide mb-4">{doctor.specialtyLabel}</p>
                 <p className="text-gray-500 text-sm leading-relaxed mb-6">
                   {doctor.shortBio}
                 </p>
@@ -140,7 +137,7 @@ const TeamPage: React.FC<TeamPageProps> = ({ navigateTo }) => {
             </a>
           </div>
           <div>
-            <h3 className="font-bold text-sm tracking-widest uppercase mb-6">Nossa Equipe</h3>
+            <h3 className="font-bold text-sm tracking-wide mb-6">Nossa Equipe</h3>
             <ul className="space-y-3.5 text-xs text-teal-50/70">
               {doctorsData.map(d => (
                 <li key={d.id}>
@@ -150,7 +147,7 @@ const TeamPage: React.FC<TeamPageProps> = ({ navigateTo }) => {
             </ul>
           </div>
           <div>
-            <h3 className="font-bold text-sm tracking-widest uppercase mb-6">Canais de Contato</h3>
+            <h3 className="font-bold text-sm tracking-wide mb-6">Canais de Contato</h3>
             <p className="text-brand-light font-extrabold text-lg mb-2">
               <a href="https://wa.me/5567998446674" target="_blank" rel="noopener noreferrer" className="hover:text-teal-300 transition-colors">
                 +55 67 99844-6674

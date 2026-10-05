@@ -198,13 +198,13 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 font-sans text-gray-800 antialiased">
       {/* Header Nav */}
-      <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
+      <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <a href="/" onClick={(e) => navigateTo('/', e)} className="flex items-center gap-2 group">
             <LogoMark className="h-9 w-auto text-ink transition-colors group-hover:text-brand" />
             <span className="font-serif font-semibold text-xl text-ink tracking-tight">Clínica Franco</span>
           </a>
-          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-ink/80">
+          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wide text-ink/80">
             <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-brand transition-colors">HOME</a>
             <a href="/servicos" onClick={(e) => navigateTo('/servicos', e)} className="hover:text-brand transition-colors">EXAMES</a>
             <a href="/entenda-exames" onClick={(e) => navigateTo('/entenda-exames', e)} className="hover:text-brand transition-colors">COMPARATIVO</a>
@@ -214,7 +214,7 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
             href={whatsappUrl} 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3 rounded-full shadow-md transition-all"
+            className="bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3 rounded-full transition-all"
           >
             AGENDAR AGORA
           </a>
@@ -223,14 +223,11 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
 
       {/* Hero Section */}
       <section className="bg-ink text-white py-20 lg:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5 pointer-events-none">
-          <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
-        </div>
         <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
           <a 
             href="/" 
             onClick={(e) => navigateTo('/', e)}
-            className="inline-flex items-center text-teal-300 text-xs font-bold tracking-widest uppercase mb-6 hover:text-teal-400 transition-colors"
+            className="inline-flex items-center text-teal-300 text-xs font-bold tracking-wide mb-6 hover:text-teal-400 transition-colors"
           >
             <Icons.ArrowLeft className="w-4 h-4 mr-2" />
             Voltar para a Home
@@ -249,21 +246,21 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
           <div className="flex flex-wrap justify-center gap-3 mt-4">
             <button 
               onClick={() => setActiveTrim(1)}
-              className={`px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all shadow-sm flex items-center gap-2 ${activeTrim === 1 ? 'bg-brand text-white' : 'bg-ink-2 text-teal-100 hover:bg-ink-4'}`}
+              className={`px-6 py-3 rounded-full text-xs font-bold tracking-wide transition-all flex items-center gap-2 ${activeTrim === 1 ? 'bg-brand text-white' : 'bg-ink-2 text-teal-100 hover:bg-ink-4'}`}
             >
               <Icons.Sparkles className="w-4 h-4" />
               1º Trimestre
             </button>
             <button 
               onClick={() => setActiveTrim(2)}
-              className={`px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all shadow-sm flex items-center gap-2 ${activeTrim === 2 ? 'bg-brand text-white' : 'bg-ink-2 text-teal-100 hover:bg-ink-4'}`}
+              className={`px-6 py-3 rounded-full text-xs font-bold tracking-wide transition-all flex items-center gap-2 ${activeTrim === 2 ? 'bg-brand text-white' : 'bg-ink-2 text-teal-100 hover:bg-ink-4'}`}
             >
               <Icons.Heart className="w-4 h-4" />
               2º Trimestre
             </button>
             <button 
               onClick={() => setActiveTrim(3)}
-              className={`px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all shadow-sm flex items-center gap-2 ${activeTrim === 3 ? 'bg-brand text-white' : 'bg-ink-2 text-teal-100 hover:bg-ink-4'}`}
+              className={`px-6 py-3 rounded-full text-xs font-bold tracking-wide transition-all flex items-center gap-2 ${activeTrim === 3 ? 'bg-brand text-white' : 'bg-ink-2 text-teal-100 hover:bg-ink-4'}`}
             >
               <Icons.Baby className="w-4 h-4" />
               3º Trimestre
@@ -274,17 +271,16 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
 
       {/* Trimester Content Details */}
       <section className="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl border border-gray-100 shadow-md p-8 lg:p-12 text-left">
+        <div className="bg-white rounded-lg border border-gray-200 p-8 lg:p-12 text-left">
           <div className="mb-8">
-            <span className="text-brand font-bold text-xs uppercase tracking-widest">Acompanhamento Gestacional</span>
+            <span className="text-brand font-bold text-xs tracking-wide">Acompanhamento Gestacional</span>
             <h2 className="text-3xl font-serif font-semibold text-ink mt-2">{activeData.title}</h2>
             <p className="text-gray-500 text-sm mt-2">{activeData.focus}</p>
-            <div className="h-1 w-12 bg-brand mt-4 rounded-full"></div>
           </div>
           
           <div className="grid md:grid-cols-2 gap-8">
             {activeData.tips.map((tip, idx) => (
-              <div key={idx} className="bg-gray-50 p-6 rounded-2xl border border-gray-100/50 hover:border-brand/20 transition-all flex flex-col justify-between">
+              <div key={idx} className="bg-gray-50 p-6 rounded-lg border border-gray-200/50 hover:border-brand/20 transition-all flex flex-col justify-between">
                 <div>
                   <h4 className="font-bold text-base text-ink flex items-center gap-2">
                     <span className="w-6 h-6 rounded-full bg-teal-100 text-brand flex items-center justify-center text-xs font-black">{idx + 1}</span>
@@ -302,14 +298,14 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
       <section className="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Col 1: Calculadora de Idade Gestacional */}
-          <div className="bg-white rounded-3xl border border-gray-100 shadow-md p-8 sm:p-10 flex flex-col justify-between">
+          <div className="bg-white rounded-lg border border-gray-200 p-8 sm:p-10 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <div className="bg-teal-50 p-2.5 rounded-xl text-brand">
                   <Icons.Calculator className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-brand font-bold text-xs uppercase tracking-widest">Ferramentas Úteis</span>
+                  <span className="text-brand font-bold text-xs tracking-wide">Ferramentas Úteis</span>
                   <h3 className="text-2xl font-serif font-semibold text-ink">Calculadora Gestacional</h3>
                 </div>
               </div>
@@ -320,18 +316,18 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
 
               <div className="space-y-4">
                 <div>
-                  <label htmlFor="pg-dum-date" className="text-[10px] font-bold text-gray-400 uppercase mb-2 block tracking-widest">Data da Última Menstruação (DUM)</label>
+                  <label htmlFor="pg-dum-date" className="text-[10px] font-bold text-gray-400 mb-2 block tracking-wide">Data da Última Menstruação (DUM)</label>
                   <input
                     id="pg-dum-date"
                     type="date"
                     value={dum}
                     onChange={(e) => setDum(e.target.value)}
-                    className="w-full bg-gray-50 border border-gray-100 p-4 rounded-xl outline-none focus:ring-2 focus:ring-brand/20 transition-all text-sm font-semibold"
+                    className="w-full bg-gray-50 border border-gray-200 p-4 rounded-xl outline-none focus:ring-2 focus:ring-brand/20 transition-all text-sm font-semibold"
                   />
                 </div>
 
                 {calculationStatus === 'success' && (
-                  <div className="bg-teal-50/50 border border-teal-500/10 p-5 rounded-2xl space-y-4 mt-6">
+                  <div className="bg-teal-50/50 border border-teal-500/10 p-5 rounded-lg space-y-4 mt-6">
                     <div className="flex justify-between items-center text-xs border-b border-teal-500/5 pb-2">
                       <span className="text-gray-500">Idade Gestacional Atual:</span>
                       <strong className="text-ink text-sm">{gestationalAgeText}</strong>
@@ -342,7 +338,7 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
                     </div>
                     <div className="flex justify-between items-center text-xs border-b border-teal-500/5 pb-2">
                       <span className="text-gray-500">Trimestre Atual:</span>
-                      <span className="px-2.5 py-0.5 rounded-full bg-brand text-white font-bold text-[9px] uppercase tracking-wider">{currentTrimester}</span>
+                      <span className="px-2.5 py-0.5 rounded-full bg-brand text-white font-bold text-[9px] tracking-wide">{currentTrimester}</span>
                     </div>
                     <div className="flex justify-between items-center text-xs pb-1">
                       <span className="text-gray-500">Tempo de Espera Restante:</span>
@@ -360,12 +356,12 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
             </div>
             
             {calculationStatus === 'success' && (
-              <div className="mt-6 pt-6 border-t border-gray-100">
+              <div className="mt-6 pt-6 border-t border-gray-200">
                 <a 
                   href={whatsappUrl} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brand-hover text-white text-xs font-bold py-3.5 rounded-xl transition-all shadow-sm"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brand-hover text-white text-xs font-bold py-3.5 rounded-xl transition-all"
                 >
                   <Icons.Calendar className="w-4 h-4" />
                   Agendar exames para {gestationalAgeText}
@@ -375,14 +371,14 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
           </div>
 
           {/* Col 2: Conversor e Tabela */}
-          <div className="bg-white rounded-3xl border border-gray-100 shadow-md p-8 sm:p-10 flex flex-col justify-between">
+          <div className="bg-white rounded-lg border border-gray-200 p-8 sm:p-10 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <div className="bg-teal-50 p-2.5 rounded-xl text-brand">
                   <Icons.RefreshCw className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-brand font-bold text-xs uppercase tracking-widest">Conversor Rápido</span>
+                  <span className="text-brand font-bold text-xs tracking-wide">Conversor Rápido</span>
                   <h3 className="text-2xl font-serif font-semibold text-ink">Meses e Semanas</h3>
                 </div>
               </div>
@@ -393,7 +389,7 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
 
               <div className="grid sm:grid-cols-2 gap-6 mb-6">
                 <div className="space-y-2">
-                  <label htmlFor="pg-weeks-to-months" className="text-[10px] font-bold text-gray-400 uppercase block tracking-widest">Semanas em Meses</label>
+                  <label htmlFor="pg-weeks-to-months" className="text-[10px] font-bold text-gray-400 block tracking-wide">Semanas em Meses</label>
                   <input
                     id="pg-weeks-to-months"
                     type="number"
@@ -405,18 +401,18 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
                       setWeeksInput(e.target.value);
                       setMonthsInput('');
                     }}
-                    className="w-full bg-gray-50 border border-gray-100 p-3.5 rounded-xl outline-none focus:ring-2 focus:ring-brand/20 transition-all text-sm font-semibold"
+                    className="w-full bg-gray-50 border border-gray-200 p-3.5 rounded-xl outline-none focus:ring-2 focus:ring-brand/20 transition-all text-sm font-semibold"
                   />
                   {weeksInput && (
                     <div className="p-3 bg-teal-50/50 rounded-xl text-left border border-teal-500/5">
-                      <p className="text-[10px] font-bold text-teal-800 uppercase tracking-widest">Resultado aproximado</p>
+                      <p className="text-[10px] font-bold text-teal-800 tracking-wide">Resultado aproximado</p>
                       <p className="text-xs text-gray-700 font-bold mt-1">{weeksToMonthsResult}</p>
                     </div>
                   )}
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="pg-months-to-weeks" className="text-[10px] font-bold text-gray-400 uppercase block tracking-widest">Mês em Semanas</label>
+                  <label htmlFor="pg-months-to-weeks" className="text-[10px] font-bold text-gray-400 block tracking-wide">Mês em Semanas</label>
                   <input
                     id="pg-months-to-weeks"
                     type="number"
@@ -428,11 +424,11 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
                       setMonthsInput(e.target.value);
                       setWeeksInput('');
                     }}
-                    className="w-full bg-gray-50 border border-gray-100 p-3.5 rounded-xl outline-none focus:ring-2 focus:ring-brand/20 transition-all text-sm font-semibold"
+                    className="w-full bg-gray-50 border border-gray-200 p-3.5 rounded-xl outline-none focus:ring-2 focus:ring-brand/20 transition-all text-sm font-semibold"
                   />
                   {monthsInput && (
                     <div className="p-3 bg-teal-50/50 rounded-xl text-left border border-teal-500/5">
-                      <p className="text-[10px] font-bold text-teal-800 uppercase tracking-widest">Resultado aproximado</p>
+                      <p className="text-[10px] font-bold text-teal-800 tracking-wide">Resultado aproximado</p>
                       <p className="text-xs text-gray-700 font-bold mt-1">{monthsToWeeksResult}</p>
                     </div>
                   )}
@@ -440,12 +436,12 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
               </div>
 
               {/* Tabela estática de equivalência */}
-              <div className="bg-gray-50 rounded-2xl p-5 border border-gray-100 text-xs">
-                <h4 className="font-bold text-ink mb-3 text-center uppercase tracking-wider text-[10px]">Tabela de Correspondência Médica</h4>
+              <div className="bg-gray-50 rounded-lg p-5 border border-gray-200 text-xs">
+                <h4 className="font-bold text-ink mb-3 text-center tracking-wide text-[10px]">Tabela de Correspondência Médica</h4>
                 <div className="grid grid-cols-3 gap-2 text-center text-[10px] font-semibold text-gray-500">
-                  <div className="bg-white p-2 rounded border border-gray-100">1º a 3º Mês<br/><span className="text-ink font-bold">1 a 12 semanas</span></div>
-                  <div className="bg-white p-2 rounded border border-gray-100">4º a 6º Mês<br/><span className="text-ink font-bold">13 a 24 semanas</span></div>
-                  <div className="bg-white p-2 rounded border border-gray-100">7º a 9º Mês<br/><span className="text-ink font-bold">25 a 40 semanas</span></div>
+                  <div className="bg-white p-2 rounded border border-gray-200">1º a 3º Mês<br/><span className="text-ink font-bold">1 a 12 semanas</span></div>
+                  <div className="bg-white p-2 rounded border border-gray-200">4º a 6º Mês<br/><span className="text-ink font-bold">13 a 24 semanas</span></div>
+                  <div className="bg-white p-2 rounded border border-gray-200">7º a 9º Mês<br/><span className="text-ink font-bold">25 a 40 semanas</span></div>
                 </div>
               </div>
             </div>
@@ -454,18 +450,17 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
       </section>
 
       {/* General Golden Tips section */}
-      <section className="py-20 bg-white border-y border-gray-100 text-left">
+      <section className="py-20 bg-white border-y border-gray-200 text-left">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-serif font-semibold text-ink mb-4">Dicas de Ouro para a Saúde da Mãe e do Bebê</h2>
-            <div className="h-1 w-16 bg-brand mx-auto mb-8 rounded-full"></div>
             <p className="text-gray-500 text-sm max-w-2xl mx-auto text-center leading-relaxed">
               Conselhos fundamentais recomendados por médicos obstetras para garantir bem-estar e segurança nos 9 meses de gestação.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="p-6 bg-gray-50 rounded-2xl border border-gray-100 flex flex-col items-start">
+            <div className="p-6 bg-gray-50 rounded-lg border border-gray-200 flex flex-col items-start">
               <div className="bg-teal-50 p-3 rounded-xl text-brand mb-6">
                 <Icons.Apple className="w-6 h-6" />
               </div>
@@ -475,7 +470,7 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
               </p>
             </div>
 
-            <div className="p-6 bg-gray-50 rounded-2xl border border-gray-100 flex flex-col items-start">
+            <div className="p-6 bg-gray-50 rounded-lg border border-gray-200 flex flex-col items-start">
               <div className="bg-teal-50 p-3 rounded-xl text-brand mb-6">
                 <Icons.Moon className="w-6 h-6" />
               </div>
@@ -485,7 +480,7 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
               </p>
             </div>
 
-            <div className="p-6 bg-gray-50 rounded-2xl border border-gray-100 flex flex-col items-start">
+            <div className="p-6 bg-gray-50 rounded-lg border border-gray-200 flex flex-col items-start">
               <div className="bg-teal-50 p-3 rounded-xl text-brand mb-6">
                 <Icons.ShieldAlert className="w-6 h-6" />
               </div>
@@ -495,7 +490,7 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
               </p>
             </div>
 
-            <div className="p-6 bg-gray-50 rounded-2xl border border-gray-100 flex flex-col items-start">
+            <div className="p-6 bg-gray-50 rounded-lg border border-gray-200 flex flex-col items-start">
               <div className="bg-teal-50 p-3 rounded-xl text-brand mb-6">
                 <Icons.Syringe className="w-6 h-6" />
               </div>
@@ -512,17 +507,16 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
       <section className="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-serif font-semibold text-ink mb-4">Cronograma de Exames Recomendados</h2>
-          <div className="h-1 w-16 bg-brand mx-auto mb-8 rounded-full"></div>
           <p className="text-gray-500 text-sm max-w-2xl mx-auto">
             Acompanhe o cronograma padrão para realizar cada ultrassom gestacional no tempo correto recomendado pelas sociedades médicas.
           </p>
         </div>
 
-        <div className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
+        <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-ink text-white text-xs font-bold uppercase tracking-wider">
+                <tr className="bg-ink text-white text-xs font-bold tracking-wide">
                   <th className="p-5">Idade Gestacional</th>
                   <th className="p-5">Nome do Exame</th>
                   <th className="p-5">Objetivo Principal</th>
@@ -534,31 +528,31 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
                   <td className="p-5 font-bold">6ª a 9ª semana</td>
                   <td className="p-5 font-bold text-ink">Ultrassom Obstétrico Inicial</td>
                   <td className="p-5">Confirmar gravidez no útero, ouvir batimentos cardíacos e datar a gravidez.</td>
-                  <td className="p-5"><span className="px-2.5 py-1 rounded-full bg-teal-50 text-brand font-bold text-[9px] uppercase">Recomendado</span></td>
+                  <td className="p-5"><span className="px-2.5 py-1 rounded-full bg-teal-50 text-brand font-bold text-[9px]">Recomendado</span></td>
                 </tr>
                 <tr className="hover:bg-gray-50/50 transition-colors">
                   <td className="p-5 font-bold">11ª a 13ª semana e 6 dias</td>
                   <td className="p-5 font-bold text-ink">Ultrassom Morfológico de 1º Trimestre</td>
                   <td className="p-5">Medir a Translucência Nucal, osso nasal e rastrear risco de síndromes cromossômicas.</td>
-                  <td className="p-5"><span className="px-2.5 py-1 rounded-full bg-teal-50 text-brand font-bold text-[9px] uppercase">Essencial</span></td>
+                  <td className="p-5"><span className="px-2.5 py-1 rounded-full bg-teal-50 text-brand font-bold text-[9px]">Essencial</span></td>
                 </tr>
                 <tr className="hover:bg-gray-50/50 transition-colors">
                   <td className="p-5 font-bold">A partir da 20ª semana</td>
                   <td className="p-5 font-bold text-ink">Ecocardiograma Fetal</td>
                   <td className="p-5">Avaliação cardiológica minuciosa do coração do bebê para prevenção de cardiopatias.</td>
-                  <td className="p-5"><span className="px-2.5 py-1 rounded-full bg-teal-50 text-brand font-bold text-[9px] uppercase">Recomendado</span></td>
+                  <td className="p-5"><span className="px-2.5 py-1 rounded-full bg-teal-50 text-brand font-bold text-[9px]">Recomendado</span></td>
                 </tr>
                 <tr className="hover:bg-gray-50/50 transition-colors">
                   <td className="p-5 font-bold">20ª a 24ª semana</td>
                   <td className="p-5 font-bold text-ink">Ultrassom Morfológico de 2º Trimestre</td>
                   <td className="p-5">Mapear detalhadamente a anatomia de todos os órgãos e membros fetais.</td>
-                  <td className="p-5"><span className="px-2.5 py-1 rounded-full bg-teal-50 text-brand font-bold text-[9px] uppercase">Essencial</span></td>
+                  <td className="p-5"><span className="px-2.5 py-1 rounded-full bg-teal-50 text-brand font-bold text-[9px]">Essencial</span></td>
                 </tr>
                 <tr className="hover:bg-gray-50/50 transition-colors">
                   <td className="p-5 font-bold">28ª semana em diante</td>
                   <td className="p-5 font-bold text-ink">Obstétrico com Doppler colorido</td>
                   <td className="p-5">Avaliar crescimento, peso do bebê, quantidade de líquido e oxigenação da placenta.</td>
-                  <td className="p-5"><span className="px-2.5 py-1 rounded-full bg-teal-50 text-brand font-bold text-[9px] uppercase">Recomendado</span></td>
+                  <td className="p-5"><span className="px-2.5 py-1 rounded-full bg-teal-50 text-brand font-bold text-[9px]">Recomendado</span></td>
                 </tr>
               </tbody>
             </table>
@@ -568,10 +562,7 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
 
       {/* CTA Section */}
       <section className="py-16 max-w-4xl mx-auto px-4 text-center">
-        <div className="bg-ink text-white rounded-3xl p-10 space-y-6 shadow-lg relative overflow-hidden">
-          <div className="absolute inset-0 opacity-5 pointer-events-none">
-            <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 40px' }}></div>
-          </div>
+        <div className="bg-ink text-white rounded-lg p-10 space-y-6 relative overflow-hidden">
           <Icons.Baby className="w-12 h-12 text-brand mx-auto" />
           <h3 className="text-2xl font-serif font-semibold">Cuide de você e do seu bebê</h3>
           <p className="text-teal-50/70 text-sm max-w-md mx-auto">
@@ -582,7 +573,7 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
               href={whatsappUrl} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="inline-flex items-center justify-center bg-brand hover:bg-brand-hover text-white text-xs font-bold px-8 py-4 rounded-full transition-all gap-2 shadow-md"
+              className="inline-flex items-center justify-center bg-brand hover:bg-brand-hover text-white text-xs font-bold px-8 py-4 rounded-full transition-all gap-2"
             >
               <Icons.MessageSquare className="w-4 h-4" />
               Agendar Exame Obstétrico no WhatsApp
@@ -606,7 +597,7 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
             </a>
           </div>
           <div>
-            <h3 className="font-bold text-sm tracking-widest uppercase mb-6">Principais Exames</h3>
+            <h3 className="font-bold text-sm tracking-wide mb-6">Principais Exames</h3>
             <ul className="space-y-3.5 text-xs text-teal-50/70">
               <li><a href="/exame/obstetrico_doppler" onClick={(e) => navigateTo('/exame/obstetrico_doppler', e)} className="hover:text-brand transition-colors">Obstétrico com Doppler</a></li>
               <li><a href="/exame/ecofetal" onClick={(e) => navigateTo('/exame/ecofetal', e)} className="hover:text-brand transition-colors">Ecocardiograma Fetal</a></li>
@@ -615,7 +606,7 @@ const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) =
             </ul>
           </div>
           <div>
-            <h3 className="font-bold text-sm tracking-widest uppercase mb-6">Canais de Contato</h3>
+            <h3 className="font-bold text-sm tracking-wide mb-6">Canais de Contato</h3>
             <p className="text-brand-light font-extrabold text-lg mb-2">
               <a href="https://wa.me/5567998446674" target="_blank" rel="noopener noreferrer" className="hover:text-teal-300 transition-colors">
                 +55 67 99844-6674

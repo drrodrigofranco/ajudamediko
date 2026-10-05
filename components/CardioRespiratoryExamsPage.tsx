@@ -122,13 +122,13 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 font-sans text-gray-800 antialiased">
       {/* Header Nav */}
-      <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
+      <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <a href="/" onClick={(e) => navigateTo('/', e)} className="flex items-center gap-2 group">
             <LogoMark className="h-9 w-auto text-ink transition-colors group-hover:text-brand" />
             <span className="font-serif font-semibold text-xl text-ink tracking-tight">Clínica Franco</span>
           </a>
-          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-ink/80">
+          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wide text-ink/80">
             <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-brand transition-colors">HOME</a>
             <a href="/servicos" onClick={(e) => navigateTo('/servicos', e)} className="hover:text-brand transition-colors">EXAMES</a>
             <a href="/entenda-exames" onClick={(e) => navigateTo('/entenda-exames', e)} className="hover:text-brand transition-colors">COMPARATIVO</a>
@@ -138,7 +138,7 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
             href={whatsappUrl} 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3 rounded-full shadow-md transition-all"
+            className="bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3 rounded-full transition-all"
           >
             AGENDAR AGORA
           </a>
@@ -147,14 +147,11 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
 
       {/* Hero Section */}
       <section className="bg-ink text-white py-20 lg:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5 pointer-events-none">
-          <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
-        </div>
         <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
           <a 
             href="/" 
             onClick={(e) => navigateTo('/', e)}
-            className="inline-flex items-center text-teal-300 text-xs font-bold tracking-widest uppercase mb-6 hover:text-teal-400 transition-colors"
+            className="inline-flex items-center text-teal-300 text-xs font-bold tracking-wide mb-6 hover:text-teal-400 transition-colors"
           >
             <Icons.ArrowLeft className="w-4 h-4 mr-2" />
             Voltar para a Home
@@ -173,21 +170,21 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
           <div className="flex flex-wrap justify-center gap-3 mt-4">
             <button 
               onClick={() => setActiveTab('holter')}
-              className={`px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all shadow-sm flex items-center gap-2 ${activeTab === 'holter' ? 'bg-brand text-white' : 'bg-ink-2 text-teal-100 hover:bg-ink-4'}`}
+              className={`px-6 py-3 rounded-full text-xs font-bold tracking-wide transition-all flex items-center gap-2 ${activeTab === 'holter' ? 'bg-brand text-white' : 'bg-ink-2 text-teal-100 hover:bg-ink-4'}`}
             >
               <Icons.Activity className="w-4 h-4" />
               Holter 24h
             </button>
             <button 
               onClick={() => setActiveTab('mapa')}
-              className={`px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all shadow-sm flex items-center gap-2 ${activeTab === 'mapa' ? 'bg-brand text-white' : 'bg-ink-2 text-teal-100 hover:bg-ink-4'}`}
+              className={`px-6 py-3 rounded-full text-xs font-bold tracking-wide transition-all flex items-center gap-2 ${activeTab === 'mapa' ? 'bg-brand text-white' : 'bg-ink-2 text-teal-100 hover:bg-ink-4'}`}
             >
               <Icons.Clock className="w-4 h-4" />
               MAPA 24h
             </button>
             <button 
               onClick={() => setActiveTab('espirometria')}
-              className={`px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all shadow-sm flex items-center gap-2 ${activeTab === 'espirometria' ? 'bg-brand text-white' : 'bg-ink-2 text-teal-100 hover:bg-ink-4'}`}
+              className={`px-6 py-3 rounded-full text-xs font-bold tracking-wide transition-all flex items-center gap-2 ${activeTab === 'espirometria' ? 'bg-brand text-white' : 'bg-ink-2 text-teal-100 hover:bg-ink-4'}`}
             >
               <Icons.Wind className="w-4 h-4" />
               Espirometria
@@ -203,21 +200,20 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
           return (
             <div
               key={key}
-              className={`bg-white rounded-3xl border border-gray-100 shadow-md p-8 lg:p-12 grid lg:grid-cols-5 gap-12 text-left ${activeTab === key ? '' : 'hidden'}`}
+              className={`bg-white rounded-lg border border-gray-200 p-8 lg:p-12 grid lg:grid-cols-5 gap-12 text-left ${activeTab === key ? '' : 'hidden'}`}
               aria-hidden={activeTab === key ? undefined : true}
             >
               {/* Left info column */}
               <div className="lg:col-span-3 space-y-6">
                 <div>
-                  <span className="text-brand font-bold text-xs uppercase tracking-widest">{data.subtitle}</span>
+                  <span className="text-brand font-bold text-xs tracking-wide">{data.subtitle}</span>
                   <h2 className="text-3xl font-serif font-semibold text-ink mt-2">{data.title}</h2>
-                  <div className="h-1 w-12 bg-brand mt-4 rounded-full"></div>
                 </div>
 
                 <p className="text-gray-600 text-sm leading-relaxed">{data.desc}</p>
 
-                <div className="bg-teal-50/50 p-6 rounded-2xl border border-teal-500/10">
-                  <h4 className="font-bold text-xs uppercase tracking-widest text-ink mb-2">Finalidade do Exame</h4>
+                <div className="bg-teal-50/50 p-6 rounded-lg border border-teal-500/10">
+                  <h4 className="font-bold text-xs tracking-wide text-ink mb-2">Finalidade do Exame</h4>
                   <p className="text-xs text-gray-500 leading-relaxed">{data.purpose}</p>
                 </div>
 
@@ -227,15 +223,15 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
                     <Icons.Hourglass className="w-5 h-5" />
                   </div>
                   <div>
-                    <h5 className="text-[10px] uppercase font-bold tracking-widest text-teal-800">Tempo de Monitoramento</h5>
+                    <h5 className="text-[10px] font-bold tracking-wide text-teal-800">Tempo de Monitoramento</h5>
                     <p className="font-bold text-sm">{data.duration}</p>
                   </div>
                 </div>
               </div>
 
               {/* Right preparation checklist column */}
-              <div className="lg:col-span-2 space-y-6 lg:border-l lg:border-gray-100 lg:pl-10">
-                <h4 className="text-sm font-bold uppercase tracking-widest text-ink flex items-center gap-2">
+              <div className="lg:col-span-2 space-y-6 lg:border-l lg:border-gray-200 lg:pl-10">
+                <h4 className="text-sm font-bold tracking-wide text-ink flex items-center gap-2">
                   <Icons.ClipboardList className="w-4 h-4 text-brand" />
                   Manual de Preparação
                 </h4>
@@ -256,10 +252,9 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
       </section>
 
       {/* FAQs section — mesma lógica: as 3 listas de FAQ ficam sempre no DOM */}
-      <section className="py-16 bg-white border-y border-gray-100">
+      <section className="py-16 bg-white border-y border-gray-200">
         <div className="max-w-3xl mx-auto px-4 text-left">
           <h2 className="text-2xl font-serif font-semibold text-center text-ink mb-4">Dúvidas Frequentes sobre o Exame</h2>
-          <div className="h-1 w-12 bg-brand mx-auto mb-10 rounded-full"></div>
 
           {examTabKeys.map((key) => {
             const data = examsInfo[key];
@@ -270,7 +265,7 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
                 aria-hidden={activeTab === key ? undefined : true}
               >
                 {data.faqs.map((faq, idx) => (
-                  <details key={idx} className="group bg-gray-50 rounded-2xl border border-gray-100 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm hover:border-brand/20 transition-all">
+                  <details key={idx} className="group bg-gray-50 rounded-lg border border-gray-200 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer hover:border-brand/20 transition-all">
                     <summary className="flex justify-between items-center text-sm font-bold text-ink">
                       <span>{faq.q}</span>
                       <span className="transition group-open:rotate-180 text-brand">
@@ -290,10 +285,7 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
 
       {/* CTA Box */}
       <section className="py-16 max-w-4xl mx-auto px-4 text-center">
-        <div className="bg-ink text-white rounded-3xl p-10 space-y-6 shadow-lg relative overflow-hidden">
-          <div className="absolute inset-0 opacity-5 pointer-events-none">
-            <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 40px' }}></div>
-          </div>
+        <div className="bg-ink text-white rounded-lg p-10 space-y-6 relative overflow-hidden">
           <Icons.Activity className="w-12 h-12 text-brand mx-auto" />
           <h3 className="text-2xl font-serif font-semibold">Solicite seu Agendamento</h3>
           <p className="text-teal-50/70 text-sm max-w-md mx-auto">
@@ -304,7 +296,7 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
               href={whatsappUrl} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="inline-flex items-center justify-center bg-brand hover:bg-brand-hover text-white text-xs font-bold px-8 py-4 rounded-full transition-all gap-2 shadow-md"
+              className="inline-flex items-center justify-center bg-brand hover:bg-brand-hover text-white text-xs font-bold px-8 py-4 rounded-full transition-all gap-2"
             >
               <Icons.MessageSquare className="w-4 h-4" />
               Falar com Atendimento no WhatsApp
@@ -328,7 +320,7 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
             </a>
           </div>
           <div>
-            <h3 className="font-bold text-sm tracking-widest uppercase mb-6">Principais Exames</h3>
+            <h3 className="font-bold text-sm tracking-wide mb-6">Principais Exames</h3>
             <ul className="space-y-3.5 text-xs text-teal-50/70">
               <li><a href="/exame/obstetrico_doppler" onClick={(e) => navigateTo('/exame/obstetrico_doppler', e)} className="hover:text-brand transition-colors">Obstétrico com Doppler</a></li>
               <li><a href="/exame/ecofetal" onClick={(e) => navigateTo('/exame/ecofetal', e)} className="hover:text-brand transition-colors">Ecocardiograma Fetal</a></li>
@@ -337,7 +329,7 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
             </ul>
           </div>
           <div>
-            <h3 className="font-bold text-sm tracking-widest uppercase mb-6">Canais de Contato</h3>
+            <h3 className="font-bold text-sm tracking-wide mb-6">Canais de Contato</h3>
             <p className="text-brand-light font-extrabold text-lg mb-2">
               <a href="https://wa.me/5567998446674" target="_blank" rel="noopener noreferrer" className="hover:text-teal-300 transition-colors">
                 +55 67 99844-6674

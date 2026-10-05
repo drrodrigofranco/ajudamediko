@@ -109,7 +109,7 @@ const GestationalCalculator: React.FC = () => {
     };
 
     return (
-        <div className="bg-white rounded-2xl shadow-lg border border-teal-100 overflow-hidden">
+        <div className="bg-white rounded-lg border border-teal-100 overflow-hidden">
             <div className="bg-teal-700 p-6 text-white">
                 <div className="flex items-center gap-3">
                     <Calculator className="w-6 h-6 text-teal-300" />
@@ -119,7 +119,7 @@ const GestationalCalculator: React.FC = () => {
             </div>
 
             {/* Tabs */}
-            <div className="flex border-b border-gray-100 bg-gray-50">
+            <div className="flex border-b border-gray-200 bg-gray-50">
                 <button 
                     onClick={() => setActiveTab('dum')}
                     className={`flex-1 py-4 text-sm font-bold text-center transition-colors ${activeTab === 'dum' ? 'bg-white text-teal-700 border-t-2 border-teal-600' : 'text-gray-500 hover:text-teal-600'}`}
@@ -166,11 +166,11 @@ const GestationalCalculator: React.FC = () => {
                                 <h4 className="text-teal-900 font-bold text-center border-b border-teal-200 pb-2 mb-2">Resultado Estimado</h4>
                                 <div className="grid grid-cols-2 gap-4 text-center">
                                     <div>
-                                        <span className="block text-xs text-brand-hover uppercase font-bold">Idade Gestacional</span>
+                                        <span className="block text-xs text-brand-hover font-bold">Idade Gestacional</span>
                                         <span className="text-xl font-bold text-gray-800">{dumResult.weeks} sem {dumResult.days} dias</span>
                                     </div>
                                     <div>
-                                        <span className="block text-xs text-brand-hover uppercase font-bold">Data Provável (DPP)</span>
+                                        <span className="block text-xs text-brand-hover font-bold">Data Provável (DPP)</span>
                                         <span className="text-xl font-bold text-gray-800">{dumResult.dpp}</span>
                                     </div>
                                 </div>
@@ -229,11 +229,11 @@ const GestationalCalculator: React.FC = () => {
                                 <h4 className="text-teal-900 font-bold text-center border-b border-teal-200 pb-2 mb-2">Hoje você está com:</h4>
                                 <div className="grid grid-cols-2 gap-4 text-center">
                                     <div>
-                                        <span className="block text-xs text-brand-hover uppercase font-bold">Idade Gestacional</span>
+                                        <span className="block text-xs text-brand-hover font-bold">Idade Gestacional</span>
                                         <span className="text-xl font-bold text-gray-800">{usgResult.weeks} sem {usgResult.days} dias</span>
                                     </div>
                                     <div>
-                                        <span className="block text-xs text-brand-hover uppercase font-bold">Nova DPP Estimada</span>
+                                        <span className="block text-xs text-brand-hover font-bold">Nova DPP Estimada</span>
                                         <span className="text-xl font-bold text-gray-800">{usgResult.dpp}</span>
                                     </div>
                                 </div>

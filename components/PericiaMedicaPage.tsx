@@ -41,13 +41,13 @@ const PericiaMedicaPage: React.FC<PericiaMedicaPageProps> = ({ navigateTo }) => 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 font-sans text-gray-800 antialiased">
       {/* Header Nav */}
-      <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
+      <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <a href="/" onClick={(e) => navigateTo('/', e)} className="flex items-center gap-2 group">
             <LogoMark className="h-9 w-auto text-ink transition-colors group-hover:text-brand" />
             <span className="font-serif font-semibold text-xl text-ink tracking-tight">Clínica Franco</span>
           </a>
-          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-ink/80">
+          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wide text-ink/80">
             <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-brand transition-colors">HOME</a>
             <a href="/equipe" onClick={(e) => navigateTo('/equipe', e)} className="hover:text-brand transition-colors">EQUIPE</a>
             <a href="/servicos" onClick={(e) => navigateTo('/servicos', e)} className="hover:text-brand transition-colors">SERVIÇOS</a>
@@ -56,7 +56,7 @@ const PericiaMedicaPage: React.FC<PericiaMedicaPageProps> = ({ navigateTo }) => 
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3 rounded-full shadow-md transition-all"
+            className="bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3 rounded-full transition-all"
           >
             AGENDAR AGORA
           </a>
@@ -65,14 +65,11 @@ const PericiaMedicaPage: React.FC<PericiaMedicaPageProps> = ({ navigateTo }) => 
 
       {/* Hero Section */}
       <section className="bg-ink text-white py-20 lg:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5 pointer-events-none">
-          <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
-        </div>
         <div className="max-w-3xl mx-auto px-4 text-center relative z-10">
           <a
             href="/"
             onClick={(e) => navigateTo('/', e)}
-            className="inline-flex items-center text-teal-300 text-xs font-bold tracking-widest uppercase mb-6 hover:text-teal-400 transition-colors"
+            className="inline-flex items-center text-teal-300 text-xs font-bold tracking-wide mb-6 hover:text-teal-400 transition-colors"
           >
             <Icons.ArrowLeft className="w-4 h-4 mr-2" />
             Voltar para a Home
@@ -88,7 +85,7 @@ const PericiaMedicaPage: React.FC<PericiaMedicaPageProps> = ({ navigateTo }) => 
 
       {/* Corpo */}
       <section className="py-16 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow w-full">
-        <article className="bg-white p-8 sm:p-10 rounded-3xl border border-gray-100 shadow-sm space-y-10">
+        <article className="bg-white p-8 sm:p-10 rounded-lg border border-gray-200 space-y-10">
           <div className="space-y-3">
             <h2 className="text-lg font-serif font-semibold text-ink flex items-center gap-2">
               <Icons.Scale className="text-brand w-5 h-5" />
@@ -99,7 +96,7 @@ const PericiaMedicaPage: React.FC<PericiaMedicaPageProps> = ({ navigateTo }) => 
             </p>
           </div>
 
-          <hr className="border-gray-100" />
+          <hr className="border-gray-200" />
 
           <div className="space-y-3">
             <h2 className="text-lg font-serif font-semibold text-ink flex items-center gap-2">
@@ -111,7 +108,7 @@ const PericiaMedicaPage: React.FC<PericiaMedicaPageProps> = ({ navigateTo }) => 
             </p>
           </div>
 
-          <hr className="border-gray-100" />
+          <hr className="border-gray-200" />
 
           <div className="space-y-3">
             <h2 className="text-lg font-serif font-semibold text-ink flex items-center gap-2">
@@ -123,7 +120,7 @@ const PericiaMedicaPage: React.FC<PericiaMedicaPageProps> = ({ navigateTo }) => 
             </p>
           </div>
 
-          <hr className="border-gray-100" />
+          <hr className="border-gray-200" />
 
           <div className="space-y-3">
             <h2 className="text-lg font-serif font-semibold text-ink flex items-center gap-2">
@@ -144,8 +141,8 @@ const PericiaMedicaPage: React.FC<PericiaMedicaPageProps> = ({ navigateTo }) => 
           </div>
         </article>
 
-        <div className="mt-10 bg-ink text-white rounded-3xl p-8 flex flex-col sm:flex-row items-center gap-6 shadow-lg">
-          <div className="bg-brand p-4 rounded-2xl text-white flex-shrink-0">
+        <div className="mt-10 bg-ink text-white rounded-lg p-8 flex flex-col sm:flex-row items-center gap-6">
+          <div className="bg-brand p-4 rounded-lg text-white flex-shrink-0">
             <Icons.MessageSquare className="w-8 h-8" />
           </div>
           <div className="flex-1 text-center sm:text-left">
@@ -156,7 +153,7 @@ const PericiaMedicaPage: React.FC<PericiaMedicaPageProps> = ({ navigateTo }) => 
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-shrink-0 bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3 rounded-full shadow-md transition-all whitespace-nowrap"
+            className="flex-shrink-0 bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3 rounded-full transition-all whitespace-nowrap"
           >
             Agendar pelo WhatsApp
           </a>
@@ -177,7 +174,7 @@ const PericiaMedicaPage: React.FC<PericiaMedicaPageProps> = ({ navigateTo }) => 
             </a>
           </div>
           <div>
-            <h3 className="font-bold text-sm tracking-widest uppercase mb-6">Nossa Equipe</h3>
+            <h3 className="font-bold text-sm tracking-wide mb-6">Nossa Equipe</h3>
             <ul className="space-y-3.5 text-xs text-teal-50/70">
               {doctorsData.map(d => (
                 <li key={d.id}>
@@ -187,7 +184,7 @@ const PericiaMedicaPage: React.FC<PericiaMedicaPageProps> = ({ navigateTo }) => 
             </ul>
           </div>
           <div>
-            <h3 className="font-bold text-sm tracking-widest uppercase mb-6">Canais de Contato</h3>
+            <h3 className="font-bold text-sm tracking-wide mb-6">Canais de Contato</h3>
             <p className="text-brand-light font-extrabold text-lg mb-2">
               <a href="https://wa.me/5567998446674" target="_blank" rel="noopener noreferrer" className="hover:text-teal-300 transition-colors">
                 +55 67 99844-6674

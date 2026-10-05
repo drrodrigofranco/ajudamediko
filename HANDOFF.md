@@ -19,6 +19,16 @@
 ---
 
 ## 📅 Última atualização
+- **2026-10-05 — Redesenho visual (PRs #54, #55 publicados; PR 3 em revisão):** logo CF (`components/LogoMark.tsx`,
+  `public/images/logo-*.svg`, `public/favicon.svg`), paleta "grafite e azul-aço" e fontes Newsreader + Figtree
+  (self-host via `@fontsource-variable`, importadas em `index.tsx`). **Cores e fontes vivem em `index.css` (`@theme`)**:
+  escalas `teal-*` (= azul-aço) e `gray-*`, tokens `brand*`/`ink*` (usar `text-brand-light` sobre fundo escuro).
+  Armadilhas: (1) Tailwind 4 **ignora `tailwind.config.js`**; (2) `prerender.mjs` usa a porta **4183** — não deixe
+  outro servidor nela durante `npm run build`; (3) o `AI-look` a evitar: barrinhas sob títulos, rótulos em caixa
+  alta espaçada, cartões `rounded-3xl` com sombra, brilho/pulso. Verificação antes de publicar visual: comparar
+  título/descrição/H1-H3/JSON-LD **e texto visível** das 51 páginas pré-renderizadas (0 diferenças) + contraste.
+  Pendências fora do código: sessão de fotos dos médicos com fundo único (fotos atuais heterogêneas) e fotos reais
+  da clínica no lugar das ilustrações geradas dos exames.
 - **2026-10-02 (aprovada e publicada pelo Dr. Rodrigo):** novo artigo assinado
   `ecocardiograma-fetal-diagnostico-antes-do-nascimento-estudos` (articlesData.ts) com 5 estudos reais conferidos no
   PubMed e links DOI. `OriginalArticle` ganhou os campos opcionais `references` (renderizado em ArticleDetailPage e
