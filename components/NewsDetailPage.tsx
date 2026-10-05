@@ -18,7 +18,7 @@ const NewsImage: React.FC<{ image: NonNullable<CuratedNewsItem['images']>[number
     <img
       src={image.src}
       alt={image.alt}
-      className="w-full h-auto rounded-3xl border border-gray-100 shadow-sm"
+      className="w-full h-auto rounded-lg border border-gray-200"
       loading="lazy"
     />
     {image.credit && (
@@ -100,13 +100,13 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 font-sans text-gray-800 antialiased">
       {/* Header Nav */}
-      <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
+      <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <a href="/" onClick={(e) => navigateTo('/', e)} className="flex items-center gap-2 group">
             <LogoMark className="h-9 w-auto text-ink transition-colors group-hover:text-brand" />
             <span className="font-serif font-semibold text-xl text-ink tracking-tight">Clínica Franco</span>
           </a>
-          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-ink/80">
+          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wide text-ink/80">
             <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-brand transition-colors">HOME</a>
             <a href="/blog" onClick={(e) => navigateTo('/blog', e)} className="hover:text-brand transition-colors">BLOG</a>
             <a href="/servicos" onClick={(e) => navigateTo('/servicos', e)} className="hover:text-brand transition-colors">SERVIÇOS</a>
@@ -115,7 +115,7 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3 rounded-full shadow-md transition-all"
+            className="bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3 rounded-full transition-all"
           >
             AGENDAR AGORA
           </a>
@@ -124,14 +124,11 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
 
       {/* Hero Section */}
       <section className="bg-ink text-white py-20 lg:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5 pointer-events-none">
-          <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
-        </div>
         <div className="max-w-3xl mx-auto px-4 text-center relative z-10">
           <a
             href="/blog"
             onClick={(e) => navigateTo('/blog', e)}
-            className="inline-flex items-center text-teal-300 text-xs font-bold tracking-widest uppercase mb-6 hover:text-teal-400 transition-colors"
+            className="inline-flex items-center text-teal-300 text-xs font-bold tracking-wide mb-6 hover:text-teal-400 transition-colors"
           >
             <Icons.ArrowLeft className="w-4 h-4 mr-2" />
             Voltar para o Blog
@@ -139,7 +136,7 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-semibold leading-tight mb-6">
             {news.title}
           </h1>
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-ink-3 text-brand-pale text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-ink-3 text-brand-pale text-xs font-bold tracking-wide">
             <Icons.BookOpen className="w-4 h-4 text-teal-300" />
             {news.sourceName}
           </div>
@@ -153,7 +150,7 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
       <section className="py-16 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow w-full">
         {heroImages.map((image, i) => <NewsImage key={i} image={image} />)}
 
-        <article className="bg-white p-8 sm:p-10 rounded-3xl border border-gray-100 shadow-sm space-y-5">
+        <article className="bg-white p-8 sm:p-10 rounded-lg border border-gray-200 space-y-5">
           {paragraphs.map((paragraph, i) => (
             <React.Fragment key={i}>
               {news.sectionHeadings?.[i] && (
@@ -170,8 +167,8 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
         </article>
 
         {relatedExam && (
-          <div className="mt-8 bg-ink text-white rounded-3xl p-8 flex flex-col sm:flex-row items-center gap-6 shadow-lg">
-            <div className="bg-brand p-4 rounded-2xl text-white flex-shrink-0">
+          <div className="mt-8 bg-ink text-white rounded-lg p-8 flex flex-col sm:flex-row items-center gap-6">
+            <div className="bg-brand p-4 rounded-lg text-white flex-shrink-0">
               <Icons.Stethoscope className="w-8 h-8" />
             </div>
             <div className="flex-1 text-center sm:text-left">
@@ -181,7 +178,7 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
             <a
               href={`/exame/${relatedExam.id}`}
               onClick={(e) => navigateTo(`/exame/${relatedExam.id}`, e)}
-              className="flex-shrink-0 bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3 rounded-full shadow-md transition-all whitespace-nowrap"
+              className="flex-shrink-0 bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3 rounded-full transition-all whitespace-nowrap"
             >
               Ver detalhes do exame
             </a>
@@ -189,7 +186,7 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
         )}
 
         {/* Curadoria e revisao medica */}
-        <div className="mt-8 bg-white p-6 rounded-3xl border border-gray-100 shadow-sm flex items-center gap-4">
+        <div className="mt-8 bg-white p-6 rounded-lg border border-gray-200 flex items-center gap-4">
           <img
             src="/images/dr-rodrigo-franco-byline.jpg"
             alt="Dr. Rodrigo Franco"
@@ -199,7 +196,7 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
             loading="lazy"
           />
           <div>
-            <h2 className="text-xs text-gray-400 uppercase tracking-wider font-bold mb-0.5">Curadoria e revisão médica</h2>
+            <h2 className="text-xs text-gray-400 tracking-wide font-bold mb-0.5">Curadoria e revisão médica</h2>
             <p className="text-sm font-bold text-ink">Dr. Rodrigo Franco · CRM-MS 10087</p>
           </div>
         </div>
@@ -215,8 +212,8 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
         </a>
 
         {news.references && news.references.length > 0 && (
-          <div className="mt-6 pt-6 border-t border-gray-100">
-            <h2 className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-3">Referências Bibliográficas</h2>
+          <div className="mt-6 pt-6 border-t border-gray-200">
+            <h2 className="text-[10px] font-bold text-gray-400 tracking-wide mb-3">Referências Bibliográficas</h2>
             <ol className="space-y-2">
               {news.references.map((ref, i) => (
                 <li key={i} className="text-xs text-gray-500 leading-relaxed">

@@ -103,13 +103,13 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 font-sans text-gray-800 antialiased">
       {/* Header Nav */}
-      <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
+      <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <a href="/" onClick={(e) => navigateTo('/', e)} className="flex items-center gap-2 group">
             <LogoMark className="h-9 w-auto text-ink transition-colors group-hover:text-brand" />
             <span className="font-serif font-semibold text-xl text-ink tracking-tight">Clínica Franco</span>
           </a>
-          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-ink/80">
+          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wide text-ink/80">
             <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-brand transition-colors">HOME</a>
             <a href="/servicos" onClick={(e) => navigateTo('/servicos', e)} className="hover:text-brand transition-colors">SERVIÇOS</a>
             <a href="/equipe" onClick={(e) => navigateTo('/equipe', e)} className="hover:text-brand transition-colors">SOBRE NÓS</a>
@@ -119,7 +119,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
             href={whatsappUrl} 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3 rounded-full shadow-md transition-all"
+            className="bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3 rounded-full transition-all"
           >
             AGENDAR AGORA
           </a>
@@ -128,14 +128,11 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
 
       {/* Hero Section */}
       <section className="bg-ink text-white py-20 lg:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5 pointer-events-none">
-          <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
-        </div>
         <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
           <a 
             href="/" 
             onClick={(e) => navigateTo('/', e)}
-            className="inline-flex items-center text-teal-300 text-xs font-bold tracking-widest uppercase mb-6 hover:text-teal-400 transition-colors"
+            className="inline-flex items-center text-teal-300 text-xs font-bold tracking-wide mb-6 hover:text-teal-400 transition-colors"
           >
             <Icons.ArrowLeft className="w-4 h-4 mr-2" />
             Voltar para a Home
@@ -157,13 +154,13 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
           <div className="w-full lg:w-2/3 space-y-12">
             
             {/* Image banner */}
-            <div className="relative rounded-3xl overflow-hidden shadow-md max-h-96">
+            <div className="relative rounded-lg overflow-hidden max-h-96">
               <img src={exam.imageUrl} alt={exam.name} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
             </div>
 
             {/* Description Card */}
-            <div className="bg-white p-8 sm:p-10 rounded-3xl border border-gray-100 shadow-sm space-y-8">
+            <div className="space-y-10">
               <div className="space-y-3">
                 <h3 className="text-lg font-serif font-semibold text-ink flex items-center gap-2">
                   <Icons.Info className="text-brand w-5 h-5" />
@@ -172,7 +169,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
                 <p className="text-gray-600 text-sm leading-relaxed">{exam.longDesc}</p>
               </div>
 
-              <hr className="border-gray-100" />
+              <hr className="border-gray-200" />
 
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-3">
@@ -194,7 +191,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
 
               {exam.whenItIsDone && (
                 <>
-                  <hr className="border-gray-100" />
+                  <hr className="border-gray-200" />
                   <div className="space-y-3">
                     <h3 className="text-lg font-serif font-semibold text-ink flex items-center gap-2">
                       <Icons.Calendar className="text-brand w-5 h-5" />
@@ -211,7 +208,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
               <h2 className="text-2xl font-serif font-semibold text-ink text-left">Dúvidas Frequentes</h2>
               <div className="space-y-4">
                 {exam.faqs.map((faq, i) => (
-                  <details key={i} className="group bg-white rounded-2xl border border-gray-100 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm hover:border-brand/20 transition-all">
+                  <details key={i} className="group border-b border-gray-300 py-5 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
                     <summary className="flex justify-between items-center text-sm font-bold text-ink">
                       <span>{faq.question}</span>
                       <span className="transition group-open:rotate-180 text-brand">
@@ -236,7 +233,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
                       <a
                         href={`/blog/${item.id}`}
                         onClick={(e) => navigateTo(`/blog/${item.id}`, e)}
-                        className="flex items-center justify-between gap-4 bg-white rounded-2xl border border-gray-100 p-5 shadow-sm hover:border-brand/30 transition-all text-sm font-bold text-ink"
+                        className="flex items-center justify-between gap-4 bg-white rounded-lg border border-gray-200 p-5 hover:border-brand/30 transition-all text-sm font-bold text-ink"
                       >
                         <span>{item.title}</span>
                         <Icons.ChevronRight className="w-4 h-4 text-brand flex-shrink-0" />
@@ -253,34 +250,34 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
           <div className="w-full lg:w-1/3 lg:sticky lg:top-24 space-y-8">
             
             {/* Quick stats box */}
-            <div className="bg-ink text-white p-8 rounded-3xl shadow-lg border border-teal-500/10 relative overflow-hidden">
+            <div className="bg-ink text-white p-8 rounded-lg border border-teal-500/10 relative overflow-hidden">
               <div className="relative z-10 space-y-6">
                 <div className="flex items-center gap-4">
-                  <div className="bg-teal-500/20 p-3 rounded-2xl text-brand-light">
+                  <div className="bg-teal-500/20 p-3 rounded-lg text-brand-light">
                     <IconComponent className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="text-xs uppercase tracking-widest text-teal-300 font-bold">Categoria</h4>
+                    <h4 className="text-xs tracking-wide text-teal-300 font-bold">Categoria</h4>
                     <p className="font-bold text-sm">Ultrassonografia / Exames</p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <div className="bg-teal-500/20 p-3 rounded-2xl text-brand-light">
+                  <div className="bg-teal-500/20 p-3 rounded-lg text-brand-light">
                     <Icons.Clock className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="text-xs uppercase tracking-widest text-teal-300 font-bold">Duração Média</h4>
+                    <h4 className="text-xs tracking-wide text-teal-300 font-bold">Duração Média</h4>
                     <p className="font-bold text-sm">{exam.duration}</p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <div className="bg-teal-500/20 p-3 rounded-2xl text-brand-light">
+                  <div className="bg-teal-500/20 p-3 rounded-lg text-brand-light">
                     <Icons.CreditCard className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="text-xs uppercase tracking-widest text-teal-300 font-bold">Valor</h4>
+                    <h4 className="text-xs tracking-wide text-teal-300 font-bold">Valor</h4>
                     <p className="font-bold text-sm">Preços acessíveis <span className="text-[10px] text-teal-100 font-normal">- fale conosco</span></p>
                   </div>
                 </div>
@@ -289,7 +286,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
                   href={whatsappUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full bg-brand hover:bg-brand-hover text-white py-4 rounded-2xl font-bold shadow-md hover:-translate-y-0.5 transition-all text-sm"
+                  className="flex items-center justify-center gap-2 w-full bg-brand hover:bg-brand-hover text-white py-4 rounded-lg font-bold hover:-translate-y-0.5 transition-all text-sm"
                 >
                   <Icons.MessageSquare className="w-5 h-5" />
                   Agendar pelo WhatsApp
@@ -298,7 +295,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
             </div>
 
             {/* Preparation checklist box */}
-            <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+            <div className="border-t border-gray-300 pt-6">
               <h3 className="text-base font-bold text-ink mb-6 flex items-center gap-2">
                 <Icons.ClipboardList className="text-brand w-5 h-5" />
                 Como se Preparar
@@ -314,7 +311,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
             </div>
 
             {/* Convenios aceitos */}
-            <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+            <div className="border-t border-gray-300 pt-6">
               <h3 className="text-base font-bold text-ink mb-4 flex items-center gap-2">
                 <Icons.ShieldCheck className="text-brand w-5 h-5" />
                 Convênios Aceitos
@@ -332,7 +329,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
             </div>
 
             {/* Other exams navigation */}
-            <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+            <div className="border-t border-gray-300 pt-6">
               <h3 className="text-base font-bold text-ink mb-4">Veja também</h3>
               <div className="space-y-2 text-xs text-brand font-bold">
                 <a 
@@ -381,7 +378,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
             </a>
           </div>
           <div>
-            <h3 className="font-bold text-sm tracking-widest uppercase mb-6">Principais Exames</h3>
+            <h3 className="font-bold text-sm tracking-wide mb-6">Principais Exames</h3>
             <ul className="space-y-3.5 text-xs text-teal-50/70">
               <li><a href="/exame/obstetrico_doppler" onClick={(e) => navigateTo('/exame/obstetrico_doppler', e)} className="hover:text-brand transition-colors">Obstétrico com Doppler</a></li>
               <li><a href="/exame/ecofetal" onClick={(e) => navigateTo('/exame/ecofetal', e)} className="hover:text-brand transition-colors">Ecocardiograma Fetal</a></li>
@@ -390,7 +387,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
             </ul>
           </div>
           <div>
-            <h3 className="font-bold text-sm tracking-widest uppercase mb-6">Canais de Contato</h3>
+            <h3 className="font-bold text-sm tracking-wide mb-6">Canais de Contato</h3>
             <p className="text-brand-light font-extrabold text-lg mb-2">
               <a href="https://wa.me/5567998446674" target="_blank" rel="noopener noreferrer" className="hover:text-teal-300 transition-colors">
                 +55 67 99844-6674

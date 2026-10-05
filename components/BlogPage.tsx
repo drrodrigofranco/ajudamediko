@@ -55,13 +55,13 @@ const BlogPage: React.FC<BlogPageProps> = ({ navigateTo }) => {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 font-sans text-gray-800 antialiased">
       {/* Header Nav */}
-      <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
+      <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <a href="/" onClick={(e) => navigateTo('/', e)} className="flex items-center gap-2 group">
             <LogoMark className="h-9 w-auto text-ink transition-colors group-hover:text-brand" />
             <span className="font-serif font-semibold text-xl text-ink tracking-tight">Clínica Franco</span>
           </a>
-          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-ink/80">
+          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wide text-ink/80">
             <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-brand transition-colors">HOME</a>
             <a href="/servicos" onClick={(e) => navigateTo('/servicos', e)} className="hover:text-brand transition-colors">SERVIÇOS</a>
             <a href="/equipe" onClick={(e) => navigateTo('/equipe', e)} className="hover:text-brand transition-colors">SOBRE NÓS</a>
@@ -70,7 +70,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ navigateTo }) => {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3 rounded-full shadow-md transition-all"
+            className="bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3 rounded-full transition-all"
           >
             AGENDAR AGORA
           </a>
@@ -79,14 +79,11 @@ const BlogPage: React.FC<BlogPageProps> = ({ navigateTo }) => {
 
       {/* Hero Section */}
       <section className="bg-ink text-white py-20 lg:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5 pointer-events-none">
-          <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
-        </div>
         <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
           <a
             href="/"
             onClick={(e) => navigateTo('/', e)}
-            className="inline-flex items-center text-teal-300 text-xs font-bold tracking-widest uppercase mb-6 hover:text-teal-400 transition-colors"
+            className="inline-flex items-center text-teal-300 text-xs font-bold tracking-wide mb-6 hover:text-teal-400 transition-colors"
           >
             <Icons.ArrowLeft className="w-4 h-4 mr-2" />
             Voltar para a Home
@@ -97,7 +94,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ navigateTo }) => {
           <p className="text-lg text-teal-50/80 mb-4 leading-relaxed max-w-2xl mx-auto">
             Resumos curados de notícias e materiais de fontes confiáveis de saúde — Fiocruz, Ministério da Saúde, OMS e veículos científicos — atualizados periodicamente pela equipe da Clínica Franco.
           </p>
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-ink-3 text-brand-pale text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-ink-3 text-brand-pale text-xs font-bold tracking-wide">
             <Icons.BookOpen className="w-4 h-4 text-teal-300" />
             Curadoria de Saúde
           </div>
@@ -119,7 +116,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ navigateTo }) => {
                 key={entry.id}
                 href={`/blog/${entry.id}`}
                 onClick={(e) => navigateTo(`/blog/${entry.id}`, e)}
-                className="block bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md hover:border-brand/20 transition-all group"
+                className="block bg-white p-8 rounded-lg border border-gray-200 hover:border-brand/20 transition-all group"
               >
                 <div className="flex items-center gap-3 text-xs text-gray-400 mb-3">
                   <Icons.Calendar className="w-3.5 h-3.5" />
