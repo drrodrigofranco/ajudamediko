@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import LogoMark from './LogoMark';
 import * as Icons from 'lucide-react';
 import { useSEO } from '../hooks/useSEO';
 import { useJsonLd } from '../hooks/useJsonLd';
@@ -124,20 +125,20 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
       <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <a href="/" onClick={(e) => navigateTo('/', e)} className="flex items-center gap-2 group">
-            <span className="bg-[#0e4843] text-white p-2 rounded-xl text-xs font-black tracking-wider transition-all group-hover:bg-[#14b8a6]">US</span>
-            <span className="font-serif font-bold text-xl text-[#0e4843] tracking-tight">Clínica Franco</span>
+            <LogoMark className="h-9 w-auto text-ink transition-colors group-hover:text-brand" />
+            <span className="font-serif font-bold text-xl text-ink tracking-tight">Clínica Franco</span>
           </a>
-          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-[#0e4843]/80">
-            <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-[#14b8a6] transition-colors">HOME</a>
-            <a href="/servicos" onClick={(e) => navigateTo('/servicos', e)} className="hover:text-[#14b8a6] transition-colors">EXAMES</a>
-            <a href="/entenda-exames" onClick={(e) => navigateTo('/entenda-exames', e)} className="hover:text-[#14b8a6] transition-colors">COMPARATIVO</a>
-            <a href="/diretriz-primeiro-trimestre" onClick={(e) => navigateTo('/diretriz-primeiro-trimestre', e)} className="hover:text-[#14b8a6] transition-colors">DIRETRIZ AMB</a>
+          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-ink/80">
+            <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-brand transition-colors">HOME</a>
+            <a href="/servicos" onClick={(e) => navigateTo('/servicos', e)} className="hover:text-brand transition-colors">EXAMES</a>
+            <a href="/entenda-exames" onClick={(e) => navigateTo('/entenda-exames', e)} className="hover:text-brand transition-colors">COMPARATIVO</a>
+            <a href="/diretriz-primeiro-trimestre" onClick={(e) => navigateTo('/diretriz-primeiro-trimestre', e)} className="hover:text-brand transition-colors">DIRETRIZ AMB</a>
           </nav>
           <a 
             href={whatsappUrl} 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="bg-[#14b8a6] hover:bg-[#0d9488] text-white text-xs font-bold px-6 py-3 rounded-full shadow-md transition-all"
+            className="bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3 rounded-full shadow-md transition-all"
           >
             AGENDAR AGORA
           </a>
@@ -145,7 +146,7 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
       </header>
 
       {/* Hero Section */}
-      <section className="bg-[#0e4843] text-white py-20 lg:py-24 relative overflow-hidden">
+      <section className="bg-ink text-white py-20 lg:py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5 pointer-events-none">
           <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
         </div>
@@ -172,21 +173,21 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
           <div className="flex flex-wrap justify-center gap-3 mt-4">
             <button 
               onClick={() => setActiveTab('holter')}
-              className={`px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all shadow-sm flex items-center gap-2 ${activeTab === 'holter' ? 'bg-[#14b8a6] text-white' : 'bg-[#125851] text-teal-100 hover:bg-[#186b62]'}`}
+              className={`px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all shadow-sm flex items-center gap-2 ${activeTab === 'holter' ? 'bg-brand text-white' : 'bg-ink-2 text-teal-100 hover:bg-ink-4'}`}
             >
               <Icons.Activity className="w-4 h-4" />
               Holter 24h
             </button>
             <button 
               onClick={() => setActiveTab('mapa')}
-              className={`px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all shadow-sm flex items-center gap-2 ${activeTab === 'mapa' ? 'bg-[#14b8a6] text-white' : 'bg-[#125851] text-teal-100 hover:bg-[#186b62]'}`}
+              className={`px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all shadow-sm flex items-center gap-2 ${activeTab === 'mapa' ? 'bg-brand text-white' : 'bg-ink-2 text-teal-100 hover:bg-ink-4'}`}
             >
               <Icons.Clock className="w-4 h-4" />
               MAPA 24h
             </button>
             <button 
               onClick={() => setActiveTab('espirometria')}
-              className={`px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all shadow-sm flex items-center gap-2 ${activeTab === 'espirometria' ? 'bg-[#14b8a6] text-white' : 'bg-[#125851] text-teal-100 hover:bg-[#186b62]'}`}
+              className={`px-6 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all shadow-sm flex items-center gap-2 ${activeTab === 'espirometria' ? 'bg-brand text-white' : 'bg-ink-2 text-teal-100 hover:bg-ink-4'}`}
             >
               <Icons.Wind className="w-4 h-4" />
               Espirometria
@@ -208,21 +209,21 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
               {/* Left info column */}
               <div className="lg:col-span-3 space-y-6">
                 <div>
-                  <span className="text-[#14b8a6] font-bold text-xs uppercase tracking-widest">{data.subtitle}</span>
-                  <h2 className="text-3xl font-serif font-bold text-[#0e4843] mt-2">{data.title}</h2>
-                  <div className="h-1 w-12 bg-[#14b8a6] mt-4 rounded-full"></div>
+                  <span className="text-brand font-bold text-xs uppercase tracking-widest">{data.subtitle}</span>
+                  <h2 className="text-3xl font-serif font-bold text-ink mt-2">{data.title}</h2>
+                  <div className="h-1 w-12 bg-brand mt-4 rounded-full"></div>
                 </div>
 
                 <p className="text-gray-600 text-sm leading-relaxed">{data.desc}</p>
 
                 <div className="bg-teal-50/50 p-6 rounded-2xl border border-teal-500/10">
-                  <h4 className="font-bold text-xs uppercase tracking-widest text-[#0e4843] mb-2">Finalidade do Exame</h4>
+                  <h4 className="font-bold text-xs uppercase tracking-widest text-ink mb-2">Finalidade do Exame</h4>
                   <p className="text-xs text-gray-500 leading-relaxed">{data.purpose}</p>
                 </div>
 
                 {/* Time / Duration info row */}
-                <div className="flex items-center gap-3 pt-2 text-[#0e4843]">
-                  <div className="bg-teal-50 p-3 rounded-xl text-[#14b8a6]">
+                <div className="flex items-center gap-3 pt-2 text-ink">
+                  <div className="bg-teal-50 p-3 rounded-xl text-brand">
                     <Icons.Hourglass className="w-5 h-5" />
                   </div>
                   <div>
@@ -234,14 +235,14 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
 
               {/* Right preparation checklist column */}
               <div className="lg:col-span-2 space-y-6 lg:border-l lg:border-gray-100 lg:pl-10">
-                <h4 className="text-sm font-bold uppercase tracking-widest text-[#0e4843] flex items-center gap-2">
-                  <Icons.ClipboardList className="w-4 h-4 text-[#14b8a6]" />
+                <h4 className="text-sm font-bold uppercase tracking-widest text-ink flex items-center gap-2">
+                  <Icons.ClipboardList className="w-4 h-4 text-brand" />
                   Manual de Preparação
                 </h4>
                 <div className="space-y-4">
                   {data.preparations.map((step, idx) => (
                     <div key={idx} className="flex gap-3 items-start">
-                      <span className="w-5 h-5 rounded-full bg-teal-50 text-[#14b8a6] flex items-center justify-center text-[10px] font-black flex-shrink-0 mt-0.5">
+                      <span className="w-5 h-5 rounded-full bg-teal-50 text-brand flex items-center justify-center text-[10px] font-black flex-shrink-0 mt-0.5">
                         {idx + 1}
                       </span>
                       <p className="text-xs text-gray-500 leading-relaxed">{step}</p>
@@ -257,8 +258,8 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
       {/* FAQs section — mesma lógica: as 3 listas de FAQ ficam sempre no DOM */}
       <section className="py-16 bg-white border-y border-gray-100">
         <div className="max-w-3xl mx-auto px-4 text-left">
-          <h2 className="text-2xl font-serif font-bold text-center text-[#0e4843] mb-4">Dúvidas Frequentes sobre o Exame</h2>
-          <div className="h-1 w-12 bg-[#14b8a6] mx-auto mb-10 rounded-full"></div>
+          <h2 className="text-2xl font-serif font-bold text-center text-ink mb-4">Dúvidas Frequentes sobre o Exame</h2>
+          <div className="h-1 w-12 bg-brand mx-auto mb-10 rounded-full"></div>
 
           {examTabKeys.map((key) => {
             const data = examsInfo[key];
@@ -269,10 +270,10 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
                 aria-hidden={activeTab === key ? undefined : true}
               >
                 {data.faqs.map((faq, idx) => (
-                  <details key={idx} className="group bg-gray-50 rounded-2xl border border-gray-100 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm hover:border-[#14b8a6]/20 transition-all">
-                    <summary className="flex justify-between items-center text-sm font-bold text-[#0e4843]">
+                  <details key={idx} className="group bg-gray-50 rounded-2xl border border-gray-100 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-sm hover:border-brand/20 transition-all">
+                    <summary className="flex justify-between items-center text-sm font-bold text-ink">
                       <span>{faq.q}</span>
-                      <span className="transition group-open:rotate-180 text-[#14b8a6]">
+                      <span className="transition group-open:rotate-180 text-brand">
                         <Icons.ChevronDown className="w-5 h-5" />
                       </span>
                     </summary>
@@ -289,11 +290,11 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
 
       {/* CTA Box */}
       <section className="py-16 max-w-4xl mx-auto px-4 text-center">
-        <div className="bg-[#0e4843] text-white rounded-3xl p-10 space-y-6 shadow-lg relative overflow-hidden">
+        <div className="bg-ink text-white rounded-3xl p-10 space-y-6 shadow-lg relative overflow-hidden">
           <div className="absolute inset-0 opacity-5 pointer-events-none">
             <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 40px' }}></div>
           </div>
-          <Icons.Activity className="w-12 h-12 text-[#14b8a6] mx-auto" />
+          <Icons.Activity className="w-12 h-12 text-brand mx-auto" />
           <h3 className="text-2xl font-serif font-bold">Solicite seu Agendamento</h3>
           <p className="text-teal-50/70 text-sm max-w-md mx-auto">
             Agende seus exames cardiorrespiratórios de forma facilitada. Nossa equipe está pronta para lhe orientar sobre preparos específicos e convênios.
@@ -303,7 +304,7 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
               href={whatsappUrl} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="inline-flex items-center justify-center bg-[#14b8a6] hover:bg-[#0d9488] text-white text-xs font-bold px-8 py-4 rounded-full transition-all gap-2 shadow-md"
+              className="inline-flex items-center justify-center bg-brand hover:bg-brand-hover text-white text-xs font-bold px-8 py-4 rounded-full transition-all gap-2 shadow-md"
             >
               <Icons.MessageSquare className="w-4 h-4" />
               Falar com Atendimento no WhatsApp
@@ -313,7 +314,7 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#0e4843] text-white pt-16 pb-12 border-t border-teal-500/10 mt-auto">
+      <footer className="bg-ink text-white pt-16 pb-12 border-t border-teal-500/10 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-12 text-left mb-12">
           <div>
             <h3 className="font-serif font-bold text-xl mb-6">Clínica Franco</h3>
@@ -329,15 +330,15 @@ const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({
           <div>
             <h3 className="font-bold text-sm tracking-widest uppercase mb-6">Principais Exames</h3>
             <ul className="space-y-3.5 text-xs text-teal-50/70">
-              <li><a href="/exame/obstetrico_doppler" onClick={(e) => navigateTo('/exame/obstetrico_doppler', e)} className="hover:text-[#14b8a6] transition-colors">Obstétrico com Doppler</a></li>
-              <li><a href="/exame/ecofetal" onClick={(e) => navigateTo('/exame/ecofetal', e)} className="hover:text-[#14b8a6] transition-colors">Ecocardiograma Fetal</a></li>
-              <li><a href="/exame/morfologico1" onClick={(e) => navigateTo('/exame/morfologico1', e)} className="hover:text-[#14b8a6] transition-colors">Morfológico de 1º Trimestre</a></li>
-              <li><a href="/exame/morfologico2" onClick={(e) => navigateTo('/exame/morfologico2', e)} className="hover:text-[#14b8a6] transition-colors">Morfológico de 2º Trimestre</a></li>
+              <li><a href="/exame/obstetrico_doppler" onClick={(e) => navigateTo('/exame/obstetrico_doppler', e)} className="hover:text-brand transition-colors">Obstétrico com Doppler</a></li>
+              <li><a href="/exame/ecofetal" onClick={(e) => navigateTo('/exame/ecofetal', e)} className="hover:text-brand transition-colors">Ecocardiograma Fetal</a></li>
+              <li><a href="/exame/morfologico1" onClick={(e) => navigateTo('/exame/morfologico1', e)} className="hover:text-brand transition-colors">Morfológico de 1º Trimestre</a></li>
+              <li><a href="/exame/morfologico2" onClick={(e) => navigateTo('/exame/morfologico2', e)} className="hover:text-brand transition-colors">Morfológico de 2º Trimestre</a></li>
             </ul>
           </div>
           <div>
             <h3 className="font-bold text-sm tracking-widest uppercase mb-6">Canais de Contato</h3>
-            <p className="text-[#14b8a6] font-extrabold text-lg mb-2">
+            <p className="text-brand-light font-extrabold text-lg mb-2">
               <a href="https://wa.me/5567998446674" target="_blank" rel="noopener noreferrer" className="hover:text-teal-300 transition-colors">
                 +55 67 99844-6674
               </a>

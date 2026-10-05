@@ -156,7 +156,7 @@ const GestationalCalculator: React.FC = () => {
                         </div>
                         <button 
                             onClick={calculateDum}
-                            className="w-full bg-[#0f766e] text-white py-3 rounded-lg font-bold hover:bg-teal-700 transition-colors"
+                            className="w-full bg-brand-hover text-white py-3 rounded-lg font-bold hover:bg-teal-700 transition-colors"
                         >
                             Calcular
                         </button>
@@ -166,11 +166,11 @@ const GestationalCalculator: React.FC = () => {
                                 <h4 className="text-teal-900 font-bold text-center border-b border-teal-200 pb-2 mb-2">Resultado Estimado</h4>
                                 <div className="grid grid-cols-2 gap-4 text-center">
                                     <div>
-                                        <span className="block text-xs text-[#0f766e] uppercase font-bold">Idade Gestacional</span>
+                                        <span className="block text-xs text-brand-hover uppercase font-bold">Idade Gestacional</span>
                                         <span className="text-xl font-bold text-gray-800">{dumResult.weeks} sem {dumResult.days} dias</span>
                                     </div>
                                     <div>
-                                        <span className="block text-xs text-[#0f766e] uppercase font-bold">Data Provável (DPP)</span>
+                                        <span className="block text-xs text-brand-hover uppercase font-bold">Data Provável (DPP)</span>
                                         <span className="text-xl font-bold text-gray-800">{dumResult.dpp}</span>
                                     </div>
                                 </div>
@@ -219,7 +219,7 @@ const GestationalCalculator: React.FC = () => {
                         </div>
                         <button 
                             onClick={calculateUsg}
-                            className="w-full bg-[#0f766e] text-white py-3 rounded-lg font-bold hover:bg-teal-700 transition-colors"
+                            className="w-full bg-brand-hover text-white py-3 rounded-lg font-bold hover:bg-teal-700 transition-colors"
                         >
                             Calcular Idade Atual
                         </button>
@@ -229,11 +229,11 @@ const GestationalCalculator: React.FC = () => {
                                 <h4 className="text-teal-900 font-bold text-center border-b border-teal-200 pb-2 mb-2">Hoje você está com:</h4>
                                 <div className="grid grid-cols-2 gap-4 text-center">
                                     <div>
-                                        <span className="block text-xs text-[#0f766e] uppercase font-bold">Idade Gestacional</span>
+                                        <span className="block text-xs text-brand-hover uppercase font-bold">Idade Gestacional</span>
                                         <span className="text-xl font-bold text-gray-800">{usgResult.weeks} sem {usgResult.days} dias</span>
                                     </div>
                                     <div>
-                                        <span className="block text-xs text-[#0f766e] uppercase font-bold">Nova DPP Estimada</span>
+                                        <span className="block text-xs text-brand-hover uppercase font-bold">Nova DPP Estimada</span>
                                         <span className="text-xl font-bold text-gray-800">{usgResult.dpp}</span>
                                     </div>
                                 </div>
@@ -274,7 +274,7 @@ const GestationalCalculator: React.FC = () => {
 
                         <button 
                             onClick={calculateConverter}
-                            className="w-full bg-[#0f766e] text-white py-3 rounded-lg font-bold hover:bg-teal-700 transition-colors"
+                            className="w-full bg-brand-hover text-white py-3 rounded-lg font-bold hover:bg-teal-700 transition-colors"
                         >
                             Converter
                         </button>

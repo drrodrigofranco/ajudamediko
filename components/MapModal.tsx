@@ -41,7 +41,7 @@ const MapModal: React.FC<MapModalProps> = ({
             target="_blank" 
             rel="noopener noreferrer"
             onClick={trackGetDirections}
-            className="bg-[#14b8a6] text-white px-8 py-4 rounded-full font-bold flex items-center gap-3 hover:bg-[#0d9488] transition-all shadow-xl"
+            className="bg-brand text-white px-8 py-4 rounded-full font-bold flex items-center gap-3 hover:bg-brand-hover transition-all shadow-xl"
           >
             <MapPin size={20} />
             ABRIR NO GOOGLE MAPS

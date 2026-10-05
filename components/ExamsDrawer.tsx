@@ -288,11 +288,11 @@ const ExamsDrawer: React.FC = () => {
       <button
         onClick={() => setIsOpen(true)}
         aria-label="Abrir guia de exames"
-        className="fixed right-8 bottom-8 md:right-0 md:top-1/2 md:bottom-auto md:-translate-y-1/2 z-[60] bg-[#0e4843] text-white p-5 md:py-12 md:px-6 rounded-full md:rounded-l-[40px] shadow-[0_0_40px_rgba(20,184,166,0.3)] flex flex-col items-center gap-0 md:gap-6 hover:bg-[#14b8a6] transition-all group border md:border-y md:border-l border-teal-400/40 md:hover:pr-8"
+        className="fixed right-8 bottom-8 md:right-0 md:top-1/2 md:bottom-auto md:-translate-y-1/2 z-[60] bg-ink text-white p-5 md:py-12 md:px-6 rounded-full md:rounded-l-[40px] shadow-[0_0_40px_rgba(47,95,134,0.3)] flex flex-col items-center gap-0 md:gap-6 hover:bg-brand transition-all group border md:border-y md:border-l border-teal-400/40 md:hover:pr-8"
       >
         <div className="relative">
           <div className="absolute -inset-1 md:-inset-2 bg-teal-400/20 rounded-full blur-md md:blur-lg group-hover:bg-white/20 transition-all"></div>
-          <ClipboardList className="relative group-hover:scale-110 transition-transform text-[#14b8a6] group-hover:text-white w-8 h-8 md:w-10 md:h-10" />
+          <ClipboardList className="relative group-hover:scale-110 transition-transform text-brand-light group-hover:text-white w-8 h-8 md:w-10 md:h-10" />
         </div>
         <span className="hidden md:inline [writing-mode:vertical-rl] text-[16px] font-black tracking-[0.25em] uppercase drop-shadow-sm">Guia de Exames</span>
       </button>
@@ -324,9 +324,9 @@ const ExamsDrawer: React.FC = () => {
             className="fixed right-0 top-0 h-full w-full max-w-md bg-white z-[80] shadow-2xl flex flex-col"
           >
             {/* Header */}
-            <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-[#0e4843] text-white">
+            <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-ink text-white">
               <div className="flex items-center gap-3">
-                <ClipboardList className="text-[#14b8a6]" />
+                <ClipboardList className="text-brand" />
                 <h2 className="text-lg font-serif font-bold">Catálogo Informativo</h2>
               </div>
               <button 
@@ -354,7 +354,7 @@ const ExamsDrawer: React.FC = () => {
                     <input 
                       type="text" 
                       placeholder="Pesquisar exame..." 
-                      className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-100 rounded-xl outline-none focus:ring-2 focus:ring-[#14b8a6]/20 transition-all text-sm"
+                      className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-100 rounded-xl outline-none focus:ring-2 focus:ring-brand/20 transition-all text-sm"
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
                     />
@@ -366,15 +366,15 @@ const ExamsDrawer: React.FC = () => {
                       <button 
                         key={exam.id}
                         onClick={() => setSelectedExam(exam)}
-                        className="w-full flex items-center justify-between p-4 rounded-2xl border border-gray-50 hover:border-[#14b8a6]/30 hover:bg-teal-50/30 transition-all group text-left"
+                        className="w-full flex items-center justify-between p-4 rounded-2xl border border-gray-50 hover:border-brand/30 hover:bg-teal-50/30 transition-all group text-left"
                       >
                         <div className="flex items-center gap-4">
-                          <div className="bg-[#f0fdfa] p-2.5 rounded-xl text-[#14b8a6] group-hover:bg-[#14b8a6] group-hover:text-white transition-colors">
+                          <div className="bg-brand-tint p-2.5 rounded-xl text-brand group-hover:bg-brand group-hover:text-white transition-colors">
                             <exam.icon size={20} />
                           </div>
-                          <span className="font-bold text-[#0e4843] text-sm">{exam.name}</span>
+                          <span className="font-bold text-ink text-sm">{exam.name}</span>
                         </div>
-                        <ChevronRight size={18} className="text-gray-300 group-hover:text-[#14b8a6] transition-colors" />
+                        <ChevronRight size={18} className="text-gray-300 group-hover:text-brand transition-colors" />
                       </button>
                     ))}
                   </div>
@@ -390,7 +390,7 @@ const ExamsDrawer: React.FC = () => {
                     <img src={selectedExam.image} alt={selectedExam.name} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
                       <div className="flex items-center gap-3">
-                        <div className="bg-[#14b8a6] p-2 rounded-xl text-white">
+                        <div className="bg-brand p-2 rounded-xl text-white">
                           <selectedExam.icon size={24} />
                         </div>
                         <h3 className="text-xl font-serif font-bold text-white">{selectedExam.name}</h3>
@@ -406,7 +406,7 @@ const ExamsDrawer: React.FC = () => {
 
                   <div className="p-8 space-y-8">
                     <div className="space-y-3">
-                      <div className="flex items-center gap-2 text-[#14b8a6]">
+                      <div className="flex items-center gap-2 text-brand">
                         <Info size={18} />
                         <h4 className="text-[10px] font-bold uppercase tracking-widest">O que é?</h4>
                       </div>
@@ -414,7 +414,7 @@ const ExamsDrawer: React.FC = () => {
                     </div>
 
                     <div className="space-y-3">
-                      <div className="flex items-center gap-2 text-[#14b8a6]">
+                      <div className="flex items-center gap-2 text-brand">
                         <Stethoscope size={18} />
                         <h4 className="text-[10px] font-bold uppercase tracking-widest">Como é feito?</h4>
                       </div>
@@ -422,7 +422,7 @@ const ExamsDrawer: React.FC = () => {
                     </div>
 
                     <div className="space-y-3">
-                      <div className="flex items-center gap-2 text-[#14b8a6]">
+                      <div className="flex items-center gap-2 text-brand">
                         <Clock size={18} />
                         <h4 className="text-[10px] font-bold uppercase tracking-widest">Quando fazer?</h4>
                       </div>
@@ -430,7 +430,7 @@ const ExamsDrawer: React.FC = () => {
                     </div>
 
                     <div className="space-y-3">
-                      <div className="flex items-center gap-2 text-[#14b8a6]">
+                      <div className="flex items-center gap-2 text-brand">
                         <Activity size={18} />
                         <h4 className="text-[10px] font-bold uppercase tracking-widest">Para que serve?</h4>
                       </div>
@@ -444,7 +444,7 @@ const ExamsDrawer: React.FC = () => {
                         const contactSection = document.getElementById('contato');
                         if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
                       }}
-                      className="w-full bg-[#0e4843] text-white py-4 rounded-2xl font-bold hover:bg-[#14b8a6] transition-all shadow-lg mt-8 text-center"
+                      className="w-full bg-ink text-white py-4 rounded-2xl font-bold hover:bg-brand transition-all shadow-lg mt-8 text-center"
                     >
                       Agendar este Exame
                     </button>
@@ -459,7 +459,7 @@ const ExamsDrawer: React.FC = () => {
                         window.dispatchEvent(new PopStateEvent('popstate'));
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                       }}
-                      className="w-full border border-gray-200 text-[#0e4843] py-4 rounded-2xl font-bold hover:bg-gray-50 transition-all text-center block mt-3 text-sm shadow-sm"
+                      className="w-full border border-gray-200 text-ink py-4 rounded-2xl font-bold hover:bg-gray-50 transition-all text-center block mt-3 text-sm shadow-sm"
                     >
                       Ver Guia de Preparação e Preços
                     </a>

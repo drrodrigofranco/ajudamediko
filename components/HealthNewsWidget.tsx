@@ -54,7 +54,7 @@ const HealthNewsWidget: React.FC<HealthNewsWidgetProps> = ({ navigateTo }) => {
                         <a
                             href={`/blog/${article.id}`}
                             onClick={(e) => navigateTo(`/blog/${article.id}`, e)}
-                            className="inline-flex items-center text-sm font-semibold text-[#0f766e] hover:text-teal-800 transition-colors mt-3"
+                            className="inline-flex items-center text-sm font-semibold text-brand-hover hover:text-teal-800 transition-colors mt-3"
                         >
                             Ler artigo completo
                             <ChevronRight size={16} className="ml-1" />
@@ -90,7 +90,7 @@ const HealthNewsWidget: React.FC<HealthNewsWidgetProps> = ({ navigateTo }) => {
                                         href={news.url} 
                                         target="_blank" 
                                         rel="noopener noreferrer" 
-                                        className="inline-flex items-center text-sm font-semibold text-[#0f766e] hover:text-teal-800 transition-colors"
+                                        className="inline-flex items-center text-sm font-semibold text-brand-hover hover:text-teal-800 transition-colors"
                                     >
                                         Ler fonte completa
                                         <ChevronRight size={16} className="ml-1" />

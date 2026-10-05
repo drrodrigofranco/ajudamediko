@@ -40,7 +40,7 @@ const Contact = lazy(() => import('./components/Contact'));
 
 const RouteFallback: React.FC = () => (
     <div className="min-h-screen flex items-center justify-center bg-white">
-        <div className="w-8 h-8 border-4 border-[#14b8a6] border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-8 h-8 border-4 border-brand border-t-transparent rounded-full animate-spin"></div>
     </div>
 );
 const App: React.FC = () => {
@@ -360,7 +360,7 @@ const App: React.FC = () => {
                 </Suspense>
 
                 <section id="noticias" className="py-24 max-w-5xl mx-auto px-4 scroll-mt-24">
-                    <div className="bg-[#0e4843] rounded-3xl overflow-hidden shadow-2xl">
+                    <div className="bg-ink rounded-3xl overflow-hidden shadow-2xl">
                         <Suspense fallback={null}>
                             <HealthNewsWidget navigateTo={navigateTo} />
                         </Suspense>

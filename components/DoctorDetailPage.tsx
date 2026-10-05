@@ -1,4 +1,5 @@
 import React from 'react';
+import LogoMark from './LogoMark';
 import * as Icons from 'lucide-react';
 import { doctorsData } from '../doctorsData';
 import { useSEO } from '../hooks/useSEO';
@@ -57,11 +58,11 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
   if (!doctor) {
     return (
       <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4">
-        <h2 className="text-2xl font-serif font-bold text-[#0e4843] mb-4">Médico não encontrado</h2>
+        <h2 className="text-2xl font-serif font-bold text-ink mb-4">Médico não encontrado</h2>
         <a
           href="/"
           onClick={(e) => navigateTo('/', e)}
-          className="text-[#14b8a6] hover:underline font-bold"
+          className="text-brand hover:underline font-bold"
         >
           Voltar para a página inicial
         </a>
@@ -78,19 +79,19 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
       <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <a href="/" onClick={(e) => navigateTo('/', e)} className="flex items-center gap-2 group">
-            <span className="bg-[#0e4843] text-white p-2 rounded-xl text-xs font-black tracking-wider transition-all group-hover:bg-[#14b8a6]">US</span>
-            <span className="font-serif font-bold text-xl text-[#0e4843] tracking-tight">Clínica Franco</span>
+            <LogoMark className="h-9 w-auto text-ink transition-colors group-hover:text-brand" />
+            <span className="font-serif font-bold text-xl text-ink tracking-tight">Clínica Franco</span>
           </a>
-          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-[#0e4843]/80">
-            <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-[#14b8a6] transition-colors">HOME</a>
-            <a href="/equipe" onClick={(e) => navigateTo('/equipe', e)} className="hover:text-[#14b8a6] transition-colors">EQUIPE</a>
-            <a href="/servicos" onClick={(e) => navigateTo('/servicos', e)} className="hover:text-[#14b8a6] transition-colors">SERVIÇOS</a>
+          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-ink/80">
+            <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-brand transition-colors">HOME</a>
+            <a href="/equipe" onClick={(e) => navigateTo('/equipe', e)} className="hover:text-brand transition-colors">EQUIPE</a>
+            <a href="/servicos" onClick={(e) => navigateTo('/servicos', e)} className="hover:text-brand transition-colors">SERVIÇOS</a>
           </nav>
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#14b8a6] hover:bg-[#0d9488] text-white text-xs font-bold px-6 py-3 rounded-full shadow-md transition-all"
+            className="bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3 rounded-full shadow-md transition-all"
           >
             AGENDAR AGORA
           </a>
@@ -98,7 +99,7 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
       </header>
 
       {/* Hero Section */}
-      <section className="bg-[#0e4843] text-white py-20 lg:py-28 relative overflow-hidden">
+      <section className="bg-ink text-white py-20 lg:py-28 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5 pointer-events-none">
           <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
         </div>
@@ -139,8 +140,8 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
           <div className="w-full lg:w-2/3 space-y-12">
             <div className="bg-white p-8 sm:p-10 rounded-3xl border border-gray-100 shadow-sm space-y-8">
               <div className="space-y-3">
-                <h2 className="text-lg font-serif font-bold text-[#0e4843] flex items-center gap-2">
-                  <Icons.Info className="text-[#14b8a6] w-5 h-5" />
+                <h2 className="text-lg font-serif font-bold text-ink flex items-center gap-2">
+                  <Icons.Info className="text-brand w-5 h-5" />
                   Quem é {doctor.name}?
                 </h2>
                 {doctor.longBio.map((paragraph, i) => (
@@ -151,23 +152,23 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
               <hr className="border-gray-100" />
 
               <div className="space-y-6">
-                <h2 className="text-lg font-serif font-bold text-[#0e4843] flex items-center gap-2">
-                  <Icons.GraduationCap className="text-[#14b8a6] w-5 h-5" />
+                <h2 className="text-lg font-serif font-bold text-ink flex items-center gap-2">
+                  <Icons.GraduationCap className="text-brand w-5 h-5" />
                   Formação Acadêmica
                 </h2>
-                <div className="border-l-2 border-[#ccfbf1] ml-2 pl-8 space-y-6">
+                <div className="border-l-2 border-brand-soft ml-2 pl-8 space-y-6">
                   {doctor.education.map((edu, i) => (
                     <div key={i} className="relative">
-                      <div className="absolute -left-[37px] top-1.5 w-4 h-4 bg-[#14b8a6] rounded-full border-4 border-white shadow-sm"></div>
+                      <div className="absolute -left-[37px] top-1.5 w-4 h-4 bg-brand rounded-full border-4 border-white shadow-sm"></div>
                       <h4 className="font-bold text-gray-900 text-base">{edu.title}</h4>
-                      {edu.year && <span className="text-[#14b8a6] font-bold text-xs block mt-1">{edu.year}</span>}
+                      {edu.year && <span className="text-brand font-bold text-xs block mt-1">{edu.year}</span>}
                       {edu.institution && <p className="text-gray-500 text-sm mt-1">{edu.institution}</p>}
                       {edu.description && <p className="text-gray-500 text-sm mt-1 leading-relaxed">{edu.description}</p>}
                     </div>
                   ))}
                 </div>
                 {doctor.lattesUrl && (
-                  <a href={doctor.lattesUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-[#14b8a6] hover:underline text-sm font-bold">
+                  <a href={doctor.lattesUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-brand hover:underline text-sm font-bold">
                     Acesse o currículo Lattes completo
                     <Icons.ExternalLink className="w-3.5 h-3.5" />
                   </a>
@@ -177,8 +178,8 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
               <hr className="border-gray-100" />
 
               <div className="space-y-6">
-                <h2 className="text-lg font-serif font-bold text-[#0e4843] flex items-center gap-2">
-                  <Icons.Briefcase className="text-[#14b8a6] w-5 h-5" />
+                <h2 className="text-lg font-serif font-bold text-ink flex items-center gap-2">
+                  <Icons.Briefcase className="text-brand w-5 h-5" />
                   Trajetória Profissional
                 </h2>
                 {doctor.experience.map((group, i) => (
@@ -187,7 +188,7 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
                     <ul className="space-y-3 text-sm text-gray-600">
                       {group.items.map((item, j) => (
                         <li key={j} className="flex items-start gap-3">
-                          <div className="w-1.5 h-1.5 bg-[#14b8a6] rounded-full mt-2 flex-shrink-0"></div>
+                          <div className="w-1.5 h-1.5 bg-brand rounded-full mt-2 flex-shrink-0"></div>
                           <span>{item}</span>
                         </li>
                       ))}
@@ -200,14 +201,14 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
                 <>
                   <hr className="border-gray-100" />
                   <div className="space-y-4">
-                    <h2 className="text-lg font-serif font-bold text-[#0e4843] flex items-center gap-2">
-                      <Icons.Stethoscope className="text-[#14b8a6] w-5 h-5" />
+                    <h2 className="text-lg font-serif font-bold text-ink flex items-center gap-2">
+                      <Icons.Stethoscope className="text-brand w-5 h-5" />
                       Pequenos Procedimentos Ambulatoriais
                     </h2>
                     <ul className="space-y-3 text-sm text-gray-600">
                       {doctor.procedures.map((proc, i) => (
                         <li key={i} className="flex items-start gap-3">
-                          <div className="w-1.5 h-1.5 bg-[#14b8a6] rounded-full mt-2 flex-shrink-0"></div>
+                          <div className="w-1.5 h-1.5 bg-brand rounded-full mt-2 flex-shrink-0"></div>
                           <span>{proc}</span>
                         </li>
                       ))}
@@ -220,10 +221,10 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
 
           {/* Right Column */}
           <div className="w-full lg:w-1/3 lg:sticky lg:top-24 space-y-8">
-            <div className="bg-[#0e4843] text-white p-8 rounded-3xl shadow-lg border border-teal-500/10 relative overflow-hidden">
+            <div className="bg-ink text-white p-8 rounded-3xl shadow-lg border border-teal-500/10 relative overflow-hidden">
               <div className="relative z-10 space-y-6">
                 <div className="flex items-center gap-4">
-                  <div className="bg-teal-500/20 p-3 rounded-2xl text-[#14b8a6]">
+                  <div className="bg-teal-500/20 p-3 rounded-2xl text-brand-light">
                     <IconComponent className="w-6 h-6" />
                   </div>
                   <div>
@@ -232,7 +233,7 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="bg-teal-500/20 p-3 rounded-2xl text-[#14b8a6]">
+                  <div className="bg-teal-500/20 p-3 rounded-2xl text-brand-light">
                     <Icons.BadgeCheck className="w-6 h-6" />
                   </div>
                   <div>
@@ -244,7 +245,7 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full bg-[#14b8a6] hover:bg-[#0d9488] text-white py-4 rounded-2xl font-bold shadow-md hover:-translate-y-0.5 transition-all text-sm"
+                  className="flex items-center justify-center gap-2 w-full bg-brand hover:bg-brand-hover text-white py-4 rounded-2xl font-bold shadow-md hover:-translate-y-0.5 transition-all text-sm"
                 >
                   <Icons.MessageSquare className="w-5 h-5" />
                   Agendar pelo WhatsApp
@@ -253,8 +254,8 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
             </div>
 
             <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
-              <h2 className="text-base font-bold text-[#0e4843] mb-6 flex items-center gap-2">
-                <Icons.Target className="text-[#14b8a6] w-5 h-5" />
+              <h2 className="text-base font-bold text-ink mb-6 flex items-center gap-2">
+                <Icons.Target className="text-brand w-5 h-5" />
                 Foco de Atendimento
               </h2>
               <ul className="space-y-4">
@@ -268,8 +269,8 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
             </div>
 
             <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
-              <h2 className="text-base font-bold text-[#0e4843] mb-4">Conheça a Equipe</h2>
-              <div className="space-y-2 text-xs text-[#14b8a6] font-bold">
+              <h2 className="text-base font-bold text-ink mb-4">Conheça a Equipe</h2>
+              <div className="space-y-2 text-xs text-brand font-bold">
                 {doctorsData.filter(d => d.id !== doctor.id).map((d, i) => (
                   <a
                     key={d.id}
@@ -289,7 +290,7 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#0e4843] text-white pt-16 pb-12 border-t border-teal-500/10 mt-auto">
+      <footer className="bg-ink text-white pt-16 pb-12 border-t border-teal-500/10 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-12 text-left mb-12">
           <div>
             <h3 className="font-serif font-bold text-xl mb-6">Clínica Franco</h3>
@@ -306,14 +307,14 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
             <ul className="space-y-3.5 text-xs text-teal-50/70">
               {doctorsData.map(d => (
                 <li key={d.id}>
-                  <a href={`/medico/${d.id}`} onClick={(e) => navigateTo(`/medico/${d.id}`, e)} className="hover:text-[#14b8a6] transition-colors">{d.name}</a>
+                  <a href={`/medico/${d.id}`} onClick={(e) => navigateTo(`/medico/${d.id}`, e)} className="hover:text-brand transition-colors">{d.name}</a>
                 </li>
               ))}
             </ul>
           </div>
           <div>
             <h3 className="font-bold text-sm tracking-widest uppercase mb-6">Canais de Contato</h3>
-            <p className="text-[#14b8a6] font-extrabold text-lg mb-2">
+            <p className="text-brand-light font-extrabold text-lg mb-2">
               <a href="https://wa.me/5567998446674" target="_blank" rel="noopener noreferrer" className="hover:text-teal-300 transition-colors">
                 +55 67 99844-6674
               </a>

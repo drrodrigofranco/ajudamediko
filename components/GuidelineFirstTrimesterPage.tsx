@@ -1,4 +1,5 @@
 import React from 'react';
+import LogoMark from './LogoMark';
 import * as Icons from 'lucide-react';
 import { useSEO } from '../hooks/useSEO';
 import { useJsonLd } from '../hooks/useJsonLd';
@@ -31,20 +32,20 @@ const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = 
       <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <a href="/" onClick={(e) => navigateTo('/', e)} className="flex items-center gap-2 group">
-            <span className="bg-[#0e4843] text-white p-2 rounded-xl text-xs font-black tracking-wider transition-all group-hover:bg-[#14b8a6]">US</span>
-            <span className="font-serif font-bold text-xl text-[#0e4843] tracking-tight">Clínica Franco</span>
+            <LogoMark className="h-9 w-auto text-ink transition-colors group-hover:text-brand" />
+            <span className="font-serif font-bold text-xl text-ink tracking-tight">Clínica Franco</span>
           </a>
-          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-[#0e4843]/80">
-            <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-[#14b8a6] transition-colors">HOME</a>
-            <a href="/servicos" onClick={(e) => navigateTo('/servicos', e)} className="hover:text-[#14b8a6] transition-colors">EXAMES</a>
-            <a href="/entenda-exames" onClick={(e) => navigateTo('/entenda-exames', e)} className="hover:text-[#14b8a6] transition-colors">COMPARATIVO</a>
-            <a href="/equipe" onClick={(e) => navigateTo('/equipe', e)} className="hover:text-[#14b8a6] transition-colors">SOBRE NÓS</a>
+          <nav className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-wider text-ink/80">
+            <a href="/" onClick={(e) => navigateTo('/', e)} className="hover:text-brand transition-colors">HOME</a>
+            <a href="/servicos" onClick={(e) => navigateTo('/servicos', e)} className="hover:text-brand transition-colors">EXAMES</a>
+            <a href="/entenda-exames" onClick={(e) => navigateTo('/entenda-exames', e)} className="hover:text-brand transition-colors">COMPARATIVO</a>
+            <a href="/equipe" onClick={(e) => navigateTo('/equipe', e)} className="hover:text-brand transition-colors">SOBRE NÓS</a>
           </nav>
           <a 
             href={whatsappUrl} 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="bg-[#14b8a6] hover:bg-[#0d9488] text-white text-xs font-bold px-6 py-3 rounded-full shadow-md transition-all"
+            className="bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3 rounded-full shadow-md transition-all"
           >
             AGENDAR EXAME
           </a>
@@ -52,7 +53,7 @@ const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = 
       </header>
 
       {/* Hero Section */}
-      <section className="bg-[#0e4843] text-white py-20 lg:py-28 relative overflow-hidden">
+      <section className="bg-ink text-white py-20 lg:py-28 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5 pointer-events-none">
           <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
         </div>
@@ -74,7 +75,7 @@ const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = 
           <p className="text-xs text-teal-200/50 mb-8 max-w-xl mx-auto">
             Atendimento em Nova Andradina - MS, recebendo também pacientes de Batayporã, Ivinhema, Anaurilândia, Deodápolis, Angélica e Rosana (SP).
           </p>
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#1c5d57] text-[#5eead4] text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-ink-3 text-brand-pale text-xs font-bold uppercase tracking-wider">
             <Icons.BookOpen className="w-4 h-4 text-teal-300" />
             Diretriz Oficial 2020 / Projeto Diretrizes
           </div>
@@ -88,7 +89,7 @@ const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = 
             <Icons.Quote className="w-8 h-8 text-teal-500/30" />
             <span className="text-xs uppercase tracking-widest font-semibold text-teal-600">Referência do Estudo</span>
           </div>
-          <h2 className="text-2xl font-serif font-bold text-[#0e4843]">
+          <h2 className="text-2xl font-serif font-bold text-ink">
             Associação Médica Brasileira: Diretrizes Clínicas na Saúde Materno-Fetal
           </h2>
           <p className="text-gray-600 text-sm leading-relaxed">
@@ -106,17 +107,17 @@ const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = 
       {/* Os 4 Pilares da Diretriz */}
       <section className="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-serif font-bold text-[#0e4843]">As 4 Recomendações Críticas do Estudo</h2>
-          <div className="h-1 w-16 bg-[#14b8a6] mx-auto mt-4 rounded-full"></div>
+          <h2 className="text-3xl font-serif font-bold text-ink">As 4 Recomendações Críticas do Estudo</h2>
+          <div className="h-1 w-16 bg-brand mx-auto mt-4 rounded-full"></div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Pilar 1 */}
           <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm space-y-4">
-            <div className="w-10 h-10 rounded-2xl bg-teal-50 flex items-center justify-center text-[#14b8a6]">
+            <div className="w-10 h-10 rounded-2xl bg-teal-50 flex items-center justify-center text-brand">
               <Icons.CalendarRange className="w-5 h-5" />
             </div>
-            <h3 className="text-lg font-bold text-[#0e4843]">1. Datação Exata da Idade Gestacional</h3>
+            <h3 className="text-lg font-bold text-ink">1. Datação Exata da Idade Gestacional</h3>
             <p className="text-gray-500 text-xs leading-relaxed">
               O estudo científico determina que a medição do <strong>Comprimento Cabeça-Nádega (CCN)</strong> é o parâmetro mais preciso para datar a gestação no primeiro trimestre. Ele corrige erros frequentes gerados pela estimativa baseada apenas na data da última menstruação (DUM), o que previne induções desnecessárias ao parto ou preocupações falsas sobre atraso de crescimento.
             </p>
@@ -124,10 +125,10 @@ const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = 
 
           {/* Pilar 2 */}
           <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm space-y-4">
-            <div className="w-10 h-10 rounded-2xl bg-teal-50 flex items-center justify-center text-[#14b8a6]">
+            <div className="w-10 h-10 rounded-2xl bg-teal-50 flex items-center justify-center text-brand">
               <Icons.HeartPulse className="w-5 h-5" />
             </div>
-            <h3 className="text-lg font-bold text-[#0e4843]">2. Confirmação de Viabilidade Embrionária</h3>
+            <h3 className="text-lg font-bold text-ink">2. Confirmação de Viabilidade Embrionária</h3>
             <p className="text-gray-500 text-xs leading-relaxed">
               A diretriz padroniza que a viabilidade da gestação é confirmada ao constatar um embrião dentro de um saco gestacional intrauterino com <strong>atividade cardíaca visível e mensurável</strong>. Esse passo é crucial para descartar precocemente situações de risco como a gravidez ectópica (fora do útero) ou abortamento retido.
             </p>
@@ -135,10 +136,10 @@ const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = 
 
           {/* Pilar 3 */}
           <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm space-y-4">
-            <div className="w-10 h-10 rounded-2xl bg-teal-50 flex items-center justify-center text-[#14b8a6]">
+            <div className="w-10 h-10 rounded-2xl bg-teal-50 flex items-center justify-center text-brand">
               <Icons.Users className="w-5 h-5" />
             </div>
-            <h3 className="text-lg font-bold text-[#0e4843]">3. Determinação de Corionicidade em Gêmeos</h3>
+            <h3 className="text-lg font-bold text-ink">3. Determinação de Corionicidade em Gêmeos</h3>
             <p className="text-gray-500 text-xs leading-relaxed">
               Em gestações múltiplas, a ultrassonografia do primeiro trimestre é a <strong>melhor e mais precisa janela temporal</strong> para identificar a corionicidade (número de placentas) e a amnionicidade (número de bolsas). Gestações monocoriônicas (uma placenta para dois bebês) requerem um controle de pré-natal muito mais frequente, e a datação precoce salva vidas.
             </p>
@@ -146,10 +147,10 @@ const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = 
 
           {/* Pilar 4 */}
           <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm space-y-4">
-            <div className="w-10 h-10 rounded-2xl bg-teal-50 flex items-center justify-center text-[#14b8a6]">
+            <div className="w-10 h-10 rounded-2xl bg-teal-50 flex items-center justify-center text-brand">
               <Icons.Dna className="w-5 h-5" />
             </div>
-            <h3 className="text-lg font-bold text-[#0e4843]">4. Triagem de Anomalias Cromossômicas</h3>
+            <h3 className="text-lg font-bold text-ink">4. Triagem de Anomalias Cromossômicas</h3>
             <p className="text-gray-500 text-xs leading-relaxed">
               Entre a 11ª e a 13ª semana e 6 dias, a diretriz recomenda a medição da <strong>Translucência Nucal (TN)</strong> associada à avaliação do osso nasal e do ducto venoso. Essa triagem é altamente precisa para estimar riscos estatísticos de síndromes genéticas (como Síndrome de Down, Edwards e Patau), além de identificar malformações físicas cardíacas graves precocemente.
             </p>
@@ -159,8 +160,8 @@ const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = 
 
       {/* Caixa de Segurança ALARA */}
       <section className="py-8 max-w-4xl mx-auto px-4">
-        <div className="bg-[#0e4843] text-white rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 border border-teal-500/10 shadow-lg">
-          <div className="bg-[#14b8a6] p-4 rounded-2xl text-white flex-shrink-0">
+        <div className="bg-ink text-white rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 border border-teal-500/10 shadow-lg">
+          <div className="bg-brand p-4 rounded-2xl text-white flex-shrink-0">
             <Icons.ShieldAlert className="w-8 h-8" />
           </div>
           <div className="space-y-2 text-left">
@@ -175,8 +176,8 @@ const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = 
       {/* Download do Estudo Original */}
       <section className="py-16 max-w-5xl mx-auto px-4 text-center">
         <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-10 space-y-6">
-          <Icons.FileText className="w-12 h-12 text-[#14b8a6] mx-auto" />
-          <h3 className="text-xl font-bold text-[#0e4843]">Quer ler o estudo científico completo?</h3>
+          <Icons.FileText className="w-12 h-12 text-brand mx-auto" />
+          <h3 className="text-xl font-bold text-ink">Quer ler o estudo científico completo?</h3>
           <p className="text-gray-500 text-sm max-w-md mx-auto">
             O documento original da Associação Médica Brasileira está disponível em formato PDF e pode ser baixado ou lido diretamente pelo portal oficial da instituição.
           </p>
@@ -194,7 +195,7 @@ const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = 
               href={whatsappUrl} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="inline-flex items-center justify-center bg-[#14b8a6] hover:bg-[#0d9488] text-white text-xs font-bold px-6 py-3.5 rounded-full transition-all gap-2 shadow-sm"
+              className="inline-flex items-center justify-center bg-brand hover:bg-brand-hover text-white text-xs font-bold px-6 py-3.5 rounded-full transition-all gap-2 shadow-sm"
             >
               <Icons.MessageSquare className="w-4 h-4" />
               Agendar Exame de 1º Trimestre
@@ -204,7 +205,7 @@ const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = 
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#0e4843] text-white pt-16 pb-12 border-t border-teal-500/10 mt-auto">
+      <footer className="bg-ink text-white pt-16 pb-12 border-t border-teal-500/10 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-12 text-left mb-12">
           <div>
             <h3 className="font-serif font-bold text-xl mb-6">Clínica Franco</h3>
@@ -220,15 +221,15 @@ const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = 
           <div>
             <h3 className="font-bold text-sm tracking-widest uppercase mb-6">Principais Exames</h3>
             <ul className="space-y-3.5 text-xs text-teal-50/70">
-              <li><a href="/exame/obstetrico_doppler" onClick={(e) => navigateTo('/exame/obstetrico_doppler', e)} className="hover:text-[#14b8a6] transition-colors">Obstétrico com Doppler</a></li>
-              <li><a href="/exame/ecofetal" onClick={(e) => navigateTo('/exame/ecofetal', e)} className="hover:text-[#14b8a6] transition-colors">Ecocardiograma Fetal</a></li>
-              <li><a href="/exame/morfologico1" onClick={(e) => navigateTo('/exame/morfologico1', e)} className="hover:text-[#14b8a6] transition-colors">Morfológico de 1º Trimestre</a></li>
-              <li><a href="/exame/morfologico2" onClick={(e) => navigateTo('/exame/morfologico2', e)} className="hover:text-[#14b8a6] transition-colors">Morfológico de 2º Trimestre</a></li>
+              <li><a href="/exame/obstetrico_doppler" onClick={(e) => navigateTo('/exame/obstetrico_doppler', e)} className="hover:text-brand transition-colors">Obstétrico com Doppler</a></li>
+              <li><a href="/exame/ecofetal" onClick={(e) => navigateTo('/exame/ecofetal', e)} className="hover:text-brand transition-colors">Ecocardiograma Fetal</a></li>
+              <li><a href="/exame/morfologico1" onClick={(e) => navigateTo('/exame/morfologico1', e)} className="hover:text-brand transition-colors">Morfológico de 1º Trimestre</a></li>
+              <li><a href="/exame/morfologico2" onClick={(e) => navigateTo('/exame/morfologico2', e)} className="hover:text-brand transition-colors">Morfológico de 2º Trimestre</a></li>
             </ul>
           </div>
           <div>
             <h3 className="font-bold text-sm tracking-widest uppercase mb-6">Canais de Contato</h3>
-            <p className="text-[#14b8a6] font-extrabold text-lg mb-2">
+            <p className="text-brand-light font-extrabold text-lg mb-2">
               <a href="https://wa.me/5567998446674" target="_blank" rel="noopener noreferrer" className="hover:text-teal-300 transition-colors">
                 +55 67 99844-6674
               </a>

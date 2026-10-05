@@ -1,5 +1,46 @@
 @import "tailwindcss";
 
+/* Paleta B "grafite e azul-aco" (logo da clinica e preto/branco).
+   - A escala teal-* e redefinida como azul-aco e gray-* como cinza levemente frio, entao
+     as classes nomeadas (text-teal-300, bg-gray-50, border-gray-100...) seguem a marca.
+   - Tokens semanticos: brand (botoes/links em fundo claro, contraste >= 5,9:1 sobre gray-50),
+     brand-light/brand-pale (texto sobre fundo grafite), ink* (faixas escuras). */
+@theme {
+  --color-teal-50: #eef3f8;
+  --color-teal-100: #dde7ef;
+  --color-teal-200: #bccfdf;
+  --color-teal-300: #93b2cb;
+  --color-teal-400: #7aa3c6;
+  --color-teal-500: #3d6f9c;
+  --color-teal-600: #2f5f86;
+  --color-teal-700: #264d6e;
+  --color-teal-800: #1f3d58;
+  --color-teal-900: #162b3e;
+
+  --color-gray-50: #f2f4f6;
+  --color-gray-100: #e6eaee;
+  --color-gray-200: #d5dbe1;
+  --color-gray-300: #b9c1ca;
+  --color-gray-400: #626d7b;
+  --color-gray-500: #55606e;
+  --color-gray-600: #46505c;
+  --color-gray-700: #353d47;
+  --color-gray-800: #262d35;
+  --color-gray-900: #14181d;
+
+  --color-brand: #2f5f86;
+  --color-brand-hover: #264d6e;
+  --color-brand-light: #7aa3c6;
+  --color-brand-pale: #93b2cb;
+  --color-brand-soft: #dde7ef;
+  --color-brand-tint: #eef3f8;
+  --color-ink: #14181d;
+  --color-ink-2: #1f2730;
+  --color-ink-3: #252e38;
+  --color-ink-4: #2b3641;
+}
+
+
 /* Ensure body and root element take full height to prevent layout shifts */
 html, body, #root {
   height: 100%;
