@@ -41,6 +41,15 @@ const EXAM_ICONS: Record<string, React.ComponentType<{ className?: string }>> = 
   Wind,
 };
 
+// Grupos de exames afins, usados no bloco "Veja também" da lateral.
+const EXAM_GROUPS: string[][] = [
+  ['morfologico1', 'morfologico2', 'ecofetal', 'obstetrico_doppler', 'obstetrico_sem_doppler'],
+  ['abdometotal', 'pelvico', 'transvaginal', 'prostata'],
+  ['tireoide', 'mama', 'carotidas', 'vascular'],
+  ['articulacao_ombro', 'articulacao_cotovelo', 'articulacao_punho', 'articulacao_joelho', 'articulacao_tornozelo'],
+  ['holter', 'mapa', 'eletrocardiograma', 'espirometria'],
+];
+
 const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) => {
   const exam = examsData.find(e => e.id === examId);
 
@@ -51,15 +60,58 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
     .sort((a, b) => b.publishedOn.localeCompare(a.publishedOn))
     .map(({ id, title }) => ({ id, title }));
 
+  // Titulos acima de ~65 caracteres sao cortados com "..." no Google. Para nomes
+  // longos de exame, tira o " - MS" e, se ainda passar, a marca (o Google ja
+  // mostra o nome do site acima do titulo no resultado).
+  const examTitle = (() => {
+    if (!exam) return 'Exame não encontrado | Clínica Franco';
+    const candidates = [
+      `${exam.name} em Nova Andradina - MS | Clínica Franco`,
+      `${exam.name} em Nova Andradina | Clínica Franco`,
+      `${exam.name} em Nova Andradina - MS`,
+    ];
+    return candidates.find(t => t.length <= 65) ?? candidates[candidates.length - 1];
+  })();
+
+  // "Veja também": exames do mesmo grupo. Antes a lateral linkava sempre os
+  // mesmos 3 exames obstetricos, e os outros 18 exames ficavam com so 2 links
+  // internos cada (home e /servicos).
+  const relatedExams = (() => {
+    const group = EXAM_GROUPS.find(g => g.includes(examId)) ?? [];
+    const sameGroup = group.filter(id => id !== examId);
+    const fallback = ['morfologico2', 'obstetrico_doppler', 'abdometotal', 'tireoide'].filter(id => id !== examId && !sameGroup.includes(id));
+    return [...sameGroup, ...fallback]
+      .slice(0, 5)
+      .map(id => examsData.find(e => e.id === id))
+      .filter((e): e is ExamData => Boolean(e));
+  })();
+
   useSEO({
-    title: exam
-      ? `${exam.name} em Nova Andradina - MS | Clínica Franco`
-      : 'Exame não encontrado | Clínica Franco',
+    title: examTitle,
     description: exam
       ? `${exam.shortDesc} Agende seu ${exam.name} em Nova Andradina - MS com a Clínica Franco.`.slice(0, 160)
       : 'Exame não encontrado. Veja todos os exames disponíveis na Clínica Franco em Nova Andradina - MS.',
     path: `/exame/${examId}`,
+    image: exam ? `https://ajudamediko.com.br${exam.imageUrl}` : undefined,
   });
+
+  useJsonLd('exam-jsonld', exam ? {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalWebPage',
+    '@id': `https://ajudamediko.com.br/exame/${examId}#webpage`,
+    url: `https://ajudamediko.com.br/exame/${examId}`,
+    name: examTitle,
+    inLanguage: 'pt-BR',
+    isPartOf: { '@id': 'https://ajudamediko.com.br/#website' },
+    image: `https://ajudamediko.com.br${exam.imageUrl}`,
+    about: {
+      '@type': 'MedicalTest',
+      name: exam.name,
+      description: exam.longDesc,
+      usedToDiagnose: exam.purpose,
+    },
+    provider: { '@id': 'https://ajudamediko.com.br/#medicalbusiness' },
+  } : null);
 
   useJsonLd('faq-jsonld', exam ? {
     '@context': 'https://schema.org',
@@ -332,30 +384,17 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
             <div className="border-t border-gray-300 pt-6">
               <h3 className="text-base font-bold text-ink mb-4">Veja também</h3>
               <div className="space-y-2 text-xs text-brand font-bold">
-                <a 
-                  href="/exame/ecofetal" 
-                  onClick={(e) => navigateTo('/exame/ecofetal', e)}
-                  className="block py-2 hover:underline flex justify-between items-center"
-                >
-                  <span>Ecocardiograma Fetal</span>
-                  <Icons.ChevronRight className="w-4 h-4 text-gray-300" />
-                </a>
-                <a 
-                  href="/exame/morfologico1" 
-                  onClick={(e) => navigateTo('/exame/morfologico1', e)}
-                  className="block py-2 hover:underline flex justify-between items-center border-t border-gray-50"
-                >
-                  <span>Morfológico 1º Trimestre</span>
-                  <Icons.ChevronRight className="w-4 h-4 text-gray-300" />
-                </a>
-                <a 
-                  href="/exame/obstetrico_doppler" 
-                  onClick={(e) => navigateTo('/exame/obstetrico_doppler', e)}
-                  className="block py-2 hover:underline flex justify-between items-center border-t border-gray-50"
-                >
-                  <span>Obstétrico com Doppler</span>
-                  <Icons.ChevronRight className="w-4 h-4 text-gray-300" />
-                </a>
+                {relatedExams.map((related, index) => (
+                  <a
+                    key={related.id}
+                    href={`/exame/${related.id}`}
+                    onClick={(e) => navigateTo(`/exame/${related.id}`, e)}
+                    className={`block py-2 hover:underline flex justify-between items-center${index > 0 ? ' border-t border-gray-50' : ''}`}
+                  >
+                    <span>{related.name}</span>
+                    <Icons.ChevronRight className="w-4 h-4 text-gray-300" />
+                  </a>
+                ))}
               </div>
             </div>
 
