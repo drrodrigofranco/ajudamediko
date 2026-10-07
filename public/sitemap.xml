@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://ajudamediko.com.br</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -106,13 +107,13 @@
   </url>
   <url>
     <loc>https://ajudamediko.com.br/equipe</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/servicos</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -125,166 +126,247 @@
   <!-- Exames Dedicados -->
   <url>
     <loc>https://ajudamediko.com.br/exame/ecofetal</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/exams/ecofetal.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/exame/obstetrico_doppler</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/exams/obstetrico_doppler.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/exame/obstetrico_sem_doppler</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/exams/obstetrico_sem_doppler.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/exame/morfologico1</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/exams/morfologico1.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/exame/morfologico2</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/exams/morfologico2.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/exame/abdometotal</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/exams/abdometotal.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/exame/pelvico</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/exams/pelvico.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/exame/transvaginal</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/exams/transvaginal.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/exame/prostata</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/exams/prostata.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/exame/tireoide</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/exams/tireoide.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/exame/carotidas</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/exams/carotidas.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/exame/mama</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/exams/mama.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/exame/articulacao_ombro</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/exams/articulacao_ombro.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/exame/articulacao_cotovelo</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/exams/articulacao_cotovelo.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/exame/articulacao_punho</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/exams/articulacao_punho.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/exame/articulacao_joelho</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/exams/articulacao_joelho.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/exame/articulacao_tornozelo</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/exams/articulacao_tornozelo.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/exame/vascular</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/exams/vascular.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/exame/espirometria</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/exams/espirometria.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/exame/holter</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/exams/holter.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/exame/mapa</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/exams/mapa.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/exame/eletrocardiograma</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/exams/eletrocardiograma.jpg</image:loc>
+    </image:image>
   </url>
   <!-- Médicos -->
   <url>
     <loc>https://ajudamediko.com.br/medico/rodrigo-franco</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/dr-rodrigo-franco.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/medico/lucas-franco</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/dr-lucas-franco.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/medico/guilherme-zandona</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/dr-guilherme-zandona.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/medico/tiago-wizenfad</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/dr-tiago-wizenfad.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://ajudamediko.com.br/medico/giovanna-silva</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ajudamediko.com.br/images/dr-giovanna-silva.jpg</image:loc>
+    </image:image>
   </url>
   <!-- Políticas e Termos -->
   <url>

@@ -190,7 +190,8 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
             Voltar para a Home
           </a>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-semibold leading-tight mb-8">
-            {exam.name}
+            {exam.name}{' '}
+            <span className="block text-2xl sm:text-3xl lg:text-4xl text-teal-50/80 mt-3">em Nova Andradina - MS</span>
           </h1>
           <p className="text-lg text-teal-50/80 leading-relaxed max-w-2xl mx-auto">
             {exam.shortDesc}
@@ -207,17 +208,17 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
             
             {/* Image banner */}
             <div className="relative rounded-lg overflow-hidden max-h-96">
-              <img src={exam.imageUrl} alt={exam.name} className="w-full h-full object-cover" />
+              <img src={exam.imageUrl} alt={`Ilustração do exame ${exam.name} - Clínica Franco, Nova Andradina - MS`} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
             </div>
 
             {/* Description Card */}
             <div className="space-y-10">
               <div className="space-y-3">
-                <h3 className="text-lg font-serif font-semibold text-ink flex items-center gap-2">
-                  <Icons.Info className="text-brand w-5 h-5" />
-                  O que é este exame?
-                </h3>
+                <h2 className="text-lg font-serif font-semibold text-ink flex items-center gap-2">
+                  <Icons.Info className="text-brand w-5 h-5 flex-shrink-0" />
+                  O que é {exam.searchName}?
+                </h2>
                 <p className="text-gray-600 text-sm leading-relaxed">{exam.longDesc}</p>
               </div>
 
@@ -225,18 +226,18 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
 
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-3">
-                  <h3 className="text-lg font-serif font-semibold text-ink flex items-center gap-2">
-                    <Icons.Stethoscope className="text-brand w-5 h-5" />
-                    Como é feito o exame?
-                  </h3>
+                  <h2 className="text-lg font-serif font-semibold text-ink flex items-center gap-2">
+                    <Icons.Stethoscope className="text-brand w-5 h-5 flex-shrink-0" />
+                    Como é {exam.searchName.startsWith('a ') ? 'feita' : 'feito'} {exam.searchName}?
+                  </h2>
                   <p className="text-gray-600 text-sm leading-relaxed">{exam.howItIsDone}</p>
                 </div>
 
                 <div className="space-y-3">
-                  <h3 className="text-lg font-serif font-semibold text-ink flex items-center gap-2">
-                    <Icons.Target className="text-brand w-5 h-5" />
-                    Para que serve e quando é indicado?
-                  </h3>
+                  <h2 className="text-lg font-serif font-semibold text-ink flex items-center gap-2">
+                    <Icons.Target className="text-brand w-5 h-5 flex-shrink-0" />
+                    Para que serve {exam.searchName}?
+                  </h2>
                   <p className="text-gray-600 text-sm leading-relaxed">{exam.purpose}</p>
                 </div>
               </div>
@@ -245,19 +246,45 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
                 <>
                   <hr className="border-gray-200" />
                   <div className="space-y-3">
-                    <h3 className="text-lg font-serif font-semibold text-ink flex items-center gap-2">
-                      <Icons.Calendar className="text-brand w-5 h-5" />
-                      Quando devo realizar este exame?
-                    </h3>
+                    <h2 className="text-lg font-serif font-semibold text-ink flex items-center gap-2">
+                      <Icons.Calendar className="text-brand w-5 h-5 flex-shrink-0" />
+                      Quando fazer {exam.searchName}?
+                    </h2>
                     <p className="text-gray-600 text-sm leading-relaxed">{exam.whenItIsDone}</p>
                   </div>
                 </>
               )}
             </div>
 
+            {/* Onde fazer: endereco, horario e cidades atendidas, visivel em todo exame */}
+            <div className="space-y-4 border-t border-gray-200 pt-10">
+              <h2 className="text-2xl font-serif font-semibold text-ink text-left">
+                Onde fazer {exam.searchName} em Nova Andradina
+              </h2>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Na Clínica Franco, na Rua Melvin Jones, 1243 - Centro (antigo Hospital Santa Helena, sala 3),
+                em Nova Andradina - MS. Atendimento de segunda a sábado, das 06h às 22h, com agendamento
+                pelo WhatsApp (67) 99844-6674.
+              </p>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Recebemos pacientes de Nova Andradina e da região: Batayporã, Ivinhema, Anaurilândia,
+                Deodápolis, Angélica e Rosana (SP).
+              </p>
+              <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-bold">
+                <a href="https://maps.app.goo.gl/aMkRNzPYtTe6jwQJ8" target="_blank" rel="noopener noreferrer" className="text-brand hover:text-brand-hover inline-flex items-center gap-1.5 transition-colors">
+                  <Icons.MapPin className="w-4 h-4" />
+                  Ver no Google Maps
+                </a>
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-brand hover:text-brand-hover inline-flex items-center gap-1.5 transition-colors">
+                  <Icons.MessageCircle className="w-4 h-4" />
+                  Agendar pelo WhatsApp
+                </a>
+              </div>
+            </div>
+
             {/* FAQs Accordion */}
             <div className="space-y-6">
-              <h2 className="text-2xl font-serif font-semibold text-ink text-left">Dúvidas Frequentes</h2>
+              <h2 className="text-2xl font-serif font-semibold text-ink text-left">Dúvidas frequentes sobre {exam.searchName}</h2>
               <div className="space-y-4">
                 {exam.faqs.map((faq, i) => (
                   <details key={i} className="group border-b border-gray-300 py-5 [&_summary::-webkit-details-marker]:hidden cursor-pointer">

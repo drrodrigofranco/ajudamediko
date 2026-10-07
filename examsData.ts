@@ -8,6 +8,9 @@ export interface FAQItem {
 export interface ExamData {
   id: string;
   name: string;
+  // Nome do exame como o paciente pesquisa, ja com o artigo ("o ultrassom de
+  // abdome total"), usado nos subtitulos da pagina ("O que é o ultrassom...?").
+  searchName: string;
   shortDesc: string;
   longDesc: string;
   iconName: string; // Resolves to LucideIcon dynamically
@@ -25,6 +28,7 @@ export const examsData: ExamData[] = [
   {
     id: 'ecofetal',
     name: 'Ecocardiograma Fetal',
+    searchName: 'o ecocardiograma fetal',
     shortDesc: 'Avaliação detalhada do coração do bebê ainda no útero materno.',
     longDesc: 'O ecocardiograma fetal é uma ultrassonografia altamente especializada que foca exclusivamente na estrutura, funcionamento e ritmo cardíaco do feto durante a gestação. Essencial para a detecção de cardiopatias congênitas precocemente.',
     iconName: 'HeartPulse',
@@ -57,6 +61,7 @@ export const examsData: ExamData[] = [
   {
     id: 'obstetrico_doppler',
     name: 'Ultrassom Obstétrico com Doppler',
+    searchName: 'o ultrassom obstétrico com Doppler',
     shortDesc: 'Avaliação detalhada do fluxo sanguíneo materno-fetal.',
     longDesc: 'O ultrassom obstétrico com Doppler colorido estuda a circulação de sangue no cordão umbilical, nas artérias uterinas da mãe e nas artérias cerebrais do feto. É um exame vital para monitoramento do bem-estar fetal no terceiro trimestre.',
     iconName: 'Baby',
@@ -89,6 +94,7 @@ export const examsData: ExamData[] = [
   {
     id: 'obstetrico_sem_doppler',
     name: 'Ultrassom Obstétrico (sem Doppler)',
+    searchName: 'o ultrassom obstétrico',
     shortDesc: 'Acompanhamento regular do desenvolvimento e crescimento fetal.',
     longDesc: 'O ultrassom obstétrico de rotina é o principal exame para avaliar a evolução da gestação. Permite estimar o tempo de gravidez, calcular o peso aproximado do bebê, avaliar os batimentos cardíacos e a quantidade de líquido amniótico.',
     iconName: 'Baby',
@@ -120,7 +126,8 @@ export const examsData: ExamData[] = [
   },
   {
     id: 'morfologico1',
-    name: 'Morfológico 1º Trimestre',
+    name: 'Ultrassom Morfológico do 1º Trimestre',
+    searchName: 'o ultrassom morfológico do 1º trimestre',
     shortDesc: 'Rastreamento precoce de malformações e riscos genéticos.',
     longDesc: 'O primeiro exame morfológico é crucial no rastreamento de anomalias cromossômicas (como a Síndrome de Down, Síndrome de Edwards e Síndrome de Patau). É realizado em uma janela curta de gestação.',
     iconName: 'Baby',
@@ -152,7 +159,8 @@ export const examsData: ExamData[] = [
   },
   {
     id: 'morfologico2',
-    name: 'Morfológico 2º Trimestre',
+    name: 'Ultrassom Morfológico do 2º Trimestre',
+    searchName: 'o ultrassom morfológico do 2º trimestre',
     shortDesc: 'Avaliação morfológica detalhada de todos os órgãos do bebê.',
     longDesc: 'Considerado o exame de imagem mais completo da gestação, o morfológico de segundo trimestre avalia detalhadamente toda a anatomia interna e externa do bebê, confirmando a formação adequada dos órgãos.',
     iconName: 'Baby',
@@ -185,6 +193,7 @@ export const examsData: ExamData[] = [
   {
     id: 'abdometotal',
     name: 'Ultrassom de Abdome Total',
+    searchName: 'o ultrassom de abdome total',
     shortDesc: 'Avaliação completa dos órgãos abdominais sólidos e trato urinário.',
     longDesc: 'O ultrassom de abdome total é utilizado para examinar órgãos da cavidade abdominal como fígado, vesícula biliar, baço, pâncreas, rins, bexiga e grandes vasos sanguíneos. Muito útil na investigação de dores abdominais e check-ups.',
     iconName: 'ScanLine',
@@ -217,6 +226,7 @@ export const examsData: ExamData[] = [
   {
     id: 'pelvico',
     name: 'Ultrassom Pélvico (Via Abdominal)',
+    searchName: 'o ultrassom pélvico',
     shortDesc: 'Avaliação ginecológica externa do útero e ovários.',
     longDesc: 'O ultrassom pélvico por via abdominal é um exame ginecológico não invasivo indicado para avaliar a anatomia do útero, colo uterino, endométrio e ovários. É a alternativa principal para mulheres que não iniciaram a atividade sexual.',
     iconName: 'ScanLine',
@@ -248,6 +258,7 @@ export const examsData: ExamData[] = [
   {
     id: 'transvaginal',
     name: 'Ultrassom Transvaginal',
+    searchName: 'o ultrassom transvaginal',
     shortDesc: 'Exame ginecológico interno de alta resolução.',
     longDesc: 'O ultrassom transvaginal é o exame ginecológico interno mais preciso para a avaliação do útero e ovários. O transdutor fica muito próximo dos órgãos, proporcionando imagens de excelente nitidez e resolução.',
     iconName: 'ScanLine',
@@ -280,6 +291,7 @@ export const examsData: ExamData[] = [
   {
     id: 'prostata',
     name: 'Ultrassom de Próstata (Via Abdominal)',
+    searchName: 'o ultrassom de próstata',
     shortDesc: 'Avaliação da saúde da próstata e do resíduo urinário.',
     longDesc: 'O ultrassom da próstata via abdominal avalia o tamanho da glândula prostática e das vesículas seminais nos homens, além de verificar se a bexiga esvazia completamente após a micção.',
     iconName: 'User',
@@ -311,6 +323,7 @@ export const examsData: ExamData[] = [
   {
     id: 'tireoide',
     name: 'Ultrassom de Tireoide (com e sem Doppler)',
+    searchName: 'o ultrassom de tireoide',
     shortDesc: 'Avaliação anatômica e fluxo vascular da tireoide.',
     longDesc: 'O ultrassom de tireoide avalia o tamanho, contorno e a presença de nódulos ou cistos na glândula tireoide. O acréscimo do Doppler estuda o fluxo sanguíneo local, auxiliando a classificar o risco de malignidade de nódulos.',
     iconName: 'Aperture',
@@ -343,6 +356,7 @@ export const examsData: ExamData[] = [
   {
     id: 'carotidas',
     name: 'Ultrassom de Carótidas e Vertebrais',
+    searchName: 'o ultrassom de carótidas',
     shortDesc: 'Avaliação das artérias do pescoço e prevenção de AVC.',
     longDesc: 'O Doppler de carótidas e vertebrais é um exame vascular que analisa o fluxo de sangue nas artérias do pescoço que levam oxigênio ao cérebro. Crucial para rastrear placas de gordura e prevenir o Acidente Vascular Cerebral (AVC).',
     iconName: 'Waves',
@@ -374,6 +388,7 @@ export const examsData: ExamData[] = [
   {
     id: 'mama',
     name: 'Ultrassom de Mamas',
+    searchName: 'o ultrassom de mamas',
     shortDesc: 'Exame de imagem complementar para prevenção do câncer de mama.',
     longDesc: 'O ultrassom de mamas é um exame complementar crucial à mamografia, especialmente em mulheres com mamas jovens e densas. É muito eficiente para caracterizar alterações palpáveis ou nódulos suspeitos.',
     iconName: 'Activity',
@@ -406,6 +421,7 @@ export const examsData: ExamData[] = [
   {
     id: 'articulacao_ombro',
     name: 'Ultrassom de Articulação: Ombro',
+    searchName: 'o ultrassom de ombro',
     shortDesc: 'Avaliação de tendões, ligamentos e bursas do ombro.',
     longDesc: 'O ultrassom do ombro avalia tendões do manguito rotador, ligamentos, cartilagens iniciais e a presença de líquido inflamatório na articulação. Excelente para diagnosticar tendinites e bursites. Por ser um exame dinâmico (o médico movimenta o braço durante a avaliação), consegue flagrar pinçamentos e atritos tendíneos que só aparecem em determinadas posições - algo que exames estáticos como a ressonância não capturam da mesma forma.',
     iconName: 'Dumbbell',
@@ -441,6 +457,7 @@ export const examsData: ExamData[] = [
   {
     id: 'articulacao_cotovelo',
     name: 'Ultrassom de Articulação: Cotovelo',
+    searchName: 'o ultrassom de cotovelo',
     shortDesc: 'Diagnóstico de epicondilite e tendinites no cotovelo.',
     longDesc: 'Exame focado em avaliar as estruturas tendíneas e ligamentares do cotovelo. Muito comum em esportistas (tenistas/golfistas) e profissionais com esforço repetitivo, como digitadores, cabeleireiros e trabalhadores manuais. A comparação com o cotovelo do lado saudável, quando possível, ajuda a confirmar pequenas espessuras ou irregularidades no tendão que passariam despercebidas em uma avaliação isolada.',
     iconName: 'Dumbbell',
@@ -476,6 +493,7 @@ export const examsData: ExamData[] = [
   {
     id: 'articulacao_punho',
     name: 'Ultrassom de Articulação: Punho',
+    searchName: 'o ultrassom de punho',
     shortDesc: 'Investigação de cisto sinovial e síndrome do túnel do carpo.',
     longDesc: 'Avalia tendões flexores e extensores do punho, o nervo mediano (túnel do carpo) e a presença de pequenos cistos articulares muito comuns na região dorsal do punho. É um dos exames de imagem mais solicitados por quem trabalha muitas horas no computador ou no celular, já que a sobrecarga repetitiva do punho é a principal causa das queixas avaliadas aqui.',
     iconName: 'Dumbbell',
@@ -511,6 +529,7 @@ export const examsData: ExamData[] = [
   {
     id: 'articulacao_joelho',
     name: 'Ultrassom de Articulação: Joelho',
+    searchName: 'o ultrassom de joelho',
     shortDesc: 'Avaliação de tendões, menisco externo e cisto de Baker.',
     longDesc: 'O ultrassom do joelho é um exame dinâmico focado em avaliar as estruturas extra-articulares, como o tendão patelar, quadríceps, ligamentos colaterais e a presença de acúmulo de líquido (derrame). É bastante usado tanto para queixas do dia a dia (dor ao subir escada, inchaço após esforço) quanto no acompanhamento de atletas amadores e corredores.',
     iconName: 'Dumbbell',
@@ -546,6 +565,7 @@ export const examsData: ExamData[] = [
   {
     id: 'articulacao_tornozelo',
     name: 'Ultrassom de Articulação: Tornozelo',
+    searchName: 'o ultrassom de tornozelo',
     shortDesc: 'Avaliação do tendão de Aquiles e ligamentos após entorses.',
     longDesc: 'O ultrassom do tornozelo é muito utilizado para avaliar tendinopatias (especialmente do tendão calcâneo / Aquiles) e diagnosticar estiramentos ou rupturas de ligamentos após torções. Também é a primeira escolha para investigar dor crônica no calcanhar ao caminhar ou pisar em falso, situação muito comum em corredores e em quem passa longos períodos em pé.',
     iconName: 'Dumbbell',
@@ -581,6 +601,7 @@ export const examsData: ExamData[] = [
   {
     id: 'vascular',
     name: 'Ultrassom Vascular (Doppler de Membros)',
+    searchName: 'o Doppler vascular de membros',
     shortDesc: 'Estudo do sistema circulatório, varizes e trombose.',
     longDesc: 'O Doppler vascular de membros inferiores ou superiores avalia o fluxo de sangue nas veias e artérias das pernas ou braços. É o exame padrão para o diagnóstico de Trombose Venosa Profunda (TVP) e varizes.',
     iconName: 'Waves',
@@ -612,6 +633,7 @@ export const examsData: ExamData[] = [
   {
     id: 'espirometria',
     name: 'Espirometria (Prova de Função Pulmonar)',
+    searchName: 'a espirometria',
     shortDesc: 'Avaliação da capacidade e volumes pulmonares.',
     longDesc: 'A espirometria mede a quantidade de ar que uma pessoa consegue soprar e a rapidez com que o faz. Muito indicada para diagnosticar doenças respiratórias crônicas como asma e enfisema pulmonar.',
     iconName: 'Wind',
@@ -645,6 +667,7 @@ export const examsData: ExamData[] = [
   {
     id: 'holter',
     name: 'Holter 24h',
+    searchName: 'o Holter 24h',
     shortDesc: 'Monitoramento elétrico contínuo do coração por 24 horas.',
     longDesc: 'O exame de Holter registra a atividade elétrica do coração de forma contínua durante um dia inteiro de atividades habituais. Ideal para diagnosticar arritmias silenciosas e palpitações esporádicas.',
     iconName: 'HeartPulse',
@@ -677,6 +700,7 @@ export const examsData: ExamData[] = [
   {
     id: 'mapa',
     name: 'MAPA 24h (Monitorização de Pressão)',
+    searchName: 'a MAPA 24h',
     shortDesc: 'Registro contínuo da pressão arterial por um dia inteiro.',
     longDesc: 'O exame MAPA monitora a pressão arterial do paciente de forma automática a intervalos regulares durante 24 horas, registrando a pressão durante o trabalho, atividades rotineiras e o sono.',
     iconName: 'Clock',
@@ -708,6 +732,7 @@ export const examsData: ExamData[] = [
   {
     id: 'eletrocardiograma',
     name: 'Eletrocardiograma (ECG)',
+    searchName: 'o eletrocardiograma (ECG)',
     shortDesc: 'Registro rápido e indolor da atividade elétrica do coração em repouso.',
     longDesc: 'O eletrocardiograma (ECG) convencional registra, em poucos minutos, a atividade elétrica do coração em repouso por meio de eletrodos colados na pele. É um exame diferente do Holter 24h: enquanto o Holter monitora continuamente por um dia inteiro, o ECG captura um retrato pontual do ritmo cardíaco no momento do exame.',
     iconName: 'Activity',

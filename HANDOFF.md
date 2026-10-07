@@ -19,6 +19,17 @@
 ---
 
 ## 📅 Última atualização
+- **2026-10-07 (3ª rodada) — SEO on-page das páginas de exame/serviços/equipe:** `ExamData` ganhou o campo
+  obrigatório `searchName` (nome com artigo, ex.: "o ultrassom de abdome total" — **ao criar exame novo,
+  preencher**), usado nos H2 ("O que é…", "Como é feito/feita…" — feminino se começar com "a "), no bloco novo
+  "Onde fazer … em Nova Andradina" e no FAQ. H1 dos exames, /servicos e /equipe com a cidade numa 2ª linha
+  (`<span className="block …">`, precedido de `{' '}` para não colar as palavras no texto lido pelos robôs).
+  Morfológicos renomeados para "Ultrassom Morfológico do 1º/2º Trimestre" (examsData + OfferCatalog). Médicos no
+  JSON-LD agora são `IndividualPhysician` + `practicesAt` + endereço/telefone (index.html e DoctorDetailPage);
+  consultas entraram no `hasOfferCatalog` como `Service` (só nomes já visíveis em /servicos). `og:locale`,
+  `public/apple-touch-icon.png` (180×180, gerado do favicon), imagens no `sitemap.xml` (namespace
+  `image:`) e lista dos 22 exames no `llms.txt`. Doppler de carótidas mantém o nome "Ultrassom de Carótidas e
+  Vertebrais".
 - **2026-10-07 — Auditoria SEO de produção + novidades Google/Bing/Apple** (relatório:
   `seo-reports/RELATORIO-SEO-2026-10.md`). Corrigido: coordenadas `geo` (eram o centro da cidade, ~2,3 km do pino
   real; agora `-22.2533183, -53.3517322`, tirado do link do Google Maps), `streetAddress` com "- Centro", `hasMap`

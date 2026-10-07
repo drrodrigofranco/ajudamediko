@@ -13,6 +13,7 @@
   <meta name="description"
     content="Ultrassom em Nova Andradina - MS: Morfológico, Obstétrico com Doppler e 3D, Abdominal e outros exames na Clínica Franco. Agende pelo WhatsApp: (67) 99844-6674." />
   <meta property="og:site_name" content="Clínica Franco" />
+  <meta property="og:locale" content="pt_BR" />
 
   <!-- Canonical Link -->
   <link rel="canonical" href="https://ajudamediko.com.br" />
@@ -106,49 +107,49 @@
     ],
     "employee": [
       {
-        "@type": "Physician",
+        "@type": "IndividualPhysician",
         "@id": "https://ajudamediko.com.br/medico/rodrigo-franco#physician",
         "name": "Dr. Rodrigo Franco",
         "identifier": "CRM-MS 10087",
         "url": "https://ajudamediko.com.br/medico/rodrigo-franco",
         "image": "https://ajudamediko.com.br/images/dr-rodrigo-franco.jpg",
-        "worksFor": { "@id": "https://ajudamediko.com.br/#medicalbusiness" }
+        "practicesAt": { "@id": "https://ajudamediko.com.br/#medicalbusiness" }
       },
       {
-        "@type": "Physician",
+        "@type": "IndividualPhysician",
         "@id": "https://ajudamediko.com.br/medico/lucas-franco#physician",
         "name": "Dr. Lucas Duarte Franco",
         "identifier": "CRM-MS 7462",
         "url": "https://ajudamediko.com.br/medico/lucas-franco",
         "image": "https://ajudamediko.com.br/images/dr-lucas-franco.jpg",
-        "worksFor": { "@id": "https://ajudamediko.com.br/#medicalbusiness" }
+        "practicesAt": { "@id": "https://ajudamediko.com.br/#medicalbusiness" }
       },
       {
-        "@type": "Physician",
+        "@type": "IndividualPhysician",
         "@id": "https://ajudamediko.com.br/medico/guilherme-zandona#physician",
         "name": "Dr. Guilherme Henrique Zandoná",
         "identifier": "CRM-MS 6347",
         "url": "https://ajudamediko.com.br/medico/guilherme-zandona",
         "image": "https://ajudamediko.com.br/images/dr-guilherme-zandona.jpg",
-        "worksFor": { "@id": "https://ajudamediko.com.br/#medicalbusiness" }
+        "practicesAt": { "@id": "https://ajudamediko.com.br/#medicalbusiness" }
       },
       {
-        "@type": "Physician",
+        "@type": "IndividualPhysician",
         "@id": "https://ajudamediko.com.br/medico/tiago-wizenfad#physician",
         "name": "Dr. Tiago Dantas Wizenfad",
         "identifier": "CRM-MS 16149",
         "url": "https://ajudamediko.com.br/medico/tiago-wizenfad",
         "image": "https://ajudamediko.com.br/images/dr-tiago-wizenfad.jpg",
-        "worksFor": { "@id": "https://ajudamediko.com.br/#medicalbusiness" }
+        "practicesAt": { "@id": "https://ajudamediko.com.br/#medicalbusiness" }
       },
       {
-        "@type": "Physician",
+        "@type": "IndividualPhysician",
         "@id": "https://ajudamediko.com.br/medico/giovanna-silva#physician",
         "name": "Dra. Giovanna Cristina Silva e Silva",
         "identifier": "CRM-MS 14686",
         "url": "https://ajudamediko.com.br/medico/giovanna-silva",
         "image": "https://ajudamediko.com.br/images/dr-giovanna-silva.jpg",
-        "worksFor": { "@id": "https://ajudamediko.com.br/#medicalbusiness" }
+        "practicesAt": { "@id": "https://ajudamediko.com.br/#medicalbusiness" }
       }
     ],
     "medicalSpecialty": [
@@ -165,12 +166,12 @@
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Exames de Ultrassonografia e Serviços Médicos",
+      "name": "Exames de Ultrassonografia e Consultas Médicas",
       "itemListElement": [
         { "@type": "MedicalTest", "name": "Obstétrico com Doppler", "description": "Avaliação da circulação fetal" },
         { "@type": "MedicalTest", "name": "Obstétrico sem Doppler", "description": "Acompanhamento de rotina" },
-        { "@type": "MedicalTest", "name": "Morfológico 1º Trimestre", "description": "Rastreamento de malformações" },
-        { "@type": "MedicalTest", "name": "Morfológico 2º Trimestre", "description": "Avaliação detalhada da anatomia fetal" },
+        { "@type": "MedicalTest", "name": "Ultrassom Morfológico do 1º Trimestre", "description": "Rastreamento de malformações" },
+        { "@type": "MedicalTest", "name": "Ultrassom Morfológico do 2º Trimestre", "description": "Avaliação detalhada da anatomia fetal" },
         { "@type": "MedicalTest", "name": "Ecocardiograma Fetal", "description": "Avaliação cardíaca fetal" },
         { "@type": "MedicalTest", "name": "Abdome Total", "description": "Avaliação de órgãos internos" },
         { "@type": "MedicalTest", "name": "Pélvico", "description": "Útero, ovários e bexiga" },
@@ -188,7 +189,13 @@
         { "@type": "MedicalTest", "name": "Espirometria", "description": "Prova de função pulmonar" },
         { "@type": "MedicalTest", "name": "Holter 24h", "description": "Eletrocardiograma contínuo" },
         { "@type": "MedicalTest", "name": "MAPA", "description": "Monitoramento de pressão 24h" },
-        { "@type": "MedicalTest", "name": "Eletrocardiograma (ECG)", "description": "Registro da atividade elétrica do coração em repouso" }
+        { "@type": "MedicalTest", "name": "Eletrocardiograma (ECG)", "description": "Registro da atividade elétrica do coração em repouso" },
+        { "@type": "Service", "name": "Consulta Médica (Clínica Geral)", "url": "https://ajudamediko.com.br/servicos" },
+        { "@type": "Service", "name": "Saúde do Idoso", "url": "https://ajudamediko.com.br/medico/lucas-franco" },
+        { "@type": "Service", "name": "Saúde Neurológica", "url": "https://ajudamediko.com.br/medico/guilherme-zandona" },
+        { "@type": "Service", "name": "Pediatria", "url": "https://ajudamediko.com.br/medico/tiago-wizenfad" },
+        { "@type": "Service", "name": "Saúde da Pele, Cabelos e Unhas", "url": "https://ajudamediko.com.br/medico/giovanna-silva" },
+        { "@type": "Service", "name": "Perícia Médica", "url": "https://ajudamediko.com.br/pericia-medica" }
       ]
     }
   }
@@ -213,6 +220,7 @@
        home e components/ExamDetailPage.tsx para cada exame). -->
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="/index.css" />
 
   <!-- Google tag (gtag.js) - um unico carregamento do runtime, configurando as duas

@@ -19,7 +19,7 @@ const BADGE_ICONS = {
 
 const TeamPage: React.FC<TeamPageProps> = ({ navigateTo }) => {
   useSEO({
-    title: 'Nossa Equipe Médica | Clínica Franco - Nova Andradina - MS',
+    title: 'Equipe Médica em Nova Andradina - MS | Clínica Franco',
     description: 'Conheça a equipe médica da Clínica Franco em Nova Andradina - MS: ultrassonografia, perícias médicas, saúde do idoso, avaliação neurológica e pediatria.',
     path: '/equipe',
   });
@@ -72,7 +72,8 @@ const TeamPage: React.FC<TeamPageProps> = ({ navigateTo }) => {
             Voltar para a Home
           </a>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-semibold leading-tight mb-6">
-            Nossa Equipe
+            Equipe Médica{' '}
+            <span className="block text-2xl sm:text-3xl lg:text-4xl text-teal-50/80 mt-3">da Clínica Franco em Nova Andradina</span>
           </h1>
           <p className="text-lg text-teal-50/80 mb-4 leading-relaxed max-w-2xl mx-auto">
             Conheça os profissionais da Clínica Franco em Nova Andradina - MS, dedicados a um cuidado humanizado e preciso para toda a família.
