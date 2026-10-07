@@ -86,9 +86,9 @@ const TeamPage: React.FC<TeamPageProps> = ({ navigateTo }) => {
           {doctorsData.map((doctor) => {
             const BadgeIcon = BADGE_ICONS[doctor.iconName];
             return (
-              <article key={doctor.id} className="bg-white rounded-lg border border-gray-200 transition-shadow p-6 md:p-8 flex flex-col items-center text-center">
+              <article key={doctor.id} className={`bg-white rounded-lg border border-gray-200 transition-shadow p-6 md:p-8 flex flex-col items-center text-center${doctor.featuredPhoto ? ' sm:col-span-2' : ''}`}>
                 <div className="relative mb-6">
-                  <div className="w-32 h-32 md:w-36 md:h-36 rounded-lg overflow-hidden border-4 border-white">
+                  <div className={`${doctor.featuredPhoto ? 'w-48 h-60 md:w-56 md:h-72' : 'w-32 h-32 md:w-36 md:h-36'} rounded-lg overflow-hidden border-4 border-white`}>
                     <img
                       src={doctor.photo}
                       alt={`${doctor.name} - ${doctor.specialtyLabel} - ${doctor.crm}`}
@@ -106,7 +106,7 @@ const TeamPage: React.FC<TeamPageProps> = ({ navigateTo }) => {
                 <h2 className="text-xl font-serif font-semibold text-ink mb-1">{doctor.name}</h2>
                 <p className="text-brand-hover font-bold tracking-wide text-xs mb-1">{doctor.crm}</p>
                 <p className="text-gray-400 text-xs font-semibold tracking-wide mb-4">{doctor.specialtyLabel}</p>
-                <p className="text-gray-500 text-sm leading-relaxed mb-6">
+                <p className={`text-gray-500 text-sm leading-relaxed mb-6${doctor.featuredPhoto ? ' max-w-xl' : ''}`}>
                   {doctor.shortBio}
                 </p>
                 <a
