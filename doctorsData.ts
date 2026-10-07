@@ -23,6 +23,9 @@ export interface DoctorData {
   // Ancoragem do object-cover para fotos com pouca folga acima da cabeça no
   // enquadramento original. Sem o campo, o crop fica centralizado (padrão).
   photoObjectPosition?: 'center' | 'top';
+  // Foto em tamanho maior (retrato) na página do médico e cartão em destaque,
+  // ocupando a largura toda, em /equipe. Pedido do Dr. Rodrigo para o perfil dele.
+  featuredPhoto?: boolean;
   iconName: 'HeartPulse' | 'Stethoscope' | 'Brain' | 'Baby' | 'Sparkles';
   shortBio: string;
   longBio: string[];
@@ -60,6 +63,7 @@ export const doctorsData: DoctorData[] = [
     photoWidth: 450,
     photoHeight: 599,
     photoObjectPosition: 'top',
+    featuredPhoto: true,
     iconName: 'HeartPulse',
     specialtyLabel: 'Ultrassonografia Diagnóstica e Perícia Médica',
     medicalSpecialty: ['Ultrassonografia', 'Perícia Médica'],

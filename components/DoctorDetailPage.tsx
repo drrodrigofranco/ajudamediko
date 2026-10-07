@@ -109,7 +109,7 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
             <Icons.ArrowLeft className="w-4 h-4 mr-2" />
             Voltar para a Home
           </a>
-          <div className="w-32 h-32 md:w-40 md:h-40 rounded-lg overflow-hidden mx-auto mb-8">
+          <div className={`${doctor.featuredPhoto ? 'w-56 h-72 md:w-64 md:h-80' : 'w-32 h-32 md:w-40 md:h-40'} rounded-lg overflow-hidden mx-auto mb-8`}>
             <img
               src={doctor.photo}
               alt={`${doctor.name} - ${doctor.specialtyLabel} - ${doctor.crm}`}
