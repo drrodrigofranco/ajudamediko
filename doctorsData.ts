@@ -59,6 +59,7 @@ export const doctorsData: DoctorData[] = [
     photo: '/images/dr-rodrigo-franco.jpg',
     photoWidth: 450,
     photoHeight: 599,
+    photoObjectPosition: 'top',
     iconName: 'HeartPulse',
     specialtyLabel: 'Ultrassonografia Diagnóstica e Perícia Médica',
     medicalSpecialty: ['Ultrassonografia', 'Perícia Médica'],
