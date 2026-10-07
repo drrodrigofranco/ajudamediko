@@ -130,11 +130,7 @@ const NEWS_IDS = [
   'ecocardiograma-fetal-lei-14598-estudos-2026',
   'ultrassom-morfologico-estudos-cientificos-2026',
   'fiocruz-infogripe-srag-agosto-2026',
-  'camara-ultrassom-morfologico-sus-2026',
-  'ms-sarampo-vacinacao-sp-2026',
-  'fiocruz-agosto-dourado-aleitamento-2026',
-  'fiocruz-julho-amarelo-hepatites-2026',
-  'oms-sus-referencia-mundial-2026'
+  'camara-ultrassom-morfologico-sus-2026'
 ];
 
 async function main() {

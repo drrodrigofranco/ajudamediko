@@ -2,8 +2,33 @@
   "redirects": [
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.ajudamediko.com.br" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "www.ajudamediko.com.br"
+        }
+      ],
       "destination": "https://ajudamediko.com.br/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ms-sarampo-vacinacao-sp-2026",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/fiocruz-agosto-dourado-aleitamento-2026",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/fiocruz-julho-amarelo-hepatites-2026",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/oms-sus-referencia-mundial-2026",
+      "destination": "/blog",
       "permanent": true
     }
   ],
@@ -11,11 +36,26 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
-        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        }
       ]
     }
   ]
