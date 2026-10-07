@@ -10,7 +10,7 @@ interface CardioRespiratoryExamsPageProps {
 
 const CardioRespiratoryExamsPage: React.FC<CardioRespiratoryExamsPageProps> = ({ navigateTo }) => {
   useSEO({
-    title: 'Exames Cardiorrespiratórios: Holter, MAPA e Espirometria | Clínica Franco - Nova Andradina - MS',
+    title: 'Holter, MAPA e Espirometria em Nova Andradina | Clínica Franco',
     description: 'Holter 24h, MAPA e Espirometria na Clínica Franco em Nova Andradina - MS: avaliação da função pulmonar, pressão arterial e ritmo cardíaco.',
     path: '/exames-cardiorespiratorios',
   });

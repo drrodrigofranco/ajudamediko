@@ -64,7 +64,7 @@ export const doctorsData: DoctorData[] = [
     specialtyLabel: 'Ultrassonografia Diagnóstica e Perícia Médica',
     medicalSpecialty: ['Ultrassonografia', 'Perícia Médica'],
     shortBio: 'Atendimento em ultrassonografia diagnóstica, consultas de clínica geral e perícias médicas judiciais, com dedicação a um cuidado humanizado e preciso para toda a família.',
-    seoTitle: 'Dr. Rodrigo Franco (CRM-MS 10087) - Ultrassom e Perícias em Nova Andradina | Clínica Franco',
+    seoTitle: 'Dr. Rodrigo Franco - Ultrassom e Perícia Médica em Nova Andradina',
     seoDescription: 'Ultrassom em Nova Andradina - MS: morfológico, 3D/4D e Doppler de carótidas, além de perícias médicas judiciais com o Dr. Rodrigo Franco (CRM-MS 10087).',
     longBio: [
       'Médico com ampla experiência em diagnóstico por imagem, atuando em Nova Andradina - MS e região desde 2018. Realiza exames de ultrassonografia obstétrica, morfológica, vascular e musculoesquelética, além de atuar como perito judicial nomeado pelo fórum de Batayporã. Formado em Medicina pela UNEMAT, com cursos de especialização em ultrassom pela FATESA e outras graduações em Fisioterapia e Educação Física.',
@@ -123,7 +123,7 @@ export const doctorsData: DoctorData[] = [
     medicalSpecialty: 'Geriatria',
     jsonLdDescription: 'Atendimento Clínico ao Adulto e Geriatria',
     shortBio: 'Médico formado pela Faculdade de Medicina de Presidente Prudente (FAMEPP) em 2013, com mais de uma década de atuação em Clínica Médica, Urgência e Emergência, UTI e Atenção Primária à Saúde, com atenção especial à saúde do idoso em Nova Andradina - MS.',
-    seoTitle: 'Dr. Lucas Duarte Franco (CRM-MS 7462) - Saúde do Idoso em Nova Andradina - MS | Clínica Franco',
+    seoTitle: 'Dr. Lucas Franco - Saúde do Idoso em Nova Andradina - MS',
     seoDescription: 'Atendimento clínico ao adulto e à pessoa idosa em Nova Andradina - MS: acompanhamento geriátrico, check-up clínico, controle de doenças crônicas e pequenos procedimentos com o Dr. Lucas Duarte Franco.',
     longBio: [
       'Atuo há mais de uma década na assistência médica, com experiência em Clínica Médica, Medicina de Urgência e Emergência, Unidade de Terapia Intensiva (UTI) e Atenção Primária à Saúde. Desde 2019, exerço minhas atividades na Estratégia Saúde da Família, acompanhando pacientes de forma contínua, com foco na prevenção, diagnóstico e tratamento das principais condições de saúde.',
@@ -171,6 +171,7 @@ export const doctorsData: DoctorData[] = [
     photoHeight: 600,
     iconName: 'Brain',
     specialtyLabel: 'Clínica Médica e Avaliação Neurológica',
+    seoTitle: 'Dr. Guilherme Zandoná - Avaliação Neurológica em Nova Andradina',
     medicalSpecialty: 'Neurologia',
     jsonLdDescription: 'Clínica Médica e Neurologia',
     shortBio: 'Médico com atuação em clínica geral e avaliação neurológica, experiência consolidada em urgência e emergência em Nova Andradina e região.',
@@ -212,7 +213,7 @@ export const doctorsData: DoctorData[] = [
     specialtyLabel: 'Pediatria Clínica',
     medicalSpecialty: 'Pediatria',
     shortBio: 'Atendimento médico infantil com cuidado, acompanhamento e atenção em cada fase do desenvolvimento - de recém-nascidos a adolescentes, com pós-graduação em Pediatria Clínica.',
-    seoTitle: 'Dr. Tiago Dantas Wizenfad (CRM-MS 16149) - Pediatria em Nova Andradina - MS | Clínica Franco',
+    seoTitle: 'Dr. Tiago Wizenfad - Pediatria em Nova Andradina - MS',
     seoDescription: 'Atendimento pediátrico em Nova Andradina - MS: puericultura, acompanhamento do crescimento e desenvolvimento, vacinação e avaliação de crianças e adolescentes com o Dr. Tiago Dantas Wizenfad.',
     longBio: [
       'Dr. Tiago Dantas Wizenfad realiza atendimento médico de recém-nascidos, lactentes, crianças e adolescentes, com uma abordagem acolhedora, individualizada e voltada às necessidades específicas de cada etapa da infância.',
@@ -258,7 +259,7 @@ export const doctorsData: DoctorData[] = [
     // sem confirmação explícita do Rodrigo sobre o RQE - ver checklist em HANDOFF.md.
     specialtyLabel: 'Atendimento Clínico à Saúde da Pele, Cabelos e Unhas',
     shortBio: 'Atendimento individualizado voltado à saúde da pele, cabelos e unhas, com foco em prevenção, diagnóstico e tratamento, unindo avaliação clínica cuidadosa a um plano terapêutico personalizado para cada paciente.',
-    seoTitle: 'Dra. Giovanna Silva e Silva (CRM-MS 14686) - Saúde da Pele em Nova Andradina - MS | Clínica Franco',
+    seoTitle: 'Dra. Giovanna Silva e Silva - Saúde da Pele em Nova Andradina',
     seoDescription: 'Atendimento à saúde da pele, cabelos e unhas em Nova Andradina - MS: acne, melasma e queda de cabelo, com a Dra. Giovanna Silva e Silva (CRM-MS 14686).',
     longBio: [
       'Atendimento individualizado voltado à saúde da pele, cabelos e unhas, com foco na prevenção, no diagnóstico e no tratamento das principais queixas relacionadas à pele. A abordagem é cuidadosa e personalizada, buscando compreender as necessidades de cada paciente e estabelecer uma estratégia de tratamento adequada para cada caso.',

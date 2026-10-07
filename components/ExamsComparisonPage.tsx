@@ -10,7 +10,7 @@ interface ExamsComparisonPageProps {
 
 const ExamsComparisonPage: React.FC<ExamsComparisonPageProps> = ({ navigateTo }) => {
   useSEO({
-    title: 'Diferença entre Ultrassom, Raio-X e Tomografia | Clínica Franco - Nova Andradina - MS',
+    title: 'Diferença entre Ultrassom, Raio-X e Tomografia | Clínica Franco',
     description: 'Qual a diferença entre ultrassom, raio-x e tomografia? Entenda como cada exame funciona e quando é indicado, na Clínica Franco em Nova Andradina - MS.',
     path: '/entenda-exames',
   });

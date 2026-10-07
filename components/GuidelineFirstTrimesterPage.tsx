@@ -10,7 +10,7 @@ interface GuidelineFirstTrimesterPageProps {
 
 const GuidelineFirstTrimesterPage: React.FC<GuidelineFirstTrimesterPageProps> = ({ navigateTo }) => {
   useSEO({
-    title: 'Diretriz AMB: Ultrassom no 1º Trimestre | Clínica Franco - Nova Andradina - MS',
+    title: 'Diretriz AMB: Ultrassom no 1º Trimestre | Clínica Franco',
     description: 'Recomendações oficiais da AMB para ultrassonografia até a 13ª semana de gestação, com a Clínica Franco em Nova Andradina - MS.',
     path: '/diretriz-primeiro-trimestre',
   });
