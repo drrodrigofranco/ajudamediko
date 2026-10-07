@@ -132,13 +132,13 @@ Um concorrente local (Ultraimagem) já aparece em diretórios na busca por "ultr
 
 ## 6. Decisões pendentes para o Rodrigo
 
-1. **Matérias de curadoria muito curtas** (`ms-sarampo-vacinacao-sp-2026`, `fiocruz-agosto-dourado-aleitamento-2026`,
-   `fiocruz-julho-amarelo-hepatites-2026`, `oms-sus-referencia-mundial-2026`, 124–181 palavras): ou ampliar com
-   comentário médico próprio, ou marcar como `noindex`. Páginas rasas sobre temas fora do foco (ultrassom) podem
-   pesar contra o site depois dos core updates de 2026.
+1. ~~Matérias de curadoria muito curtas~~ — **resolvido em 07/10/2026:** o Rodrigo decidiu retirar as 4
+   (`ms-sarampo-vacinacao-sp-2026`, `fiocruz-agosto-dourado-aleitamento-2026`, `fiocruz-julho-amarelo-hepatites-2026`,
+   `oms-sus-referencia-mundial-2026`). Removidas de `curatedNewsData.ts`, `NEWS_IDS` (`prerender.mjs`) e
+   `sitemap.xml`; as URLs antigas redirecionam (301) para `/blog` via `vercel.json`.
 2. **Títulos das matérias** (98–141 caracteres): posso criar um `seoTitle` curto para cada uma, como já existe
    nos artigos.
-3. **Horário 06:00–22:00** está correto para o público? (ver 4.1).
+3. ~~Horário 06:00–22:00~~ — confirmado pelo Rodrigo em 07/10/2026 como correto.
 
 ---
 

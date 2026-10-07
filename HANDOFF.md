@@ -25,8 +25,9 @@
   (CID 13553900120423430324) e `logo` no JSON-LD de `index.html`; página de exame ganhou JSON-LD
   `MedicalWebPage`→`MedicalTest`, `og:image` própria, título adaptável ≤ 65 caracteres e "Veja também" por grupo
   de exames (`EXAM_GROUPS` em `ExamDetailPage.tsx` — **ao criar exame novo, incluí-lo num grupo**); `seoTitle`
-  curtos nos 5 médicos (só termos já visíveis, regra RQE). Pendentes com o Rodrigo: matérias curtas (noindex ou
-  ampliar), `seoTitle` das matérias, confirmar horário 06–22h, e ações fora do site (GBP, Apple Business, Bing
+  curtos nos 5 médicos (só termos já visíveis, regra RQE). Mesmo dia: 4 matérias curtas fora do tema retiradas
+  (dados, `NEWS_IDS`, sitemap) com redirect 301 para `/blog` em `vercel.json`; horário 06–22h confirmado pelo
+  Rodrigo. Pendentes: `seoTitle` das matérias e ações fora do site (GBP, Apple Business, Bing
   Places) — ver seções 4 e 6 do relatório.
 - **2026-10-05 — Redesenho visual (PRs #54, #55 publicados; PR 3 em revisão):** logo CF (`components/LogoMark.tsx`,
   `public/images/logo-*.svg`, `public/favicon.svg`), paleta "grafite e azul-aço" e fontes Newsreader + Figtree
