@@ -24,7 +24,32 @@ Atende também: Batayporã, Ivinhema, Anaurilândia, Deodápolis, Angélica (MS)
 - [Entenda os Exames](https://ajudamediko.com.br/entenda-exames) - diferenças entre ultrassom, raio-X, tomografia e ressonância.
 - [Guia da Gestante](https://ajudamediko.com.br/dicas-gestantes) - cuidados e cronograma de exames por trimestre.
 - [Exames Cardiorrespiratórios](https://ajudamediko.com.br/exames-cardiorespiratorios) - Holter, MAPA e espirometria.
-- Cada exame de ultrassom tem uma página dedicada em `/exame/{id}` (ex: `/exame/prostata`, `/exame/carotidas`), listadas em `sitemap.xml`.
+- [Serviços](https://ajudamediko.com.br/servicos) - exames de ultrassom e consultas.
+
+## Exames (uma página por exame)
+
+- [Ecocardiograma Fetal](https://ajudamediko.com.br/exame/ecofetal)
+- [Ultrassom Obstétrico com Doppler](https://ajudamediko.com.br/exame/obstetrico_doppler)
+- [Ultrassom Obstétrico (sem Doppler)](https://ajudamediko.com.br/exame/obstetrico_sem_doppler)
+- [Ultrassom Morfológico do 1º Trimestre](https://ajudamediko.com.br/exame/morfologico1)
+- [Ultrassom Morfológico do 2º Trimestre](https://ajudamediko.com.br/exame/morfologico2)
+- [Ultrassom de Abdome Total](https://ajudamediko.com.br/exame/abdometotal)
+- [Ultrassom Pélvico (Via Abdominal)](https://ajudamediko.com.br/exame/pelvico)
+- [Ultrassom Transvaginal](https://ajudamediko.com.br/exame/transvaginal)
+- [Ultrassom de Próstata (Via Abdominal)](https://ajudamediko.com.br/exame/prostata)
+- [Ultrassom de Tireoide (com e sem Doppler)](https://ajudamediko.com.br/exame/tireoide)
+- [Ultrassom de Carótidas e Vertebrais](https://ajudamediko.com.br/exame/carotidas)
+- [Ultrassom de Mamas](https://ajudamediko.com.br/exame/mama)
+- [Ultrassom de Articulação: Ombro](https://ajudamediko.com.br/exame/articulacao_ombro)
+- [Ultrassom de Articulação: Cotovelo](https://ajudamediko.com.br/exame/articulacao_cotovelo)
+- [Ultrassom de Articulação: Punho](https://ajudamediko.com.br/exame/articulacao_punho)
+- [Ultrassom de Articulação: Joelho](https://ajudamediko.com.br/exame/articulacao_joelho)
+- [Ultrassom de Articulação: Tornozelo](https://ajudamediko.com.br/exame/articulacao_tornozelo)
+- [Ultrassom Vascular (Doppler de Membros)](https://ajudamediko.com.br/exame/vascular)
+- [Espirometria (Prova de Função Pulmonar)](https://ajudamediko.com.br/exame/espirometria)
+- [Holter 24h](https://ajudamediko.com.br/exame/holter)
+- [MAPA 24h (Monitorização de Pressão)](https://ajudamediko.com.br/exame/mapa)
+- [Eletrocardiograma (ECG)](https://ajudamediko.com.br/exame/eletrocardiograma)
 
 ## Convênios aceitos
 Particular, Prover Saúde, Oeste Saúde, MaterDei, PAX e AMENA.

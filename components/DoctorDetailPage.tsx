@@ -34,14 +34,25 @@ const DoctorDetailPage: React.FC<DoctorDetailPageProps> = ({ doctorId, navigateT
 
   useJsonLd('doctor-jsonld', doctor ? {
     '@context': 'https://schema.org',
-    '@type': 'Physician',
+    // IndividualPhysician (schema.org): o medico como pessoa. "Physician" sozinho
+    // passou a representar o consultorio/estabelecimento, que exige endereco.
+    '@type': 'IndividualPhysician',
     '@id': `https://ajudamediko.com.br/medico/${doctor.id}#physician`,
     name: doctor.name,
     identifier: doctor.crm,
     image: `https://ajudamediko.com.br${doctor.photo}`,
     url: `https://ajudamediko.com.br/medico/${doctor.id}`,
     description: doctor.jsonLdDescription || doctor.specialtyLabel,
-    worksFor: { '@id': 'https://ajudamediko.com.br/#medicalbusiness' },
+    practicesAt: { '@id': 'https://ajudamediko.com.br/#medicalbusiness' },
+    telephone: '+5567998446674',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Rua Melvin Jones, 1243 - Centro',
+      addressLocality: 'Nova Andradina',
+      addressRegion: 'MS',
+      postalCode: '79750-000',
+      addressCountry: 'BR',
+    },
     ...(doctor.medicalSpecialty ? { medicalSpecialty: doctor.medicalSpecialty } : {}),
   } : null);
 

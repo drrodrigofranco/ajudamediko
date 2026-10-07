@@ -83,7 +83,7 @@ const consultationServices: ConsultationService[] = [
 
 const ServicesPage: React.FC<ServicesPageProps> = ({ navigateTo }) => {
   useSEO({
-    title: 'Nossos Serviços | Clínica Franco - Nova Andradina - MS',
+    title: 'Ultrassom e Consultas em Nova Andradina - MS | Clínica Franco',
     description: 'Serviços da Clínica Franco em Nova Andradina - MS: consultas médicas, saúde do idoso, pediatria, perícia médica e catálogo completo de exames de ultrassom.',
     path: '/servicos',
   });
@@ -141,7 +141,8 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ navigateTo }) => {
             Voltar para a Home
           </a>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-semibold leading-tight mb-6">
-            Nossos Serviços
+            Exames de Ultrassom e Consultas{' '}
+            <span className="block text-2xl sm:text-3xl lg:text-4xl text-teal-50/80 mt-3">em Nova Andradina - MS</span>
           </h1>
           <p className="text-lg text-teal-50/80 mb-4 leading-relaxed max-w-2xl mx-auto">
             Consultas médicas e o catálogo completo de exames de ultrassom da Clínica Franco em Nova Andradina - MS.
