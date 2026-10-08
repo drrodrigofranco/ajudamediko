@@ -19,6 +19,12 @@
 ---
 
 ## 📅 Última atualização
+- **2026-10-08 — Auditoria SEO Audit Kit + Semrush + artigo do SUS:** novo artigo assinado
+  `quantos-ultrassons-gestante-tem-direito-sus` (Lei 14.598/2023, PL 4.674/2024, Rede Alyne, OMS; a clínica
+  **não** é credenciada ao SUS, confirmado pelo Rodrigo). Exames ganharam `reviewedOn` (linha "Conteúdo revisado
+  por Dr. Rodrigo Franco" + `reviewedBy`/`lastReviewed` no JSON-LD). `paymentAccepted` = Dinheiro/Pix/cartões
+  (convênios ficam só no texto). `vercel.json` com `"trailingSlash": false`. Link "Início" do Footer agora vai para
+  `/`. Lista de citações locais em `seo-reports/CITACOES-LOCAIS-2026-10.md` (0 backlinks no Semrush e no Bing).
 - **2026-10-07 (3ª rodada) — SEO on-page das páginas de exame/serviços/equipe:** `ExamData` ganhou o campo
   obrigatório `searchName` (nome com artigo, ex.: "o ultrassom de abdome total" — **ao criar exame novo,
   preencher**), usado nos H2 ("O que é…", "Como é feito/feita…" — feminino se começar com "a "), no bloco novo
@@ -361,7 +367,7 @@ pode ser descartada, já que o conteúdo dela foi superado pela publicação rea
 - **Páginas legais (`public/politica-de-privacidade.html`, `termos-de-uso.html`) são HTML estático isolado**,
   fora do pipeline React/prerender — editar diretamente esses arquivos, não `App.tsx`.
 - **Não fabricar conteúdo clínico definitivo sem revisão médica** — vale pra artigos do blog e pra qualquer
-  texto de preparo/indicação de exame novo (ex.: o ECG adicionado em 18/08 ainda aguarda essa revisão).
+  texto de preparo/indicação de exame novo (o Dr. Rodrigo confirmou em 08/10/2026 que revisou os textos dos 22 exames, inclusive o ECG — campo `reviewedOn` em `examsData.ts`; exame novo só recebe `reviewedOn` com nova confirmação dele).
 - **Nunca commitar credenciais de API** (GSC, Bing, etc.) — ficam em `C:\Users\fisio.000\.config\claude-seo\`,
   fora deste repositório.
 

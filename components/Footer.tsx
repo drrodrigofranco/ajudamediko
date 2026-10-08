@@ -55,7 +55,7 @@ const Footer: React.FC = () => {
             <div className="col-span-1">
                 <h3 className="text-white font-bold mb-4 uppercase text-sm tracking-wider">Links Rápidos</h3>
                 <ul className="space-y-2">
-                    <li><a href="#" className="hover:text-teal-400 transition-colors">Início</a></li>
+                    <li><a href="/" onClick={(e) => goTo(e, '/')} className="hover:text-teal-400 transition-colors">Início</a></li>
                     <li><a href="#serviços" className="hover:text-teal-400 transition-colors">Exames</a></li>
                     <li><a href="http://lattes.cnpq.br/2901086695714310" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition-colors">Currículo</a></li>
                     <li><a href="#contato" className="hover:text-teal-400 transition-colors">Agendamento</a></li>
