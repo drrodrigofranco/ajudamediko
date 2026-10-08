@@ -1,6 +1,6 @@
 # Relatório SEO — Outubro/2026 (Clínica Franco · Nova Andradina - MS)
 
-**Início:** 07/10/2026 · **Última atualização:** 08/10/2026 · **Site:** https://ajudamediko.com.br
+**Início:** 07/10/2026 · **Última atualização:** 08/10/2026 (2ª rodada) · **Site:** https://ajudamediko.com.br
 **Alvo:** "ultrassom em Nova Andradina" e variações (morfológico, obstétrico, Doppler, abdome, tireoide etc.),
 consultas, e as cidades vizinhas (Batayporã, Ivinhema, Anaurilândia, Deodápolis, Angélica, Rosana-SP).
 
@@ -168,6 +168,37 @@ telefone.
    exame e pela home.
 
 ---
+
+## 6.1 Auditoria com o SEO Audit Kit + Semrush (08/10/2026)
+
+**Método:** 10 páginas amostradas por modelo de página, achados com evidência e top 5. Semrush Domain Overview
+(desktop, BR) em PDF enviado pelo Rodrigo.
+
+**Base técnica: sem problemas que bloqueiem a indexação.**
+- Todas as páginas respondem 200, com `index, follow` e canonical próprio.
+- `http` e `www` fazem 1 redirecionamento só.
+- Tudo vem no HTML pré-renderizado.
+- O modelo de exame tem cerca de 63% de texto único.
+
+**Semrush (estimativa, só desktop):**
+- 71 visitas/mês (+1083%) e 57 palavras no ranking.
+- **0 no top 3**: 4 entre 4–10 e 47 da 21ª posição para baixo.
+- **Backlinks: nenhum.**
+- Concorrente local: novaultraimagem.com.br.
+- Principais palavras: "dr franco" (pacote local), "espirometria" (26ª, nacional, não é o alvo) e "quantas
+  ultrassom a gestante tem direito pelo sus" (6ª).
+
+| ID | Achado | Situação |
+|---|---|---|
+| DATA-1 | Nenhum link de outros sites | Lista de trabalho em `CITACOES-LOCAIS-2026-10.md`. **Ação do Rodrigo** |
+| DATA-3 | Busca do SUS na 6ª posição | ✅ Artigo novo `/blog/quantos-ultrassons-gestante-tem-direito-sus` |
+| CNT-1 / SD-1 | Exames sem médico revisor visível | ✅ Linha "Conteúdo revisado por Dr. Rodrigo Franco · 08/10/2026" + `reviewedBy`/`lastReviewed` (os 22 revisados, confirmado pelo Rodrigo) |
+| SD-2 | `paymentAccepted` listava convênios | ✅ Dinheiro, Pix, cartão de crédito e de débito |
+| ONP-1 | Link "Início" do rodapé com `href="#"` | ✅ Aponta para `/` |
+| CRW-1 | `/servicos/` (com barra final) respondia 200 | ✅ `trailingSlash: false` (redirect para a versão sem barra) |
+| CNT-2 | Exames sem prazo de laudo, pedido médico, convênios por exame e valor | ⏳ O Rodrigo decidiu "não por enquanto" |
+| CNT-3 / ONP-2 | Ilustrações geradas e artigos sem imagem | ⏳ Depende das fotos reais |
+| DATA-2 | Buscas locais de serviço fora do top | ⏳ Esperar 2–4 semanas o efeito das mudanças de 07/10 |
 
 ## 7. Decisões pendentes para o Rodrigo
 

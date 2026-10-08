@@ -113,6 +113,7 @@ const DOCTOR_IDS = [
 // mesma razao pela qual EXAM_IDS/DOCTOR_IDS acima tambem sao copias fixas. Ao
 // adicionar um artigo novo em articlesData.ts, adicionar o id aqui tambem.
 const ARTICLE_IDS = [
+  'quantos-ultrassons-gestante-tem-direito-sus',
   'ecocardiograma-fetal-diagnostico-antes-do-nascimento-estudos',
   'ecocardiograma-fetal-quando-fazer',
   'translucencia-nucal-o-que-e',

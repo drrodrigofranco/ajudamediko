@@ -111,6 +111,12 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
       usedToDiagnose: exam.purpose,
     },
     provider: { '@id': 'https://ajudamediko.com.br/#medicalbusiness' },
+    ...(exam.reviewedOn
+      ? {
+          reviewedBy: { '@id': 'https://ajudamediko.com.br/medico/rodrigo-franco#physician' },
+          lastReviewed: exam.reviewedOn,
+        }
+      : {}),
   } : null);
 
   useJsonLd('faq-jsonld', exam ? {
@@ -211,6 +217,20 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
               <img src={exam.imageUrl} alt={`Ilustração do exame ${exam.name} - Clínica Franco, Nova Andradina - MS`} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
             </div>
+
+            {exam.reviewedOn && (
+              <p className="text-xs text-gray-500 -mt-6">
+                Conteúdo revisado por{' '}
+                <a
+                  href="/medico/rodrigo-franco"
+                  onClick={(e) => navigateTo('/medico/rodrigo-franco', e)}
+                  className="font-bold text-brand hover:text-brand-hover underline underline-offset-2"
+                >
+                  Dr. Rodrigo Franco
+                </a>{' '}
+                (CRM-MS 10087) · Revisado em {exam.reviewedOn.split('-').reverse().join('/')}
+              </p>
+            )}
 
             {/* Description Card */}
             <div className="space-y-10">
