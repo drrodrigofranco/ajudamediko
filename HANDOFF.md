@@ -352,6 +352,12 @@ pode ser descartada, já que o conteúdo dela foi superado pela publicação rea
     4. Rodar `npx tsc --noEmit` + `npm run build`, e conferir via `grep`/script Python que a palavra nova
        aparece no JSON-LD (`dist/medico/{id}/index.html`) e **não** aparece em nenhum texto visível/`alt` novo
        (comparar antes/depois).
+- **Merge na `main` nem sempre dispara o deploy da Vercel (visto em 08/10/2026, PR #63):** o preview da branch
+  ficou READY, mas nenhum deploy de produção foi criado depois do merge. Sempre conferir, depois do merge, se
+  apareceu um deploy com `target: production` do commit novo (Vercel MCP `list_deployments` no projeto
+  `prj_hlIVNc6T6BdJKFK2utu1GrtoBQKy`). Se não aparecer em ~5 min, criar manualmente (`create_deployment` com
+  `gitSource` github `drrodrigofranco/ajudamediko`, `ref: main`, o `sha` do merge e `target: production`). Só
+  rodar o IndexNow depois de conferir a página nova no ar.
 - **Porta em uso:** Vite pode subir na `3001` se a `3000` estiver ocupada.
 - **Título/description da home tem DOIS lugares:** `index.html` (estático) e o hook `useSEO({...path:'/'...})`
   dentro de `App.tsx` (sobrescreve via JS **depois** que o React monta — e é esse valor que fica gravado no
