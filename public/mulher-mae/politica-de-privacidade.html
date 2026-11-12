@@ -23,9 +23,9 @@ footer{margin-top:3em;color:var(--muted);font-size:.9rem}
 <body>
 <main>
 <h1>Política de Privacidade — Mulher Mãe</h1>
-<p>Última atualização: 11/11/2026 · Versão do aplicativo: 1.0.0</p>
+<p>Última atualização: 12/11/2026 · Versão do aplicativo: 1.0.0</p>
 <h2>1. Quem somos</h2>
-<p>O <strong>Mulher Mãe</strong> é um aplicativo de apoio para quem quer engravidar, gestantes e puérperas. Ele <strong>não é um serviço médico</strong> e não substitui consulta, diagnóstico ou orientação de profissional de saúde.</p>
+<p>O <strong>Mulher Mãe</strong> é um aplicativo de apoio para quem quer engravidar, gestantes e puérperas. Ele <strong>não é um serviço médico</strong> e não substitui consulta, diagnóstico ou orientação de profissional de saúde. O aplicativo também mostra as consultas e os exames que a <strong>Clínica Franco</strong> marcar para você e permite que você confirme a presença ou avise que não vai (seção 11).</p>
 <p><strong>Controlador dos dados (LGPD, art. 5º, VI):</strong> Rodrigo Duarte Franco Ltda (nome fantasia Clínica Franco), CNPJ 31.469.624/0001-86, Rua Melvin Jones, 1243, Centro, Nova Andradina - MS, CEP 79750-061 (dados do cadastro público da Receita Federal, consultado em 11/11/2026); responsável: Dr. Rodrigo Franco (CRM-MS 10087); contato por e-mail (consultoriodrrodrigofranco@gmail.com), pelo site www.ajudamediko.com.br ou pelo WhatsApp (67) 99844-6674.<br><strong>Encarregado pelo tratamento de dados (DPO):</strong> Dr. Rodrigo Franco (Rodrigo Duarte Franco) — consultoriodrrodrigofranco@gmail.com.</p>
 <h2>2. Quais dados tratamos</h2>
 <table><thead><tr><th>Categoria</th><th>Exemplos</th><th>Quando</th></tr></thead><tbody>
@@ -36,12 +36,14 @@ footer{margin-top:3em;color:var(--muted);font-size:.9rem}
 <tr><td>Saúde — outros registros</td><td>medicações em uso, vacinas, visitas ao dentista, diário de sintomas e humor, sinais de fertilidade, movimentos do bebê, contrações, plano de parto, mala da maternidade</td><td>se você registrar</td></tr>
 <tr><td>Saúde — puerpério e bebê</td><td>data e tipo do parto, nome, sexo, peso e comprimento do bebê, vacinas, amamentação, sono, fraldas</td><td>se você registrar</td></tr>
 <tr><td>Médicos</td><td>nome, especialidade, CRM, telefone e local de atendimento que <strong>você mesma digita</strong></td><td>se você cadastrar</td></tr>
+<tr><td>Consultas e exames marcados pela clínica</td><td><strong>Lançados pela clínica, não por você:</strong> seu nome, e-mail, data de nascimento, o tipo (consulta ou exame), o dia e a hora, o motivo escrito pelo médico e a sua resposta (confirmou ou avisou que não vai). O aplicativo mostra a você apenas o tipo, o dia, a hora, o médico, o local e a sua resposta.</td><td>se um médico da clínica lançar o e-mail da sua conta Google</td></tr>
 </tbody></table>
 <p>Esses são <strong>dados pessoais sensíveis</strong> (dados de saúde — LGPD, art. 5º, II, e art. 11). Os dados do bebê são registrados por você, como responsável por ele.</p>
 <p><strong>O que NÃO fazemos:</strong> não há anúncios, não há ferramentas de análise de comportamento (analytics), não vendemos nem cedemos dados, não acessamos seus e-mails, contatos ou arquivos do Google.</p>
 <h2>3. Para que usamos (finalidade) e base legal</h2>
 <p>Somente para o aplicativo funcionar: identificar a sua conta, calcular datas, idade gestacional e resultados de ultrassom, mostrar os seus registros e manter a cópia que permite recuperá-los ao trocar de celular.</p>
 <p><strong>Base legal:</strong> seu <strong>consentimento específico e destacado</strong> (LGPD, art. 11, I), dado ao aceitar o termo na primeira abertura do aplicativo. Você pode revogá-lo a qualquer momento (seção 7).</p>
+<p>Os <strong>registros de agendamento feitos pela clínica</strong> (seção 11) têm outra origem: são lançados pelo médico para organizar o atendimento que você procurou ou contratou, com base na <strong>tutela da saúde, em procedimento realizado por profissionais de saúde</strong> (LGPD, art. 11, II, "f") e na execução do atendimento (art. 7º, V). Para <strong>ver</strong> esses registros no aplicativo, você entra com a sua conta Google e aceita o termo.</p>
 <h2>4. Onde os dados ficam e como são protegidos</h2>
 <ul>
 <li><strong>No seu aparelho</strong> e, quando você entra com a conta Google, <strong>em uma cópia em servidor de nuvem</strong> (Supabase) com região em São Paulo, Brasil.</li>
@@ -49,9 +51,11 @@ footer{margin-top:3em;color:var(--muted);font-size:.9rem}
 <li>O servidor é configurado para que <strong>cada pessoa acesse somente os próprios dados</strong> (regras de acesso por conta).</li>
 <li>O Android não faz cópia automática do aplicativo para a conta Google do aparelho (backup desativado).</li>
 <li>Medidas internas: o acesso ao painel do servidor é restrito ao responsável pelo aplicativo; o aplicativo usa apenas a chave pública do servidor, e as regras de acesso por conta impedem que uma pessoa veja os dados de outra.</li>
+<li>Os registros de agendamento feitos pela clínica ficam no mesmo servidor, protegidos por regras de acesso: <strong>cada médico vê somente os próprios pacientes</strong>, e o aplicativo recebe do servidor apenas o necessário para mostrar a consulta a você (sem o motivo e sem a data de nascimento).</li>
 </ul>
 <h2>5. Com quem compartilhamos</h2>
-<p>Com ninguém, salvo obrigação legal ou ordem judicial. Médicos, clínicas, planos de saúde e empresas <strong>não</strong> têm acesso.</p>
+<p><strong>Os registros que você faz no aplicativo</strong> (ciclo, gestação, ultrassons, peso, medicações etc.) não são compartilhados com ninguém, salvo obrigação legal ou ordem judicial. Médicos, clínicas (inclusive a Clínica Franco), planos de saúde e empresas <strong>não</strong> têm acesso a eles.</p>
+<p><strong>A única informação que vai do aplicativo para a clínica</strong> é a sua resposta (confirmar a presença ou avisar que não vai) às consultas e exames que a própria clínica marcou para o seu e-mail (seção 11).</p>
 <p><strong>Operadores (prestadores que tratam dados em nosso nome):</strong></p>
 <ul>
 <li><strong>Supabase</strong> — hospedagem do banco de dados (região São Paulo).</li>
@@ -66,19 +70,28 @@ footer{margin-top:3em;color:var(--muted);font-size:.9rem}
 <li>Ao excluir um registro, "Apagar todos os meus dados" ou "Excluir minha conta e dados", o conteúdo é removido do aparelho e do servidor.</li>
 <li>Cópias técnicas de segurança do provedor, quando existirem, são substituídas pelo ciclo normal do próprio provedor e podem manter os dados por um período curto depois da exclusão.</li>
 <li>O registro do seu aceite (data e versão) fica no servidor junto com a conta e é apagado quando a conta é excluída. Depois da exclusão da conta, o aplicativo não mantém prova do consentimento.</li>
+<li><strong>Exceção:</strong> os registros de agendamento feitos pela clínica (seção 11) pertencem à clínica. Ficam pelo tempo necessário ao atendimento e ao cumprimento de obrigações legais e éticas, e <strong>continuam existindo depois que você exclui a sua conta do aplicativo</strong>.</li>
 </ul>
 <h2>7. Seus direitos (LGPD, art. 18)</h2>
 <p>Você pode, a qualquer momento: confirmar que tratamos seus dados; acessar; corrigir; pedir anonimização, bloqueio ou eliminação; pedir portabilidade; saber com quem compartilhamos; e <strong>revogar o consentimento</strong>.</p>
-<p><strong>Pelo próprio aplicativo:</strong> ver, corrigir e excluir qualquer registro; "Apagar todos os meus dados"; "Excluir minha conta e dados"; revogar em "Termo de consentimento" (revogar equivale a excluir a conta e os dados).<br><strong>Por e-mail, site ou WhatsApp:</strong> consultoriodrrodrigofranco@gmail.com, www.ajudamediko.com.br ou (67) 99844-6674. Respondemos em até 15 dias.<br>Você também pode reclamar à <strong>Autoridade Nacional de Proteção de Dados (ANPD)</strong>.</p>
+<p><strong>Pelo próprio aplicativo:</strong> ver, corrigir e excluir qualquer registro; "Apagar todos os meus dados"; "Excluir minha conta e dados"; revogar em "Termo de consentimento" (revogar equivale a excluir a conta e os dados).<br><strong>Por e-mail, site ou WhatsApp:</strong> consultoriodrrodrigofranco@gmail.com, www.ajudamediko.com.br ou (67) 99844-6674. Respondemos em até 15 dias.<br><strong>Consultas e exames marcados pela clínica:</strong> para corrigir o seu nome, e-mail ou data de nascimento nesses registros, ou pedir a exclusão deles, fale com a clínica pelos contatos acima. Excluir a sua conta do aplicativo <strong>não apaga</strong> esses registros: a clínica os apaga quando a lei permitir e pode ter de guardar alguns por obrigação legal ou ética.<br>Você também pode reclamar à <strong>Autoridade Nacional de Proteção de Dados (ANPD)</strong>.</p>
 <h2>8. Crianças e adolescentes</h2>
 <p>O aplicativo é destinado a <strong>maiores de 18 anos</strong>. Se uma pessoa menor de 18 anos usar o aplicativo, o uso deve ser com o conhecimento e o acompanhamento do responsável legal, que pode pedir a qualquer momento a exclusão dos dados pelos canais de contato desta política.</p>
 <h2>9. Segurança e incidentes</h2>
 <p>Adotamos medidas técnicas e administrativas para proteger os dados. Em caso de incidente que possa causar risco ou dano relevante, comunicaremos a <strong>ANPD</strong> e as pessoas afetadas, nos termos da LGPD (art. 48), conforme o nosso plano de resposta a incidentes.</p>
 <h2>10. Limites do aplicativo</h2>
 <p>Datas de ovulação e dias férteis são <strong>estimativas</strong> pelo método do calendário; não use o aplicativo para evitar gravidez. Idade gestacional, data provável do parto, IMC, tabelas de referência e resultados de ultrassom são <strong>apoio</strong>; a interpretação e as decisões são sempre do seu médico. Em caso de sangramento, dor, febre, redução dos movimentos do bebê ou qualquer sinal de alerta, <strong>procure atendimento médico</strong> sem esperar pelo aplicativo.</p>
-<h2>11. Links e contatos da clínica no aplicativo</h2>
-<p>A tela "Sobre" mostra os contatos e serviços da Clínica Franco e tem botões que abrem o WhatsApp, o site e as redes sociais da clínica <strong>fora do aplicativo</strong>. O aplicativo <strong>não envia</strong> os seus dados de saúde a esses endereços; o que você fizer neles segue as regras de cada serviço.</p>
-<h2>12. Mudanças nesta política</h2>
+<h2>11. Consultas e exames marcados pela clínica</h2>
+<p><strong>Como funciona.</strong> Se você já é atendida pela Clínica Franco, o médico pode lançar a sua consulta ou exame em um painel da clínica, digitando o <strong>e-mail da sua conta Google</strong>. Quando você entra no aplicativo com esse mesmo e-mail (confirmado pelo Google), a consulta aparece na aba "Consultas", com lembretes nos horários que o médico escolheu, e você pode tocar em <strong>Confirmar presença</strong> ou <strong>Não vou poder ir</strong>. O aplicativo usa o e-mail da sua conta Google apenas para ligar você às consultas lançadas para ele.</p>
+<p><strong>O que o médico registra e o que você vê.</strong> A clínica registra seu nome, e-mail, data de nascimento, o tipo, o dia, a hora e um motivo escrito livremente pelo médico. No aplicativo você vê só o tipo, o dia, a hora, o médico, o local, a mensagem do lembrete e a sua resposta. O nome, a data de nascimento e o motivo ficam apenas com a clínica.</p>
+<p><strong>O que vai para a clínica.</strong> Somente a sua resposta (confirmou ou avisou que não vai) e o horário dela. Se você desistir, o médico vê essa informação na agenda e pode oferecer o horário a outra pessoa. A clínica <strong>não</strong> recebe os registros que você faz no aplicativo.</p>
+<p><strong>Quem acessa.</strong> Cada médico vê somente os próprios pacientes e consultas. Quem cadastra os médicos no painel (administrador) <strong>não</strong> vê pacientes nem consultas, por regra do servidor. O controlador e o provedor têm o acesso técnico descrito na seção 5, com o mesmo compromisso de não consultar o conteúdo.</p>
+<p><strong>Se aparecer uma consulta que não é sua.</strong> Pode ter havido erro de digitação do e-mail. Avise a clínica pelos contatos da seção 1. O aplicativo mostra só o essencial justamente para limitar esse risco.</p>
+<p><strong>Médicos da clínica.</strong> A aba "Consultas" lista os médicos cadastrados pela clínica (nome, CRM, especialidade, local e telefone de atendimento). São informações profissionais dos médicos, mostradas a quem entra no aplicativo.</p>
+<p><strong>Seus direitos sobre esses registros</strong> estão na seção 7, e o tempo de guarda na seção 6.</p>
+<h2>12. Links e contatos da clínica no aplicativo</h2>
+<p>A tela "Sobre" mostra os contatos e serviços da Clínica Franco e tem botões que abrem o WhatsApp, o site e as redes sociais da clínica <strong>fora do aplicativo</strong>. O botão <strong>Solicitar consulta ou exame</strong> também abre o WhatsApp da clínica, com uma mensagem pronta que <strong>não contém dados pessoais seus</strong>. O aplicativo <strong>não envia</strong> os seus dados de saúde a esses endereços; o que você fizer neles segue as regras de cada serviço. Um pedido feito pelo WhatsApp só vira consulta marcada quando a clínica confirmar.</p>
+<h2>13. Mudanças nesta política</h2>
 <p>Se o tratamento mudar, atualizaremos esta política e o termo do aplicativo, e você será convidada a ler e aceitar novamente.</p>
 <footer>Clínica Franco · Nova Andradina - MS · <a href="https://ajudamediko.com.br">ajudamediko.com.br</a></footer>
 </main>
