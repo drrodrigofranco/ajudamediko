@@ -69,6 +69,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
       `${exam.name} em Nova Andradina - MS | Clínica Franco`,
       `${exam.name} em Nova Andradina | Clínica Franco`,
       `${exam.name} em Nova Andradina - MS`,
+      `${exam.name} em Nova Andradina`,
     ];
     return candidates.find(t => t.length <= 60) ?? candidates[candidates.length - 1];
   })();
