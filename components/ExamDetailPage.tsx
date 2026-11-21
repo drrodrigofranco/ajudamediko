@@ -70,7 +70,7 @@ const ExamDetailPage: React.FC<ExamDetailPageProps> = ({ examId, navigateTo }) =
       `${exam.name} em Nova Andradina | Clínica Franco`,
       `${exam.name} em Nova Andradina - MS`,
     ];
-    return candidates.find(t => t.length <= 65) ?? candidates[candidates.length - 1];
+    return candidates.find(t => t.length <= 60) ?? candidates[candidates.length - 1];
   })();
 
   // "Veja também": exames do mesmo grupo. Antes a lateral linkava sempre os

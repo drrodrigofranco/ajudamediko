@@ -121,6 +121,7 @@ export const articlesData: OriginalArticle[] = [
   },
   {
     id: 'ecocardiograma-fetal-quando-fazer',
+    seoTitle: 'Ecocardiograma Fetal: quando e por que fazer',
     title: 'Ecocardiograma Fetal: quando e por que fazer',
     authorName: 'Dr. Rodrigo Franco',
     authorCrm: 'CRM-MS 10087',
@@ -140,6 +141,7 @@ export const articlesData: OriginalArticle[] = [
   },
   {
     id: 'translucencia-nucal-o-que-e',
+    seoTitle: 'Translucência Nucal: o que é e quando fazer | Clínica Franco',
     title: 'Translucência Nucal: o que é e por que é medida no 1º trimestre',
     authorName: 'Dr. Rodrigo Franco',
     authorCrm: 'CRM-MS 10087',
@@ -159,6 +161,7 @@ export const articlesData: OriginalArticle[] = [
   },
   {
     id: 'espirometria-para-que-serve',
+    seoTitle: 'Espirometria: para que serve e quem deve fazer',
     title: 'Espirometria: para que serve e quem deve fazer',
     authorName: 'Dr. Rodrigo Franco',
     authorCrm: 'CRM-MS 10087',
@@ -178,6 +181,7 @@ export const articlesData: OriginalArticle[] = [
   },
   {
     id: 'ultrassons-na-gestacao-quais-e-quando-fazer',
+    seoTitle: 'Ultrassons na Gestação: quais fazer e quando',
     title: 'Ultrassons na Gestação: quais são, quando fazer e o que avaliam',
     authorName: 'Dr. Rodrigo Franco',
     authorCrm: 'CRM-MS 10087',
@@ -203,6 +207,7 @@ export const articlesData: OriginalArticle[] = [
   },
   {
     id: 'sinais-de-alerta-na-infancia-quando-procurar-o-pediatra',
+    seoTitle: 'Sinais de Alerta na Infância: Quando ir ao Pediatra',
     title: 'Sinais de Alerta na Infância: Quando Levar Seu Filho ao Pediatra',
     authorName: 'Dr. Tiago Dantas Wizenfad',
     authorCrm: 'CRM-MS 16149',
