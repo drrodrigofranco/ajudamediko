@@ -68,7 +68,7 @@ export const doctorsData: DoctorData[] = [
     specialtyLabel: 'Ultrassonografia Diagnóstica e Perícia Médica',
     medicalSpecialty: ['Ultrassonografia', 'Perícia Médica'],
     shortBio: 'Atendimento em ultrassonografia diagnóstica, consultas de clínica geral e perícias médicas judiciais, com dedicação a um cuidado humanizado e preciso para toda a família.',
-    seoTitle: 'Dr. Rodrigo Franco - Ultrassom e Perícia Médica em Nova Andradina',
+    seoTitle: 'Dr. Rodrigo Franco - Ultrassom e Perícia em Nova Andradina',
     seoDescription: 'Ultrassom em Nova Andradina - MS: morfológico, 3D/4D e Doppler de carótidas, além de perícias médicas judiciais com o Dr. Rodrigo Franco (CRM-MS 10087).',
     longBio: [
       'Médico com ampla experiência em diagnóstico por imagem, atuando em Nova Andradina - MS e região desde 2018. Realiza exames de ultrassonografia obstétrica, morfológica, vascular e musculoesquelética, além de atuar como perito judicial nomeado pelo fórum de Batayporã. Formado em Medicina pela UNEMAT, com cursos de especialização em ultrassom pela FATESA e outras graduações em Fisioterapia e Educação Física.',
@@ -175,7 +175,7 @@ export const doctorsData: DoctorData[] = [
     photoHeight: 600,
     iconName: 'Brain',
     specialtyLabel: 'Clínica Médica e Avaliação Neurológica',
-    seoTitle: 'Dr. Guilherme Zandoná - Avaliação Neurológica em Nova Andradina',
+    seoTitle: 'Dr. Guilherme Zandoná - Clínica Médica em Nova Andradina',
     medicalSpecialty: 'Neurologia',
     jsonLdDescription: 'Clínica Médica e Neurologia',
     shortBio: 'Médico com atuação em clínica geral e avaliação neurológica, experiência consolidada em urgência e emergência em Nova Andradina e região.',
@@ -263,7 +263,7 @@ export const doctorsData: DoctorData[] = [
     // sem confirmação explícita do Rodrigo sobre o RQE - ver checklist em HANDOFF.md.
     specialtyLabel: 'Atendimento Clínico à Saúde da Pele, Cabelos e Unhas',
     shortBio: 'Atendimento individualizado voltado à saúde da pele, cabelos e unhas, com foco em prevenção, diagnóstico e tratamento, unindo avaliação clínica cuidadosa a um plano terapêutico personalizado para cada paciente.',
-    seoTitle: 'Dra. Giovanna Silva e Silva - Saúde da Pele em Nova Andradina',
+    seoTitle: 'Dra. Giovanna Silva - Saúde da Pele em Nova Andradina',
     seoDescription: 'Atendimento à saúde da pele, cabelos e unhas em Nova Andradina - MS: acne, melasma e queda de cabelo, com a Dra. Giovanna Silva e Silva (CRM-MS 14686).',
     longBio: [
       'Atendimento individualizado voltado à saúde da pele, cabelos e unhas, com foco na prevenção, no diagnóstico e no tratamento das principais queixas relacionadas à pele. A abordagem é cuidadosa e personalizada, buscando compreender as necessidades de cada paciente e estabelecer uma estratégia de tratamento adequada para cada caso.',

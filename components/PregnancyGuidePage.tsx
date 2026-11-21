@@ -10,7 +10,7 @@ interface PregnancyGuidePageProps {
 
 const PregnancyGuidePage: React.FC<PregnancyGuidePageProps> = ({ navigateTo }) => {
   useSEO({
-    title: 'Guia Completo da Gestante | Clínica Franco - Nova Andradina - MS',
+    title: 'Guia da Gestante: Exames por Trimestre | Clínica Franco',
     description: 'Cuidados por trimestre e cronograma ideal de exames obstétricos para uma gestação tranquila, com a Clínica Franco em Nova Andradina - MS.',
     path: '/dicas-gestantes',
   });

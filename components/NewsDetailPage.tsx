@@ -43,7 +43,7 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ newsId, navigateTo }) =
 
   useSEO({
     title: news
-      ? `${news.title} | Clínica Franco`
+      ? news.seoTitle || `${news.title} | Clínica Franco`
       : 'Matéria não encontrada | Clínica Franco',
     description: news
       ? truncateAtWord(paragraphs[0])

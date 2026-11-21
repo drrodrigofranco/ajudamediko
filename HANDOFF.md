@@ -19,6 +19,17 @@
 ---
 
 ## 📅 Última atualização
+- **2026-11-21 — SEO v3 (branch `seo-v3`):** auditoria externa (skill seo-local-optimizer) achou 25 `<title>` acima de 60 caracteres.
+  Corrigido: limite do título de exame (`examTitle` em `ExamDetailPage.tsx`) de 65 → 60; novos `seoTitle` nos 5 artigos
+  assinados (`articlesData.ts`) e nas 5 matérias curadas (`curatedNewsData.ts` ganhou o campo `seoTitle`, lido em
+  `NewsDetailPage.tsx`); títulos de /servicos, /entenda-exames, /exames-cardiorespiratorios, /dicas-gestantes e dos médicos.
+  Footer: "Perícia Médica" virou link para /pericia-medica. OG tags nas páginas legais. `lastmod` do `public/sitemap.xml`
+  atualizado à mão (o sitemap é arquivo estático — **atualizar lastmod ao editar uma página**).
+  **Publicado (aprovado pelo Dr. Rodrigo em 2026-11-21):** artigos eco fetal, translucência nucal e espirometria ampliados
+  (330–450 palavras; trechos sem confirmação ficaram de fora). Rascunhos completos com [CONFIRMAR] em
+  `content-drafts/rascunhos-seo-v3-2026-11-21.md`.
+  **Pendente:** artigo sinais de alerta na infância (precisa do OK do Dr. Tiago) e a página do Dr. Guilherme; página nova de
+  Ultrassom 3D/4D; páginas locais Batayporã/Ivinhema (só com conteúdo real: distância, como chegar).
 - **2026-10-08 — Auditoria SEO Audit Kit + Semrush + artigo do SUS:** novo artigo assinado
   `quantos-ultrassons-gestante-tem-direito-sus` (Lei 14.598/2023, PL 4.674/2024, Rede Alyne, OMS; a clínica
   **não** é credenciada ao SUS, confirmado pelo Rodrigo). Exames ganharam `reviewedOn` (linha "Conteúdo revisado
